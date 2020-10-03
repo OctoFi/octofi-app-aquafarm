@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128px" height="128px" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3">
+            <circle id="Oval" fill="#617FEA" cx="64" cy="64" r="64"></circle>
+            <g id="eth" transform="translate(34.000000, 15.000000)" fill-rule="nonzero">
+                <polygon id="path3094" fill="#FFFFFF" points="0.00024013245 49.7739404 29.9981375 67.5056126 29.9981375 36.1391225 29.9981375 0"></polygon>
+                <path d="M29.9981375,36.1394783 L29.9981375,67.5056126 L0.000371610174,49.7740181 L29.9978974,36.1393691 Z" id="Combined-Shape" fill="#C0CBF6"></path>
+                <polygon id="path3110" fill="#C0CBF6" points="29.9978974 0 29.9978974 36.1391225 29.9978974 67.5056126 59.9957947 49.7739404"></polygon>
+                <path d="M59.9955588,49.7740798 L29.9978974,67.5056126 L29.9978974,36.1393691 L59.9955588,49.7740798 Z" id="Combined-Shape" fill="#8197EE"></path>
+                <polygon id="path3126" fill="#FFFFFF" points="0.00024013245 55.4623212 29.9981375 97.7345563 29.9981375 73.1850695"></polygon>
+                <polygon id="path3142" fill="#C0CBF6" points="29.9978974 73.185394 29.9978974 97.7348808 60.0136424 55.4626457"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
