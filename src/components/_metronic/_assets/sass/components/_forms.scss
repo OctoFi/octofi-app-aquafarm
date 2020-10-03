@@ -1,0 +1,14 @@
+//
+// Forms
+//
+
+
+// Include Form Components
+@import "forms/base";
+
+.custom-input-group-control + .input-group-append span {
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.custom-input-group-control:focus + .input-group-append span {
+    border-color: #9cb8ff;
+}
