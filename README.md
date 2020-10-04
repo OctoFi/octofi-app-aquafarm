@@ -80,8 +80,8 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ```
  HashRouter basename={‘/{Github-repo-name}’}
  ```
-4. Then back to your terminal and enter the following commands:
- yarn cache clean --all
+4. Then back to your terminal and enter the following commands:<br/>
+ yarn cache clean --all <br/>
  yarn install
  yarn add defi-sdk
  yarn add gh-pages
