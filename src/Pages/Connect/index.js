@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Button,
-    Modal
 } from "react-bootstrap";
 
 import { useActiveWeb3React } from "../../hooks";
-import Providers from '../../components/Providers/ModalContent'
 import {toAbsoluteUrl} from "../../lib/helper";
 import "../../components/_metronic/_assets/sass/pages/login/classic/login-1.scss";
+import {useWalletModalToggle} from "../../state/application/hooks";
 
 const Connect = props => {
-    const [modalVisible, setModalVisible] = useState(false);
     const { account } = useActiveWeb3React();
+
+    const toggleWalletModal = useWalletModalToggle()
 
     useEffect(() => {
         if(account) {
@@ -20,9 +20,6 @@ const Connect = props => {
         }
     }, [account])
 
-    const toggleModal = () => {
-        setModalVisible(!modalVisible);
-    }
     return (
         <>
             <div className="d-flex flex-column flex-root">
@@ -42,7 +39,7 @@ const Connect = props => {
                         <div className="d-flex flex-row-fluid flex-column justify-content-between">
                             {/* start:: Aside header */}
                             <Link to="/" className="flex-column-auto mt-5">
-                                <h2 className={'text-white font-weight-bold'}></h2>
+                                
                             </Link>
                             {/* end:: Aside header */}
 
@@ -52,8 +49,8 @@ const Connect = props => {
                                     Welcome to Aquafarm
                                 </h3>
                                 <p className="font-weight-light text-white opacity-70">
-                                    Track your <strong>DeFi</strong> portfolio, find new investment opportunities, <br/>
-                                    buy and sell directl, and wrap your tentacles around a sea of gains.
+                                   Track your <strong>DeFi</strong> portfolio, find new investment opportunities,<br/>
+                                   buy and sell directly, and wrap your tentacles around a sea of gains.
                                 </p>
                             </div>
                             {/* end:: Aside content */}
@@ -93,30 +90,12 @@ const Connect = props => {
                                         type="submit"
                                         variant={'info'}
                                         className={`font-weight-bold px-9 py-4 my-3`}
-                                        onClick={toggleModal}
+                                        onClick={toggleWalletModal}
                                     >
                                         <span>Connect Wallet</span>
                                     </Button>
                                 </div>
                                 {/* end::Content */}
-
-                                {/* begin::Modal */}
-                                <Modal
-                                    className={'provider__modal'}
-                                    show={modalVisible}
-                                    onHide={toggleModal}
-                                    centered={true}
-                                >
-                                    <Modal.Header
-                                        closeButton
-                                        className={'d-flex align-items-center justify-content-center bg-light py-7'}>
-                                        <Modal.Title className={'font-weight-bold text-dark-75 font-size-base'}>Select a Wallet to Connect to DeFi</Modal.Title>
-                                    </Modal.Header>
-                                    <Modal.Body className={'px-0 py-0'}>
-                                        <Providers/>
-                                    </Modal.Body>
-                                </Modal>
-                                {/* end::Modal */}
 
                             </div>
                         </div>
@@ -126,7 +105,7 @@ const Connect = props => {
                         <div
                             className="d-flex d-lg-none flex-column-auto flex-column flex-sm-row justify-content-between align-items-center mt-5 p-5">
                             <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2">
-                                &copy; 2020 Open Source (MIT) OctoFi
+                                &copy; 2020 Open Source (MIT)
                             </div>
                         </div>
                         {/* end::Mobile footer */}

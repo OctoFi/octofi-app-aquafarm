@@ -7,6 +7,7 @@ import { NetworkConnector } from "./NetworkConnector";
 import {
     POLLING_INTERVAL
 } from "../constants";
+import {AbstractConnector} from "@web3-react/abstract-connector";
 
 const NETWORK_URL = process.env.REACT_APP_NETWORK_URL;
 
@@ -76,5 +77,58 @@ const connectors: {
     }
 }
 
+
+
+
+export interface WalletInfo {
+    connector?: AbstractConnector
+    name: string
+    description: string
+    href: string | null
+    color: string
+    primary?: true
+    mobile?: true
+    mobileOnly?: true
+}
+
+export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
+    metamask: {
+        connector: injected,
+        name: 'MetaMask',
+        description: 'Easy-to-use browser extension.',
+        href: null,
+        color: '#E8831D'
+    },
+    walletConnect: {
+        connector: walletconnect,
+        name: 'WalletConnect',
+        description: 'Connect to Wallet that supports walletConnect...',
+        href: null,
+        color: '#4196FC',
+        mobile: true
+    },
+    ledger: {
+        connector: ledger,
+        name: 'Ledger',
+        description: 'Connect to your Ledger hardware',
+        href: null,
+        color: '#315CF5'
+    },
+    trezor: {
+        connector: trezor,
+        name: 'Trezor',
+        description: 'Connect to your Trezor wallet',
+        href: null,
+        color: '#142533',
+    },
+    trustWallet: {
+        connector: walletconnect,
+        name: 'Trust Wallet',
+        description: 'Connect to Trust Wallet',
+        href: null,
+        color: '#3375BB',
+        mobile: true
+    }
+}
 
 export default connectors;

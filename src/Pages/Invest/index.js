@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { Row, Col } from 'react-bootstrap';
 import { Route, Switch } from 'react-router-dom';
 
-import ValueCard from "../../components/ValueCard";
 import { PoolsUIProvider } from "./PoolsUIProvider";
 import { PoolsCard } from "./PoolsCard";
 import AddLiquidityModal from "../../components/AddLiquidityModal";
 import UniswapLiquidityModal from '../../components/AddLiquidityModal/uniswap';
+import * as actions from '../../state/pools/actions';
 
 class Invest extends Component {
     investButtonClick = () => {
@@ -19,14 +19,9 @@ class Invest extends Component {
             const currencyB = pool.assets[1].address
             this.props.history.push(`/invest/${currencyA}/${currencyB}`)
         } else {
-            this.props.history.push(`/invest/ETH/`, {
-                isUniswap: false,
-                pool
-            })
+            this.props.setSelectedPool(pool);
+            this.props.history.push(`/invest/ETH/`)
         }
-        // this.props.history.push(`/invest/${id}`, {
-        //     pool
-        // });
     }
     render() {
         return (
@@ -56,4 +51,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Invest);
+const mapDispatchToProps = dispatch => {
+    return {
+        setSelectedPool: (pool) => dispatch(actions.selectPool(pool))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Invest);

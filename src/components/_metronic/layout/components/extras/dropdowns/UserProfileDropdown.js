@@ -11,9 +11,11 @@ import { DropdownTopbarItemToggler } from "../../../../_partials/dropdowns";
 import { useActiveWeb3React } from "../../../../../../hooks";
 import {getEtherscanLink} from "../../../../../../utils";
 import {useETHBalances} from "../../../../../../state/wallet/hooks";
+import {useWalletModalToggle} from "../../../../../../state/application/hooks";
 
 export function UserProfileDropdown() {
   const {account, chainId} = useActiveWeb3React();
+  const toggleWalletModal = useWalletModalToggle()
 
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   const uiService = useHtmlClassService();
@@ -104,7 +106,7 @@ export function UserProfileDropdown() {
               </div>
             </div>
           </a>
-          <a className="navi-item px-8" href={getEtherscanLink(chainId, account, 'address')} target={"_blank"}>
+          <a className="navi-item px-8" onClick={toggleWalletModal}>
             <div className="navi-link">
               <div className="navi-icon mr-2">
                 <i className="flaticon2-rocket-1 text-danger"></i>

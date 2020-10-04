@@ -119,6 +119,7 @@ export const BETTER_TRADE_LINK_THRESHOLD = new Percent(JSBI.BigInt(75), JSBI.Big
 export const POLLING_INTERVAL = 12000
 
 
+
 export const rates: {
   [rateName: string]: {
     image: any,

@@ -21,7 +21,7 @@ import { AutoColumn } from '../Column'
 import TransactionConfirmationModal, { ConfirmationModalContent } from '../../components/TransactionConfirmationModal'
 
 import {RowBetween, RowFixed, RowFlat} from '../Row'
-
+import { AppState } from '../../state';
 import { useCurrency } from '../../hooks/Tokens'
 import useTransactionDeadline from '../../hooks/useTransactionDeadline'
 import { useDerivedMintInfo, useMintActionHandlers, useMintState } from '../../state/mint/hooks'
@@ -37,6 +37,7 @@ import { CONTRACTS } from '../../constants';
 import curvePipeABI from '../../constants/abis/curve.json';
 import balancerPipeABI from '../../constants/abis/balancer.json';
 import yVaultPipeABI from '../../constants/abis/yVault.json';
+import {clearSelectedPool} from "../../state/pools/actions";
 
 
 const Wrapper = styled.div`
@@ -69,10 +70,20 @@ export const Dots = styled.span`
 
 export default function({
     history,
-    location
 }: RouteComponentProps)  {
     const { account, chainId, library } = useActiveWeb3React()
 
+    const dispatch = useDispatch();
+
+    const {gasPrice, selectedGasPrice} = useSelector((state: AppState) => state.currency);
+    const pool = useSelector((state: AppState) => state.pools.selected)
+
+    useEffect(() => {
+        if(pool.exchange === '' || pool.exchange === undefined) {
+            dispatch(clearSelectedPool());
+            history.push('/invest');
+        }
+    }, [pool])
     const currencyA = useCurrency('ETH')
 
     // mint state
@@ -134,11 +145,11 @@ export default function({
     async function onAdd() {
         if (!chainId || !library || !account) return
         let router;
-        if(pool.platform.toLowerCase() === 'curve') {
+        if(pool?.platform?.toLowerCase() === 'curve') {
             router = getContract(CONTRACTS.curve, curvePipeABI, library, account);
-        } else if(pool.platform.toLowerCase() === 'balancer') {
+        } else if(pool?.platform?.toLowerCase() === 'balancer') {
             router = getContract(CONTRACTS.balancer, balancerPipeABI, library, account);
-        } else if(pool.platform.toLowerCase() === 'yvault') {
+        } else if(pool?.platform?.toLowerCase() === 'yvault') {
             router = getContract(CONTRACTS.yVault, yVaultPipeABI, library, account);
         } else {
             return;
@@ -204,17 +215,9 @@ export default function({
             })
     }
 
-    const dispatch = useDispatch();
-
-    // @ts-ignore
-    const {gasPrice, selectedGasPrice} = useSelector(state => state.currency);
-
     useEffect(() => {
         dispatch(getGasPrice());
     }, [])
-
-    // @ts-ignore
-    const pool = location.state.pool;
 
     const modalHeader = () => {
         return  (
@@ -262,6 +265,11 @@ export default function({
         )
     }
 
+    const hideModal = () => {
+        dispatch(clearSelectedPool());
+        history.push('/invest');
+    }
+
     const pendingText = `Supplying ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${
         currencies[Field.CURRENCY_A]?.symbol
     } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencies[Field.CURRENCY_B]?.symbol}`
@@ -294,7 +302,7 @@ export default function({
             />
             <Modal
                 show={true}
-                onHide={() => history.push('/invest')}
+                onHide={hideModal}
                 size={'lg'}
                 centered={true}>
                 <Modal.Body>

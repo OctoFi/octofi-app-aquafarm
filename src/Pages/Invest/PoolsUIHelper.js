@@ -7,7 +7,8 @@ export const sizePerPageList = [
 ];
 export const initialFilter = {
     filter: {
-        label: "",
+        platform: 'all',
+        tags: ''
     },
     sortOrder: "asc", // asc||desc
     sortField: "id",

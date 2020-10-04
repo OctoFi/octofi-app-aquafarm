@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import { createWeb3ReactRoot, Web3ReactProvider } from '@web3-react/core'
-//import { BrowserRouter } from "react-router-dom";
 import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import App from './App';

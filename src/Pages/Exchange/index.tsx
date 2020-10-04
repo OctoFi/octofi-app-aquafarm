@@ -268,7 +268,7 @@ const Exchange = () => {
                         tokens={urlLoadedTokens}
                         onConfirm={handleConfirmTokenWarning}
                     />
-                    <div className="card card-custom" style={{ zIndex: 2}}>
+                    <div className="card card-custom">
                         <div className="card-body">
                             <Wrapper id="swap-page">
                                 <ConfirmSwapModal
@@ -351,14 +351,14 @@ const Exchange = () => {
 
                                     <Col xs={12} className={'d-flex justify-content-between align-items-center py-5'}>
                                         {!account ? (
-                                            <Button block size={'lg'} variant={'light'} onClick={toggleWalletModal}>Connect Wallet</Button>
+                                            <Button block size={'lg'} className={'py-6'} variant={'light'} onClick={toggleWalletModal}>Connect Wallet</Button>
                                         ) : showWrap ? (
-                                            <Button block size={'lg'} variant={'primary'} disabled={Boolean(wrapInputError)} onClick={onWrap}>
+                                            <Button block size={'lg'} className={'py-6'} variant={'primary'} disabled={Boolean(wrapInputError)} onClick={onWrap}>
                                                 {wrapInputError ??
                                                 (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
                                             </Button>
                                         ) : noRoute && userHasSpecifiedInputOutput ? (
-                                            <Button block size={'lg'} variant={'light'} disabled={true} className={'mb-2 font-weight-bold'}>
+                                            <Button block size={'lg'} variant={'light'} disabled={true} className={'mb-2 py-6 font-weight-bold'}>
                                                 Insufficient liquidity for this trade.
                                             </Button>
                                         ) : showApproveFlow ? (
@@ -367,7 +367,7 @@ const Exchange = () => {
                                                     <Button block size={'lg'}
                                                         onClick={approveCallback}
                                                         disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
-                                                        className={`btn ${approval === ApprovalState.PENDING ? "btn-light" : approval === ApprovalState.APPROVED ? 'btn-light-primary' : 'btn-primary'}`}
+                                                        className={`py-6 btn ${approval === ApprovalState.PENDING ? "btn-light" : approval === ApprovalState.APPROVED ? 'btn-light-primary' : 'btn-primary'}`}
                                                     >
                                                         {approval === ApprovalState.PENDING ? (
                                                             <div className={'d-flex justify-content-center align-items-center'}>
@@ -401,6 +401,7 @@ const Exchange = () => {
                                                             !isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)
                                                         }
                                                         variant={'danger'}
+                                                        className={'py-6'}
                                                     >
                                                         <span className={'font-weight-bold'}>
                                                             {priceImpactSeverity > 3 && !isExpertMode
@@ -425,6 +426,7 @@ const Exchange = () => {
                                                         })
                                                     }
                                                 }}
+                                                className={'py-6'}
                                                 id="swap-button"
                                                 disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                                                 variant={'light'}

@@ -38,6 +38,8 @@
 - Adding TokenSet
 - Adding PoolTogether
 - Top Gainers & Losers
+- Adding OctoFi DAO into the same interface
+- Adding old OctoFi interest program functions (Show Balance & Withdraw)
 - Adding liquidity to Uniswap with OCTO incentives
 - More...
 
@@ -82,10 +84,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
  ```
 4. Then back to your terminal and enter the following commands:<br/>
  yarn cache clean --all <br/>
- yarn install
- yarn add defi-sdk
- yarn add gh-pages
- (yarn start or build)
- git init
- git remote add origin your-github-repository-url.git
- npm run deploy
+ yarn install <br/>
+ yarn add defi-sdk <br/>
+ yarn add gh-pages <br/>
+ (yarn start or build) <br/>
+ git init <br/>
+ git remote add origin your-github-repository-url.git <br/>
+ npm run deploy <br/>

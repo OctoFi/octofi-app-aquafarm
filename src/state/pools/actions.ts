@@ -13,6 +13,16 @@ export const setPools = createAction('pools/fetch', (pools, total) => {
 });
 export const setListLoading = createAction<boolean>('pools/loading');
 
+export const setIsUniswap = createAction<boolean>('pools/uniswap');
+
+export const selectPool = createAction('pools/select', (selectedPool) => {
+    return {
+        payload: selectedPool
+    }
+})
+
+export const clearSelectedPool = createAction('pools/clearSelected');
+
 export const fetchPools = (options: { offset: number, limit: number }) => {
     return (dispatch: (arg0: { payload: { total: any; pools: any; } | boolean | undefined; type: string; }) => void) => {
         const query = encodeQuery({

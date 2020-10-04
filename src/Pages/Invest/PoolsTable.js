@@ -42,13 +42,28 @@ export function PoolsTable() {
     // Pools Redux state
     const dispatch = useDispatch();
     useEffect(() => {
+        console.log(poolsUIProps.queryParams);
         // clear selections list
         poolsUIProps.setIds([]);
-        // server call by queryParams
-        dispatch(actions.fetchPools({
+        const params = {
             limit: poolsUIProps.queryParams.pageSize,
-            offset: poolsUIProps.queryParams.pageSize * (poolsUIProps.queryParams.pageNumber - 1)
-        }));
+            offset: poolsUIProps.queryParams.pageSize * (poolsUIProps.queryParams.pageNumber - 1),
+        }
+        if(poolsUIProps.queryParams.filter.platform !== 'all') {
+            params.platform = poolsUIProps.queryParams.filter.platform;
+        }
+        if(poolsUIProps.queryParams.filter.tags !== '') {
+            params.tags = poolsUIProps.queryParams.filter.tags;
+        }
+        if(poolsUIProps.queryParams.sortField !== 'id') {
+            params.orderBy = poolsUIProps.queryParams.sortField;
+        }
+
+        if(!(poolsUIProps.queryParams.sortOrder === 'asc' && poolsUIProps.queryParams.sortField === 'id')) {
+            params.direction = poolsUIProps.queryParams.sortOrder;
+        }
+        // server call by queryParams
+        dispatch(actions.fetchPools(params));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [poolsUIProps.queryParams, dispatch]);
     // Table columns
@@ -62,7 +77,7 @@ export function PoolsTable() {
             headerSortingClasses,
         },
         {
-            dataField: "label",
+            dataField: "poolName",
             text: "Available Pools",
             sort: true,
             formatter: (cellContent, row, rowIndex) => {
@@ -80,7 +95,7 @@ export function PoolsTable() {
             headerSortingClasses,
         },
         {
-            dataField: "liquidity",
+            dataField: "usdLiquidity",
             text: "Liquidity",
             sort: true,
             formatter: (cellContent, row) => (<span className={'font-weight-bold'}><CurrencyText>{row.usdLiquidity}</CurrencyText></span>),
@@ -88,7 +103,7 @@ export function PoolsTable() {
             headerSortingClasses,
         },
         {
-            dataField: "volume",
+            dataField: "usdVolume",
             text: "Volume (24h)",
             sort: true,
             formatter: (cellContent, row) => (<span className={'font-weight-bold'}><CurrencyText>{row.usdVolume}</CurrencyText></span>),
@@ -96,8 +111,8 @@ export function PoolsTable() {
             headerSortingClasses,
         },
         {
-            dataField: "fees",
-            text: "Fees (24h)",
+            dataField: "roi",
+            text: "ROI",
             sort: true,
             formatter: (cellContent, row) => (<span className={`font-weight-bold ${!row.roi && 'text-muted'}`}>{row.roi ? `${row.roi.toFixed(3)}%` : 'N/A'}</span>),
             sortCaret: sortCaret,

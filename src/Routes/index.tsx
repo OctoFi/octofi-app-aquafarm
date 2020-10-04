@@ -11,6 +11,7 @@ import Dashboard from '../Pages/Dashboard';
 import Invest from '../Pages/Invest';
 import Exchange from '../Pages/Exchange';
 import Error404 from '../Pages/Error/404';
+import WalletModal from "../components/WalletModal";
 
 const Routes = () => {
     let context = useActiveWeb3React();
@@ -24,6 +25,7 @@ const Routes = () => {
     return (
         <>
             <RouteChanger/>
+            <WalletModal/>
             {context.account ? (
                 <Layout>
                     <Switch>

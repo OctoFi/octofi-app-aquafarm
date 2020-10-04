@@ -9,7 +9,8 @@ import TrustWallet from '../../../assets/images/providers/trustwallet-i.svg'
 const icon = props => {
     let Icon = null;
     switch(props.type) {
-        case 'injected': {
+        case 'injected':
+        case 'metamask': {
             Icon = MetaMask;
             break;
         }
@@ -34,7 +35,7 @@ const icon = props => {
         }
     }
 
-    return <img src={Icon} alt={props.type} className={'provider__icon mb-md-4 mb-0 mr-5 mr-md-0'}/>
+    return <img src={Icon} alt={props.type} className={'provider__icon'}/>
 }
 
 export default icon;
