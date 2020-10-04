@@ -39,6 +39,8 @@
 - Adding TokenSet
 - Adding PoolTogether
 - Top Gainers & Losers
+- Adding DAO from OctoFi
+- Adding Octo Interest (Check Balance / Withdraw)
 - Adding liquidity to Uniswap with OCTO incentives
 - More...
 
