@@ -1,22 +1,29 @@
-import React, { useState, } from 'react';
+import React from 'react';
 import { Row, Col, Spinner } from 'react-bootstrap';
 import { Route } from 'react-router-dom';
 import { connect } from "react-redux";
+import SVG from 'react-inlinesvg';
 
+import { useActiveWeb3React } from "../../hooks";
 import ValueCard from "../../components/ValueCard";
 import OverviewCard from "../../components/OverviewCard";
 import ChartCard from "../../components/ChartCard";
 import AssetModal from "../../components/AssetModal";
-import { useBalances } from "../../state/balances/hooks";
+import WalletModal from "../../components/AssetModal/wallet";
 
 const Dashboard = props => {
-    const {balances, overview} = useBalances(props.balances);
+    const { account } = useActiveWeb3React();
 
-    const clickOnAsset = (asset, title, data) => {
-        props.history.push(`/dashboard/${asset}`, {
-            title,
-            data
-        })
+    const clickOnAsset = (asset) => {
+        if(asset === 'wallet') {
+            props.history.push('/dashboard/wallet')
+        } else {
+            props.history.push(`/dashboard/asset/${asset}`)
+        }
+    }
+
+    const showPlatform = (platform) => {
+        props.history.push(`/platforms/${platform}`)
     }
 
     return props.loading ? (
@@ -30,19 +37,19 @@ const Dashboard = props => {
     ) : (
         <>
            <Row>
-               <Col span={12} md={4}>
-                   <ValueCard className={'gutter-b'} title={'Total Assets'} value={overview.assets.total}/>
+               <Col xs={12} md={4}>
+                   <ValueCard className={'gutter-b'} title={'Total Assets'} value={props.overview.deposits.total + props.overview.wallet.total}/>
                </Col>
-               <Col span={12} md={4}>
-                   <ValueCard className={'gutter-b'} title={'Total Debt'} value={overview.debts.total}/>
+               <Col xs={12} md={4}>
+                   <ValueCard className={'gutter-b'} title={'Total Debt'} value={props.overview.debts.total}/>
                </Col>
-               <Col span={12} md={4}>
-                   <ValueCard className={'gutter-b'} title={'Net Worth'} value={overview.assets.total - overview.debts.total}/>
+               <Col xs={12} md={4}>
+                   <ValueCard className={'gutter-b'} title={'Net Worth'} value={props.overview.deposits.total + props.overview.wallet.total - props.overview.debts.total}/>
                </Col>
            </Row>
             <Row>
                 <Col>
-                    <ChartCard className="gutter-b card-stretch" chartColor={'success'}/>
+                    <ChartCard className="gutter-b card-stretch" chartColor={'success'} account={account}/>
                 </Col>
             </Row>
             <Row className={'mt-5'}>
@@ -51,12 +58,12 @@ const Dashboard = props => {
                 </Col>
             </Row>
             <Row>
-                {overview && Object.keys(overview).map(key => {
-                    const account = overview[key];
+                {props.overview && Object.keys(props.overview).map(key => {
+                    const account = props.overview[key];
                     return (
                         <Col key={key} span={12} md={4}>
                             <OverviewCard
-                                clickHandler={clickOnAsset.bind(this, account.slug, account.title, account.balances)}
+                                clickHandler={clickOnAsset.bind(this, account.slug)}
                                 icon={(<i className={`flaticon2-gear text-${account.variant}`}/>)}
                                 theme={account.variant}
                                 className={'gutter-b'}
@@ -73,19 +80,33 @@ const Dashboard = props => {
                 </Col>
             </Row>
             <Row>
-                {balances && balances.map((b, index) => {
+                {props.transformedBalance.length > 0 ? props.transformedBalance.map((b, index) => {
                     return (
                         <Col key={index} span={12} md={4}>
                             <OverviewCard
+                                clickHandler={showPlatform.bind(this, b.metadata.name)}
                                 className={'gutter-b'} title={b.metadata.name} value={b.total.toFixed(4)}
                                 image={b.metadata.logo.href}
                                 />
 
                         </Col>
                     )
-                })}
+                }) : (
+                    <Col xs={12}>
+                        <div className="card custom-card bg-light-primary d-flex flex-column align-items-center justify-content-center py-8 px-4">
+                            <SVG src={require('../../assets/images/svg/icons/Layout/Layout-4-blocks.svg')} width={48} height={48} />
+                            <h5 className="text-primary font-weight-bolder mb-3 mt-5">
+                                There is no <strong>Platform</strong>
+                            </h5>
+                            <span className="text-dark-50 font-weight-light font-size-lg">
+                                Please make some transactions on investment platforms first.
+                            </span>
+                        </div>
+                    </Col>
+                )}
             </Row>
-            <Route path={'/dashboard/:asset'} component={AssetModal}/>
+            <Route path={'/dashboard/asset/:asset'} component={AssetModal}/>
+            <Route path={'/dashboard/wallet'} component={WalletModal}/>
         </>
     )
 }
@@ -93,7 +114,8 @@ const Dashboard = props => {
 const mapStateToProps = state => {
     return {
         account: state.account,
-        balances: state.balances.data,
+        overview: state.balances.overview,
+        transformedBalance: state.balances.transformedBalance,
         loading: state.balances.loading,
     }
 }

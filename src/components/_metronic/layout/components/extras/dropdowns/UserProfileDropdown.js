@@ -1,7 +1,6 @@
 /* eslint-disable no-restricted-imports */
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
 import React, { useMemo } from "react";
-import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import objectPath from "object-path";
 import copy from 'clipboard-copy';
@@ -95,7 +94,7 @@ export function UserProfileDropdown() {
 
         <div className="navi navi-spacer-x-0 pt-5">
 
-          <a className="navi-item px-8" href={getEtherscanLink(chainId, account, 'address')} target={"_blank"}>
+          <a className="navi-item px-8" href={getEtherscanLink(chainId, account, 'address')} target={"_blank"} rel={'noopener noreferrer'}>
             <div className="navi-link">
               <div className="navi-icon mr-2">
                 <i className="flaticon2-calendar-3 text-info"></i>

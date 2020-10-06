@@ -8,6 +8,7 @@ import { PoolsCard } from "./PoolsCard";
 import AddLiquidityModal from "../../components/AddLiquidityModal";
 import UniswapLiquidityModal from '../../components/AddLiquidityModal/uniswap';
 import * as actions from '../../state/pools/actions';
+import ValueCard from "../../components/ValueCard";
 
 class Invest extends Component {
     investButtonClick = () => {
@@ -26,6 +27,17 @@ class Invest extends Component {
     render() {
         return (
             <>
+                <Row>
+                    <Col span={12} md={4}>
+                        <ValueCard className={'gutter-b'} title={'Total Assets'} value={this.props.overview.deposits.total + this.props.overview.wallet.total}/>
+                    </Col>
+                    <Col span={12} md={4}>
+                        <ValueCard className={'gutter-b'} title={'Total Debt'} value={this.props.overview.debts.total}/>
+                    </Col>
+                    <Col span={12} md={4}>
+                        <ValueCard className={'gutter-b'} title={'Net Worth'} value={this.props.overview.deposits.total + this.props.overview.wallet.total - this.props.overview.debts.total}/>
+                    </Col>
+                </Row>
                 <Row>
                     <Col span={12}>
                         <PoolsUIProvider poolsUIEvents={{
@@ -47,7 +59,8 @@ class Invest extends Component {
 
 const mapStateToProps = state => {
     return {
-        account: state.account
+        account: state.account,
+        overview: state.balances.overview,
     }
 }
 

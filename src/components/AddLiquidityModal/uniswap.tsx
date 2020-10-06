@@ -238,7 +238,7 @@ export default function({
 
     useEffect(() => {
         dispatch(getGasPrice());
-    }, [])
+    }, [dispatch])
 
     const modalHeader = () => {
         return noLiquidity ? (

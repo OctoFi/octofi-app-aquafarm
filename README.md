@@ -22,7 +22,7 @@
 <p><a href="https://app.octo.fi" class="btn btn-primary btn-md">Launch Aquafarm dApp</a></p>
 </div>
 
-## Features [Beta 1.0]
+## Features [Beta 1.30.0]
 * 🔩 <strong>Simple: </strong> Even a shrimp understands
 
 * 📊 <strong>Overview: </strong> We help you to get a better, real-time overview of your investments
@@ -89,5 +89,5 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
  yarn add gh-pages <br/>
  (yarn start or build) <br/>
  git init <br/>
- git remote add origin your-github-repository-url.git <br/>
+ git remote add origin your-github-repository-url.git <br/>
  npm run deploy <br/>

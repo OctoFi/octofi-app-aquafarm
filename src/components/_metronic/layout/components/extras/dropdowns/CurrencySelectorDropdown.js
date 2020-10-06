@@ -18,7 +18,7 @@ export function CurrencySelectorDropDown() {
 
     useEffect(() => {
         selectDestinationCurrency(selectedCurrency);
-    }, [])
+    }, [selectedCurrency])
 
     return (
         <Dropdown drop="down" alignRight>

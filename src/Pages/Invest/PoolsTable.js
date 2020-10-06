@@ -42,7 +42,6 @@ export function PoolsTable() {
     // Pools Redux state
     const dispatch = useDispatch();
     useEffect(() => {
-        console.log(poolsUIProps.queryParams);
         // clear selections list
         poolsUIProps.setIds([]);
         const params = {

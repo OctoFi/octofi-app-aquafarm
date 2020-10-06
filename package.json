@@ -1,6 +1,6 @@
 {
   "name": "defi-dashboard",
-  "version": "0.1.0",
+  "version": "1.30.0",
   "private": true,
   "homepage": "https://app.octo.fi",
   "dependencies": {
@@ -67,7 +67,6 @@
     "cp-cli": "2.0.0",
     "cross-env": "^7.0.2",
     "css-mediaquery": "0.1.2",
-    "cypress": "^4.11.0",
     "date-fns": "2.8.1",
     "defi-sdk": "^0.0.1",
     "downshift": "3.4.2",

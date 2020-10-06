@@ -21,14 +21,14 @@ export function FooterCompact({
             <span className="text-muted font-weight-bold mr-2">
               {today} &copy;
             </span>
-            {` `} All rights reserved by {` `}
+            {` `} Open Source (MIT) {` `}
             <a
-              href="#"
+              href="https://octo.fi"
               rel="noopener noreferrer"
               target="_blank"
               className="text-dark-75 text-hover-primary"
             >
-              Stealth
+              OctoFi
             </a>
           </div>
           {/* end::Copyright */}

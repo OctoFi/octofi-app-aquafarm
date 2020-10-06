@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { fetchBalances } from "../state/balances/actions";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchBalances, fetchTransformedBalances } from "../state/balances/actions";
+import {useMemoTokenBalances} from '../state/balances/hooks';
+import { AppState } from "../state";
 
 import { useActiveWeb3React } from "../hooks";
 import {Layout} from "../components/_metronic/layout";
@@ -9,19 +11,30 @@ import RouteChanger from '../components/RouteChanger/routeChanger';
 import ConnectPage from '../Pages/Connect';
 import Dashboard from '../Pages/Dashboard';
 import Invest from '../Pages/Invest';
+import Platforms from '../Pages/Platforms';
 import Exchange from '../Pages/Exchange';
 import Error404 from '../Pages/Error/404';
 import WalletModal from "../components/WalletModal";
 
+
 const Routes = () => {
     let context = useActiveWeb3React();
+    const balances = useSelector((state: AppState) => state.balances.data);
+    // @ts-ignore
+    const { ETH } = useSelector((state: AppState) => state.currency.currenciesRate)
     const dispatch = useDispatch();
+    const walletBalances = useMemoTokenBalances()
 
     useEffect(() => {
         if(context.account) {
             dispatch(fetchBalances(context.account))
         }
-    }, [context.account])
+    }, [context.account, dispatch])
+
+    useEffect(() => {
+        dispatch(fetchTransformedBalances(balances, walletBalances, ETH));
+    }, [balances, walletBalances]);
+
     return (
         <>
             <RouteChanger/>
@@ -32,6 +45,7 @@ const Routes = () => {
                         <Route path={'/dashboard'} component={Dashboard}/>
                         <Route path={'/invest'} component={Invest}/>
                         <Route path={'/exchange'} exact component={Exchange}/>
+                        <Route path={'/platforms/:platform'} exact component={Platforms}/>
                         <Redirect to={'/dashboard'}/>
                     </Switch>
                 </Layout>

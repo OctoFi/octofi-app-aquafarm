@@ -4,14 +4,19 @@ import React from 'react';
 const TableCard = props => {
     return (
         <div className="card card-custom gutter-b">
+            <div className="card-header">
+                <h5 className="card-title">{props.title}</h5>
+            </div>
             <div className="card-body">
                 <table className="table table-head-custom table-vertical-center">
                     <thead>
-                    {props.columns.map((c) => {
-                        return (
-                            <th key={c.id}>{c.title}</th>
-                        )
-                    })}
+                        <tr>
+                            {props.columns.map((c) => {
+                                return (
+                                    <th key={c.id}>{c.title}</th>
+                                )
+                            })}
+                        </tr>
                     </thead>
                     <tbody>
                     {props.data.map((row, index) => {

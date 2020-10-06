@@ -38,9 +38,13 @@ import {
 import { useExpertModeManager, useUserSlippageTolerance } from '../../state/user/hooks'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { computeTradePriceBreakdown, warningSeverity } from '../../utils/prices'
+import ValueCard from "../../components/ValueCard";
+import {useSelector} from "react-redux";
+import {AppState} from "../../state";
 
 const Exchange = () => {
     const loadedUrlParams = useDefaultsFromURLSearch()
+    const overview = useSelector((state: AppState) => state.balances.overview)
 
     // token warning stuff
     const [loadedInputCurrency, loadedOutputCurrency] = [
@@ -261,6 +265,17 @@ const Exchange = () => {
 
     return (
         <>
+            <Row>
+                <Col xs={12} md={4}>
+                    <ValueCard className={'gutter-b'} title={'Total Assets'} value={overview.deposits.total + overview.wallet.total}/>
+                </Col>
+                <Col xs={12} md={4}>
+                    <ValueCard className={'gutter-b'} title={'Total Debt'} value={overview.debts.total}/>
+                </Col>
+                <Col xs={12} md={4}>
+                    <ValueCard className={'gutter-b'} title={'Net Worth'} value={overview.deposits.total + overview.wallet.total - overview.debts.total}/>
+                </Col>
+            </Row>
             <Row>
                 <Col xs={{ span: 12, offset: 0}} md={{ span: 6, offset: 3}}>
                     <TokenWarningModal

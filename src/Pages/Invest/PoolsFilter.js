@@ -25,7 +25,6 @@ export function PoolsFilter({ listLoading }) {
 
     // queryParams, setQueryParams,
     const applyFilter = (values) => {
-        console.log(values);
         const newQueryParams = prepareFilter(poolsUIProps.queryParams, values);
         if (!isEqual(newQueryParams, poolsUIProps.queryParams)) {
             newQueryParams.pageNumber = 1;

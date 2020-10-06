@@ -18,7 +18,7 @@ const Connect = props => {
         if(account) {
             props.history.replace('/dashboard');
         }
-    }, [account])
+    }, [account, props.history])
 
     return (
         <>
@@ -49,8 +49,9 @@ const Connect = props => {
                                     Welcome to Aquafarm
                                 </h3>
                                 <p className="font-weight-light text-white opacity-70">
-                                   Track your <strong>DeFi</strong> portfolio, find new investment opportunities,<br/>
-                                   buy and sell directly, and wrap your tentacles around a sea of gains.
+                                 Track your <strong>DeFi</strong> portfolio, find new investment opportunities, <br/>
+                                 buy and sell directly, and wrap your tentacles around a sea of gains.
+                                 
                                 </p>
                             </div>
                             {/* end:: Aside content */}
@@ -105,7 +106,7 @@ const Connect = props => {
                         <div
                             className="d-flex d-lg-none flex-column-auto flex-column flex-sm-row justify-content-between align-items-center mt-5 p-5">
                             <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2">
-                                &copy; 2020 Open Source (MIT)
+                                &copy; 2020 Open Source (MIT) OctoFi
                             </div>
                         </div>
                         {/* end::Mobile footer */}

@@ -83,7 +83,7 @@ export default function({
             dispatch(clearSelectedPool());
             history.push('/invest');
         }
-    }, [pool])
+    }, [pool, dispatch, history])
     const currencyA = useCurrency('ETH')
 
     // mint state
@@ -217,7 +217,7 @@ export default function({
 
     useEffect(() => {
         dispatch(getGasPrice());
-    }, [])
+    }, [dispatch])
 
     const modalHeader = () => {
         return  (
