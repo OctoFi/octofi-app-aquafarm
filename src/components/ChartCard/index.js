@@ -217,9 +217,10 @@ class ChartCard extends Component {
                         </div>
                     </div>
                     <div className="card-toolbar">
-                        {this.state.options.map(option => {
+                        {this.state.options.map((option, index) => {
                             return (
                                 <button
+                                    key={index}
                                     onClick={this.changeOption.bind(this, option.id)}
                                     className={`btn btn-sm ${this.state.selected === option.id ? 'btn-success' : 'btn-light-success'} px-4 mr-2 btn-inline`}
                                 >
