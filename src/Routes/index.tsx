@@ -13,6 +13,7 @@ import Dashboard from '../Pages/Dashboard';
 import Invest from '../Pages/Invest';
 import Platforms from '../Pages/Platforms';
 import Exchange from '../Pages/Exchange';
+import OpenSea from '../Pages/OpenSea';
 import Error404 from '../Pages/Error/404';
 import WalletModal from "../components/WalletModal";
 
@@ -45,6 +46,7 @@ const Routes = () => {
                         <Route path={'/dashboard'} component={Dashboard}/>
                         <Route path={'/invest'} component={Invest}/>
                         <Route path={'/exchange'} exact component={Exchange}/>
+                        <Route path={'/opensea'} exact component={OpenSea}/>
                         <Route path={'/platforms/:platform'} exact component={Platforms}/>
                         <Redirect to={'/dashboard'}/>
                     </Switch>
@@ -56,6 +58,7 @@ const Routes = () => {
                     <Redirect from={'/dashboard'} to={'/'} exact />
                     <Redirect from={'/invest'} to={'/'} exact />
                     <Redirect from={'/exchange'} to={'/'} exact />
+                    <Redirect from={'/opensea'} to={'/'} exact />
                     <Redirect from={'/protocols'} to={'/'} exact />
                     <Redirect to={'/404'}/>
                 </Switch>
