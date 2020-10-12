@@ -36,7 +36,7 @@ export function HeaderMenu({ layoutProps }) {
             {/*begin::1 Level*/}
             <li className={`menu-item menu-item-rel ${getMenuItemActive('/invest')}`}>
                 <NavLink className="menu-link" to="/invest">
-                    <span className="menu-text"></span>
+                    <span className="menu-text">Invest</span>
                     {layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}
                 </NavLink>
             </li>
@@ -52,7 +52,7 @@ export function HeaderMenu({ layoutProps }) {
             {/*begin::1 Level*/}
             <li className={`menu-item menu-item-rel ${getMenuItemActive('/history')}`}>
                 <NavLink className="menu-link" to="/history">
-                    <span className="menu-text"></span>
+                    <span className="menu-text">History</span>
                     {layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}
                 </NavLink>
             </li>
