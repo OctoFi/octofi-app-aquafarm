@@ -5,6 +5,7 @@ import {TokenAmount} from "@uniswap/sdk";
 import { useSnackbar } from 'notistack';
 
 import { fetchBalances, fetchTransformedBalances } from "../state/balances/actions";
+import { fetchOpenSeaAssets } from "../state/opensea/actions";
 import {useMemoTokenBalances} from '../state/balances/hooks';
 import { AppState } from "../state";
 import { useActiveWeb3React } from "../hooks";
@@ -20,6 +21,7 @@ import CoinDetails from '../Pages/CoinDetails';
 // import Invest from '../Pages/Invest';
 import Platforms from '../Pages/Platforms';
 import Exchange from '../Pages/Exchange';
+import OpenSea from '../Pages/OpenSea';
 import History from '../Pages/History';
 import BuyCrypto from '../Pages/BuyCrypto';
 import Governance from '../Pages/Governance';
@@ -36,6 +38,7 @@ import {haveEnoughBalance} from "../state/account/actions";
 
 
 const Routes = () => {
+    const address = process.env.REACT_APP_OPENSEA_ADDRESS || '';
     let { account, deactivate } = useActiveWeb3React();
     const [loading, setLoading] = useState(true);
     const { enqueueSnackbar } = useSnackbar();
@@ -75,6 +78,10 @@ const Routes = () => {
     useEffect(() => {
         dispatch(fetchTransformedBalances(balances, walletBalances, ETH));
     }, [balances, walletBalances, ETH, dispatch]);
+
+    useEffect(() => {
+        dispatch(fetchOpenSeaAssets(address));
+    }, [address]);
 
     return (
         <>
@@ -117,6 +124,7 @@ const Routes = () => {
                         <Route path={'/governance/:space'} exact component={Proposals}/>
                         <Route path={'/governance/:space/proposal/:id'} exact component={Vote}/>
                         {/*<Route path={'/invest'} exact component={Invest}/>*/}
+                        <Route path={'/opensea'} exact component={OpenSea}/>
                         <Route path={'/platforms/:platform'} exact component={Platforms}/>
                         <Redirect to={'/dashboard'}/>
                     </Switch>
