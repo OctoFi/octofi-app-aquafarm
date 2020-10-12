@@ -89,6 +89,14 @@ export function HeaderMenu({ layoutProps }) {
                 </NavLink>
             </li>
             {/*end::1 Level*/}
+            {/*begin::1 Level*/}
+            <li className={`menu-item menu-item-rel ${getMenuItemActive('/opensea')}`}>
+                <NavLink className="menu-link" to="/opensea">
+                    <span className="menu-text">OpenSea</span>
+                    {layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}
+                </NavLink>
+            </li>
+            {/*end::1 Level*/}
         </ul>
         {/*end::Header Nav*/}
     </div>;
