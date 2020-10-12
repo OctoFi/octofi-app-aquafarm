@@ -1,0 +1,30 @@
+.overview-card {
+    position: relative;
+    cursor: pointer;
+
+    &__icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 400px;
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 46px;
+        height: 46px;
+        border-radius: 400px;
+
+    }
+
+    &__title {
+
+    }
+
+    &__value {
+
+    }
+
+    &.card-custom > .card-body {
+        padding: 16px;
+    }
+}

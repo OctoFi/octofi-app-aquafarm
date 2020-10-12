@@ -1,0 +1,20 @@
+.assets {
+
+    &__image {
+        max-width: 36px;
+        height: 36px;
+        border-radius: 50%;
+    }
+
+    &__value {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: $yiq-text-dark;
+        vertical-align: middle !important;
+
+        &--right {
+            text-align: right;
+        }
+    }
+
+}
