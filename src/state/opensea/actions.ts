@@ -19,10 +19,13 @@ export const fetchOpenSeaAssets = (owner: string) => {
                 offset: '0',
                 limit: '20'
             };
-            const res = await axios.get(openseaAssets, { params });
+            const headers = {
+                'X-API-KEY': process.env.REACT_APP_OPENSEA_KEY || '',
+            };
+            const res = await axios.get(openseaAssets, { headers, params });
             const assets = res.data.assets;
             dispatch(setOpenSeaAssets(assets));
-        } catch(error) {
+        } catch (error) {
             console.log(error);
         }
     }
