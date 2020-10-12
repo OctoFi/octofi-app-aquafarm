@@ -15,17 +15,12 @@ export const fetchOpenSeaAssets = (owner: string) => {
         try {
             const params = {
                 owner,
-                asset_contract_addresses: '[]',
                 order_direction: 'desc',
                 offset: '0',
                 limit: '20'
             };
             const res = await axios.get(openseaAssets, { params });
-
-            const assets = {
-                ...res.data.assets
-            };
-
+            const assets = res.data.assets;
             dispatch(setOpenSeaAssets(assets));
         } catch(error) {
             console.log(error);

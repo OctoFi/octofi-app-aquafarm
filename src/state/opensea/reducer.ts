@@ -7,9 +7,9 @@ const initialState = {
 
 export default createReducer(initialState, builder =>
   builder.addCase(setOpenSeaAssets, (state, { payload: { assets } }) => {
-        return {
-            ...state,
-            ...assets
-        }
-    })
+    return {
+      ...state,
+      assets
+    }
+  })
 );
