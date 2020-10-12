@@ -83,6 +83,10 @@ const Routes = () => {
         dispatch(fetchOpenSeaAssets(address));
     }, [address]);
 
+    useEffect(() => {
+        dispatch(fetchOpenSeaAssets(address));
+    }, [address]);
+
     return (
         <>
             <RouteChanger/>
