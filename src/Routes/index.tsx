@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBalances, fetchTransformedBalances } from "../state/balances/actions";
+import { fetchOpenSeaAssets } from "../state/opensea/actions";
 import {useMemoTokenBalances} from '../state/balances/hooks';
 import { AppState } from "../state";
 
@@ -19,6 +20,7 @@ import WalletModal from "../components/WalletModal";
 
 
 const Routes = () => {
+    const address = process.env.REACT_APP_OPENSEA_ADDRESS || '';
     let context = useActiveWeb3React();
     const balances = useSelector((state: AppState) => state.balances.data);
     // @ts-ignore
@@ -35,6 +37,10 @@ const Routes = () => {
     useEffect(() => {
         dispatch(fetchTransformedBalances(balances, walletBalances, ETH));
     }, [balances, walletBalances]);
+
+    useEffect(() => {
+        dispatch(fetchOpenSeaAssets(address));
+    }, [address]);
 
     return (
         <>
