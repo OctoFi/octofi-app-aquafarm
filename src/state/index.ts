@@ -15,6 +15,7 @@ import account from './account/reducer'
 import currency from './currency/reducer'
 import pools from './pools/reducer'
 import balances from './balances/reducer'
+import opensea from './opensea/reducer'
 
 const rootReducer= combineReducers({
     application,
@@ -28,7 +29,8 @@ const rootReducer= combineReducers({
     currency,
     pools,
     account,
-    balances
+    balances,
+    opensea
 });
 
 const PERSISTED_KEYS: string[] = ['user', 'transactions', 'currency', 'lists'];
