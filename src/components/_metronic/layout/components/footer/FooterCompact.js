@@ -33,7 +33,7 @@ export function FooterCompact({
             <span className="text-muted font-weight-bold mr-2">
               {today} &copy;
             </span>
-            {` `} Decentralized Finance Tentacles. {` `}
+            {` `} Decentralized Finance Tentacles by {` `}
             <FooterLink
               href="https://octo.fi"
               rel="noopener noreferrer"

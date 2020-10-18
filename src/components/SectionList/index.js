@@ -8,16 +8,19 @@ const Section = styled.div`
   flex-direction: column;
 `
 
-const SectionTitle = styled.h4`
+const SectionTitle = styled.div`
   margin-bottom: 1.25rem;
   font-weight: bold;
   color: ${({theme}) => theme.text2}
   font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 
 const SectionBody = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${({direction}) => direction};
   margin-bottom: .5rem;
 `
 
@@ -25,8 +28,17 @@ const SectionList = props => {
     return props.sections.map(section => {
         return (
             <Section>
-                <SectionTitle>{section.title}</SectionTitle>
-                <SectionBody>{section.content}</SectionBody>
+                <SectionTitle>
+                    <div>
+                        {section.title}
+                        {section.description && (
+                            <span className="text-muted font-size-sm font-weight-light d-block pt-3">{section.description}</span>
+                        )}
+                    </div>
+                    {section.headerAction || null}
+                </SectionTitle>
+
+                <SectionBody direction={props.direction || 'column'}>{section.content}</SectionBody>
             </Section>
         )
     })

@@ -34,12 +34,12 @@ export function HeaderMenu({ layoutProps }) {
             </li>
             {/*end::1 Level*/}
             {/*begin::1 Level*/}
-            <li className={`menu-item menu-item-rel ${getMenuItemActive('/invest')}`}>
-                <NavLink className="menu-link" to="/invest">
-                    <span className="menu-text"></span>
-                    {layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}
-                </NavLink>
-            </li>
+            {/*<li className={`menu-item menu-item-rel ${getMenuItemActive('/invest')}`}>*/}
+            {/*    <NavLink className="menu-link" to="/invest">*/}
+            {/*        <span className="menu-text">Invest</span>*/}
+            {/*        {layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}*/}
+            {/*    </NavLink>*/}
+            {/*</li>*/}
             {/*end::1 Level*/}
             {/*begin::1 Level*/}
             <li className={`menu-item menu-item-rel ${getMenuItemActive('/exchange')}`}>
@@ -52,7 +52,31 @@ export function HeaderMenu({ layoutProps }) {
             {/*begin::1 Level*/}
             <li className={`menu-item menu-item-rel ${getMenuItemActive('/history')}`}>
                 <NavLink className="menu-link" to="/history">
-                    <span className="menu-text"></span>
+                    <span className="menu-text">History</span>
+                    {layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}
+                </NavLink>
+            </li>
+            {/*end::1 Level*/}
+            {/*begin::1 Level*/}
+            <li className={`menu-item menu-item-rel ${getMenuItemActive('/explore')}`}>
+                <NavLink className="menu-link" to="/explore">
+                    <span className="menu-text">Explore</span>
+                    {layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}
+                </NavLink>
+            </li>
+            {/*end::1 Level*/}
+            {/*begin::1 Level*/}
+            <li className={`menu-item menu-item-rel ${getMenuItemActive('/market')}`}>
+                <NavLink className="menu-link" to="/market">
+                    <span className="menu-text">Market</span>
+                    {layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}
+                </NavLink>
+            </li>
+            {/*end::1 Level*/}
+            {/*begin::1 Level*/}
+            <li className={`menu-item menu-item-rel ${getMenuItemActive('/buy')}`}>
+                <NavLink className="menu-link" to="/buy">
+                    <span className="menu-text">Buy Crypto</span>
                     {layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}
                 </NavLink>
             </li>

@@ -3,6 +3,7 @@ import Chart from 'react-apexcharts';
 import {useHtmlClassService} from "../_metronic/layout";
 // @ts-ignore
 import objectPath from "object-path";
+import {useIsDarkMode} from "../../state/user/hooks";
 
 
 const CustomChart = ({chartColor, height, series, categories}: {
@@ -11,6 +12,7 @@ const CustomChart = ({chartColor, height, series, categories}: {
     series: any,
     categories: any,
 }) => {
+    const darkMode = useIsDarkMode()
     const uiService = useHtmlClassService();
     const layoutProps = useMemo(() => {
         return {
@@ -38,12 +40,12 @@ const CustomChart = ({chartColor, height, series, categories}: {
         <Chart
             height={height}
             series={series}
-            options={getChartOption(layoutProps, categories, height)}
+            options={getChartOption(layoutProps, categories, height, darkMode)}
             />
     )
 }
 
-function getChartOption(layoutProps: { colorsGrayGray500: any; colorsGrayGray300: any; colorsThemeBaseColor: any; colorsThemeLightColor: any; fontFamily: any; }, categories: any, height: any) {
+function getChartOption(layoutProps: { colorsGrayGray500: any; colorsGrayGray300: any; colorsThemeBaseColor: any; colorsThemeLightColor: any; fontFamily: any; }, categories: any, height: any, darkMode: boolean) {
     return {
         chart: {
             id: 'area-datetime',
@@ -139,6 +141,7 @@ function getChartOption(layoutProps: { colorsGrayGray500: any; colorsGrayGray300
             },
         },
         tooltip: {
+            theme: darkMode ? 'dark' : 'light',
             style: {
                 fontSize: "12px",
                 fontFamily: layoutProps.fontFamily,

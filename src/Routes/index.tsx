@@ -13,10 +13,15 @@ import RouteChanger from '../components/RouteChanger/routeChanger';
 import ConnectPage from '../Pages/Connect';
 import Dashboard from '../Pages/Dashboard';
 import Pools from '../Pages/Pools';
-import Invest from '../Pages/Invest';
+import Explore from '../Pages/Explore';
+import ExploreTypeList from '../Pages/ExploreTypeList';
+import Market from '../Pages/Market';
+import CoinDetails from '../Pages/CoinDetails';
+// import Invest from '../Pages/Invest';
 import Platforms from '../Pages/Platforms';
 import Exchange from '../Pages/Exchange';
 import History from '../Pages/History';
+import BuyCrypto from '../Pages/BuyCrypto';
 import Error404 from '../Pages/Error/404';
 import WalletModal from "../components/WalletModal";
 import { BalanceToken } from "../constants";
@@ -75,7 +80,14 @@ const Routes = () => {
                         <Route path={'/pools'} component={Pools}/>
                         <Route path={'/exchange'} exact component={Exchange}/>
                         <Route path={'/history'} exact component={History}/>
-                        <Route path={'/invest'} exact component={Invest}/>
+                        <Route path={'/explore'} exact component={Explore}/>
+                        <Route path={'/explore/:type'} exact component={ExploreTypeList} />
+                        <Route path={'/explore/:type/:address'} exact component={Explore}/>
+                        <Route path={'/market'} exact component={Market}/>
+                        <Route path={'/market/:id'} exact component={CoinDetails}/>
+                        <Route path={'/coins/:id'} exact component={CoinDetails}/>
+                        <Route path={'/buy'} exact component={BuyCrypto}/>
+                        {/*<Route path={'/invest'} exact component={Invest}/>*/}
                         <Route path={'/platforms/:platform'} exact component={Platforms}/>
                         <Redirect to={'/dashboard'}/>
                     </Switch>
@@ -86,9 +98,14 @@ const Routes = () => {
                     <Route path={'/404'} exact component={Error404}/>
                     <Redirect from={'/dashboard'} to={'/'} exact />
                     <Redirect from={'/pools'} to={'/'} exact />
+                    <Redirect from={'/invest'} to={'/'} exact />
                     <Redirect from={'/exchange'} to={'/'} exact />
                     <Redirect from={'/protocols'} to={'/'} exact />
                     <Redirect from={'/history'} to={'/'} exact />
+                    <Redirect from={'/explore'} to={'/'}/>
+                    <Redirect from={'/market'} to={'/'}/>
+                    <Redirect from={'/coins'} to={'/'}/>
+                    <Redirect from={'/buy'} to={'/'}/>
                     <Redirect to={'/404'}/>
                 </Switch>
             ))}

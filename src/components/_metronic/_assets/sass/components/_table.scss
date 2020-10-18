@@ -23,6 +23,25 @@
 		}
 	}
 
+	&.table-hover {
+		tr {
+			cursor: pointer;
+		}
+		tbody {
+			tr:hover {
+				color: #565A69;
+				background-color: #EDEEF2;
+			}
+		}
+
+		&--dark {
+			tbody tr:hover {
+				background-color: #2C2F36;
+				color: #6C7284;
+			}
+		}
+	}
+
 	&.table-head-borderless {
 		thead {
 			th, td {

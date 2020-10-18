@@ -4,7 +4,6 @@ import {CircularProgress} from "@material-ui/core";
 import moment from 'moment';
 import axios from "axios";
 import { CSVLink } from "react-csv";
-import SVG from "react-inlinesvg";
 
 import CustomCard, { CustomHeader, CustomTitle } from "../../components/CustomCard";
 import SectionList from "../../components/SectionList";
@@ -65,7 +64,7 @@ class History extends React.Component {
         this.setState({
             loading: true,
         })
-        const lastBlockNumber = this.state.blockNumber || await this.getBlockNumber();
+        const lastBlockNumber = this.state.blockNumber || '99999999';
         let txnRes = await axios.get(`https://api.etherscan.io/api?module=account&action=txlist&address=${this.props.web3.account}&startblock=0&endblock=${lastBlockNumber}&page=1&offset=${PAGE_SIZE}&sort=desc&apikey=KM1S3UP6BGICACR5X2IE5E3ZIADV33DKA1`);
         let erc20Res = await axios.get(`https://api.etherscan.io/api?module=account&action=tokentx&address=${this.props.web3.account}&startblock=0&endblock=${lastBlockNumber}&page=1&offset=${PAGE_SIZE}&sort=desc&apikey=KM1S3UP6BGICACR5X2IE5E3ZIADV33DKA1`);
 

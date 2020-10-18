@@ -166,6 +166,10 @@
 
 // Dropdown Toggle
 .dropdown-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	&.nav-link,
 	&.btn {
 		// Arrow icon
@@ -175,19 +179,20 @@
 			text-align: center;
 			display: inline;
 			border: 0;
-			font-size: 0.6rem;
+			font-size: 0.75rem;
+			margin-top: .25rem;
 			line-height: 0;
 			vertical-align: middle;
 			position: relative;
 		}
 
 		&:after {
-			margin-left: 0.5rem#{'/*rtl:ignore*/'};
+			margin-left: 0.75rem#{'/*rtl:ignore*/'};
 			@include ki(get($ki-types, arrowDown));
 		}
 
 		&:before {
-			margin-right: 0.5rem#{'/*rtl:ignore*/'};
+			margin-right: 0.75rem#{'/*rtl:ignore*/'};
 			@include ki(get($ki-types, arrowBack));
 			display: none;
 		}

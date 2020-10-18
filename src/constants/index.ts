@@ -223,3 +223,245 @@ export const Platforms = [
    'curve',
    'balancer',
 ]
+
+export const setProtocolConfig = {
+  coreAddress: '0xf55186CC537E7067EA616F2aaE007b4427a120C8',
+  exchangeIssuanceModuleAddress: '0x73dF03B5436C84Cf9d5A758fb756928DCEAf19d7',
+  kyberNetworkWrapperAddress: '0x9B3Eb3B22DC2C29e878d7766276a86A8395fB56d',
+  protocolViewerAddress: '0x589d4b4d311EFaAc93f0032238BecD6f4D397b0f',
+  rebalanceAuctionModuleAddress: '0xe23FB31dD2edacEbF7d92720358bB92445F47fDB',
+  rebalancingSetExchangeIssuanceModule: '0xd4240987D6F92B06c8B5068B1E4006A97c47392b',
+  rebalancingSetIssuanceModule: '0xcEDA8318522D348f1d1aca48B24629b8FbF09020',
+  rebalancingSetTokenFactoryAddress: '0x15518Cdd49d83471e9f85cdCFBD72c8e2a78dDE2',
+  setTokenFactoryAddress: '0xE1Cd722575801fE92EEef2CA23396557F7E3B967',
+  transferProxyAddress: '0x882d80D3a191859d64477eb78Cca46599307ec1C',
+  vaultAddress: '0x5B67871C3a857dE81A1ca0f9F7945e5670D986Dc',
+  wrappedEtherAddress: '0xc6449473BE76AB2a70329fA66Cbe504a25005338',
+}
+
+export const exploreSections = {
+  tokens: {
+    title: 'Top Tokens',
+    slug: 'tokens',
+    description: 'Top tokens by Market Cap',
+    data: [],
+    loading: true,
+    schema: (row: any) => {
+      return {
+        img: row.image,
+        name: row.name,
+        symbol: row.symbol.toUpperCase(),
+        price: row.current_price,
+        priceDiff: row.price_change_percentage_24h,
+        title: false,
+        src: '/coins/' + row.id
+      }
+    },
+    seeMore: '/explore/tokens',
+
+  },
+  tokenSets: {
+    title: 'Token Sets',
+    slug: 'sets',
+    description: 'Automate trading strategies with TokenSets',
+    data: [],
+    loading: true,
+    schema: (row: any) => {
+      return {
+        img: row.image,
+        name: row.name,
+        symbol: row.short_description,
+        price: row.price_usd,
+        priceDiff: false,
+        title: false,
+      }
+    },
+    seeMore: '/explore/tokenSets',
+
+  },
+  pools: {
+    title: 'Pools',
+    slug: 'pools',
+    description: 'Earn trading fees by providing liquidity in a single transaction',
+    data: [],
+    loading: true,
+    schema: (row: any) => {
+      return {
+        img: `https://token-icons.s3.amazonaws.com/${row.ownershipToken}.png`,
+        name: row.poolName,
+        symbol: row.platform,
+        price: row.usdLiquidity,
+        priceDiff: false,
+        title: 'Total Liquidity',
+      }
+    },
+    seeMore: '/pools',
+  },
+  trending: {
+    title: 'Trending on Coingecko',
+    slug: 'coingecko',
+    description: 'Trending coins (Top-5) on CoinGecko in the last 24 hours',
+    data: [],
+    loading: true,
+    schema: (row: any) => {
+      return {
+        img: row.image.large,
+        name: row.name,
+        symbol: row.symbol.toUpperCase(),
+        price: row.market_data.current_price.usd,
+        priceDiff: row.market_data.price_change_percentage_24h,
+        title: false,
+        src: '/coins/' + row.id
+      }
+    },
+    seeMore: false,
+  },
+  derivatives: {
+    title: 'Top 5 Derivatives',
+    slug: 'derivatives',
+    description: 'Top Derivatives by Volume (24h)',
+    data: [],
+    loading: true,
+    schema: (row: any, imageComponent: any) => {
+      return {
+        imageComponent: imageComponent,
+        name: row.market,
+        symbol: row.symbol.toUpperCase(),
+        price: row.volume_24h,
+        priceDiff: row.price_percentage_change_24h,
+        seeMore: '/explore/derivatives',
+        title: 'Volume (24h)',
+      }
+    },
+    seeMore: false,
+  },
+  gainers: {
+    title: 'Top 5 Gainer Tokens (24h)',
+    slug: 'gainers',
+    description: 'Top 5 Gainer Tokens by Price Change Percentage (24h)',
+    data: [],
+    loading: true,
+    schema: (row: any) => {
+      return {
+        img: row.image,
+        name: row.name,
+        symbol: row.symbol.toUpperCase(),
+        price: row.current_price,
+        priceDiff: row.price_change_percentage_24h,
+        title: false,
+        src: '/coins/' + row.id
+      }
+    },
+    seeMore: false,
+  },
+  losers: {
+    title: 'Top 5 Loser Tokens (24h)',
+    slug: 'losers',
+    description: 'Top 5 Loser Tokens by Price Change Percentage (24h)',
+    data: [],
+    loading: true,
+    schema: (row: any) => {
+      return {
+        img: row.image,
+        name: row.name,
+        symbol: row.symbol.toUpperCase(),
+        price: row.current_price,
+        priceDiff: row.price_change_percentage_24h,
+        title: false,
+        src: '/coins/' + row.id
+      }
+    },
+    seeMore: false,
+  },
+}
+
+export const marketCoins = [
+  {
+    "id": "cardano",
+    "symbol": "ada",
+    "name": "Cardano"
+  },
+  {
+    "id": "bitcoin-cash",
+    "symbol": "bch",
+    "name": "Bitcoin Cash"
+  },
+  {
+    "id": "binancecoin",
+    "symbol": "bnb",
+    "name": "Binance Coin"
+  },
+  {
+    "id": "bancor",
+    "symbol": "bnt",
+    "name": "Bancor Network Token"
+  },
+  {
+    "id":"bitcoin",
+    "symbol":"btc",
+    "name":"Bitcoin"
+  },
+  {
+    "id": "compound-governance-token",
+    "symbol": "comp",
+    "name": "Compound"
+  },
+  {
+    "id":"dai",
+    "symbol":"dai",
+    "name":"Dai"
+  },
+  {
+    "id": "ethereum",
+    "symbol": "eth",
+    "name": "Ethereum"
+  },
+  {
+    "id": "kyber-network",
+    "symbol": "knc",
+    "name": "Kyber Network"
+  },
+  {
+    "id":"ethlend",
+    "symbol":"lend",
+    "name":"Aave"
+  },
+  {
+    "id": "chainlink",
+    "symbol": "link",
+    "name": "Chainlink"
+  },
+  {
+    "id":"litecoin",
+    "symbol":"ltc",
+    "name":"Litecoin"
+  },
+  {
+    "id":"republic-protocol",
+    "symbol":"ren",
+    "name":"REN"
+  },
+  {
+    "id":"havven",
+    "symbol":"snx",
+    "name":"Synthetix Network Token"
+  },
+  {
+    "id":"ripple",
+    "symbol":"xrp",
+    "name":"XRP"
+  },
+];
+
+export const cryptoBuyCurrencies = [
+  {
+    image: require('../assets/images/currencies/GBP.svg'),
+    symbol: 'GBP',
+    notation: '£'
+  },
+  {
+    image: require('../assets/images/currencies/EUR.svg'),
+    symbol: 'EUR',
+    notation: '€'
+  },
+]

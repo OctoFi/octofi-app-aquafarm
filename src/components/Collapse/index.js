@@ -141,9 +141,10 @@ const Collapse = (props) => {
             to = [],
             ref = null;
         props.txn.map(txnPart => {
-            if(txnPart.from === account) {
+            if(txnPart.from === account.toLowerCase()) {
+                console.log('im here');
                 from.push(txnPart);
-            } else if(txnPart.to === account) {
+            } else if(txnPart.to === account.toLowerCase()) {
                 to.push(txnPart);
             }
             ref = txnPart;
@@ -153,7 +154,7 @@ const Collapse = (props) => {
             to,
             ref
         }
-    }, [props.txn, account])
+    }, [props.txn, account.toLowerCase()])
 
 
 
@@ -259,7 +260,7 @@ const Collapse = (props) => {
                 </HeaderSection>
                 <HeaderSection className="d-flex flex-column justify-content-center align-items-end">
                     <span className="text-muted font-size-sm font-weight-light mb-1">{tokens.from.length > 0 ? 'Application' : 'From'}</span>
-                    <span className="label label-inline label-light-primary label-lg">{tokens.from.length > 0 ? hashText(tokens.from[0].to) : hashText(tokens.to[0].from)}</span>
+                    <span className="label label-inline label-light-primary label-lg">{tokens.from.length > 0 ? hashText(tokens.from[0].to) : tokens.to.length > 0 ? hashText(tokens.to[0].from) : ''}</span>
                 </HeaderSection>
             </Header>
             <div ref={content}>

@@ -59,7 +59,7 @@ const Connect = props => {
                             {/* start:: Aside footer for desktop */}
                             <div className="d-none flex-column-auto d-lg-flex justify-content-between mt-10">
                                 <div className="opacity-70 font-weight-bold	text-white">
-                                    &copy; Decentralized Finance Tentacles<a href="https://octo.fi" className="text-white">OctoFi</a>
+                                    &copy; Decentralized Finance Tentacles by <a href="https://octo.fi" className="text-white">OctoFi</a>
                                 </div>
                             </div>
                             {/* end:: Aside footer for desktop */}

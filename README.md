@@ -6,7 +6,7 @@
 
 <p>
 <a href="">
-  <img alt="first release" src="https://img.shields.io/badge/beta-v1.50-brightgreen.svg" />
+  <img alt="first release" src="https://img.shields.io/badge/beta-v1.60-brightgreen.svg" />
 </a>
 
 <a href="https://www.npmjs.com/package/npm">
@@ -19,10 +19,10 @@
 
 <p>✨ <strong>Aquafarm</strong> is a dashboard for tracking your DeFi portfolio, finding new investment opportunities, buy / sell directly and wrap your tentacles around a sea of gains. We build this interface with our mission in mind, creating something simple to use and adding our salt & pepper to the DeFi revolution ✨</p>
 
-<p><a href="https://app.octo.fi" class="btn btn-primary btn-md">Launch Aquafarm dApp</a></p>
+<p><a href="https://app.octo.fi" class="btn btn-primary btn-md">Launch Aquafarm DApp</a></p>
 </div>
 
-## Features [Beta 1.50.0]
+## Features [Beta 1.60.0]
 * 🔩 <strong>Simple: </strong> Even a shrimp understands
 
 * 📊 <strong>Overview: </strong> We help you to get a better, real-time overview of your investments
