@@ -7,8 +7,8 @@ import { AppState } from "../../state";
 export default function OpenSeaContainer() {
   const assets = useSelector((state: AppState) => state.opensea.assets);
   const assetList = assets.map((asset, index) => (
-    <div className='col mb-8'>
-      <OpenSeaCard key={index} asset={asset} />
+    <div className='col mb-8' key={index}>
+      <OpenSeaCard asset={asset} />
     </div>
   ));
 
