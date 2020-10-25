@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import styled from "styled-components";
+import { LightCard } from "../Card";
 
 interface Props {
   asset: any;
@@ -14,6 +15,8 @@ const DivImgWrapper = styled.div(({ image }: { image: string }) => ({
   backgroundRepeat: "no-repeat",
   maxHeight: "100%",
   backgroundImage: `url('${image}')`,
+  borderTopLeftRadius: "16px",
+  borderTopRightRadius: "16px",
 }));
 
 function OpenSeaCard({ asset, className }: Props) {
@@ -21,7 +24,7 @@ function OpenSeaCard({ asset, className }: Props) {
 
   return (
     <>
-      <div className={`card h-100 nft-card ${className ? className : ""}`}>
+      <LightCard padding='0' className={`h-100 nft-card ${className || ""}`}>
         <DivImgWrapper image={image_preview_url}>
           <img
             src={image_preview_url}
@@ -39,7 +42,7 @@ function OpenSeaCard({ asset, className }: Props) {
           </a>
         </div>
         {/* end::Body */}
-      </div>
+      </LightCard>
     </>
   );
 }
