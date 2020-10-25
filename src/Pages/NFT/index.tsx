@@ -5,7 +5,7 @@ import { AppState } from "../../state";
 import CustomCard, { CustomHeader, CustomTitle } from "../../components/CustomCard";
 import OpenSeaCard from "../../components/OpenSeaCard";
 
-const OpenSea = () => {
+const NFT = () => {
   const assets = useSelector((state: AppState) => state.opensea.assets);
   const assetList = assets.map((asset, index) => (
     <div className='col mb-8' key={index}>
@@ -45,4 +45,4 @@ const OpenSea = () => {
   );
 };
 
-export default OpenSea;
+export default NFT;

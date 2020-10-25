@@ -90,9 +90,9 @@ export function HeaderMenu({ layoutProps }) {
             </li>
             {/*end::1 Level*/}
             {/*begin::1 Level*/}
-            <li className={`menu-item menu-item-rel ${getMenuItemActive('/opensea')}`}>
-                <NavLink className="menu-link" to="/opensea">
-                    <span className="menu-text">OpenSea</span>
+            <li className={`menu-item menu-item-rel ${getMenuItemActive('/nft')}`}>
+                <NavLink className="menu-link" to="/nft">
+                    <span className="menu-text">NFT</span>
                     {layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}
                 </NavLink>
             </li>

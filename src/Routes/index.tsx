@@ -21,7 +21,7 @@ import CoinDetails from '../Pages/CoinDetails';
 // import Invest from '../Pages/Invest';
 import Platforms from '../Pages/Platforms';
 import Exchange from '../Pages/Exchange';
-import OpenSea from '../Pages/OpenSea';
+import NFT from '../Pages/NFT';
 import History from '../Pages/History';
 import BuyCrypto from '../Pages/BuyCrypto';
 import Governance from '../Pages/Governance';
@@ -124,7 +124,7 @@ const Routes = () => {
                         <Route path={'/governance/:space'} exact component={Proposals}/>
                         <Route path={'/governance/:space/proposal/:id'} exact component={Vote}/>
                         {/*<Route path={'/invest'} exact component={Invest}/>*/}
-                        <Route path={'/opensea'} exact component={OpenSea}/>
+                        <Route path={'/nft'} exact component={NFT}/>
                         <Route path={'/platforms/:platform'} exact component={Platforms}/>
                         <Redirect to={'/dashboard'}/>
                     </Switch>
