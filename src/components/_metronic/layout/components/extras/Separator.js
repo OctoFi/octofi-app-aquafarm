@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const Separator = styled.div`

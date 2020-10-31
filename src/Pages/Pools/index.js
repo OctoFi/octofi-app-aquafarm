@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Row, Col } from 'react-bootstrap';
 import { Route, Switch } from 'react-router-dom';
 
-import { PoolsUIProvider } from "./PoolsUIProvider";
 import { PoolsCard } from "./PoolsCard";
 import AddLiquidityModal from "../../components/AddLiquidityModal";
 import UniswapLiquidityModal from '../../components/AddLiquidityModal/uniswap';
@@ -12,15 +11,15 @@ import ValueCard from "../../components/ValueCard";
 
 class Pools extends Component {
     investButtonClick = () => {
-        this.props.history.push("/pools/ETH/undefined", );
+        this.props.history.push("/pools/ETH/undefined");
     }
-    addLiquidityDialog = (id, pool) => {
-        if(pool.platform.toLowerCase() === 'uniswap-v2') {
-            const currencyA = pool.assets[0].symbol.toUpperCase() === 'ETH' ? 'ETH' : pool.assets[0].address;
-            const currencyB = pool.assets[1].address
+    addLiquidityDialog = (type, pool) => {
+        if(type === 'Uniswap') {
+            const currencyA = pool.token0.symbol.toUpperCase() === 'ETH' ? 'ETH' : pool.token0.id;
+            const currencyB = pool.token1.id
             this.props.history.push(`/pools/${currencyA}/${currencyB}`)
         } else {
-            this.props.setSelectedPool(pool);
+            this.props.setSelectedPool(type, pool);
             this.props.history.push(`/pools/ETH/`)
         }
     }
@@ -40,12 +39,7 @@ class Pools extends Component {
                 </Row>
                 <Row>
                     <Col span={12}>
-                        <PoolsUIProvider poolsUIEvents={{
-                            investButtonClick: this.investButtonClick,
-                            addLiquidityDialog: this.addLiquidityDialog,
-                        }}>
-                            <PoolsCard />
-                        </PoolsUIProvider>
+                        <PoolsCard investHandler={this.investButtonClick} addLiquidityHandler={this.addLiquidityDialog}/>
                     </Col>
                 </Row>
                 <Switch>
@@ -66,7 +60,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setSelectedPool: (pool) => dispatch(actions.selectPool(pool))
+        setSelectedPool: (type, pool) => dispatch(actions.selectPool(type, pool))
     }
 }
 

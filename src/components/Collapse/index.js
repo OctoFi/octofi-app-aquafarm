@@ -103,6 +103,11 @@ const DescValue = styled.span`
   font-size: .875rem;
   color: ${({ theme }) => theme.text3};
 `
+const DescAnchor = styled.a`
+  font-weight: 400;
+  font-size: .875rem;
+  color: ${({ theme }) => theme.text3};
+`
 
 const TradeSide = styled.div`
   min-width: 172px;
@@ -133,16 +138,15 @@ const Collapse = (props) => {
         }
 
         setShow(!show);
-    }, [show, height, header.current, content.current]);
+    }, [show]);
 
 
     let tokens = useMemo(() => {
         let from = [],
             to = [],
             ref = null;
-        props.txn.map(txnPart => {
+        props.txn.forEach(txnPart => {
             if(txnPart.from === account.toLowerCase()) {
-                console.log('im here');
                 from.push(txnPart);
             } else if(txnPart.to === account.toLowerCase()) {
                 to.push(txnPart);
@@ -154,7 +158,7 @@ const Collapse = (props) => {
             to,
             ref
         }
-    }, [props.txn, account.toLowerCase()])
+    }, [props.txn, account])
 
 
 
@@ -164,23 +168,25 @@ const Collapse = (props) => {
                 <HeaderSection className="d-flex align-items-center">
                     <TypeIcon>
                         {
-                            tokens.ref.value === '0' ?
+                            tokens.ref.value === '0' && props.txn.length === 1 ?
                                 <FileIcon size={28} fill={theme.text1}/>
                             : tokens.from.length === 1 && tokens.to.length === 1 ?
                                 <ExchangeIcon size={28} fill={theme.text1}/>
-                            : tokens.from.length > 1 || tokens.to.length > 1 ?
+                            : (tokens.from.length > 1 && tokens.to.length === 1) || (tokens.from.length === 1 && tokens.to.length > 1) ?
                                 <ArrowUpIcon size={28} fill={theme.text1}/>
                             : <ArrowDownIcon size={28} fill={theme.text1}/>
                         }
                     </TypeIcon>
                     <div className=" d-flex justify-content-center flex-column ml-3">
                         <span className="font-size-lg font-weight-bold">{
-                            tokens.ref.value === '0' ?
+                            tokens.ref.value === '0' && props.txn.length === 1 ?
                                 'Contracts / Approval'
                             : tokens.from.length === 1 && tokens.to.length === 1 ?
                                 'Trade'
-                            : tokens.from.length > 1 || tokens.to.length > 1 ?
+                            : (tokens.from.length > 1 && tokens.to.length === 1) || (tokens.from.length === 1 && tokens.to.length > 1) ?
                                 'Add Liquidity'
+                            : (tokens.from.length > 1) || tokens.to.length > 1 ?
+                                'Swap'
                             : 'Receive'
                         }</span>
                         <span className="font-size-sm font-weight-light text-muted">{moment(tokens.ref.timeStamp ,'X').format('hh:MM A')}</span>
@@ -320,7 +326,7 @@ const Collapse = (props) => {
                     <VerticalSeparator margin={1.5}/>
                     <Details>
                         <DescTitle>Transaction Hash</DescTitle>
-                        <DescValue>{tokens.ref.hash}</DescValue>
+                        <DescAnchor href={`https://etherscan.io/tx/${tokens.ref.hash}`} target={'_blank'} rel={'noopener noreferrer'}>{tokens.ref.hash.slice(0, 10)}...{tokens.ref.hash.slice(-8)} ↗</DescAnchor>
                     </Details>
                 </Body>
             </div>

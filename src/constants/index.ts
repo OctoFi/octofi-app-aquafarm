@@ -3,7 +3,7 @@ import { ChainId, JSBI, Percent, Token, WETH } from '@uniswap/sdk'
 export const ROUTER_ADDRESS = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
 
 export const CONTRACTS = {
-  curve: '0x598089cf2a190dff39eb66e7b529f06aad93931b',
+  curve: '0xcCdd1f20Fd50DD63849A87994bdD11806e4363De',
   balancer: '0xA3128cC400E2878571368ae0a83F588Eb838552b',
   yVault: '0x9c57618bfCDfaE4cE8e49226Ca22A7837DE64A2d',
   uniswap: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'

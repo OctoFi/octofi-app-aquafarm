@@ -13,7 +13,6 @@ import { cryptoBuyCurrencies } from "../../constants";
 import {ArrowWrapper} from "../../components/swap/styleds";
 import {ArrowDown} from "react-feather";
 import {ClickableText} from "../../components/ExternalLink";
-import {toAbsoluteUrl} from "../../lib/helper";
 import withWeb3Account from "../../components/hoc/withWeb3Account";
 
 class BuyCrypto extends React.Component {

@@ -34,7 +34,7 @@ function Platforms(props) {
                 assets: 0,
                 debts: 0
             }
-            p.balances.map(balance => {
+            p.balances.forEach(balance => {
                 if(balance.metadata.type === 'Debt') {
                     account.debts += balance.total;
                 } else {
@@ -66,7 +66,7 @@ function Platforms(props) {
             </Row>
             {platform && platform.balances.map(asset => {
                 let data = [];
-                asset.balances.map(balance => {
+                asset.balances.forEach(balance => {
                     if(balance.underlying.length === 0) {
                         const baseCurrency = new Token(chainId, balance.base.metadata.address, balance.base.metadata.decimals, balance.base.metadata.symbol, balance.base.metadata.name)
                         data.push([

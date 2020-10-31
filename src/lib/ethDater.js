@@ -35,7 +35,7 @@ export default class {
 
     async getDate(date, after = true) {
         if (!moment.isMoment(date)) date = moment(date).utc();
-        if (typeof this.firstTimestamp == 'undefined' || this.blockTime == 'undefined') await this.getBlockTime();
+        if (typeof this.firstTimestamp === 'undefined' || this.blockTime === 'undefined') await this.getBlockTime();
         if (date.isBefore(this.firstTimestamp)) return { date: date.format(), block: 1 };
         if (date.isSameOrAfter(this.savedBlocks.latest)) return { date: date.format(), block: await this.getBlockNumber() };
         this.checkedBlocks[date.unix()] = [];
@@ -53,7 +53,7 @@ export default class {
             dates.push(current.format());
             current.add(every, duration);
         }
-        if (typeof this.firstTimestamp == 'undefined' || this.blockTime == 'undefined') await this.getBlockTime();
+        if (typeof this.firstTimestamp === 'undefined' || this.blockTime === 'undefined') await this.getBlockTime();
         return await Promise.all(dates.map((date) => this.getDate(date, after)));
     }
 
@@ -61,7 +61,7 @@ export default class {
         if (await this.isBetterBlock(date, predictedBlock, after)) return predictedBlock.number;
         let difference = date.diff(moment.unix(predictedBlock.timestamp), 'seconds');
         let skip = Math.ceil(difference / blockTime);
-        if (skip == 0) skip = difference < 0 ? -1 : 1;
+        if (skip === 0) skip = difference < 0 ? -1 : 1;
         let nextPredictedBlock = await this.getBlockWrapper(this.getNextBlock(date, predictedBlock.number, skip));
         blockTime = Math.abs(
             (parseInt(predictedBlock.timestamp, 10) - parseInt(nextPredictedBlock.timestamp, 10)) /
@@ -96,7 +96,7 @@ export default class {
         let {timestamp} = await this.getBlock(block);
         this.savedBlocks[block] = {
             timestamp: timestamp,
-            number: block == 'latest' ? await this.getBlockNumber() : block
+            number: block === 'latest' ? await this.getBlockNumber() : block
         };
         this.requests++;
         return this.savedBlocks[block];

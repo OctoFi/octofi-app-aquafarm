@@ -22,7 +22,7 @@ const PlatformLogo = props => {
     return (
         <Wrapper size={props.size}>
             <LogoImage
-                src={toAbsoluteUrl(`/media/platforms/${props.platform.split('-')[0].toLowerCase()}.svg`)}
+                src={toAbsoluteUrl(`/media/platforms/${props.platform}.svg`)}
                 alt={props.name}
                 />
         </Wrapper>

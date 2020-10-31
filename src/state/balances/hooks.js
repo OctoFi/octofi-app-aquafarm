@@ -7,7 +7,7 @@ import {useAllTokenBalances, useETHBalances} from "../wallet/hooks";
 import {ETHER} from "@uniswap/sdk";
 
 export const useMemoTokenBalances = () => {
-    const { chainId, account } = useActiveWeb3React();
+    const { account } = useActiveWeb3React();
     const walletBalances = useAllTokenBalances()
     const ethBalance = useETHBalances([account]);
 
@@ -16,7 +16,7 @@ export const useMemoTokenBalances = () => {
             ETHER: ethBalance[account] || null,
             ...walletBalances
         }
-    }, [chainId, account, walletBalances])
+    }, [account, walletBalances, ethBalance])
 }
 
 export const getBalances = (balances, wallet, ethRate) => {
@@ -48,7 +48,7 @@ export const getBalances = (balances, wallet, ethRate) => {
             }
         }
 
-        Object.keys(wallet).map(key => {
+        Object.keys(wallet).forEach(key => {
             const balance = Number(wallet[key] ? wallet[key].toSignificant(6) : 0);
             if(balance !== 0 || key === 'ETHER') {
                 tokens.push({

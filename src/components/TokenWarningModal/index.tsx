@@ -15,7 +15,7 @@ import { AlertTriangle } from 'react-feather'
 const Wrapper = styled.div<{ error: boolean }>`
   background: ${({ theme }) => transparentize(0.6, theme.bg3)};
   padding: 0.75rem;
-  border-radius: 20px;
+  border-radius: 0.42rem;
 `
 
 const StyledWarningIcon = styled(AlertTriangle)`

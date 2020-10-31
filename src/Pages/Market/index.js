@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Row, Col, Tab, Nav } from 'react-bootstrap';
+import {Row, Col, Tab, Nav, Form, FormControl} from 'react-bootstrap';
 import BootstrapTable from 'react-bootstrap-table-next';
 import {CircularProgress} from "@material-ui/core";
-import styled from "styled-components";
+import styled, {ThemeContext} from "styled-components";
 
 
 import CustomCard, {CustomHeader} from "../../components/CustomCard";
 import {fetchAllCoins, fetchMarketCoins} from '../../state/market/actions';
-import {getHandlerTableChange, NoRecordsFoundMessage, PleaseWaitMessage} from "../../components/_metronic/_helpers";
+import {NoRecordsFoundMessage, PleaseWaitMessage} from "../../components/_metronic/_helpers";
 import CurrencyLogo from "../../components/CurrencyLogo";
 import CurrencyText from "../../components/CurrencyText";
 import ArrowUp from "../../components/Icons/ArrowUp";
@@ -16,7 +16,6 @@ import ArrowDown from "../../components/Icons/ArrowDown";
 import {useIsDarkMode} from "../../state/user/hooks";
 import paginationFactory, {PaginationProvider} from "react-bootstrap-table2-paginator";
 import {Pagination} from "../../components/_metronic/_partials/controls";
-import * as uiHelpers from "../Pools/PoolsUIHelper";
 
 const Logo = styled.img`
   width: 48px;
@@ -30,20 +29,42 @@ const CustomTitle = styled.h4`
 `
 
 const Market = props => {
+    const [filter, setFilter] = useState("");
     const [page, setPage] = useState(1);
+    const [marketCoinsData, setMarketCoinsData] = useState([]);
+    const [allTokensData, setAllTokensData] = useState([]);
     const [pageSize, setPageSize] = useState(50);
     const dispatch = useDispatch();
-    const marketCoinsData = useSelector(state => state.market.marketCoins);
-    const allTokensData = useSelector(state => state.market.allTokens);
+    const marketCoins = useSelector(state => state.market.marketCoins);
+    const allTokens = useSelector(state => state.market.allTokens);
     const darkMode = useIsDarkMode();
+    const theme = useContext(ThemeContext);
 
     useEffect(() => {
         dispatch(fetchMarketCoins());
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         dispatch(fetchAllCoins(page, pageSize));
-    }, [page, pageSize])
+    }, [page, pageSize, dispatch])
+
+    useEffect(() => {
+        const filterText = filter.trim().toLowerCase();
+        if(filterText.length > 0) {
+            setAllTokensData(allTokens.data.filter(token => token.name.toLowerCase().indexOf(filterText) > -1 || token.symbol.toLowerCase().indexOf(filterText) > -1))
+        } else {
+            setAllTokensData(allTokens.data)
+        }
+    }, [allTokens, filter])
+
+    useEffect(() => {
+        const filterText = filter.trim().toLowerCase();
+        if(filterText.length > 0) {
+            setMarketCoinsData(marketCoins.data.filter(token => token.name.toLowerCase().indexOf(filterText) > -1 || token.symbol.toLowerCase().indexOf(filterText) > -1))
+        } else {
+            setMarketCoinsData(marketCoins.data)
+        }
+    }, [marketCoins, filter])
 
     const columns = (hasPagination) => [
         {
@@ -162,6 +183,11 @@ const Market = props => {
         }
     }
 
+    const changeFilter = (e) => {
+        const filterText = e.target.value.trim().toLowerCase();
+        setFilter(filterText);
+    }
+
     const changeTableHandler = (type, data) => {
         if(data.page) {
             setPage(data.page);
@@ -173,7 +199,7 @@ const Market = props => {
 
     const paginationOptions = {
         custom: true,
-        totalSize: allTokensData.total,
+        totalSize: allTokens.total,
         sizePerPageList: [
             { text: "10", value: 10 },
             { text: "20", value: 20 },
@@ -205,34 +231,60 @@ const Market = props => {
 
                                 <Tab.Content className={'bg-transparent'}>
                                     <Tab.Pane eventKey="featured">
-                                        {marketCoinsData.loading ? (
+                                        {marketCoins.loading ? (
                                             <div className="d-flex align-items-center justify-content-center py-10">
                                                 <CircularProgress color={'primary'} style={{ width: 40, height: 40 }}/>
                                             </div>
                                         ) : (
-                                            <BootstrapTable
-                                                wrapperClasses="table-responsive"
-                                                bordered={false}
-                                                classes={`table table-head-custom table-vertical-center overflow-hidden table-dark-border table-hover ${darkMode && 'table-hover--dark'}`}
-                                                bootstrap4
-                                                remote
-                                                keyField="id"
-                                                columns={columns(false)}
-                                                data={marketCoinsData.data}
-                                                rowEvents={rowEvents}
-                                            >
-                                                <PleaseWaitMessage entities={marketCoinsData.data} />
-                                                <NoRecordsFoundMessage entities={marketCoinsData.data} />
-                                            </BootstrapTable>
+                                            <>
+                                                <div className="d-flex align-items-center justify-content-center gutter-b">
+                                                    <Form.Control
+                                                        value={filter}
+                                                        onChange={changeFilter}
+                                                        placeholder={"Search Asset"}
+                                                        style={darkMode ? {
+                                                            backgroundColor: theme.bg2,
+                                                            borderColor: theme.bg4,
+                                                            color: theme.text1,
+                                                        } : {}}
+                                                    />
+                                                </div>
+                                                <BootstrapTable
+                                                    wrapperClasses="table-responsive"
+                                                    bordered={false}
+                                                    classes={`table table-head-custom table-vertical-center overflow-hidden table-dark-border table-hover ${darkMode && 'table-hover--dark'}`}
+                                                    bootstrap4
+                                                    remote
+                                                    keyField="id"
+                                                    columns={columns(false)}
+                                                    data={marketCoinsData}
+                                                    rowEvents={rowEvents}
+                                                >
+                                                    <PleaseWaitMessage entities={marketCoinsData} />
+                                                    <NoRecordsFoundMessage entities={marketCoinsData} />
+                                                </BootstrapTable>
+                                            </>
                                         )}
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="all">
 
+                                        <div className="d-flex align-items-center justify-content-center gutter-b">
+                                            <Form.Control
+                                                value={filter}
+                                                onChange={changeFilter}
+                                                placeholder={"Search Asset"}
+                                                style={darkMode ? {
+                                                    backgroundColor: theme.bg2,
+                                                    borderColor: theme.bg4,
+                                                    color: theme.text1,
+                                                } : {}}
+                                            />
+                                        </div>
                                         <PaginationProvider pagination={paginationFactory(paginationOptions)}>
                                             {({ paginationProps, paginationTableProps }) => {
                                                 return (
                                                     <Pagination
-                                                        isLoading={allTokensData.loading}
+                                                        isLoading={allTokens.loading}
                                                         paginationProps={paginationProps}
                                                     >
                                                         <BootstrapTable
@@ -243,13 +295,13 @@ const Market = props => {
                                                             remote
                                                             keyField="id"
                                                             columns={columns(true)}
-                                                            data={allTokensData.data}
+                                                            data={allTokensData}
                                                             rowEvents={rowEvents}
                                                             onTableChange={changeTableHandler}
                                                             {...paginationTableProps}
                                                         >
-                                                            <PleaseWaitMessage entities={allTokensData.data} />
-                                                            <NoRecordsFoundMessage entities={allTokensData.data} />
+                                                            <PleaseWaitMessage entities={allTokensData} />
+                                                            <NoRecordsFoundMessage entities={allTokensData} />
                                                         </BootstrapTable>
                                                     </Pagination>
                                                 );

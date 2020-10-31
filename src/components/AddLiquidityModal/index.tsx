@@ -1,5 +1,4 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import { BigNumber } from '@ethersproject/bignumber'
 import { useSelector, useDispatch } from "react-redux";
 import SVG from "react-inlinesvg";
 import {Button, Modal, Row, Col} from 'react-bootstrap';
@@ -14,7 +13,6 @@ import GasPrice from "../GasPrice";
 
 import { TransactionResponse } from '@ethersproject/providers'
 import { TokenAmount } from '@uniswap/sdk'
-import ReactGA from 'react-ga'
 import { RouteComponentProps } from 'react-router-dom'
 import { Text } from 'rebass'
 import { AutoColumn } from '../Column'
@@ -30,7 +28,6 @@ import { useTransactionAdder } from '../../state/transactions/hooks'
 import {useDarkModeManager, useUserSlippageTolerance} from '../../state/user/hooks'
 import { TYPE } from '../../theme'
 import { calculateGasMargin, calculateSlippageAmount, getContract } from '../../utils'
-import { wrappedCurrency } from '../../utils/wrappedCurrency'
 import { Field } from '../../state/mint/actions'
 import CurrencyLogo from "../CurrencyLogo";
 import { CONTRACTS } from '../../constants';
@@ -72,15 +69,16 @@ export default function({
     history,
 }: RouteComponentProps)  {
     const { account, chainId, library } = useActiveWeb3React()
-
     const dispatch = useDispatch();
 
     const {gasPrice, selectedGasPrice} = useSelector((state: AppState) => state.currency);
-    const pool = useSelector((state: AppState) => state.pools.selected)
+    const selectedPool = useSelector((state: AppState) => state.pools.selected)
+    const pool = selectedPool.data;
+    const type = selectedPool.type;
     const [darkMode] = useDarkModeManager();
 
     useEffect(() => {
-        if(pool.exchange === '' || pool.exchange === undefined) {
+        if(!pool) {
             dispatch(clearSelectedPool());
             history.push('/pools');
         }
@@ -146,15 +144,16 @@ export default function({
     async function onAdd() {
         if (!chainId || !library || !account) return
         let router;
-        if(pool?.platform?.toLowerCase() === 'curve') {
+        if(type && type.toLowerCase() === 'curve') {
             router = getContract(CONTRACTS.curve, curvePipeABI, library, account);
-        } else if(pool?.platform?.toLowerCase() === 'balancer') {
+        } else if(type && type.toLowerCase() === 'balancer') {
             router = getContract(CONTRACTS.balancer, balancerPipeABI, library, account);
-        } else if(pool?.platform?.toLowerCase() === 'yvault') {
+        } else if(type && type.toLowerCase() === 'yearn') {
             router = getContract(CONTRACTS.yVault, yVaultPipeABI, library, account);
         } else {
             return;
         }
+
 
         const { [Field.CURRENCY_A]: parsedAmountA } = parsedAmounts
         if (!parsedAmountA || !currencyA || !deadline) {
@@ -167,25 +166,41 @@ export default function({
 
         let estimate,
             method: (...args: any) => Promise<TransactionResponse>,
-            args: Array<string | string[] | number>,
-            value: BigNumber | null
-        const tokenBIsETH = false;
-            estimate = router.estimateGas.addLiquidityETH
-            method = router.addLiquidityETH
+            args: Array<string | string[] | number>
+        estimate = router.estimateGas.ZapIn
+        method = router.ZapIn
+
+        args = []
+        if(type && type.toLowerCase() === 'curve') {
             args = [
-                wrappedCurrency(tokenBIsETH ? currencyA : undefined, chainId)?.address ?? '', // token
-                parsedAmountA.raw.toString(), // token desired
-                amountsMin[Field.CURRENCY_A].toString(), // eth min
                 account,
-                deadline.toHexString()
+                '0x00',
+                pool.address, // token
+                parsedAmountA.raw.toString(),
+                amountsMin[Field.CURRENCY_A].toString()
             ]
-            value = BigNumber.from(parsedAmountA.raw.toString())
+        } else if(type && type.toLowerCase() === 'balancer') {
+            args = [
+                '0x00',
+                pool.address,
+                parsedAmountA.raw.toString(),
+                amountsMin[Field.CURRENCY_A].toString()
+            ]
+        } else if(type && type.toLowerCase() === 'yearn') {
+            args = [
+                account,
+                pool.address,
+                0,
+                '0x00',
+                parsedAmountA.raw.toString(),
+                amountsMin[Field.CURRENCY_A].toString()
+            ]
+        }
 
         setAttemptingTxn(true)
-        await estimate(...args, value ? { value } : {})
+        await estimate(...args)
             .then(estimatedGasLimit =>
                 method(...args, {
-                    ...(value ? { value } : {}),
                     gasLimit: calculateGasMargin(estimatedGasLimit)
                 }).then(response => {
                     setAttemptingTxn(false)
@@ -200,11 +215,6 @@ export default function({
 
                     setTxHash(response.hash)
 
-                    ReactGA.event({
-                        category: 'Liquidity',
-                        action: 'Add',
-                        label: [currencies[Field.CURRENCY_A]?.symbol, currencies[Field.CURRENCY_B]?.symbol].join('/')
-                    })
                 })
             )
             .catch(error => {
@@ -228,12 +238,12 @@ export default function({
                         {liquidityMinted?.toSignificant(6)}
                     </Text>
                     <div className={'d-flex align-items-center'}>
-                        <PlatformLogo platform={pool.platform} name={pool.poolName} size={36}/>
+                        <PlatformLogo platform={type} name={pool?.poolName} size={36}/>
                     </div>
                 </RowFlat>
                 <Row className={'px-5'}>
                     <Text fontSize="24px">
-                        {pool.poolName + ' Pool Tokens'}
+                        {pool?.poolName + ' Pool Tokens'}
                     </Text>
                 </Row>
                 <TYPE.italic fontSize={12} textAlign="left" padding={'8px 0 0 0 '}>
@@ -254,9 +264,9 @@ export default function({
                     </RowFixed>
                 </RowBetween>
                 <RowBetween>
-                    <TYPE.body>{pool.poolName} Output</TYPE.body>
+                    <TYPE.body>{pool?.poolName} Output</TYPE.body>
                     <RowFixed>
-                        <PlatformLogo platform={pool.platform} name={pool.poolName} size={24}/>
+                        <PlatformLogo platform={type} name={pool?.poolName} size={24}/>
                     </RowFixed>
                 </RowBetween>
                 <Button variant={'primary'} className={'py-6 font-weight-bolder font-size-lg'} style={{ margin: '20px 0 0 0' }} onClick={onAdd}>
@@ -354,8 +364,8 @@ export default function({
                                 </Row>
                                 <Row className={'px-4 pb-3'}>
                                     <Col xs={12} className={'d-flex align-items-center'}>
-                                        <PlatformLogo size={48} platform={pool.platform} name={pool.poolName} />
-                                        <h5 className="font-size-lg text-dark font-weight-boldest ml-3 mb-0">{pool.poolName}</h5>
+                                        <PlatformLogo size={48} platform={type} name={pool?.poolName} />
+                                        <h5 className="font-size-lg text-dark font-weight-boldest ml-3 mb-0">{pool?.poolName}</h5>
                                     </Col>
                                 </Row>
                             </Wrapper>

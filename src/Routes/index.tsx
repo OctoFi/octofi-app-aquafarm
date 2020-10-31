@@ -22,11 +22,17 @@ import Platforms from '../Pages/Platforms';
 import Exchange from '../Pages/Exchange';
 import History from '../Pages/History';
 import BuyCrypto from '../Pages/BuyCrypto';
+import Governance from '../Pages/Governance';
+import Proposals from '../Pages/Proposals';
+import CreateProposal from '../Pages/CreateProposal';
+import Vote from '../Pages/Vote';
+import AddBalance from '../Pages/AddBalance';
 import Error404 from '../Pages/Error/404';
 import WalletModal from "../components/WalletModal";
 import { BalanceToken } from "../constants";
 import { useMemoTokenBalance } from '../hooks/checkBalance';
 import SplashScreen from '../components/SplashScreen';
+import {haveEnoughBalance} from "../state/account/actions";
 
 
 const Routes = () => {
@@ -37,6 +43,7 @@ const Routes = () => {
     const balances = useSelector((state: AppState) => state.balances.data);
     // @ts-ignore
     const { ETH } = useSelector((state: AppState) => state.currency.currenciesRate)
+    const accountBalance = useSelector((state: AppState) => state.account.enoughCoinBalance)
     const dispatch = useDispatch();
     const walletBalances = useMemoTokenBalances()
 
@@ -46,17 +53,18 @@ const Routes = () => {
         if(account) {
             setLoading(true)
             if(TokenBalance) {
-                setLoading(false)
                 const value = TokenBalance.toSignificant(6);
                 if (Number(value) < 1) {
-                    enqueueSnackbar(`You are not able to access our product, Please hold at least 1 ${process.env.REACT_APP_BALANCE_CHECK_TOKEN_SYMBOL}.`, { variant: 'error' })
-                    deactivate();
+                    dispatch(haveEnoughBalance(false));
+                } else {
+                    dispatch(haveEnoughBalance(true));
                 }
+                setLoading(false)
             }
         } else {
             setLoading(false);
         }
-    }, [account, typeof TokenBalance])
+    }, [account, TokenBalance, enqueueSnackbar, deactivate, dispatch])
 
     useEffect(() => {
         if(account) {
@@ -66,14 +74,31 @@ const Routes = () => {
 
     useEffect(() => {
         dispatch(fetchTransformedBalances(balances, walletBalances, ETH));
-    }, [balances, walletBalances]);
+    }, [balances, walletBalances, ETH, dispatch]);
 
     return (
         <>
             <RouteChanger/>
-            <WalletModal TokenBalance={TokenBalance}/>
+            <WalletModal/>
             <SplashScreen loading={loading}/>
-            {!loading && (account ? (
+            {!loading && (!account ? (
+                    <Switch>
+                        <Route path={'/'} exact component={ConnectPage}/>
+                        <Route path={'/404'} exact component={Error404}/>
+                        <Redirect from={'/dashboard'} to={'/'} exact />
+                        <Redirect from={'/pools'} to={'/'} exact />
+                        <Redirect from={'/invest'} to={'/'} exact />
+                        <Redirect from={'/exchange'} to={'/'} exact />
+                        <Redirect from={'/protocols'} to={'/'} exact />
+                        <Redirect from={'/history'} to={'/'} exact />
+                        <Redirect from={'/explore'} to={'/'}/>
+                        <Redirect from={'/market'} to={'/'}/>
+                        <Redirect from={'/coins'} to={'/'}/>
+                        <Redirect from={'/buy'} to={'/'}/>
+                        <Redirect path={'/governance'} to={'/'}/>
+                        <Redirect to={'/404'}/>
+                    </Switch>
+            ) : accountBalance ? (
                 <Layout>
                     <Switch>
                         <Route path={'/dashboard'} component={Dashboard}/>
@@ -87,6 +112,10 @@ const Routes = () => {
                         <Route path={'/market/:id'} exact component={CoinDetails}/>
                         <Route path={'/coins/:id'} exact component={CoinDetails}/>
                         <Route path={'/buy'} exact component={BuyCrypto}/>
+                        <Route path={'/governance'} exact component={Governance}/>
+                        <Route path={'/governance/:space/create'} exact component={CreateProposal}/>
+                        <Route path={'/governance/:space'} exact component={Proposals}/>
+                        <Route path={'/governance/:space/proposal/:id'} exact component={Vote}/>
                         {/*<Route path={'/invest'} exact component={Invest}/>*/}
                         <Route path={'/platforms/:platform'} exact component={Platforms}/>
                         <Redirect to={'/dashboard'}/>
@@ -94,19 +123,8 @@ const Routes = () => {
                 </Layout>
             ) : (
                 <Switch>
-                    <Route path={'/'} exact component={ConnectPage}/>
-                    <Route path={'/404'} exact component={Error404}/>
-                    <Redirect from={'/dashboard'} to={'/'} exact />
-                    <Redirect from={'/pools'} to={'/'} exact />
-                    <Redirect from={'/invest'} to={'/'} exact />
-                    <Redirect from={'/exchange'} to={'/'} exact />
-                    <Redirect from={'/protocols'} to={'/'} exact />
-                    <Redirect from={'/history'} to={'/'} exact />
-                    <Redirect from={'/explore'} to={'/'}/>
-                    <Redirect from={'/market'} to={'/'}/>
-                    <Redirect from={'/coins'} to={'/'}/>
-                    <Redirect from={'/buy'} to={'/'}/>
-                    <Redirect to={'/404'}/>
+                    <Route path={'/exchange'} component={AddBalance}/>
+                    <Redirect to={'/exchange'}/>
                 </Switch>
             ))}
         </>

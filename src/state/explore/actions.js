@@ -13,11 +13,11 @@ export const setExploreSection = createAction('explore/set', (id, data) => {
 
 export const fetchTokens = () => {
     return dispatch => {
-        Object.keys(exploreApi.requestBaseURLs).map(baseId => {
+        Object.keys(exploreApi.requestBaseURLs).forEach(baseId => {
             exploreApi.get(baseId)
                 .then(response => {
                     if(response.hasOwnProperty('gainers')) {
-                        Object.keys(response).map(key => {
+                        Object.keys(response).forEach(key => {
                             const data = response[key];
                             dispatch(setExploreSection(key, data));
                         })

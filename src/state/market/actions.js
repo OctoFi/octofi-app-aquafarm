@@ -54,7 +54,7 @@ export const fetchMarketCoins = () => {
         dispatch(setLoading('marketCoins', true))
         api.get('marketCoins')
             .then(response => {
-                dispatch(saveMarketCoins(response))
+                dispatch(saveMarketCoins(response.data))
                 dispatch(setLoading('marketCoins', false))
             })
             .catch(error => {
@@ -69,7 +69,7 @@ export const fetchAllCoins = (page, pageSize) => {
         try {
             const globalResponse = await api.get('global');
             const response = await api.get('all', { pageSize, page })
-            dispatch(saveAllTokens(response, page, globalResponse.data.active_cryptocurrencies))
+            dispatch(saveAllTokens(response.data, page, globalResponse.data.data.active_cryptocurrencies))
             dispatch(setLoading('allTokens', false))
         } catch(error) {
             dispatch(setLoading('allTokens', false))
@@ -79,19 +79,19 @@ export const fetchAllCoins = (page, pageSize) => {
 }
 
 export const fetchSelectedCoin = (id) => {
-    return dispatch => {
+    return async dispatch => {
         dispatch(setLoading('selected', true))
-        api.get('selected', { id })
-            .then(response => {
-                dispatch(saveSelectedCoin(response, id))
-                dispatch(setLoading('selected', false))
+
+        try {
+            const res = await api.get('selected', { id });
+            dispatch(saveSelectedCoin(res.data, id))
+            dispatch(setLoading('selected', false))
+        } catch(e) {
+            dispatch(setLoading('selected', false))
+            emitter.emit('change-route', {
+                path: '/market'
             })
-            .catch(error => {
-                dispatch(setLoading('selected', false))
-                emitter.emit('change-route', {
-                    path: '/market'
-                })
-            })
+        }
     }
 }
 
@@ -100,7 +100,7 @@ export const fetchHistoricalData = (id, days) => {
         dispatch(setLoading('historical', true))
         api.get('historical', { id, days })
             .then(response => {
-                dispatch(setHistorical(response, id, days))
+                dispatch(setHistorical(response.data, id, days))
                 dispatch(setLoading('historical', false))
             })
             .catch(error => {

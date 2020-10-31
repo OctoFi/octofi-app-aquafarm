@@ -19,7 +19,6 @@ import PendingView from './PendingView'
 import useENSName from "../../hooks/useENSName";
 import {isTransactionRecent, useAllTransactions} from "../../state/transactions/hooks";
 import {TransactionDetails} from "../../state/transactions/reducer";
-import {TokenAmount} from "@uniswap/sdk";
 
 const Wrapper = styled.div`
   ${({ theme }) => theme.flexColumnNoWrap};
@@ -90,13 +89,9 @@ function newTransactionsFirst(a: TransactionDetails, b: TransactionDetails) {
   return b.addedTime - a.addedTime
 }
 
-export default function WalletModal({
-  TokenBalance
-}: {
-  TokenBalance: TokenAmount | undefined
-}) {
+export default function WalletModal() {
   // important that these are destructed from the account-specific web3-react context
-  const { active, account, connector, activate, error, deactivate } = useWeb3React()
+  const { active, account, connector, activate, error } = useWeb3React()
 
   const contextNetwork = useWeb3React(NetworkContextName)
 
@@ -127,16 +122,9 @@ export default function WalletModal({
   // close on connection, when logged out before
   useEffect(() => {
     if (account && !previousAccount && walletModalOpen) {
-      if(TokenBalance) {
-        const value = TokenBalance.toSignificant(6);
-        if(Number(value) < 1) {
-          deactivate();
-        } else {
-          toggleWalletModal()
-        }
-      }
+        toggleWalletModal()
     }
-  }, [account, previousAccount, toggleWalletModal, walletModalOpen, typeof TokenBalance])
+  }, [account, previousAccount, toggleWalletModal, walletModalOpen])
 
   // always reset to account view
   useEffect(() => {

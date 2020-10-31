@@ -1,10 +1,22 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { saveAccount } from "./actions";
+import {haveEnoughBalance, saveAccount} from "./actions";
 
-const initialState: string  | null = null;
+interface initialInterface {
+    address: string,
+    enoughCoinBalance: boolean
+}
+const initialState: initialInterface = {
+    address: '',
+    enoughCoinBalance: false
+};
 
 export default createReducer(initialState, builder => {
-    builder.addCase(saveAccount, (state, {payload}) => {
-        return payload
-    })
+    // @ts-ignore
+    builder
+        .addCase(saveAccount, (state, {payload}) => {
+            return state.address = payload.address
+        })
+        .addCase(haveEnoughBalance, (state, { payload }) => {
+            state.enoughCoinBalance = payload;
+        })
 })

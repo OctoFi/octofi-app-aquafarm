@@ -50,6 +50,14 @@ export function HeaderMenu({ layoutProps }) {
             </li>
             {/*end::1 Level*/}
             {/*begin::1 Level*/}
+            <li className={`menu-item menu-item-rel ${getMenuItemActive('/governance')}`}>
+                <NavLink className="menu-link" to="/governance">
+                    <span className="menu-text">Governance</span>
+                    {layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}
+                </NavLink>
+            </li>
+            {/*end::1 Level*/}
+            {/*begin::1 Level*/}
             <li className={`menu-item menu-item-rel ${getMenuItemActive('/history')}`}>
                 <NavLink className="menu-link" to="/history">
                     <span className="menu-text">History</span>

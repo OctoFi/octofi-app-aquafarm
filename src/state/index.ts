@@ -17,6 +17,7 @@ import pools from './pools/reducer'
 import balances from './balances/reducer'
 import explore from './explore/reducer'
 import market from './market/reducer'
+import governance from './governance/reducer'
 
 const rootReducer= combineReducers({
     application,
@@ -32,7 +33,8 @@ const rootReducer= combineReducers({
     account,
     balances,
     explore,
-    market
+    market,
+    governance,
 });
 
 const PERSISTED_KEYS: string[] = ['user', 'transactions', 'currency', 'lists'];

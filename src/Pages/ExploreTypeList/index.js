@@ -3,7 +3,6 @@ import { Row, Col } from 'react-bootstrap';
 import BootstrapTable from 'react-bootstrap-table-next';
 import styled from "styled-components";
 import { useSelector , useDispatch } from "react-redux";
-import { Token } from "@uniswap/sdk";
 
 import ArrowUp from "../../components/Icons/ArrowUp";
 import ArrowDown from "../../components/Icons/ArrowDown";
@@ -220,7 +219,6 @@ const ExploreTypeList = props => {
     useEffect(() => {
         const type = props.match.params.type;
         if(type && ['tokens', 'tokenSets'].includes(type)) {
-            console.log(exploreSets[type].data);
             if(exploreSets[type].data.length === 0) {
                 dispatch(fetchTokens());
             }
@@ -235,7 +233,7 @@ const ExploreTypeList = props => {
         } else {
             props.history.push('/explore')
         }
-    }, [props.match.params.type, exploreSets])
+    }, [props.match.params.type, exploreSets, dispatch, props.history])
 
     return (
         <Row>

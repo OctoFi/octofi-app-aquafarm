@@ -19,8 +19,8 @@ export function CurrencySelectorDropDown() {
     }
 
     useEffect(() => {
-        selectDestinationCurrency(selectedCurrency);
-    }, [selectedCurrency])
+        dispatch(actions.fetchCurrencies(selectedCurrency));
+    }, [selectedCurrency, dispatch]);
 
     return (
         <Dropdown drop="down" alignRight>

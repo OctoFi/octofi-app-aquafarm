@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import {useMemo} from 'react';
 
 import {useTokenBalance} from "../state/wallet/hooks";
 
@@ -7,5 +7,5 @@ export const useMemoTokenBalance = (account, token) => {
 
     return useMemo(() => {
         return balance;
-    }, [account, typeof balance]);
+    }, [balance]);
 }

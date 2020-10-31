@@ -24,7 +24,12 @@ export default class ExploreApi {
                 return this.fetchTokenSets()
             }
             case 'pools': {
-                return this.fetchPools()
+                return this.fetchPools({
+                    pageSize: 10,
+                    page: 1,
+                    orderBy: "volumeUSD",
+                    orderDirection: "desc",
+                })
             }
             case 'trending': {
                 return this.fetchTrending()
@@ -80,7 +85,8 @@ export default class ExploreApi {
                 return error;
             })
     }
-    fetchPools() {
+
+    fetchPools(p) {
         const query = encodeQuery({
             'api-key': process.env.REACT_APP_API_KEY,
             'platform': 'uniswap,uniswap-v2,curve,balancer,mooniswap,sushiswap',

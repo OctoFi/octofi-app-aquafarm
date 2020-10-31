@@ -1,7 +1,7 @@
 import React from 'react';
-import ApexCharts from 'apexcharts';
 import ReactApexChart from 'react-apexcharts';
 import {CircularProgress} from "@material-ui/core";
+
 import CurrencyText from "../CurrencyText";
 
 class HistoricalChart extends React.Component {
