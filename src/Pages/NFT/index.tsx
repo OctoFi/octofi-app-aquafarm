@@ -24,8 +24,11 @@ const NFT = () => {
                 </CustomTitle>
                 <Button
                   type='button'
+                  as='a'
                   className='btn btn-success font-weight-bolder font-size-lg px-9 py-3'
-                  href='https://opensea.io/accounts/octofi'>
+                  href='https://opensea.io/accounts/octofi'
+                  target="_blank"
+                  rel="noopener noreferrer">
                     Visit OpenSea
                 </Button>
             </CustomHeader>
