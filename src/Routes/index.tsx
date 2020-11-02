@@ -81,11 +81,7 @@ const Routes = () => {
 
     useEffect(() => {
         dispatch(fetchOpenSeaAssets(address));
-    }, [address]);
-
-    useEffect(() => {
-        dispatch(fetchOpenSeaAssets(address));
-    }, [address]);
+    }, [address, dispatch]);
 
     return (
         <>

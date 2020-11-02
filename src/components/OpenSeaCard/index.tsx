@@ -37,7 +37,7 @@ function OpenSeaCard({ asset, className }: Props) {
           <p className='card-text mb-2'>
             <small className='text-muted'>{asset_contract.name}</small>
           </p>
-          <a href={permalink} target='_blank'>
+          <a href={permalink} target='_blank' rel="noopener noreferrer">
             <h5 className='card-title'>{name}</h5>
           </a>
         </div>
