@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-imports */
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
-import React, {useContext, useMemo} from "react";
+import React, {useContext, useMemo, useState} from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import objectPath from "object-path";
 import copy from 'clipboard-copy';
@@ -17,6 +17,7 @@ import { injected } from "../../../../../../connectors";
 import {emitter} from "../../../../../../lib/helper";
 
 export function UserProfileDropdown() {
+  const [showCopied, setShowCopied] = useState(false);
   const {account, chainId, connector, deactivate} = useActiveWeb3React();
   const toggleWalletModal = useWalletModalToggle()
   const theme = useContext(ThemeContext)
@@ -32,7 +33,13 @@ export function UserProfileDropdown() {
   }, [uiService]);
 
   const copyAccountToClipboard = () => {
-    copy(account);
+    let promised = copy(account);
+    promised.then(() => {
+      setShowCopied(true);
+      setTimeout(function() {
+        setShowCopied(false);
+      }, 1200);
+    });
   }
 
   const disconnectWalletHandler = () => {
@@ -78,7 +85,7 @@ export function UserProfileDropdown() {
                   {account && (account.slice(0, 10) + '...' + account.slice(-6))}
                 </div>
                 <span onClick={copyAccountToClipboard} className="btn btn-light-success btn-sm font-weight-bold">
-                  copy
+                  { showCopied ? 'copied' : 'copy' }
                 </span>
               </div>
               <Separator/>
@@ -102,8 +109,8 @@ export function UserProfileDropdown() {
                 {account && (account.slice(0, 10) + '...' + account.slice(-6))}
               </div>
               <span onClick={copyAccountToClipboard} className="btn btn-success btn-sm font-weight-bold">
-                  copy
-                </span>
+                { showCopied ? 'copied' : 'copy' }
+              </span>
             </div>
           )}
         </>
