@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.40d27540.chunk.css",
-    "main.js": "/static/js/main.d1b4cae3.chunk.js",
-    "main.js.map": "/static/js/main.d1b4cae3.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.f62be1f0.js",
-    "runtime-main.js.map": "/static/js/runtime-main.f62be1f0.js.map",
+    "main.js": "/static/js/main.1abcb1e5.chunk.js",
+    "main.js.map": "/static/js/main.1abcb1e5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6e8e01e3.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6e8e01e3.js.map",
     "static/css/2.55787b85.chunk.css": "/static/css/2.55787b85.chunk.css",
-    "static/js/2.ee4a80c9.chunk.js": "/static/js/2.ee4a80c9.chunk.js",
-    "static/js/2.ee4a80c9.chunk.js.map": "/static/js/2.ee4a80c9.chunk.js.map",
+    "static/js/2.325379a4.chunk.js": "/static/js/2.325379a4.chunk.js",
+    "static/js/2.325379a4.chunk.js.map": "/static/js/2.325379a4.chunk.js.map",
     "static/js/3.21c828a9.chunk.js": "/static/js/3.21c828a9.chunk.js",
     "static/js/3.21c828a9.chunk.js.map": "/static/js/3.21c828a9.chunk.js.map",
-    "static/js/4.1c2c4b10.chunk.js": "/static/js/4.1c2c4b10.chunk.js",
-    "static/js/4.1c2c4b10.chunk.js.map": "/static/js/4.1c2c4b10.chunk.js.map",
+    "static/js/4.2752cf2d.chunk.js": "/static/js/4.2752cf2d.chunk.js",
+    "static/js/4.2752cf2d.chunk.js.map": "/static/js/4.2752cf2d.chunk.js.map",
     "static/js/5.40f7e33f.chunk.js": "/static/js/5.40f7e33f.chunk.js",
     "static/js/5.40f7e33f.chunk.js.map": "/static/js/5.40f7e33f.chunk.js.map",
     "static/js/6.c13f9224.chunk.js": "/static/js/6.c13f9224.chunk.js",
@@ -23,15 +23,15 @@
     "static/js/9.8fa459da.chunk.js": "/static/js/9.8fa459da.chunk.js",
     "static/js/9.8fa459da.chunk.js.map": "/static/js/9.8fa459da.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.d4baf8bbdbb232a1af845eb8b6ff1faf.js": "/precache-manifest.d4baf8bbdbb232a1af845eb8b6ff1faf.js",
+    "precache-manifest.ff2e1da60e0c666b9a0f6ddacf09c7f7.js": "/precache-manifest.ff2e1da60e0c666b9a0f6ddacf09c7f7.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.55787b85.chunk.css.map": "/static/css/2.55787b85.chunk.css.map",
     "static/css/main.40d27540.chunk.css.map": "/static/css/main.40d27540.chunk.css.map",
-    "static/js/2.ee4a80c9.chunk.js.LICENSE.txt": "/static/js/2.ee4a80c9.chunk.js.LICENSE.txt",
+    "static/js/2.325379a4.chunk.js.LICENSE.txt": "/static/js/2.325379a4.chunk.js.LICENSE.txt",
     "static/js/3.21c828a9.chunk.js.LICENSE.txt": "/static/js/3.21c828a9.chunk.js.LICENSE.txt",
     "static/js/6.c13f9224.chunk.js.LICENSE.txt": "/static/js/6.c13f9224.chunk.js.LICENSE.txt",
     "static/js/7.85edf60c.chunk.js.LICENSE.txt": "/static/js/7.85edf60c.chunk.js.LICENSE.txt",
-    "static/js/main.d1b4cae3.chunk.js.LICENSE.txt": "/static/js/main.d1b4cae3.chunk.js.LICENSE.txt",
+    "static/js/main.1abcb1e5.chunk.js.LICENSE.txt": "/static/js/main.1abcb1e5.chunk.js.LICENSE.txt",
     "static/media/AUD.svg": "/static/media/AUD.b35a142d.svg",
     "static/media/BTC.svg": "/static/media/BTC.d7876d48.svg",
     "static/media/CAD.svg": "/static/media/CAD.5d08ccab.svg",
@@ -67,10 +67,10 @@
     "static/media/walletconnect.svg": "/static/media/walletconnect.37f2bc6e.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f62be1f0.js",
+    "static/js/runtime-main.6e8e01e3.js",
     "static/css/2.55787b85.chunk.css",
-    "static/js/2.ee4a80c9.chunk.js",
+    "static/js/2.325379a4.chunk.js",
     "static/css/main.40d27540.chunk.css",
-    "static/js/main.d1b4cae3.chunk.js"
+    "static/js/main.1abcb1e5.chunk.js"
   ]
 }
