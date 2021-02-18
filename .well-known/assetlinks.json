@@ -1,5 +1,0 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target" : { "namespace": "android_app", "package_name": "fi.octo.twa",
-                   "sha256_cert_fingerprints": ["11:24:59:C8:0E:49:86:D8:F6:C6:F9:56:76:76:B2:53:54:3A:E3:BC:A0:54:CD:1D:97:71:F9:B9:88:63:9E:50"] }
-    }]
