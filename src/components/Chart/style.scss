@@ -1,0 +1,34 @@
+@import '../../styles/abstracts/variables';
+
+.chart {
+
+  &__label {
+    color: white;
+    fill: white;
+  }
+
+  &__tooltip {
+
+    &-title {
+      color: $background;
+      font-size: .75rem;
+
+    }
+
+    &-value {
+      color: $secondary;
+      font-weight: 700;
+      font-size: .75rem;
+    }
+  }
+}
+
+
+.apexcharts-tooltip.apexcharts-theme-dark {
+
+  border-radius: 18px;
+  background-color: rgba($title, 0.9);
+  box-shadow: 1px 4px 13px rgba(135, 220, 225, 0.3);
+  padding: 15px;
+  color: white;
+}

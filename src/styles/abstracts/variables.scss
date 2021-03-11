@@ -1,0 +1,77 @@
+// Colors
+// Theme Colors
+$primary: #87dce1;
+$secondary: #a890fe;
+$secondary-light: #a890fe;
+$tertiary: #FBAA9E;
+$surface: #232429;
+$background: #232429;
+$overline: #D3D6E8;
+$title: #ffffff;
+$modal-bg: #272a31;
+
+$light-background: #fff;
+$light-title: #000;
+$light-modal-bg: #F3F5FD;
+$light-second-bg: rgb(212, 218, 242);
+
+
+// Status Colors
+$danger: #EB6B6B;
+$success: #4AC8AA;
+$warning: #F3BA2F;
+
+// Gradients
+$primary-grad: linear-gradient(-345.39deg, #a890fe -17.91%, #87dce1 68.92%);
+
+// Replace default colors
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "secondary-light": $secondary-light,
+  "teriary": $tertiary,
+  "danger": $danger,
+  "warning": $warning,
+  "success": $success,
+  "dark": $surface,
+  "bg": $background,
+  "overline": $overline
+);
+
+$colors: (
+  "blue": $primary,
+  "purple": $secondary,
+  "red": $danger,
+  "yellow": $warning,
+  "dark": $surface,
+);
+
+// Bootstrap Customization
+$body-color: #fff;
+
+
+
+$btn-border-radius: 1.125rem;
+$btn-border-radius-lg: 1.125rem;
+$btn-border-radius-sm: 1.125rem;
+$btn-padding-y: 0.625rem;
+$btn-padding-x: 1.5rem;
+
+$input-bg: $modal-bg;
+$input-border-width: 0;
+$input-border-radius: 1.125rem;
+$input-border-radius-lg: 1.125rem;
+$input-height: 56px;
+$input-group-addon-bg: $modal-bg;
+$input-group-addon-border-color: transparent;
+$input-color: $title;
+
+$h1-font-size: 4rem;
+$h2-font-size: 2.5rem;
+$h3-font-size: 1.875rem;
+$h4-font-size: 1.25rem;
+
+.dark-mode {
+  $input-group-addon-bg: $modal-bg;
+  $input-bg: $modal-bg;
+}

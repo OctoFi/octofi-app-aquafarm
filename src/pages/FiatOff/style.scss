@@ -1,0 +1,16 @@
+.fiat {
+
+  &__embed {
+    width: 100%;
+    min-height: 667px;
+  }
+
+  &__card {
+    overflow: hidden;
+
+    .card-body {
+      padding: 0;
+      display: flex;
+    }
+  }
+}
