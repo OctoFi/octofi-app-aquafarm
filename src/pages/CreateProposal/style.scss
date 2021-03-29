@@ -1,0 +1,71 @@
+@import "../../styles/abstracts/variables";
+
+.row.form-custom-row {
+	margin-right: -25px;
+	margin-left: -25px;
+
+	> .col,
+	> [class*="col-"] {
+		padding-right: 25px;
+		padding-left: 25px;
+	}
+}
+
+.Calendar {
+	--cl-color-black: white;
+	--cl-color-primary: $primary;
+	background-color: $modal-bg !important;
+	color: white;
+}
+
+.Calendar__day {
+	color: white;
+}
+.Calendar__monthSelector,
+.Calendar__yearSelector {
+	background-color: $modal-bg !important;
+	color: white;
+}
+
+.Calendar__yearSelectorWrapper::after {
+	background-image: linear-gradient(to bottom, $modal-bg, $modal-bg 10%, rgba(245, 245, 245, 0));
+}
+
+.Calendar__yearSelectorWrapper::before {
+	background-image: linear-gradient(to top, $modal-bg, $modal-bg 10%, rgba(245, 245, 245, 0));
+}
+
+.Calendar__monthYear.-shown > *:hover,
+.Calendar:not(.-noFocusOutline) .Calendar__monthYear.-shown > *:focus,
+.Calendar__monthYear > *.-activeBackground {
+	background: $primary;
+}
+
+.Calendar__day:not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween):not(.-selected):hover {
+	background: rgba($primary, 0.5);
+}
+
+.Calendar > :not(.Calendar__footer) button {
+	color: white;
+}
+
+.Calendar__monthSelectorItem:not(.-active) .Calendar__monthSelectorItemText:not(:disabled):hover,
+.Calendar__yearSelectorItem:not(.-active) .Calendar__yearSelectorText:not(:disabled):hover {
+	background: lighten($modal-bg, 10%);
+}
+
+.DatePicker__calendarArrow {
+	border-color: transparent transparent $modal-bg transparent;
+}
+
+.Calendar__monthArrow {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg class='nc-icon-wrapper' fill='%23FFFFFF'%3E%3Cdefs stroke='none'%3E%3C/defs%3E%3Cpath class='cls-1' d='M12 23.25V.75' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5px'%3E%3C/path%3E%3Cpath class='cls-2' d='M22.5 11.25L12 .75 1.5 11.25' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5px' fill-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+}
+
+.Calendar__day.-weekend:not(.-selected):not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween) {
+	color: $danger;
+}
+
+.Calendar__day.-weekend.-today:not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween)::after {
+	background: $danger;
+}

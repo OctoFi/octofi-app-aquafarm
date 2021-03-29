@@ -1,0 +1,69 @@
+@function get-warning($warn, $get, $key) {
+	@if $get == null {
+		@warn "Map has no value for key search `#{$warn}`";
+	} @else if type-of($get) != "map" {
+		@warn "Non-map value found for key search `#{$warn}`, cannot search for key `#{$key}`";
+	}
+	@return null;
+}
+
+@function get($map, $keys...) {
+	@if length($keys) == 1 {
+		$keys: nth($keys, 1);
+	}
+
+	@if type-of($map) != "map" or $map == null {
+		//@return false;
+	}
+
+	$warn: "#{nth($keys, 1)}";
+	$length: length($keys);
+	$get: map-get($map, nth($keys, 1));
+
+	@if $length > 1 {
+		@for $i from 2 through $length {
+			@if $get != null and type-of($get) == "map" {
+				$warn: $warn + "->#{nth($keys, $i)}";
+				$get: map-get($get, nth($keys, $i));
+
+				@if $get == null {
+					@return null;
+				}
+			} @else {
+				@return get-warning($warn, $get, nth($keys, $i));
+			}
+		}
+	}
+
+	@return $get;
+}
+
+@function theme-inverse-color($key: "primary") {
+	@return get($theme-inverse-colors, $key);
+}
+
+@function theme-outline-inverse-color($key: "primary") {
+	@return get($theme-outline-inverse-colors, $key);
+}
+
+@function theme-hover-color($key: "primary") {
+	@return get($theme-hover-colors, $key);
+}
+
+@function theme-light-color($key: "primary") {
+	@return get($theme-light-colors, $key);
+}
+
+@function theme-shadow-color($key: "primary") {
+	@return get($theme-shadow-colors, $key);
+}
+
+@function valueif($check, $trueValue, $falseValue: null) {
+	@if $check {
+		@return $trueValue;
+	} @else if $falseValue != null {
+		@return $falseValue;
+	} @else {
+		@return null;
+	}
+}

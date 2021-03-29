@@ -1,0 +1,154 @@
+@import "../../../styles/abstracts/variables";
+
+.currency {
+	padding: 25px 0 20px;
+
+	@media (min-width: 576px) {
+		padding: 55px 0 35px;
+	}
+
+	h2 {
+		@media (max-width: 576px) {
+			font-size: 1.25rem;
+			font-weight: 700;
+			margin-top: 0;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.currencies {
+	position: relative;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0 30px;
+	color: $light-title;
+
+	.dark-mode & {
+		color: white;
+	}
+}
+
+.table.currencies thead th {
+	border-bottom: none;
+	border-top: none;
+	font-weight: 400;
+	padding-bottom: 0;
+	padding-top: 0;
+	color: $light-title;
+
+	.dark-mode & {
+		color: white;
+	}
+
+	&:first-child {
+		padding-left: 60px;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.table.currencies tbody td {
+	height: 55px;
+	vertical-align: middle;
+	border: 1px solid #caccd2;
+	border-left-width: 0;
+	border-right-width: 0;
+	color: white;
+	cursor: pointer;
+
+	.dark-mode & {
+		border-color: rgba(255, 255, 255, 0.5);
+	}
+
+	&:last-child {
+		border-top-right-radius: 14px;
+		border-bottom-right-radius: 14px;
+		border-right-width: 1px;
+	}
+	&:first-child {
+		border-top-left-radius: 14px;
+		border-bottom-left-radius: 14px;
+		border-left-width: 1px;
+	}
+}
+
+.coin {
+	&__icon {
+		margin-right: 10px;
+		width: 24px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: white;
+		border-radius: 6px;
+		flex-basis: 24px;
+
+		@media (min-width: 992px) {
+			border-radius: 12px;
+			margin-right: 24px;
+			width: 55px;
+			height: 55px;
+			flex-basis: 55px;
+		}
+
+		img {
+			width: 18px;
+			height: 18px;
+			object-fit: contain;
+
+			@media (min-width: 992px) {
+				width: 40px;
+				height: 40px;
+			}
+		}
+	}
+
+	&__symbol {
+		margin-right: 0.625rem;
+		font-size: 1rem;
+		font-weight: 700;
+		color: $light-title;
+
+		.dark-mode & {
+			color: white;
+		}
+
+		@media (min-width: 992px) {
+			margin-right: 2.25rem;
+			font-size: 1.125rem;
+		}
+	}
+
+	&__name {
+		font-weight: 500;
+		font-size: 0.75rem;
+		color: $light-title;
+
+		.dark-mode & {
+			color: white;
+		}
+
+		@media (min-width: 992px) {
+			font-size: 1rem;
+		}
+	}
+
+	&__price {
+		font-size: 1rem;
+		font-weight: 700;
+		color: $light-title;
+
+		.dark-mode & {
+			color: white;
+		}
+
+		@media (min-width: 992px) {
+			font-size: 1.25rem;
+			font-weight: 500;
+		}
+	}
+}

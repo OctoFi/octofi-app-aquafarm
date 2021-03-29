@@ -1,0 +1,68 @@
+@import "../../styles/abstracts/variables";
+
+foreignObject {
+	y: -55px;
+
+	.primary-chart & {
+		y: -35px;
+	}
+}
+
+.apexcharts-legend.apexcharts-align-left {
+	left: -24px !important;
+
+	@media (min-width: 992px) {
+		left: auto !important;
+		right: 0;
+	}
+}
+
+.apexcharts-legend-marker {
+	margin-right: 5px !important;
+
+	.primary-chart & {
+		margin-right: 10px !important;
+	}
+}
+
+.chart {
+	&__label {
+		color: $light-title;
+		fill: $light-title;
+
+		.dark-mode & {
+			color: $title;
+			fill: $title;
+		}
+	}
+
+	&__tooltip {
+		&-title {
+			color: $light-title;
+			font-size: 0.75rem;
+
+			.dark-mode & {
+				color: $title;
+			}
+		}
+
+		&-value {
+			color: $secondary;
+			font-weight: 700;
+			font-size: 0.75rem;
+		}
+	}
+}
+
+.apexcharts-tooltip.apexcharts-active {
+	border-radius: 18px;
+	background-color: rgba($title, 0.9);
+	box-shadow: 1px 4px 13px rgba(135, 220, 225, 0.3);
+	padding: 15px;
+	color: $light-title;
+
+	.dark-mode & {
+		background-color: rgba($background, 0.9);
+		color: $title;
+	}
+}

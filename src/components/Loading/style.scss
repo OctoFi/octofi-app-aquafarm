@@ -1,0 +1,21 @@
+.loading-spine {
+	&.active svg {
+		animation: spine 0.8s linear infinite forwards;
+		will-change: transform;
+	}
+
+	&.failed svg {
+		animation: spine 1s linear infinite forwards;
+		will-change: transform;
+	}
+}
+
+@keyframes spine {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(-360deg);
+	}
+}

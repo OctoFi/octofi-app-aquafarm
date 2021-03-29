@@ -1,0 +1,212 @@
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{ "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" },
+			{ "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{ "payable": true, "stateMutability": "payable", "type": "fallback" },
+	{
+		"constant": false,
+		"inputs": [
+			{ "internalType": "address", "name": "toWhomToIssue", "type": "address" },
+			{ "internalType": "address", "name": "fromToken", "type": "address" },
+			{ "internalType": "address", "name": "swapAddress", "type": "address" },
+			{ "internalType": "uint256", "name": "incomingTokenQty", "type": "uint256" },
+			{ "internalType": "uint256", "name": "minPoolTokens", "type": "uint256" }
+		],
+		"name": "ZapIn",
+		"outputs": [{ "internalType": "uint256", "name": "crvTokensBought", "type": "uint256" }],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "_owner",
+		"outputs": [{ "internalType": "address payable", "name": "", "type": "address" }],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{ "internalType": "address", "name": "swapAddress", "type": "address" },
+			{ "internalType": "address", "name": "tokenAddress", "type": "address" },
+			{ "internalType": "address[4]", "name": "poolTokens", "type": "address[4]" },
+			{ "internalType": "bool", "name": "isMetaPool", "type": "bool" }
+		],
+		"name": "addPool",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+		"name": "curvePools",
+		"outputs": [
+			{ "internalType": "address", "name": "swapAddress", "type": "address" },
+			{ "internalType": "address", "name": "tokenAddress", "type": "address" },
+			{ "internalType": "bool", "name": "isMetaPool", "type": "bool" }
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [{ "internalType": "address", "name": "swapAddress", "type": "address" }],
+		"name": "getPoolTokens",
+		"outputs": [{ "internalType": "address[4]", "name": "poolTokens", "type": "address[4]" }],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "goodwill",
+		"outputs": [{ "internalType": "uint16", "name": "", "type": "uint16" }],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [{ "internalType": "contract IERC20", "name": "_TokenAddress", "type": "address" }],
+		"name": "inCaseTokengetsStuck",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "intermediateStable",
+		"outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "isOwner",
+		"outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [{ "internalType": "uint16", "name": "_new_goodwill", "type": "uint16" }],
+		"name": "set_new_goodwill",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [{ "internalType": "address", "name": "_new_zgoodwillAddress", "type": "address" }],
+		"name": "set_new_zgoodwillAddress",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "stopped",
+		"outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "toggleContractActive",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [{ "internalType": "address payable", "name": "newOwner", "type": "address" }],
+		"name": "transferOwnership",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [{ "internalType": "address", "name": "newIntermediate", "type": "address" }],
+		"name": "updateIntermediateStable",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{ "internalType": "address", "name": "swapAddress", "type": "address" },
+			{ "internalType": "address", "name": "tokenAddress", "type": "address" },
+			{ "internalType": "address[4]", "name": "poolTokens", "type": "address[4]" },
+			{ "internalType": "bool", "name": "isMetaPool", "type": "bool" }
+		],
+		"name": "updatePool",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "withdraw",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "zgoodwillAddress",
+		"outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

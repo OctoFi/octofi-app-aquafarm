@@ -1,0 +1,13 @@
+@import "../../../styles/abstracts/variables";
+
+.btn.btn-primary.btn-gradient-primary {
+	background-image: $primary-grad;
+	border: none;
+	height: 56px;
+	color: white;
+
+	&.btn-lg {
+		height: 70px;
+		padding: 20px 32px;
+	}
+}

@@ -1,0 +1,42 @@
+.form-control {
+	&::placeholder {
+		color: rgba(white, 0.8);
+		font-weight: 400;
+	}
+
+	&--currency::placeholder {
+		color: rgba(white, 0.5);
+	}
+}
+
+.input-group {
+	> .form-control,
+	> .form-control-plaintext,
+	> .custom-select,
+	> .custom-file {
+		border: 1px solid rgba(white, 0.3);
+
+		&:first-child {
+			border-right-width: 0;
+		}
+
+		&:last-child {
+			border-left-width: 0;
+		}
+	}
+}
+
+.custom-control-input:not(:checked) + .custom-control-label::before {
+	border: 1px solid rgba(#fff, 0.3) !important;
+}
+
+.input-group-prepend .input-group-text,
+.input-group-append .input-group-text {
+	border: 1px solid rgba(white, 0.3);
+}
+.input-group-prepend .input-group-text {
+	border-right-width: 0;
+}
+.input-group-append .input-group-text {
+	border-left-width: 0;
+}

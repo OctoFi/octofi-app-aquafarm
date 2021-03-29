@@ -1,0 +1,67 @@
+@each $name, $value in $theme-colors {
+	.btn.btn-light-#{$name} {
+		$btn-background: rgba($value, 0.15);
+		$btn-border: transparent;
+		$btn-color: $value;
+		$btn-icon: $value;
+		$btn-box-shadow: null;
+
+		$btn-hover-background: $value;
+		$btn-hover-border: transparent;
+		$btn-hover-color: $background;
+		$btn-hover-icon: $background;
+		$btn-hover-box-shadow: null;
+
+		$btn-active-background: $btn-hover-background;
+		$btn-active-border: $btn-hover-border;
+		$btn-active-color: $btn-hover-color;
+		$btn-active-icon: $btn-hover-icon;
+		$btn-active-box-shadow: $btn-hover-box-shadow;
+
+		@include button-custom-variant(
+			$btn-background,
+			$btn-border,
+			$btn-color,
+			$btn-icon,
+			$btn-box-shadow,
+			$btn-hover-background,
+			$btn-hover-border,
+			$btn-hover-color,
+			$btn-hover-icon,
+			$btn-hover-box-shadow,
+			$btn-active-background,
+			$btn-active-border,
+			$btn-active-color,
+			$btn-active-icon,
+			$btn-active-box-shadow
+		);
+	}
+}
+.btn.btn-primary {
+	color: white;
+}
+
+.btn.btn-circle {
+	width: 48px;
+	height: 48px;
+	border-radius: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn.btn-link {
+	&:hover,
+	&:focus,
+	&:active {
+		outline: none;
+		box-shadow: none;
+	}
+}
+
+@media (max-width: 576px) {
+	.btn-lg {
+		font-size: 1rem;
+		font-weight: 400;
+	}
+}
