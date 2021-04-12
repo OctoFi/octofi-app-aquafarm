@@ -1,7 +1,7 @@
 {
     "app": {
-        "description": "Ihre alles in einem DeFi Plattform",
-        "copyright": "Decentralized Finance Tentacles"
+        "description": "Ihre alles in einem Defi Plattform",
+        "copyright": "Urheberrechte © 2021, <1>{{company}}</1>"
     },
     "noWallet": "Keine Ethereum-Wallet gefunden",
     "wrongNetwork": "Du bist auf dem falschen Netzwerk.",

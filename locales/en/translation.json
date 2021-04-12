@@ -1,7 +1,7 @@
 {
     "app": {
         "description": "Your all in one DeFi platform",
-        "getInTouch": "Get in touch",
+    "getInTouch": "Get in touch",
         "copyright": "Decentralized Finance Tentacles",
         "features": {
             "support": {
@@ -32,9 +32,9 @@
         "aggregator": "Swaptopus",
         "uniswap": "Uniswap",
         "trade": "Trade",
-        "spotMarkets": "Spot Markets",
-        "spot": "Spot Trading",
-        "marketMaker": "Market Making",
+        "spotMarkets": "Markets",
+        "spot": "Crosstopus",
+        "bridges": "Bridges",
         "margin": "Margin Trading",
         "invest": "Invest",
         "pools": "Liquidity Pools",
@@ -50,7 +50,7 @@
         "history": "History",
         "disconnect": "Disconnect from OctoFi",
         "connect": "Connect",
-        "launchpad": "Launchpad"
+        "launchpad": "INKubator"
     },
     "wallet": {
         "connect": "Connect to wallet",
@@ -225,11 +225,11 @@
         "amountAvailable": "Amount Available"
     },
     "launchpad": {
-        "title": "OctoFi Launchpad",
+        "title": "INKubator Launchpad",
         "createNew": "Create ILO",
         "searchPlaceholder": "Token name or address",
         "blockNumberWarning": "Please be aware times may not be exact, this platform uses block numbers for presale start and end periods to prevent miner timestamp manipulation.",
-        "noPresale": "Refer your unicorn project to us and earn the referral bonus or contact us for your presale. hello@octo.fi",
+        "noPresale": " ",
         "safetyAlert": "Safety alert",
         "safetyAlertContent": "This is a decentralised and open presale platform. Similar to Uniswap anyone can create and name a presale freely including fake versions of existing tokens. It is also possible for developers of a token to mint near infinite tokens and dump them on locked liquidity. Please do your own research before using this platform."
     },
