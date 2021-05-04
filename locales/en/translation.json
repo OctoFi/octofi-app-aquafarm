@@ -1,10 +1,10 @@
 {
     "app": {
         "description": "Your all in one DeFi platform",
-    "getInTouch": "Get in touch",
+        "getInTouch": "Get in touch",
         "copyright": "Decentralized Finance Tentacles",
         "features": {
-            "support": {
+          "support": {
                 "title": "Support",
                 "desc": "Got a problem? Our Community will help you."
             },
@@ -27,14 +27,14 @@
         "menu": "Menu",
         "buy": "Buy",
         "crypto": "Crypto",
-        "giftCards": "Gift Cards",
-        "swap": "Swap",
-        "aggregator": "Swaptopus",
+        "giftCards": "Gift Cards & more",
+        "swap": "Swaptopus",
+        "aggregator": "Aggregator",
         "uniswap": "Uniswap",
         "trade": "Trade",
-        "spotMarkets": "Markets",
-        "spot": "Crosstopus",
-        "bridges": "Bridges",
+        "spotMarkets": "Spot Markets",
+        "spot": "Spot Trading",
+        "marketMaker": "Market Making",
         "margin": "Margin Trading",
         "invest": "Invest",
         "pools": "Liquidity Pools",
@@ -50,7 +50,11 @@
         "history": "History",
         "disconnect": "Disconnect from OctoFi",
         "connect": "Connect",
-        "launchpad": "INKubator"
+        "launchpad": "INKubator",
+        "cross": "Crosstopus",
+        "bridges": "Bridges",
+        "anySwap": "Swap",
+        "crossBalance": "Balance"
     },
     "wallet": {
         "connect": "Connect to wallet",
@@ -103,6 +107,14 @@
         "requiredAddress": "Recipient address required for this pair",
         "signAccount": "Confirm your address to view your open orders. This step keeps your orders private.",
         "selectAAccount": "Please select a account to connect, otherwise connector will use your default address"
+    },
+    "cross": {
+        "action": "Action",
+        "totalBalance": "Total Balance",
+        "liquidity": "Liquidity",
+        "balance": "Balance",
+        "price": "Price",
+        "coin": "Coin"
     },
     "fiatOn": {
         "currencyLabel": "Select currency and payment method",
@@ -225,7 +237,7 @@
         "amountAvailable": "Amount Available"
     },
     "launchpad": {
-        "title": "INKubator Launchpad",
+        "title": "INKubator",
         "createNew": "Create ILO",
         "searchPlaceholder": "Token name or address",
         "blockNumberWarning": "Please be aware times may not be exact, this platform uses block numbers for presale start and end periods to prevent miner timestamp manipulation.",
@@ -246,6 +258,7 @@
         "sell": "Sell",
         "convertTo": "Convert to OCTO"
     },
+    "ConfirmTransaction": "Confirm Transaction",
     "confirm": "Confirm",
     "or": "or",
     "only": "Only",
@@ -255,7 +268,7 @@
     "netWorth": "Net Worth",
     "platforms": "Platforms",
     "accountOverview": "Account Overview",
-    "dashboard": "Your Dashboard",
+    "dashboard": " ",
     "blockNumber": "Block Number",
     "transactionHash": "Transaction Hash",
     "download": "Download {{ file }}",
