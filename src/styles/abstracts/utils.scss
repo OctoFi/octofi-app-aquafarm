@@ -1,0 +1,11 @@
+.mr-lg-40 {
+	@media (min-width: 992px) {
+		margin-right: 40px !important;
+	}
+}
+
+@each $name, $value in $theme-colors {
+	.bg-light-#{$name} {
+		background-color: rgba($value, 0.16);
+	}
+}

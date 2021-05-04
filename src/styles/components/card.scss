@@ -1,0 +1,9 @@
+.card {
+	&-body {
+		padding: 0.625rem;
+
+		@media (min-width: 576px) {
+			padding: 1.25rem;
+		}
+	}
+}

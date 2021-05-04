@@ -1,0 +1,49 @@
+.market {
+	&__table {
+		border-collapse: separate;
+		border-spacing: 0 0;
+
+		thead th {
+			background-color: rgba(#202020, 0.1);
+			color: #202020;
+			font-size: 0.875rem;
+			font-weight: 500;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			min-height: 56px;
+
+			.dark-mode & {
+				background-color: rgba(#fff, 0.1);
+				color: #fff;
+			}
+
+			&:focus {
+				outline: none;
+			}
+
+			&:first-child {
+				border-top-left-radius: 18px;
+				border-bottom-left-radius: 18px;
+			}
+
+			&:last-child {
+				border-top-right-radius: 18px;
+				border-bottom-right-radius: 18px;
+			}
+		}
+
+		th,
+		td {
+			vertical-align: middle !important;
+			padding: 1rem !important;
+
+			&:last-child {
+				text-align: left;
+			}
+		}
+
+		td {
+			border-bottom: 1px solid rgba(white, 0.5) !important;
+		}
+	}
+}

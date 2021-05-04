@@ -1,0 +1,2596 @@
+{
+	"walletTokens": [
+		{
+			"address": "0x6c3f90f043a72fa612cbac8115ee7e52bde6e490",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/3Pool Curve-icon.png",
+			"name": "3Pool Curve",
+			"symbol": "3PoolCurve"
+		},
+		{
+			"address": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/AAVE-icon.png",
+			"name": "Aave",
+			"symbol": "AAVE"
+		},
+		{
+			"address": "0x94d863173ee77439e4292284ff13fad54b3ba182",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ADEL-icon.png",
+			"name": "Akropolis Delphi",
+			"symbol": "ADEL"
+		},
+		{
+			"address": "0x8ab7404063ec4dbcfd4598215992dc3f8ec853d7",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/AKRO-icon.png",
+			"name": "Akropolis",
+			"symbol": "AKRO"
+		},
+		{
+			"address": "0x27702a26126e0b3702af63ee09ac4d1a084ef628",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ALEPH-icon.png",
+			"name": "Aleph.im",
+			"symbol": "ALEPH"
+		},
+		{
+			"address": "0xd46ba6d942050d489dbd938a2c909a5d5039a161",
+			"chainId": 1,
+			"decimals": 9,
+			"logoURI": "https://zapper.fi/images/AMPL-icon.png",
+			"name": "Ampleforth",
+			"symbol": "AMPL"
+		},
+		{
+			"address": "0xcd62b1c403fa761baadfc74c525ce2b51780b184",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ANJ-icon.png",
+			"name": "Aragon Court",
+			"symbol": "ANJ"
+		},
+		{
+			"address": "0x960b236a07cf122663c4303350609a66a7b288c0",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ANT-icon.png",
+			"name": "Aragon",
+			"symbol": "ANT"
+		},
+		{
+			"address": "0x209c1808febf6c1ab7c65764bb61ad67d3923fcc",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/APE-icon.png",
+			"name": "APEcoin",
+			"symbol": "APE"
+		},
+		{
+			"address": "0x34612903db071e888a4dadcaa416d3ee263a87b9",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ARTE-icon.png",
+			"name": "ethArt",
+			"symbol": "ARTE"
+		},
+		{
+			"address": "0x27054b13b1b798b345b591a4d22e6562d47ea75a",
+			"chainId": 1,
+			"decimals": 4,
+			"logoURI": "https://zapper.fi/images/AST-icon.png",
+			"name": "AirSwap",
+			"symbol": "AST"
+		},
+		{
+			"address": "0xc12d099be31567add4e4e4d0d45691c3f58f5663",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/AUC-icon.png",
+			"name": "Auctus",
+			"symbol": "AUC"
+		},
+		{
+			"address": "0x18aaa7115705e8be94bffebde57af9bfc265b998",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/AUDIO-icon.png",
+			"name": "Audius",
+			"symbol": "AUDIO"
+		},
+		{
+			"address": "0xba100000625a3754423978a60c9317c58a424e3d",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BAL-icon.png",
+			"name": "Balancer",
+			"symbol": "BAL"
+		},
+		{
+			"address": "0xba11d00c5f74255f56a5e366f4f77f5a186d7f55",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BAND-icon.png",
+			"name": "Band Protocol",
+			"symbol": "BAND"
+		},
+		{
+			"address": "0x68a118ef45063051eac49c7e647ce5ace48a68a5",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/$BASED-icon.png",
+			"name": "Based Money",
+			"symbol": "BASED"
+		},
+		{
+			"address": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BAT-icon.png",
+			"name": "Basic Attention Token",
+			"symbol": "BAT"
+		},
+		{
+			"address": "0x668dbf100635f593a3847c0bdaf21f0a09380188",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BNSD-icon.png",
+			"name": "BNSD Finance",
+			"symbol": "BNSD"
+		},
+		{
+			"address": "0x1f573d6fb3f13d689ff844b4ce37794d79a7ff1c",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BNT-icon.png",
+			"name": "Bancor Network Token",
+			"symbol": "BNT"
+		},
+		{
+			"address": "0x0391d2021f89dc339f60fff84546ea23e337750f",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BOND-icon.png",
+			"name": "BarnBridge",
+			"symbol": "BOND"
+		},
+		{
+			"address": "0x3e780920601d61cedb860fe9c4a90c9ea6a35e78",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BOOST-icon.png",
+			"name": "Boosted Finance",
+			"symbol": "BOOST"
+		},
+		{
+			"address": "0x5beabaebb3146685dd74176f68a0721f91297d37",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BOT-icon.png",
+			"name": "Bounce Token",
+			"symbol": "BOT"
+		},
+		{
+			"address": "0x0327112423f3a68efdf1fcf402f6c5cb9f7c33fd",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BTC++-icon.png",
+			"name": "PieDAO BTC++",
+			"symbol": "BTC++"
+		},
+		{
+			"address": "0x7b123f53421b1bf8533339bfbdc7c98aa94163db",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BUIDL-icon.png",
+			"name": "dfohub",
+			"symbol": "BUIDL"
+		},
+		{
+			"address": "0x6e36556b3ee5aa28def2a8ec3dae30ec2b208739",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BUILD-icon.png",
+			"name": "BUILD Finance",
+			"symbol": "BUILD"
+		},
+		{
+			"address": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BUSD-icon.png",
+			"name": "Binance USD",
+			"symbol": "BUSD"
+		},
+		{
+			"address": "0x3b3ac5386837dc563660fb6a0937dfaa5924333b",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BUSD Curve-icon.png",
+			"name": "LP-bCurve",
+			"symbol": "BUSDCurve"
+		},
+		{
+			"address": "0x56d811088235f11c8920698a204a5010a788f4b3",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/BZRX-icon.png",
+			"name": "bZx Protocol",
+			"symbol": "BZRX"
+		},
+		{
+			"address": "0x26e75307fc0c021472feb8f727839531f112f317",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/C20-icon.png",
+			"name": "CRYPTO20",
+			"symbol": "C20"
+		},
+		{
+			"address": "0xaaaebe6fe48e54f431b0c390cfaf0b017d09d42d",
+			"chainId": 1,
+			"decimals": 4,
+			"logoURI": "https://zapper.fi/images/CEL-icon.png",
+			"name": "Celsius Network",
+			"symbol": "CEL"
+		},
+		{
+			"address": "0x4f9254c83eb525f9fcf346490bbb3ed28a81c667",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/CELR-icon.png",
+			"name": "Celer Network",
+			"symbol": "CELR"
+		},
+		{
+			"address": "0xc4c2614e694cf534d407ee49f8e44d125e4681c4",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/CHAIN-icon.png",
+			"name": "Chain Games",
+			"symbol": "CHAIN"
+		},
+		{
+			"address": "0x3936ad01cf109a36489d93cabda11cf062fd3d48",
+			"chainId": 1,
+			"decimals": 9,
+			"logoURI": "https://zapper.fi/images/COIL-icon.png",
+			"name": "Coil",
+			"symbol": "COIL"
+		},
+		{
+			"address": "0x87b008e57f640d94ee44fd893f0323af933f9195",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/COIN-icon.png",
+			"name": "Coin Artist",
+			"symbol": "COIN"
+		},
+		{
+			"address": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/COMP-icon.png",
+			"name": "Compound",
+			"symbol": "COMP"
+		},
+		{
+			"address": "0x62359ed7505efc61ff1d56fef82158ccaffa23d7",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/CORE-icon.png",
+			"name": "cVault.finance",
+			"symbol": "CORE"
+		},
+		{
+			"address": "0x2ba592f78db6436527729929aaf6c908497cb200",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/CREAM-icon.png",
+			"name": "Cream",
+			"symbol": "CREAM"
+		},
+		{
+			"address": "0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/CRO-icon.png",
+			"name": "Crypto.com Coin",
+			"symbol": "CRO"
+		},
+		{
+			"address": "0xd533a949740bb3306d119cc777fa900ba034cd52",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/CRV-icon.png",
+			"name": "Curve DAO Token",
+			"symbol": "CRV"
+		},
+		{
+			"address": "0x6b175474e89094c44da98b954eedeac495271d0f",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DAI-icon.png",
+			"name": "Dai",
+			"symbol": "DAI"
+		},
+		{
+			"address": "0x80ab141f324c3d6f2b18b030f1c4e95d4d658778",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DEA-icon.png",
+			"name": "DEA",
+			"symbol": "DEA"
+		},
+		{
+			"address": "0x80ab141f324c3d6f2b18b030f1c4e95d4d658778",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DEA-icon.png",
+			"name": "DEA",
+			"symbol": "DEA"
+		},
+		{
+			"address": "0x78f225869c08d478c34e5f645d07a87d3fe8eb78",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DEFI+L-icon.png",
+			"name": "PieDAO DEFI Large Cap",
+			"symbol": "DEFI+L"
+		},
+		{
+			"address": "0xad6a626ae2b43dcb1b39430ce496d2fa0365ba9c",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DEFI+S-icon.png",
+			"name": "PieDAO DEFI Small Cap",
+			"symbol": "DEFI+S"
+		},
+		{
+			"address": "0x88ef27e69108b2633f8e1c184cc37940a075cc02",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DEGO-icon.png",
+			"name": "dego.finance",
+			"symbol": "DEGO"
+		},
+		{
+			"address": "0x3b62f3820e0b035cc4ad602dece6d796bc325325",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DEUS-icon.png",
+			"name": "DEUS Finance",
+			"symbol": "DEUS"
+		},
+		{
+			"address": "0x3b62f3820e0b035cc4ad602dece6d796bc325325",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DEUS-icon.png",
+			"name": "DEUS",
+			"symbol": "DEUS"
+		},
+		{
+			"address": "0x5caf454ba92e6f2c929df14667ee360ed9fd5b26",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DEV-icon.png",
+			"name": "Dev Protocol",
+			"symbol": "DEV"
+		},
+		{
+			"address": "0xc666081073e8dff8d3d1c2292a29ae1a2153ec09",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DGTX-icon.png",
+			"name": "DigitexFutures",
+			"symbol": "DGTX"
+		},
+		{
+			"address": "0x4f3afec4e5a3f2a6a1a411def7d7dfe50ee057bf",
+			"chainId": 1,
+			"decimals": 9,
+			"logoURI": "https://zapper.fi/images/DGX-icon.png",
+			"name": "Digix Gold",
+			"symbol": "DGX"
+		},
+		{
+			"address": "0xca1207647ff814039530d7d35df0e1dd2e91fa84",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DHT-icon.png",
+			"name": "dHedge DAO Token",
+			"symbol": "DHT"
+		},
+		{
+			"address": "0x84ca8bc7997272c7cfb4d0cd3d55cd942b3c9419",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DIA-icon.png",
+			"name": "DIA",
+			"symbol": "DIA"
+		},
+		{
+			"address": "0xc719d010b63e5bbf2c0551872cd5316ed26acd83",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DIP-icon.png",
+			"name": "Etherisc DIP Token",
+			"symbol": "DIP"
+		},
+		{
+			"address": "0xed91879919b71bb6905f23af0a68d231ecf87b14",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DMG-icon.png",
+			"name": "DMM Governance",
+			"symbol": "DMG"
+		},
+		{
+			"address": "0x0abdace70d3790235af448c88547603b945604ea",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DNT-icon.png",
+			"name": "district0x",
+			"symbol": "DNT"
+		},
+		{
+			"address": "0x43dfc4159d86f3a37a5a4b3d4580b888ad7d4ddd",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DODO-icon.png",
+			"name": "DODO",
+			"symbol": "DODO"
+		},
+		{
+			"address": "0xc0f9bd5fa5698b6505f643900ffa515ea5df54a9",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DONUT-icon.png",
+			"name": "Donut",
+			"symbol": "DONUT"
+		},
+		{
+			"address": "0x0a913bead80f321e7ac35285ee10d9d922659cb7",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DOS-icon.png",
+			"name": "DOS Network",
+			"symbol": "DOS"
+		},
+		{
+			"address": "0xad32a8e6220741182940c5abf610bde99e737b2d",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DOUGH-icon.png",
+			"name": "PieDAO DOUGH v2",
+			"symbol": "DOUGH"
+		},
+		{
+			"address": "0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DPI-icon.png",
+			"name": "DeFiPulse Index",
+			"symbol": "DPI"
+		},
+		{
+			"address": "0x5bc25f649fc4e26069ddf4cf4010f9f706c23831",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DUSD-icon.png",
+			"name": "DefiDollar",
+			"symbol": "DUSD"
+		},
+		{
+			"address": "0xa1d65e8fb6e87b60feccbc582f7f97804b725521",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/DXD-icon.png",
+			"name": "DXDao",
+			"symbol": "DXD"
+		},
+		{
+			"address": "0x9cb2f26a23b8d89973f08c957c4d7cdf75cd341c",
+			"chainId": 1,
+			"decimals": 6,
+			"logoURI": "https://zapper.fi/images/DZAR-icon.png",
+			"name": "Digital Rand",
+			"symbol": "DZAR"
+		},
+		{
+			"address": "0xf0ee6b27b759c9893ce4f094b49ad28fd15a23e4",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/ENG-icon.png",
+			"name": "Enigma",
+			"symbol": "ENG"
+		},
+		{
+			"address": "0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ENJ-icon.png",
+			"name": "Enjin Coin",
+			"symbol": "ENJ"
+		},
+		{
+			"address": "0x47dd62d4d075dead71d0e00299fc56a2d747bebb",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/EQL-icon.png",
+			"name": "EQUAL",
+			"symbol": "EQL"
+		},
+		{
+			"address": "0x36f3fd68e7325a35eb768f1aedaae9ea0689d723",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ESD-icon.png",
+			"name": "Empty Set Dollar",
+			"symbol": "ESD"
+		},
+		{
+			"address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ETH-icon.png",
+			"name": "Ethereum",
+			"symbol": "ETH"
+		},
+		{
+			"address": "0xeeeeeeeee2af8d0e1940679860398308e0ef24d6",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ETHV-icon.png",
+			"name": "Ethverse",
+			"symbol": "ETHV"
+		},
+		{
+			"address": "0x178c820f862b14f316509ec36b13123da19a6054",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/EWTB-icon.png",
+			"name": "Energy Web Token Bridged",
+			"symbol": "EWTB"
+		},
+		{
+			"address": "0xa0246c9032bc3a600820415ae600c6388619a14d",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/FARM-icon.png",
+			"name": "Harvest Finance",
+			"symbol": "FARM"
+		},
+		{
+			"address": "0xaea46a60368a7bd060eec7df8cba43b7ef41ad85",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/FET-icon.png",
+			"name": "Fetch.ai",
+			"symbol": "FET"
+		},
+		{
+			"address": "0xc6e64729931f60d2c8bc70a27d66d9e0c28d1bf9",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/FLOW-icon.png",
+			"name": "Flow Protocol",
+			"symbol": "FLOW"
+		},
+		{
+			"address": "0x4946fcea7c692606e8908002e55a582af44ac121",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/FOAM-icon.png",
+			"name": "FOAM",
+			"symbol": "FOAM"
+		},
+		{
+			"address": "0xfffffffff15abf397da76f1dcc1a1604f45126db",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/FSW-icon.png",
+			"name": "Falconswap",
+			"symbol": "FSW"
+		},
+		{
+			"address": "0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/FTT-icon.png",
+			"name": "FTX Token",
+			"symbol": "FTT"
+		},
+		{
+			"address": "0x4a57e687b9126435a9b19e4a802113e266adebde",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/FXC-icon.png",
+			"name": "Flexacoin",
+			"symbol": "FXC"
+		},
+		{
+			"address": "0x3f382dbd960e3a9bbceae22651e88158d2791550",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/GHST-icon.png",
+			"name": "Aavegotchi GHST Token",
+			"symbol": "GHST"
+		},
+		{
+			"address": "0x6810e776880c02933d47db1b9fc05908e5386b96",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/GNO-icon.png",
+			"name": "Gnosis",
+			"symbol": "GNO"
+		},
+		{
+			"address": "0x056fd409e1d7a124bd7017459dfea2f387b6d5cd",
+			"chainId": 1,
+			"decimals": 2,
+			"logoURI": "https://zapper.fi/images/GUSD-icon.png",
+			"name": "Gemini Dollar",
+			"symbol": "GUSD"
+		},
+		{
+			"address": "0x0e29e5abbb5fd88e28b2d355774e73bd47de3bcd",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/HAKKA-icon.png",
+			"name": "Hakka Finance",
+			"symbol": "HAKKA"
+		},
+		{
+			"address": "0x0316eb71485b0ab14103307bf65a021042c6d380",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/HBTC-icon.png",
+			"name": "Huobi BTC",
+			"symbol": "HBTC"
+		},
+		{
+			"address": "0x584bc13c7d411c00c01a62e8019472de68768430",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/HEGIC-icon.png",
+			"name": "Hegic",
+			"symbol": "HEGIC"
+		},
+		{
+			"address": "0x7968bc6a03017ea2de509aaa816f163db0f35148",
+			"chainId": 1,
+			"decimals": 6,
+			"logoURI": "https://zapper.fi/images/HGET-icon.png",
+			"name": "Hedget",
+			"symbol": "HGET"
+		},
+		{
+			"address": "0x19810559df63f19cfe88923313250550edadb743",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/HOUSE-icon.png",
+			"name": "Toast.finance",
+			"symbol": "HOUSE"
+		},
+		{
+			"address": "0xdf574c24545e5ffecb9a659c229253d4111d87e1",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/HUSD-icon.png",
+			"name": "HUSD",
+			"symbol": "HUSD"
+		},
+		{
+			"address": "0xb705268213d593b8fd88d3fdeff93aff5cbdcfae",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/IDEX-icon.png",
+			"name": "IDEX",
+			"symbol": "IDEX"
+		},
+		{
+			"address": "0xcc13fc627effd6e35d2d2706ea3c4d7396c610ea",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/IDXM-icon.png",
+			"name": "IDEX Membership",
+			"symbol": "IDXM"
+		},
+		{
+			"address": "0xaf1250fa68d7decd34fd75de8742bc03b29bd58e",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/IHF-icon.png",
+			"name": "Invictus Hyperion Fund",
+			"symbol": "IHF"
+		},
+		{
+			"address": "0x0954906da0bf32d5479e25f46056d22f08464cab",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/INDEX-icon.png",
+			"name": "Index Cooperative",
+			"symbol": "INDEX"
+		},
+		{
+			"address": "0x8a9c67fee641579deba04928c4bc45f66e26343a",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/JRT-icon.png",
+			"name": "Jarvis Reward Token",
+			"symbol": "JRT"
+		},
+		{
+			"address": "0x85eee30c52b0b379b046fb0f85f4f3dc3009afec",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/KEEP-icon.png",
+			"name": "Keep Network",
+			"symbol": "KEEP"
+		},
+		{
+			"address": "0x177ba0cac51bfc7ea24bad39d81dcefd59d74faa",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/KIF-icon.png",
+			"name": "KittenFinance",
+			"symbol": "KIF"
+		},
+		{
+			"address": "0xdd974d5c2e2928dea5f71b9825b8b646686bd200",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/KNC-icon.png",
+			"name": "Kyber Network",
+			"symbol": "KNC"
+		},
+		{
+			"address": "0xa866f0198208eb07c83081d5136be7f775c2399e",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/KORE-icon.png",
+			"name": "Kore",
+			"symbol": "KORE"
+		},
+		{
+			"address": "0x1ceb5cb57c4d4e2b2433641b95dd330a33185a44",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/KP3R-icon.png",
+			"name": "Keep3rV1",
+			"symbol": "KP3R"
+		},
+		{
+			"address": "0xbbff34e47e559ef680067a6b1c980639eeb64d24",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/L2-icon.png",
+			"name": "Leverj Gluon",
+			"symbol": "L2"
+		},
+		{
+			"address": "0x80fb784b7ed66730e8b1dbd9820afd29931aab03",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/LEND-icon.png",
+			"name": "Aave OLD",
+			"symbol": "LEND"
+		},
+		{
+			"address": "0xab37e1358b639fd877f015027bb62d3ddaa7557e",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/LIEN-icon.png",
+			"name": "Lien",
+			"symbol": "LIEN"
+		},
+		{
+			"address": "0x514910771af9ca656af840dff83e8264ecf986ca",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/LINK-icon.png",
+			"name": "Chainlink",
+			"symbol": "LINK"
+		},
+		{
+			"address": "0x0e2ec54fc0b509f445631bf4b91ab8168230c752",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/LINKUSD-icon.png",
+			"name": "LINKUSD",
+			"symbol": "LINKUSD"
+		},
+		{
+			"address": "0xa4e8c3ec456107ea67d3075bf9e3df3a75823db0",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/LOOM-icon.png",
+			"name": "Loom Network",
+			"symbol": "LOOM"
+		},
+		{
+			"address": "0x58b6a8a3302369daec383334672404ee733ab239",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/LPT-icon.png",
+			"name": "Livepeer",
+			"symbol": "LPT"
+		},
+		{
+			"address": "0xbbbbca6a901c926f240b89eacb641d8aec7aeafd",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/LRC-icon.png",
+			"name": "Loopring",
+			"symbol": "LRC"
+		},
+		{
+			"address": "0xb1f66997a5760428d3a87d68b90bfe0ae64121cc",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/LUA-icon.png",
+			"name": "Lua Token",
+			"symbol": "LUA"
+		},
+		{
+			"address": "0xb1f66997a5760428d3a87d68b90bfe0ae64121cc",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/LUA-icon.png",
+			"name": "LuaToken",
+			"symbol": "LUA"
+		},
+		{
+			"address": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/MANA-icon.png",
+			"name": "Decentraland",
+			"symbol": "MANA"
+		},
+		{
+			"address": "0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/MATIC-icon.png",
+			"name": "Matic Network",
+			"symbol": "MATIC"
+		},
+		{
+			"address": "0x4e352cf164e64adcbad318c3a1e222e9eba4ce42",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/MCB-icon.png",
+			"name": "MCDex",
+			"symbol": "MCB"
+		},
+		{
+			"address": "0xd5525d397898e5502075ea5e830d8914f6f0affe",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/MEME-icon.png",
+			"name": "Meme",
+			"symbol": "MEME"
+		},
+		{
+			"address": "0xefc1c73a3d8728dc4cf2a18ac5705fe93e5914ac",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/METRIC-icon.png",
+			"name": "MetricExchange",
+			"symbol": "METRIC"
+		},
+		{
+			"address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/MKR-icon.png",
+			"name": "Maker",
+			"symbol": "MKR"
+		},
+		{
+			"address": "0xec67005c4e498ec7f55e092bd1d35cbc47c91892",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/MLN-icon.png",
+			"name": "Melon",
+			"symbol": "MLN"
+		},
+		{
+			"address": "0x68a3637ba6e75c0f66b61a42639c4e9fcd3d4824",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/MOON-icon.png",
+			"name": "MoonSwap",
+			"symbol": "MOON"
+		},
+		{
+			"address": "0xa3bed4e1c75d00fa6f4e5e6922db7261b5e9acd2",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/MTA-icon.png",
+			"name": "Meta",
+			"symbol": "MTA"
+		},
+		{
+			"address": "0xf433089366899d83a9f26a773d59ec7ecf30355e",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/MTL-icon.png",
+			"name": "Metal",
+			"symbol": "MTL"
+		},
+		{
+			"address": "0xcc80c051057b774cd75067dc48f8987c4eb97a5e",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/NEC-icon.png",
+			"name": "Nectar Token",
+			"symbol": "NEC"
+		},
+		{
+			"address": "0xb62132e35a6c13ee1ee0f84dc5d40bad8d815206",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/NEXO-icon.png",
+			"name": "NEXO",
+			"symbol": "NEXO"
+		},
+		{
+			"address": "0x1776e1f26f98b1a5df9cd347953a26dd3cb46671",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/NMR-icon.png",
+			"name": "Numeraire",
+			"symbol": "NMR"
+		},
+		{
+			"address": "0xd7c49cee7e9188cca6ad8ff264c1da2e69d4cf3b",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/NXM-icon.png",
+			"name": "Nexus Mutual",
+			"symbol": "NXM"
+		},
+		{
+			"address": "0x967da4048cd07ab37855c090aaf366e4ce1b9f48",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/OCEAN-icon.png",
+			"name": "Ocean Protocol",
+			"symbol": "OCEAN"
+		},
+		{
+			"address": "0x7240ac91f01233baaf8b064248e80feaa5912ba3",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/OCTO-icon.png",
+			"name": "OctoFi",
+			"symbol": "OCTO"
+		},
+		{
+			"address": "0x8207c1ffc5b6804f6024322ccf34f29c3541ae26",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/OGN-icon.png",
+			"name": "Origin Protocol",
+			"symbol": "OGN"
+		},
+		{
+			"address": "0xd26114cd6ee289accf82350c8d8487fedb8a0c07",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/OMG-icon.png",
+			"name": "OMG Network",
+			"symbol": "OMG"
+		},
+		{
+			"address": "0x2a8e1e676ec238d8a992307b495b45b3feaa5e86",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/OUSD-icon.png",
+			"name": "Origin Dollar",
+			"symbol": "OUSD"
+		},
+		{
+			"address": "0x2a7f709ee001069771ceb6d42e85035f7d18e736",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/OWL-icon.png",
+			"name": "OWL Token",
+			"symbol": "OWL"
+		},
+		{
+			"address": "0xd56dac73a4d6766464b38ec6d91eb45ce7457c44",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/PAN-icon.png",
+			"name": "Panvala Pan",
+			"symbol": "PAN"
+		},
+		{
+			"address": "0xe54f9e6ab80ebc28515af8b8233c1aee6506a15e",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/PASTA-icon.png",
+			"name": "Spaghetti",
+			"symbol": "PASTA"
+		},
+		{
+			"address": "0x8e870d67f660d95d5be530380d0ec0bd388289e1",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/PAX-icon.png",
+			"name": "Paxos Standard",
+			"symbol": "PAX"
+		},
+		{
+			"address": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/PAXG-icon.png",
+			"name": "PAX Gold",
+			"symbol": "PAXG"
+		},
+		{
+			"address": "0xbc16da9df0a22f01a16bc0620a27e7d6d6488550",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/PCT-icon.png",
+			"name": "Percent",
+			"symbol": "PCT"
+		},
+		{
+			"address": "0xbc396689893d065f41bc2c6ecbee5e0085233447",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/PERP-icon.png",
+			"name": "Perpetual Protocol",
+			"symbol": "PERP"
+		},
+		{
+			"address": "0x429881672b9ae42b8eba0e26cd9c73711b891ca5",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/PICKLE-icon.png",
+			"name": "Pickle Finance",
+			"symbol": "PICKLE"
+		},
+		{
+			"address": "0xe3818504c1b32bf1557b16c238b2e01fd3149c17",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/PLR-icon.png",
+			"name": "Pillar",
+			"symbol": "PLR"
+		},
+		{
+			"address": "0xd8912c10681d8b21fd3742244f44658dba12264e",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/PLU-icon.png",
+			"name": "Pluton",
+			"symbol": "PLU"
+		},
+		{
+			"address": "0x93ed3fbe21207ec2e8f2d3c3de6e058cb73bc04d",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/PNK-icon.png",
+			"name": "Kleros",
+			"symbol": "PNK"
+		},
+		{
+			"address": "0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/PPT-icon.png",
+			"name": "Populous",
+			"symbol": "PPT"
+		},
+		{
+			"address": "0x362bc847a3a9637d3af6624eec853618a43ed7d2",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/PRQ-icon.png",
+			"name": "Parsiq Token",
+			"symbol": "PRQ"
+		},
+		{
+			"address": "0xd7b7d3c0bda57723fb54ab95fd8f9ea033af37f2",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/PYLON-icon.png",
+			"name": "Pylon Finance",
+			"symbol": "PYLON"
+		},
+		{
+			"address": "0xfca59cd816ab1ead66534d82bc21e7515ce441cf",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/RARI-icon.png",
+			"name": "Rarible",
+			"symbol": "RARI"
+		},
+		{
+			"address": "0xf970b8e36e23f7fc3fd752eea86f8be8d83375a6",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/RCN-icon.png",
+			"name": "Ripio Credit Network",
+			"symbol": "RCN"
+		},
+		{
+			"address": "0x255aa6df07540cb5d3d297f0d0d4d84cb52bc8e6",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/RDN-icon.png",
+			"name": "Raiden Network Token",
+			"symbol": "RDN"
+		},
+		{
+			"address": "0x408e41876cccdc0f92210600ef50372656052a38",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/REN-icon.png",
+			"name": "Republic Protocol",
+			"symbol": "REN"
+		},
+		{
+			"address": "0x459086f2376525bdceba5bdda135e4e9d3fef5bf",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/RENBCH-icon.png",
+			"name": "renBCH",
+			"symbol": "RENBCH"
+		},
+		{
+			"address": "0x1c5db575e2ff833e46a2e9864c22f4b22e0b37c2",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/RENZEC-icon.png",
+			"name": "renZEC",
+			"symbol": "RENZEC"
+		},
+		{
+			"address": "0x221657776846890989a759ba2973e427dff5c9bb",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/REP-icon.png",
+			"name": "Augur",
+			"symbol": "REP"
+		},
+		{
+			"address": "0x8f8221afbb33998d8584a2b05749ba73c37a938a",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/REQ-icon.png",
+			"name": "Request",
+			"symbol": "REQ"
+		},
+		{
+			"address": "0xaf9f549774ecedbd0966c52f250acc548d3f36e5",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/RFuel-icon.png",
+			"name": "Rio Fuel Token",
+			"symbol": "RFuel"
+		},
+		{
+			"address": "0xd291e7a03283640fdc51b121ac401383a46cc623",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/RGT-icon.png",
+			"name": "Rari Governance Token",
+			"symbol": "RGT"
+		},
+		{
+			"address": "0x607f4c5bb672230e8672085532f7e901544a7375",
+			"chainId": 1,
+			"decimals": 9,
+			"logoURI": "https://zapper.fi/images/RLC-icon.png",
+			"name": "iExec RLC",
+			"symbol": "RLC"
+		},
+		{
+			"address": "0xf1f955016ecbcd7321c7266bccfb96c68ea5e49b",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/RLY-icon.png",
+			"name": "Rally",
+			"symbol": "RLY"
+		},
+		{
+			"address": "0xe17f017475a709de58e976081eb916081ff4c9d5",
+			"chainId": 1,
+			"decimals": 9,
+			"logoURI": "https://zapper.fi/images/RMPL-icon.png",
+			"name": "RMPL",
+			"symbol": "RMPL"
+		},
+		{
+			"address": "0x9d47894f8becb68b9cf3428d256311affe8b068b",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ROPE-icon.png",
+			"name": "Rope",
+			"symbol": "ROPE"
+		},
+		{
+			"address": "0xd04785c4d8195e4a54d9dec3a9043872875ae9e2",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ROT-icon.png",
+			"name": "RottenToken",
+			"symbol": "ROT"
+		},
+		{
+			"address": "0xb4efd85c19999d84251304bda99e90b92300bd93",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/RPL-icon.png",
+			"name": "Rocket Pool",
+			"symbol": "RPL"
+		},
+		{
+			"address": "0x8762db106b2c2a0bccb3a80d1ed41273552616e8",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/RSR-icon.png",
+			"name": "Reserve Rights Token",
+			"symbol": "RSR"
+		},
+		{
+			"address": "0x1aa61c196e76805fcbe394ea00e4ffced24fc469",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SAFE-icon.png",
+			"name": "yieldfarming.insure",
+			"symbol": "SAFE"
+		},
+		{
+			"address": "0x250a3500f48666561386832f1f1f1019b89a2699",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SAFE2-icon.png",
+			"name": "SAFE2",
+			"symbol": "SAFE2"
+		},
+		{
+			"address": "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SAI-icon.png",
+			"name": "Sai",
+			"symbol": "SAI"
+		},
+		{
+			"address": "0x066798d9ef0833ccc719076dab77199ecbd178b0",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SAKE-icon.png",
+			"name": "SakeToken",
+			"symbol": "SAKE"
+		},
+		{
+			"address": "0xc28e27870558cf22add83540d2126da2e4b464c2",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SASHIMI-icon.png",
+			"name": "Sashimi",
+			"symbol": "SASHIMI"
+		},
+		{
+			"address": "0xe25b0bba01dc5630312b6a21927e578061a13f55",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SHIP-icon.png",
+			"name": "ShipChain",
+			"symbol": "SHIP"
+		},
+		{
+			"address": "0xed0439eacf4c4965ae4613d77a5c2efe10e5f183",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SHROOM-icon.png",
+			"name": "Shroom.Finance",
+			"symbol": "SHROOM"
+		},
+		{
+			"address": "0x37236cd05b34cc79d3715af2383e96dd7443dcf1",
+			"chainId": 1,
+			"decimals": 0,
+			"logoURI": "https://zapper.fi/images/SLP-icon.png",
+			"name": "Small Love Potion",
+			"symbol": "SLP"
+		},
+		{
+			"address": "0xfe9a29ab92522d14fc65880d817214261d8479ae",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SNOW-icon.png",
+			"name": "Snowswap",
+			"symbol": "SNOW"
+		},
+		{
+			"address": "0x744d70fdbe2ba4cf95131626614a1763df805b9e",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SNT-icon.png",
+			"name": "Status",
+			"symbol": "SNT"
+		},
+		{
+			"address": "0x7865af71cf0b288b4e7f654f4f7851eb46a2b7f8",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SNTVT-icon.png",
+			"name": "Sentivate",
+			"symbol": "SNTVT"
+		},
+		{
+			"address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SNX-icon.png",
+			"name": "Synthetix Network Token",
+			"symbol": "SNX"
+		},
+		{
+			"address": "0x476c5e26a75bd202a9683ffd34359c0cc15be0ff",
+			"chainId": 1,
+			"decimals": 6,
+			"logoURI": "https://zapper.fi/images/SRM-icon.png",
+			"name": "Serum",
+			"symbol": "SRM"
+		},
+		{
+			"address": "0xa7de087329bfcda5639247f96140f9dabe3deed1",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/STA-icon.png",
+			"name": "Statera",
+			"symbol": "STA"
+		},
+		{
+			"address": "0x0ae055097c6d159879521c384f1d2123d1f195e6",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/STAKE-icon.png",
+			"name": "xDAI Stake",
+			"symbol": "STAKE"
+		},
+		{
+			"address": "0xb64ef51c888972c908cfacf59b47c1afbc0ab8ac",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/STORJ-icon.png",
+			"name": "Storj",
+			"symbol": "STORJ"
+		},
+		{
+			"address": "0x990f341946a3fdb507ae7e52d17851b87168017c",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/STRONG-icon.png",
+			"name": "Strong",
+			"symbol": "STRONG"
+		},
+		{
+			"address": "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SUSHI-icon.png",
+			"name": "Sushi",
+			"symbol": "SUSHI"
+		},
+		{
+			"address": "0xcc4304a31d09258b0029ea7fe63d032f52e44efe",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SWAP-icon.png",
+			"name": "Trustswap",
+			"symbol": "SWAP"
+		},
+		{
+			"address": "0xb8baa0e4287890a5f79863ab62b7f175cecbd433",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SWRV-icon.png",
+			"name": "Swerve",
+			"symbol": "SWRV"
+		},
+		{
+			"address": "0x8ce9137d39326ad0cd6491fb5cc0cba0e089b6a9",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/SXP-icon.png",
+			"name": "Swipe",
+			"symbol": "SXP"
+		},
+		{
+			"address": "0x33c2da7fd5b125e629b3950f3c38d7f721d7b30d",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/Seal-icon.png",
+			"name": "Seal Finance",
+			"symbol": "Seal"
+		},
+		{
+			"address": "0x33c2da7fd5b125e629b3950f3c38d7f721d7b30d",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/Seal-icon.png",
+			"name": "Seal Finance",
+			"symbol": "Seal"
+		},
+		{
+			"address": "0x3a92bd396aef82af98ebc0aa9030d25a23b11c6b",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/TBX-icon.png",
+			"name": "Tokenbox",
+			"symbol": "TBX"
+		},
+		{
+			"address": "0xaaaf91d9b90df800df4f55c205fd6989c977e73a",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/TKN-icon.png",
+			"name": "Monolith",
+			"symbol": "TKN"
+		},
+		{
+			"address": "0x6f87d756daf0503d08eb8993686c7fc01dc44fb1",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/TRADE-icon.png",
+			"name": "Unitrade",
+			"symbol": "TRADE"
+		},
+		{
+			"address": "0x0ba45a8b5d5575935b8158a88c631e9f9c95a2e5",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/TRB-icon.png",
+			"name": "Tellor",
+			"symbol": "TRB"
+		},
+		{
+			"address": "0x2c537e5624e4af88a7ae4060c022609376c8d0eb",
+			"chainId": 1,
+			"decimals": 6,
+			"logoURI": "https://zapper.fi/images/TRYb-icon.png",
+			"name": "BiLira",
+			"symbol": "TRYb"
+		},
+		{
+			"address": "0x0000000000085d4780b73119b644ae5ecd22b376",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/TUSD-icon.png",
+			"name": "TrueUSD",
+			"symbol": "TUSD"
+		},
+		{
+			"address": "0x8400d94a5cb0fa0d041a3788e395285d61c9ee5e",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/UBT-icon.png",
+			"name": "Unibright",
+			"symbol": "UBT"
+		},
+		{
+			"address": "0x12f649a9e821f90bb143089a6e56846945892ffb",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/UDOO-icon.png",
+			"name": "Hyprr (Howdoo)",
+			"symbol": "UDOO"
+		},
+		{
+			"address": "0x04fa0d235c4abf4bcf4787af4cf447de572ef828",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/UMA-icon.png",
+			"name": "UMA",
+			"symbol": "UMA"
+		},
+		{
+			"address": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/UNI-icon.png",
+			"name": "Uniswap",
+			"symbol": "UNI"
+		},
+		{
+			"address": "0x9a48bd0ec040ea4f1d3147c025cd4076a2e71e3e",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/USD++-icon.png",
+			"name": "PieDAO USD++",
+			"symbol": "USD++"
+		},
+		{
+			"address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+			"chainId": 1,
+			"decimals": 6,
+			"logoURI": "https://zapper.fi/images/USDC-icon.png",
+			"name": "USD Coin",
+			"symbol": "USDC"
+		},
+		{
+			"address": "0x1c48f86ae57291f7686349f12601910bd8d470bb",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/USDK-icon.png",
+			"name": "USDK",
+			"symbol": "USDK"
+		},
+		{
+			"address": "0x674c6ad92fd080e4004b2312b45f796a192d27a0",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/USDN-icon.png",
+			"name": "USDN",
+			"symbol": "USDN"
+		},
+		{
+			"address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+			"chainId": 1,
+			"decimals": 6,
+			"logoURI": "https://zapper.fi/images/USDT-icon.png",
+			"name": "Tether",
+			"symbol": "USDT"
+		},
+		{
+			"address": "0x49e833337ece7afe375e44f4e3e8481029218e5c",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/VALUE-icon.png",
+			"name": "Value Liquidity",
+			"symbol": "VALUE"
+		},
+		{
+			"address": "0xb72b31907c1c95f3650b64b2469e08edacee5e8f",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/VBZRX-icon.png",
+			"name": "bZx Vesting Token",
+			"symbol": "VBZRX"
+		},
+		{
+			"address": "0x12d102f06da35cc0111eb58017fd2cd28537d0e1",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/VOX-icon.png",
+			"name": "Vox.Finance",
+			"symbol": "VOX"
+		},
+		{
+			"address": "0x3a1c1d1c06be03cddc4d3332f7c20e1b37c97ce9",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/VYBE-icon.png",
+			"name": "Vybe",
+			"symbol": "VYBE"
+		},
+		{
+			"address": "0xb2279b6769cfba691416f00609b16244c0cf4b20",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/WAIF-icon.png",
+			"name": "Waifu Token",
+			"symbol": "WAIF"
+		},
+		{
+			"address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/WBTC-icon.png",
+			"name": "Wrapped Bitcoin",
+			"symbol": "WBTC"
+		},
+		{
+			"address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/WETH-icon.png",
+			"name": "WETH",
+			"symbol": "WETH"
+		},
+		{
+			"address": "0x4922a015c4407f87432b179bb209e125432e4a2a",
+			"chainId": 1,
+			"decimals": 6,
+			"logoURI": "https://zapper.fi/images/XAUT-icon.png",
+			"name": "Tether Gold",
+			"symbol": "XAUT"
+		},
+		{
+			"address": "0x0f7f961648ae6db43c75663ac7e5414eb79b5704",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/XIO-icon.png",
+			"name": "XIO",
+			"symbol": "XIO"
+		},
+		{
+			"address": "0x40fd72257597aa14c7231a7b1aaa29fce868f677",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/XOR-icon.png",
+			"name": "Sora",
+			"symbol": "XOR"
+		},
+		{
+			"address": "0x0aacfbec6a24756c20d41914f2caba817c0d8521",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/YAM-icon.png",
+			"name": "YAM",
+			"symbol": "YAM"
+		},
+		{
+			"address": "0xaba8cac6866b83ae4eec97dd07ed254282f6ad8a",
+			"chainId": 1,
+			"decimals": 24,
+			"logoURI": "https://zapper.fi/images/YAMv2-icon.png",
+			"name": "YAM v2",
+			"symbol": "YAMv2"
+		},
+		{
+			"address": "0xb1dc9124c395c1e97773ab855d66e879f053a289",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/YAX-icon.png",
+			"name": "yAxis",
+			"symbol": "YAX"
+		},
+		{
+			"address": "0xdf5e0e81dff6faf3a7e52ba697820c5e32d806a8",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/Y Curve-icon.png",
+			"name": "LP-yCurve",
+			"symbol": "YCurve"
+		},
+		{
+			"address": "0x89ee58af4871b474c30001982c3d7439c933c838",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/YFBETA-icon.png",
+			"name": "yfBeta",
+			"symbol": "YFBETA"
+		},
+		{
+			"address": "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/YFI-icon.png",
+			"name": "yearn.finance",
+			"symbol": "YFI"
+		},
+		{
+			"address": "0xa1d0e215a23d7030842fc67ce582a6afa3ccab83",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/YFII-icon.png",
+			"name": "DFI.money",
+			"symbol": "YFII"
+		},
+		{
+			"address": "0x28cb7e841ee97947a86b06fa4090c8451f64c0be",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/YFL-icon.png",
+			"name": "YF Link",
+			"symbol": "YFL"
+		},
+		{
+			"address": "0xfef3bef71a5eb97e097039038776fd967ae5b106",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/YFMS-icon.png",
+			"name": "YFMoonshot",
+			"symbol": "YFMS"
+		},
+		{
+			"address": "0x45f24baeef268bb6d63aee5129015d69702bcdfa",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/YFV-icon.png",
+			"name": "YFValue",
+			"symbol": "YFV"
+		},
+		{
+			"address": "0x6768063279e2b185dc0c972b97f11f231d0b45ad",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/YIELD-icon.png",
+			"name": "Yield-farming.io",
+			"symbol": "YIELD"
+		},
+		{
+			"address": "0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ZIL-icon.png",
+			"name": "ZIL",
+			"symbol": "ZIL"
+		},
+		{
+			"address": "0xe41d2489571d322189246dafa5ebde1f4699f498",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ZRX-icon.png",
+			"name": "0x",
+			"symbol": "ZRX"
+		},
+		{
+			"address": "0xc75f15ada581219c95485c578e124df3985e4ce0",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ZZZ-icon.png",
+			"name": "zzz.finance",
+			"symbol": "ZZZ"
+		},
+		{
+			"address": "0xfc1e690f61efd961294b3e1ce3313fbd8aa4f85d",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/aDAI-icon.png",
+			"name": "Aave DAI",
+			"symbol": "aDAI"
+		},
+		{
+			"address": "0xa64bd6c70cb9051f6a9ba1f163fdc07e0dfb5f84",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/aLINK-icon.png",
+			"name": "Aave LINK",
+			"symbol": "aLINK"
+		},
+		{
+			"address": "0x5d3a536e4d6dbd6114cc1ead35777bab948e3643",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/cDAI-icon.png",
+			"name": "cDAI",
+			"symbol": "cDAI"
+		},
+		{
+			"address": "0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/cETH-icon.png",
+			"name": "cETH",
+			"symbol": "cETH"
+		},
+		{
+			"address": "0x39aa39c021dfbae8fac545936693ac917d5e7563",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/cUSDC-icon.png",
+			"name": "cUSDC",
+			"symbol": "cUSDC"
+		},
+		{
+			"address": "0xf650c3d88d12db855b8bf7d11be6c55a4e07dcc9",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/cUSDT-icon.png",
+			"name": "cUSDT",
+			"symbol": "cUSDT"
+		},
+		{
+			"address": "0xa9859874e1743a32409f75bb11549892138bba1e",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/iETH-icon.png",
+			"name": "iETH",
+			"symbol": "iETH"
+		},
+		{
+			"address": "0xe2f2a5c287993345a840db3b0845fbc70f5935a5",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/mUSD-icon.png",
+			"name": "mStable USD",
+			"symbol": "mUSD"
+		},
+		{
+			"address": "0x26cf82e4ae43d31ea51e72b663d26e26a75af729",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/mbBASED-icon.png",
+			"name": "Moonbase",
+			"symbol": "mbBASED"
+		},
+		{
+			"address": "0x261b45d85ccfeabb11f022eba346ee8d1cd488c0",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/rDAI-icon.png",
+			"name": "rDAI",
+			"symbol": "rDAI"
+		},
+		{
+			"address": "0xeb4c2781e4eba804ce9a9803c67d0893436bb27d",
+			"chainId": 1,
+			"decimals": 8,
+			"logoURI": "https://zapper.fi/images/renBTC-icon.png",
+			"name": "renBTC",
+			"symbol": "renBTC"
+		},
+		{
+			"address": "0x49849c98ae39fff122806c06791fa73784fb3675",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/renBTC Curve-icon.png",
+			"name": "LP renBTC Curve",
+			"symbol": "renBTCCurve"
+		},
+		{
+			"address": "0x17628a557d1fc88d1c35989dcbac3f3e275e2d2b",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/sBTC-icon.png",
+			"name": "sBTC",
+			"symbol": "sBTC"
+		},
+		{
+			"address": "0x075b1bb99792c9e1041ba13afef80c91a1e70fb3",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/sBTC Curve-icon.png",
+			"name": "LP sBTC Curve",
+			"symbol": "sBTCCurve"
+		},
+		{
+			"address": "0x5e74c9036fb86bd7ecdcb084a0673efc32ea31cb",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/sETH-icon.png",
+			"name": "sETH",
+			"symbol": "sETH"
+		},
+		{
+			"address": "0x57ab1ec28d129707052df4df418d58a2d46d5f51",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/sUSD-icon.png",
+			"name": "sUSD",
+			"symbol": "sUSD"
+		},
+		{
+			"address": "0xc25a3a3b969415c80451098fa907ec722572917f",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/sUSD Curve-icon.png",
+			"name": "LP-sCurve",
+			"symbol": "sUSDCurve"
+		},
+		{
+			"address": "0x261efcdd24cea98652b9700800a13dfbca4103ff",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/sXAU-icon.png",
+			"name": "sXAU",
+			"symbol": "sXAU"
+		},
+		{
+			"address": "0x4da27a545c0c5b758a6ba100e3a049001de870f5",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/stkAAVE-icon.png",
+			"name": "StakedAave",
+			"symbol": "stkAAVE"
+		},
+		{
+			"address": "0x8daebade922df735c38c80c7ebd708af50815faa",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/tBTC-icon.png",
+			"name": "tBTC",
+			"symbol": "tBTC"
+		},
+		{
+			"address": "0x0d438f3b5175bebc262bf23753c1e53d03432bde",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/wNXM-icon.png",
+			"name": "Wrapped NXM",
+			"symbol": "wNXM"
+		},
+		{
+			"address": "0xacd43e627e64355f1861cec6d3a6688b31a6f952",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/yDAI-icon.png",
+			"name": "yDAI",
+			"symbol": "yDAI"
+		},
+		{
+			"address": "0xe1237aa7f535b0cc33fd973d66cbf830354d16c7",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/yETH-icon.png",
+			"name": "yETH",
+			"symbol": "yETH"
+		},
+		{
+			"address": "0x37d19d1c4e1fa9dc47bd1ea12f742a0887eda74a",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/yTUSD-icon.png",
+			"name": "yTUSD",
+			"symbol": "yTUSD"
+		},
+		{
+			"address": "0x5dbcf33d8c2e976c6b560249878e6f1491bca25c",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/yUSD-icon.png",
+			"name": "yUSD",
+			"symbol": "yUSD"
+		},
+		{
+			"address": "0xb2fdd60ad80ca7ba89b9bab3b5336c2601c020b4",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/yUSD-OCT20-icon.png",
+			"name": "yUSD Synthetic Token Expiring 1 October 2020",
+			"symbol": "yUSD-OCT20"
+		},
+		{
+			"address": "0x81ab848898b5ffd3354dbbefb333d5d183eedcb5",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/yUSD-SEP20-icon.png",
+			"name": "yUSD Synthetic Token Expiring 1 September 2020",
+			"symbol": "yUSD-SEP20"
+		},
+		{
+			"address": "0x597ad1e0c13bfe8025993d9e79c69e1c0233522e",
+			"chainId": 1,
+			"decimals": 6,
+			"logoURI": "https://zapper.fi/images/yUSDC-icon.png",
+			"name": "yUSDC",
+			"symbol": "yUSDC"
+		},
+		{
+			"address": "0x2f08119c6f07c006695e079aafc638b8789faf18",
+			"chainId": 1,
+			"decimals": 6,
+			"logoURI": "https://zapper.fi/images/yUSDT-icon.png",
+			"name": "yUSDT",
+			"symbol": "yUSDT"
+		},
+		{
+			"address": "0x2994529c0652d127b7842094103715ec5299bbed",
+			"chainId": 1,
+			"decimals": 18,
+			"logoURI": "https://zapper.fi/images/ybCRV-icon.png",
+			"name": "ybCRV",
+			"symbol": "ybCRV"
+		}
+	],
+	"tokens": [
+		{
+			"decimals": 8,
+			"symbol": "0xbtc",
+			"name": "0xBitcoin",
+			"primaryColor": "#ff7423",
+			"icon": "assets/icons/zxb.svg",
+			"addresses": {
+				"1": "0xb6ed7644c69416d67b522e20bc294a9a9b405b31"
+			},
+			"displayDecimals": 2,
+			"id": "0xbtc",
+			"unified_cryptoasset_id": 2837,
+			"c_id": "oxbitcoin",
+			"description": "Pure Mined Currency For Ethereum Applications",
+			"website": "https://0xbitcoin.org",
+			"isStableCoin": false
+		},
+		{
+			"symbol": "weth",
+			"name": "Wrapped Ether",
+			"primaryColor": "#3333ff",
+			"icon": "assets/icons/weth.svg",
+			"addresses": {
+				"1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+				"3": "0xc778417e063141139fce010982780140aa0cd5ab",
+				"4": "0xc778417e063141139fce010982780140aa0cd5ab",
+				"42": "0xd0a1e359811322d97991e03f863a0c30c2cf029c",
+				"50": "0x0b1ba0af832d7c05fd64161e0db78e85978e8082"
+			},
+			"decimals": 18,
+			"displayDecimals": 3,
+			"id": "ethereum",
+			"c_id": "ethereum",
+			"unified_cryptoasset_id": 2396,
+			"website": "https://weth.io",
+			"description": "wETH is 'wrapped ETH'",
+			"isStableCoin": false
+		},
+		{
+			"decimals": 8,
+			"symbol": "wbtc",
+			"name": "Wrapped BTC",
+			"primaryColor": "#282138",
+			"icon": "assets/icons/wbtc.svg",
+			"addresses": {
+				"1": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+			},
+			"displayDecimals": 8,
+			"unified_cryptoasset_id": 3717,
+			"website": "https://www.wbtc.network/",
+			"c_id": "wrapped-bitcoin",
+			"description": "Wrapped Bitcoin delivers the power of Bitcoin with the flexibility of an ERC20 token.",
+			"id": "wrapped-bitcoin",
+			"isStableCoin": false
+		},
+		{
+			"symbol": "zrx",
+			"name": "0x Protocol Token",
+			"primaryColor": "#333333",
+			"icon": "assets/icons/zrx.svg",
+			"unified_cryptoasset_id": 1896,
+			"addresses": {
+				"1": "0xE41d2489571d322189246DaFA5ebDe1F4699F498",
+				"3": "0xff67881f8d12f372d91baae9752eb3631ff0ed00",
+				"4": "0x8080c7e4b81ecf23aa6f877cfbfd9b0c228c6ffa",
+				"5": "0xff67881f8d12f372d91baae9752eb3631ff0ed00",
+				"42": "0x2002d3812f58e35f0ea1ffbf80a75a38c32175fa",
+				"50": "0x871dd7c2b4b25e1aa18728e9d5f2af4c4e431f5c"
+			},
+			"decimals": 18,
+			"displayDecimals": 2,
+			"website": "https://0x.org",
+			"description": "0x is an open protocol that enables the peer-to-peer exchange of assets on the Ethereum blockchain.",
+			"c_id": "0x",
+			"isStableCoin": false
+		},
+		{
+			"decimals": 18,
+			"symbol": "dai",
+			"name": "Dai",
+			"icon": "assets/icons/dai.svg",
+			"unified_cryptoasset_id": 2308,
+			"primaryColor": "#DEA349",
+			"addresses": {
+				"1": "0x6b175474e89094c44da98b954eedeac495271d0f",
+				"3": "0xfc8862446cd3e4a2e7167e7d97df738407fead07",
+				"4": "0x6f2d6ff85efca691aad23d549771160a12f0a0fc",
+				"42": "0xc4375b7de8af5a38a93548eb8453a498222c4ff2",
+				"50": ""
+			},
+			"website": "https://makerdao.com/en/dai/",
+			"description": "Dai is an asset-backed, hard currency for the 21st century.",
+			"c_id": "dai",
+			"displayDecimals": 2,
+			"isStableCoin": true
+		},
+		{
+			"decimals": 6,
+			"displayDecimals": 2,
+			"symbol": "usdc",
+			"name": "USDC",
+			"icon": "assets/icons/usdc.svg",
+			"primaryColor": "#9fc2e7",
+			"unified_cryptoasset_id": 3408,
+			"addresses": {
+				"1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+			},
+			"id": "usd-coin",
+			"website": "https://www.centre.io/",
+			"description": "Connecting every person, every merchant, every financial service, every currency. Everywhere.",
+			"c_id": "usd-coin",
+			"isStableCoin": true
+		},
+		{
+			"decimals": 18,
+			"displayDecimals": 2,
+			"symbol": "bat",
+			"name": "Basic Attention Token",
+			"icon": "assets/icons/bat.svg",
+			"unified_cryptoasset_id": 1697,
+			"primaryColor": "#9e1f63",
+			"addresses": {
+				"1": "0x0d8775f648430679a709e98d2b0cb6250d2887ef"
+			},
+			"id": "basic-attention-token",
+			"website": "https://basicattentiontoken.org/",
+			"description": "INTRODUCING BLOCKCHAIN-BASED DIGITAL ADVERTISING",
+			"c_id": "basic-attention-token",
+			"isStableCoin": false
+		},
+		{
+			"decimals": 18,
+			"displayDecimals": 2,
+			"symbol": "mkr",
+			"name": "Maker",
+			"primaryColor": "#68CCBB",
+			"unified_cryptoasset_id": 1518,
+			"icon": "assets/icons/mkr.svg",
+			"addresses": {
+				"1": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
+				"3": "0x06732516acd125b6e83c127752ed5f027e1b276e",
+				"4": "0xb763e26cd6dd09d16f52dc3c60ebb77e46b03290",
+				"42": "0x7B6B10CAa9E8E9552bA72638eA5b47c25afea1f3",
+				"50": "0x34d402f14d58e001d8efbe6585051bf9706aa064"
+			},
+			"website": "https://makerdao.com/",
+			"c_id": "maker",
+			"description": "Maker is comprised of a decentralized stablecoin, collateral loans, and community governance.",
+			"id": "maker",
+			"isStableCoin": false
+		},
+		{
+			"decimals": 18,
+			"symbol": "link",
+			"name": "ChainLink",
+			"primaryColor": "#0a258a",
+			"icon": "assets/icons/link.svg",
+			"unified_cryptoasset_id": 1975,
+			"addresses": {
+				"1": "0x514910771af9ca656af840dff83e8264ecf986ca"
+			},
+			"displayDecimals": 2,
+			"website": "https://chain.link/",
+			"c_id": "chainlink",
+			"description": "Your smart contracts connected to real world data, events and payments.",
+			"id": "chainlink",
+			"isStableCoin": false
+		},
+		{
+			"decimals": 6,
+			"symbol": "usdt",
+			"name": "Tether",
+			"primaryColor": "#14a279",
+			"icon": "assets/icons/usdt.svg",
+			"unified_cryptoasset_id": 825,
+			"addresses": {
+				"1": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+			},
+			"displayDecimals": 3,
+			"website": "https://tether.to/",
+			"c_id": "tether",
+			"description": "Digital money for a digital age",
+			"id": "tether",
+			"isStableCoin": true
+		},
+		{
+			"decimals": 18,
+			"symbol": "busd",
+			"name": "BinanceUSD",
+			"primaryColor": "#f0b90b",
+			"icon": "assets/icons/busd.svg",
+			"unified_cryptoasset_id": 5000,
+			"addresses": {
+				"1": "0x4fabb145d64652a948d72533023f6e7a623c7c53"
+			},
+			"displayDecimals": 3,
+			"website": "http://www.paxos.com/busd",
+			"c_id": "busd",
+			"description": "A new stablecoin, issued in partnership with Binance",
+			"id": "busd",
+			"isStableCoin": true
+		},
+		{
+			"decimals": 18,
+			"symbol": "lend",
+			"name": "ETHlend",
+			"primaryColor": "#f0b90b",
+			"icon": "assets/icons/lend.svg",
+			"unified_cryptoasset_id": 5000,
+			"addresses": {
+				"1": "0x80fB784B7eD66730e8b1DBd9820aFD29931aab03"
+			},
+			"displayDecimals": 3,
+			"website": "https://aave.com/",
+			"c_id": "aave",
+			"description": "Aave is an Open Source and Non-Custodial protocol to earn interest on deposits & borrow assets.",
+			"id": "aave",
+			"isStableCoin": false
+		},
+		{
+			"decimals": 18,
+			"symbol": "susd",
+			"name": "Synth sUsd",
+			"primaryColor": "#f0b90b",
+			"icon": "assets/icons/susd.svg",
+			"unified_cryptoasset_id": 5005,
+			"addresses": {
+				"1": "0x57ab1ec28d129707052df4df418d58a2d46d5f51"
+			},
+			"displayDecimals": 3,
+			"website": "https://www.synthetix.io/",
+			"c_id": "susd",
+			"description": "A protocol for trading synthetic assets on Ethereum",
+			"id": "susd",
+			"isStableCoin": true
+		},
+		{
+			"decimals": 18,
+			"symbol": "mana",
+			"name": "Decentraland",
+			"primaryColor": "#f0b90b",
+			"icon": "assets/icons/mana.svg",
+			"unified_cryptoasset_id": 5005,
+			"addresses": {
+				"1": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942"
+			},
+			"displayDecimals": 3,
+			"website": "https://decentraland.org/",
+			"c_id": "decentraland",
+			"description": "Choose your Avatar to enter Decentraland, Your passport to the Metaverse",
+			"id": "decentraland",
+			"isStableCoin": false
+		},
+		{
+			"decimals": 18,
+			"symbol": "snx",
+			"name": "Synthetix",
+			"primaryColor": "#f0b90b",
+			"icon": "assets/icons/snx.svg",
+			"unified_cryptoasset_id": 5005,
+			"addresses": {
+				"1": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f"
+			},
+			"displayDecimals": 3,
+			"website": "https://www.synthetix.io/",
+			"c_id": "synthetix-network-token",
+			"description": "A protocol for trading synthetic assets on Ethereum",
+			"id": "synthetix-network-token",
+			"isStableCoin": false
+		},
+		{
+			"decimals": 18,
+			"symbol": "rep",
+			"name": "Augur",
+			"primaryColor": "#603994",
+			"icon": "assets/icons/rep.svg",
+			"unified_cryptoasset_id": 1104,
+			"addresses": {
+				"1": "0x1985365e9f78359a9B6AD760e32412f4a445E862"
+			},
+			"displayDecimals": 3,
+			"website": "https://www.augur.net/",
+			"c_id": "augur",
+			"description": "Markets for Anyone Anywhere on Anything.",
+			"id": "augur",
+			"isStableCoin": false
+		},
+		{
+			"decimals": 18,
+			"symbol": "knc",
+			"name": "KyberNetwork",
+			"primaryColor": "#ffffff",
+			"unified_cryptoasset_id": 1982,
+			"icon": "assets/icons/knc.svg",
+			"addresses": {
+				"1": "0xdd974d5c2e2928dea5f71b9825b8b646686bd200"
+			},
+			"displayDecimals": 2,
+			"website": "https://kyber.network/",
+			"c_id": "kyber-network",
+			"description": "Kyber is an on-chain liquidity protocol that aggregates liquidity from a wide range of reserves,<br /> powering instant and secure token exchange in any decentralized application.",
+			"id": "kyber-network",
+			"isStableCoin": false
+		},
+		{
+			"decimals": 18,
+			"symbol": "tusd",
+			"name": "TrueUSD",
+			"primaryColor": "#38294a",
+			"unified_cryptoasset_id": 2563,
+			"icon": "assets/icons/tusd.svg",
+			"addresses": {
+				"1": "0x0000000000085d4780B73119b644AE5ecd22b376"
+			},
+			"displayDecimals": 6,
+			"website": "https://www.trusttoken.com/trueusd",
+			"c_id": "true-usd",
+			"description": "The first regulated stablecoin fully backed by the US Dollar.",
+			"id": "true-usd",
+			"isStableCoin": true
+		},
+		{
+			"decimals": 2,
+			"symbol": "gusd",
+			"name": "Gemini dollar",
+			"primaryColor": "#fe2e57",
+			"unified_cryptoasset_id": 3306,
+			"icon": "assets/icons/gusd.svg",
+			"addresses": {
+				"1": "0x056fd409e1d7a124bd7017459dfea2f387b6d5cd"
+			},
+			"displayDecimals": 2,
+			"c_id": "gemini-dollar",
+			"website": "https://gemini.com/dollar",
+			"description": "The world’s first regulated stablecoin, designed for high scale and usability in all kinds of transactions.The world’s first regulated stablecoin, designed for high scale and usability in all kinds of transactions.",
+			"isStableCoin": true
+		}
+	],
+	"pairs": [
+		{
+			"base": "weth",
+			"quote": "dai",
+			"config": {
+				"basePrecision": 3,
+				"pricePrecision": 5,
+				"minAmount": 0.01
+			}
+		},
+		{
+			"base": "wbtc",
+			"quote": "dai",
+			"config": {
+				"basePrecision": 3,
+				"pricePrecision": 5,
+				"minAmount": 0.01
+			}
+		},
+		{
+			"base": "usdc",
+			"quote": "dai",
+			"config": {
+				"basePrecision": 3,
+				"pricePrecision": 5,
+				"minAmount": 0.1
+			}
+		},
+		{
+			"base": "weth",
+			"quote": "usdc",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 6,
+				"minAmount": 0.01
+			}
+		},
+		{
+			"base": "wbtc",
+			"quote": "usdc",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 6,
+				"minAmount": 0.01
+			}
+		},
+		{
+			"base": "sdex",
+			"quote": "weth",
+			"config": {
+				"basePrecision": 6,
+				"pricePrecision": 8,
+				"minAmount": 0.00001
+			}
+		},
+		{
+			"base": "sdex",
+			"quote": "wbtc",
+			"config": {
+				"basePrecision": 6,
+				"pricePrecision": 8,
+				"minAmount": 0.00001
+			}
+		},
+		{
+			"base": "desh",
+			"quote": "weth",
+			"config": {
+				"basePrecision": 6,
+				"pricePrecision": 8,
+				"minAmount": 0.00001
+			}
+		},
+		{
+			"base": "desh",
+			"quote": "wbtc",
+			"config": {
+				"basePrecision": 6,
+				"pricePrecision": 8,
+				"minAmount": 0.00001
+			}
+		},
+		{
+			"base": "whackd",
+			"quote": "weth",
+			"config": {
+				"basePrecision": 0,
+				"pricePrecision": 8,
+				"minAmount": 0.1
+			}
+		},
+		{
+			"base": "whackd",
+			"quote": "wbtc",
+			"config": {
+				"basePrecision": 0,
+				"pricePrecision": 8,
+				"minAmount": 0.1
+			}
+		},
+		{
+			"base": "alex",
+			"quote": "weth",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 8,
+				"minAmount": 0.0001
+			}
+		},
+		{
+			"base": "alex",
+			"quote": "wbtc",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 8,
+				"minAmount": 0.0001
+			}
+		},
+		{
+			"base": "zrx",
+			"quote": "weth",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 5,
+				"minAmount": 10
+			}
+		},
+		{
+			"base": "zrx",
+			"quote": "wbtc",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 5,
+				"minAmount": 10
+			}
+		},
+		{
+			"base": "bat",
+			"quote": "weth",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 8
+			}
+		},
+		{
+			"base": "bat",
+			"quote": "wbtc",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 8
+			}
+		},
+		{
+			"base": "mkr",
+			"quote": "weth",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 6
+			}
+		},
+		{
+			"base": "mkr",
+			"quote": "wbtc",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 6
+			}
+		},
+		{
+			"base": "rep",
+			"quote": "weth",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 5
+			}
+		},
+		{
+			"base": "rep",
+			"quote": "wbtc",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 5
+			}
+		},
+		{
+			"base": "link",
+			"quote": "weth",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 5,
+				"minAmount": 1
+			}
+		},
+		{
+			"base": "link",
+			"quote": "wbtc",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 5,
+				"minAmount": 1
+			}
+		},
+		{
+			"base": "weth",
+			"quote": "usdt",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 6
+			}
+		},
+		{
+			"base": "wbtc",
+			"quote": "usdt",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 6
+			}
+		},
+		{
+			"base": "knc",
+			"quote": "weth",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 5,
+				"minAmount": 1
+			}
+		},
+		{
+			"base": "knc",
+			"quote": "wbtc",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 5,
+				"minAmount": 1
+			}
+		},
+		{
+			"base": "0xbtc",
+			"quote": "weth",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 8,
+				"minAmount": 1
+			}
+		},
+		{
+			"base": "0xbtc",
+			"quote": "wbtc",
+			"config": {
+				"basePrecision": 2,
+				"pricePrecision": 8,
+				"minAmount": 1
+			}
+		}
+	],
+	"marketFilters": [
+		{
+			"text": "ETH",
+			"value": "weth"
+		},
+		{
+			"text": "BTC",
+			"value": "wbtc"
+		},
+		{
+			"text": "USDC",
+			"value": "usdc"
+		}
+	]
+}

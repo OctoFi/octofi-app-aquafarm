@@ -1,0 +1,17 @@
+.close {
+	text-shadow: none;
+	color: #202020;
+	opacity: 1;
+
+	&:hover {
+		color: #121212;
+	}
+
+	.dark-mode & {
+		color: $title;
+
+		&:hover {
+			color: $overline;
+		}
+	}
+}

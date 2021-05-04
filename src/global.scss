@@ -1,0 +1,13 @@
+@use "~inter-ui/default" with (
+  $inter-font-display: swap,
+  $inter-font-path: '~inter-ui/Inter (web)'
+);
+@use "~inter-ui/variable" with (
+  $inter-font-display: swap,
+  $inter-font-path: '~inter-ui/Inter (web)'
+);
+@use default.all;
+@use variable.all;
+@import "styles/abstracts/variables";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "styles/main.scss";

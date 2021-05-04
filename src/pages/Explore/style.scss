@@ -1,0 +1,56 @@
+@import "../../styles/abstracts/variables";
+.slick-track {
+	display: flex !important;
+}
+
+.slick-slide {
+	height: inherit !important;
+
+	& > div {
+		height: 100%;
+	}
+}
+
+.explore {
+	&__dots {
+		list-style: none;
+		padding-top: 0;
+		padding-left: 0;
+		margin: 0;
+		display: flex !important;
+		align-items: center;
+		position: relative;
+		justify-content: center;
+
+		@media (min-width: 576px) {
+			padding-top: 10px;
+		}
+
+		& li {
+			button {
+				width: 8px !important;
+				height: 8px !important;
+				border-radius: 8px;
+				opacity: 0.5;
+				background-color: $primary;
+				transition: opacity 0.4s ease;
+				margin: 0 5px;
+				padding: 0;
+
+				@media (min-width: 576px) {
+					width: 10px !important;
+					height: 10px !important;
+					border-radius: 10px;
+				}
+
+				&::before {
+					display: none;
+				}
+			}
+
+			&.slick-active button {
+				opacity: 1;
+			}
+		}
+	}
+}

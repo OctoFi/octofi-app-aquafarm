@@ -1,0 +1,47 @@
+.section {
+	&__title {
+		margin-bottom: 40px !important;
+
+		@media (max-width: 576px) {
+			margin-bottom: 20px !important;
+			font-size: 1.25rem;
+		}
+	}
+}
+
+.form-control {
+	height: 56px !important;
+
+	&:focus,
+	&:active {
+		box-shadow: none;
+		outline: none;
+	}
+
+	&::placeholder {
+		color: $title;
+	}
+}
+
+.input-group-text {
+	padding-left: 2rem;
+}
+
+svg {
+	overflow: visible !important;
+}
+
+.transak_modal {
+	z-index: 1200 !important;
+}
+
+.transak_modal-overlay {
+	z-index: 1199 !important;
+}
+.transak_close {
+	background-color: $modal-bg !important;
+
+	& path {
+		fill: white !important;
+	}
+}

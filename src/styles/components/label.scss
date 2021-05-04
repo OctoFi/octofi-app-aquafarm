@@ -1,0 +1,118 @@
+//
+// Label
+//
+
+.label {
+	padding: 0;
+	margin: 0;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	height: 40px;
+	width: 20px;
+	border-radius: 50%;
+	font-size: 1.125rem;
+	background-color: $background;
+	color: $title;
+	font-weight: 500;
+
+	// Theme colors
+	@each $name, $color in $theme-colors {
+		// Solid style
+		&.label-#{$name} {
+			color: $color;
+			background-color: $color;
+		}
+
+		// Outline style
+		&.label-outline-#{$name} {
+			background-color: transparent;
+			color: $color;
+			border: 1px solid $color;
+
+			&.label-outline-2x {
+				border: 2px solid $color;
+			}
+		}
+
+		// Light style
+		&.label-light-#{$name} {
+			color: $color;
+			background-color: rgba($color, 0.15);
+		}
+	}
+
+	// Inline mode
+	&.label-inline {
+		width: auto;
+		padding: 0.15rem 0.75rem;
+		border-radius: 12px;
+
+		// Sizing
+		&.label-md {
+			padding: 0.8rem 0.6rem;
+		}
+
+		&.label-lg {
+			padding: 0.9rem 0.75rem;
+		}
+
+		&.label-xl {
+			padding: 1rem 0.85rem;
+		}
+	}
+
+	// Pill mode
+	&.label-pill {
+		border-radius: 0;
+	}
+
+	// Rounded
+	&.label-rounded {
+		border-radius: 12px;
+	}
+
+	// Square mode
+	&.label-square {
+		border-radius: 0;
+	}
+
+	// Dot style
+	&.label-dot {
+		display: inline-block;
+		font-size: 0 !important;
+		vertical-align: middle;
+		text-align: center;
+	}
+
+	// Sizes
+	@include label-size(36px, 0.8rem);
+
+	&.label-dot {
+		@include label-dot-size(6px);
+	}
+
+	&.label-sm {
+		@include label-size(32px, 0.75rem);
+
+		&.label-dot {
+			@include label-dot-size(4px);
+		}
+	}
+
+	&.label-lg {
+		@include label-size(40px, 0.9rem);
+
+		&.label-dot {
+			@include label-dot-size(8px);
+		}
+	}
+
+	&.label-xl {
+		@include label-size(48px, 1rem);
+
+		&.label-dot {
+			@include label-dot-size(10px);
+		}
+	}
+}
