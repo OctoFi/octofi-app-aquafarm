@@ -85,15 +85,6 @@ const WithdrawButton = styled(PoolsButton)`
 	}
 `;
 
-const IdText = styled.span`
-	color: ${({ theme }) => theme.text1};
-	padding: 0 1.5rem 0 1.875rem;
-
-	@media (max-width: 991px) {
-		padding: 0;
-	}
-`;
-
 const PoolTab = (props) => {
 	const { t } = useTranslation();
 	const { account } = useActiveWeb3React();
@@ -199,7 +190,7 @@ const PoolTab = (props) => {
 				dataField: "id",
 				text: "ID",
 				formatter: (cellContent, row, rowIndex) => (
-					<IdText className="font-weight-bold d-block">{rowIndex + 1}</IdText>
+					<span className="font-weight-bold d-block">{rowIndex + 1}</span>
 				),
 			},
 			{
@@ -286,7 +277,7 @@ const PoolTab = (props) => {
 				dataField: "id",
 				text: "ID",
 				formatter: (cellContent, row, rowIndex) => (
-					<IdText className="font-weight-bold d-block">{rowIndex + 1}</IdText>
+					<span className="font-weight-bold d-block">{rowIndex + 1}</span>
 				),
 			},
 			{
@@ -369,7 +360,7 @@ const PoolTab = (props) => {
 				dataField: "id",
 				text: "ID",
 				formatter: (cellContent, row, rowIndex) => (
-					<IdText className="font-weight-bold d-block">{rowIndex + 1}</IdText>
+					<span className="font-weight-bold d-block">{rowIndex + 1}</span>
 				),
 			},
 			{
@@ -386,8 +377,8 @@ const PoolTab = (props) => {
 								<CustomTitle>
 									{row.poolToken
 										? row.poolToken.name
-										: row.coins.length > 0
-										? row.coins.map((c) => c.symbol).join("-")
+										: row.coins?.length > 0
+										? row.coins?.map((c) => c.symbol).join("-")
 										: shorten(row.address, "name")}
 								</CustomTitle>
 								<PlatformName>Curve</PlatformName>
@@ -419,8 +410,8 @@ const PoolTab = (props) => {
 					const pool = {
 						poolName: row.poolToken
 							? row.poolToken.name
-							: row.coins.length > 0
-							? row.coins.map((c) => c.symbol).join("-")
+							: row.coins?.length > 0
+							? row.coins?.map((c) => c.symbol).join("-")
 							: shorten(row.address, "name"),
 						address: row.address,
 					};
@@ -452,7 +443,7 @@ const PoolTab = (props) => {
 				dataField: "id",
 				text: "ID",
 				formatter: (cellContent, row, rowIndex) => (
-					<IdText className="font-weight-bold d-block">{rowIndex + 1}</IdText>
+					<span className="font-weight-bold d-block">{rowIndex + 1}</span>
 				),
 			},
 			{
