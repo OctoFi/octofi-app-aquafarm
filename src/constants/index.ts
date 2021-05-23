@@ -867,18 +867,6 @@ export const banners = [
 		image: require("../assets/images/banners/banner_3.png"),
 		url: "https://doc.octo.fi",
 	},
-	{
-		image: require("../assets/images/banners/banner_4.png"),
-		url: "https://den.octo.fi",
-	},
-	{
-		image: require("../assets/images/banners/banner_5.png"),
-		url: "https://dyor.octo.fi",
-	},
-	{
-		image: require("../assets/images/banners/banner_6.png"),
-		url: "https://doc.octo.fi",
-	},
 ];
 
 export enum StepKind {
