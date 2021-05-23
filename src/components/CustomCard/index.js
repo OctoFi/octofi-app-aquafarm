@@ -5,7 +5,7 @@ const { Header, Body } = Card;
 
 const StyledCard = styled(Card)`
 	background-color: ${({ theme }) => theme.modalBG};
-	border-radius: 18px;
+	border-radius: 12px;
 	border: 1px solid ${({ theme }) => theme.text4};
 `;
 

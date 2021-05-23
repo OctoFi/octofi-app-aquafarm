@@ -26,11 +26,11 @@ const GotoMarketContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 24px 24px 14px;
+	padding: 12px 24px;
+	margin-top: 1rem;
 
 	@media (min-width: 992px) {
-		padding: 0 24px 10px;
-		margin-top: -1rem;
+		margin-top: 0;
 	}
 `;
 
@@ -170,9 +170,6 @@ const Currencies = (props) => {
 						</span>
 					</div>
 				);
-			},
-			style: {
-				paddingLeft: 60,
 			},
 		},
 		{
