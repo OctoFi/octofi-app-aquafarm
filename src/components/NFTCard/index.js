@@ -1,16 +1,14 @@
 import styled from "styled-components";
 import SVG from "react-inlinesvg";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-
 import Img from "../UI/Img";
 import { useActiveWeb3React } from "../../hooks";
 import moment from "moment";
 import { toUnitAmount } from "../../lib/helper";
 import { useState } from "react";
 import Loading from "../Loading";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useWalletModalToggle } from "../../state/application/hooks";
-import { Provider } from "react-redux";
 import { NFT_REFERRER_ACCOUNT } from "../../constants";
 import { useIsDarkMode } from "../../state/user/hooks";
 import { useTranslation } from "react-i18next";
@@ -20,7 +18,7 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	background-color: ${({ theme }) => theme.bg2};
-	border-radius: 18px;
+	border-radius: 12px;
 	padding: 10px 10px;
 	height: calc(100% - 20px);
 	margin-bottom: 20px;
@@ -43,7 +41,7 @@ const ImageContainer = styled.div`
 	width: 100%;
 	padding-top: 100%;
 	position: relative;
-	border-radius: 18px;
+	border-radius: 12px;
 	background-color: ${({ theme }) => theme.bg1};
 	margin-bottom: 15px;
 
@@ -58,7 +56,7 @@ const Image = styled(Img)`
 	position: absolute;
 	top: 0;
 	left: 0;
-	border-radius: 18px;
+	border-radius: 12px;
 `;
 
 const Content = styled.div`
