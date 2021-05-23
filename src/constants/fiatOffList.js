@@ -12,7 +12,7 @@ import GivingImage from '../assets/images/fiatOff/giving.png';
 
 const items = [
     {
-        thumbnail: '../assets/images/fiatOff/bitrefill.png',
+        thumbnail: BitrefillImage,
         title: "Bitrefill",
         url: 'https://www.bitrefill.com',
         items: [
@@ -31,7 +31,7 @@ const items = [
         ]
     },
     {
-        thumbnail: '../assets/images/fiatOff/bitdials.png',
+        thumbnail: BitdialsImage,
         title: "BitDials",
         url: 'https://www.bitdials.eu',
         items: [
@@ -50,7 +50,7 @@ const items = [
         ]
     },
     {
-        thumbnail: '../assets/images/fiatOff/bitcars.png',
+        thumbnail: BitcarsImage,
         title: "BitCars",
         url: 'https://bitcars.eu',
         items: [
@@ -69,7 +69,7 @@ const items = [
         ]
     },
     {
-        thumbnail: '../assets/images/fiatOff/egifter.png',
+        thumbnail: egifterImage,
         title: "egifter",
         url: 'https://www.egifter.com',
         items: [
@@ -88,7 +88,7 @@ const items = [
         ]
     },
     {
-        thumbnail: '../assets/images/fiatOff/coinsbee.png',
+        thumbnail: coinsbeeImage,
         title: "Coinsbee",
         url: 'https://www.coinsbee.com/en',
         items: [
@@ -107,7 +107,7 @@ const items = [
         ]
     },
     {
-        thumbnail: '../assets/images/fiatOff/bitgild.png',
+        thumbnail: bitgildImage,
         title: "Bitgild",
         url: 'https://www.bitgild.com',
         items: [
@@ -126,7 +126,7 @@ const items = [
         ]
     },
     {
-        thumbnail: '../assets/images/fiatOff/travala.png',
+        thumbnail: TravalaImage,
         title: "Travala",
         url: 'https://www.travala.com',
         items: [
@@ -145,7 +145,7 @@ const items = [
         ]
     },
     {
-        thumbnail: '../assets/images/fiatOff/giving.png',
+        thumbnail: GivingImage,
         title: "GivingB",
         url: 'https://www.thegivingblock.com/donate-bitcoin',
         items: [
