@@ -1,26 +1,21 @@
 .tokensets__table {
 	position: relative;
 	width: 100%;
-	border-collapse: separate;
-	border-spacing: 0 15px;
+	border-collapse: collapse;
 	color: white;
 }
 
 .table.tokensets__table thead th {
-	border-bottom: none;
-	border-top: none;
+	border-bottom: 0;
+	border-top: 0;
 	color: #202020;
 	font-weight: 400;
-	padding-bottom: 0;
-	padding-top: 0;
+	padding-bottom: 1.5rem;
+	padding-top: 1.5rem;
 	font-size: 0.875rem;
 
 	.dark-mode & {
 		color: white;
-	}
-
-	&:first-child {
-		padding-left: 16px;
 	}
 
 	&:focus {
@@ -29,27 +24,16 @@
 }
 
 .table.tokensets__table tbody td {
-	height: 55px;
 	vertical-align: middle;
-	border: 1px solid rgba(32, 32, 32, 0.26);
+	border: 1px solid #caccd2;
 	border-left-width: 0;
 	border-right-width: 0;
 	color: #202020;
 	cursor: pointer;
+	padding: 1rem 0.75rem;
 
 	.dark-mode & {
 		color: white;
-		border-color: rgba(255, 255, 255, 0.26);
-	}
-
-	&:last-child {
-		border-top-right-radius: 18px;
-		border-bottom-right-radius: 18px;
-		border-right-width: 1px;
-	}
-	&:first-child {
-		border-top-left-radius: 18px;
-		border-bottom-left-radius: 18px;
-		border-left-width: 1px;
+		border-color: rgba(255, 255, 255, 0.2);
 	}
 }

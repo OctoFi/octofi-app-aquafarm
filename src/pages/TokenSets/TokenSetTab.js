@@ -20,7 +20,7 @@ const Title = styled.span`
 	font-size: 1.125rem;
 	font-weight: bold;
 	margin-left: 20px;
-	line-height: 1;
+	line-height: 1.35;
 	display: block;
 
 	@media (max-width: 991px) {
@@ -334,7 +334,7 @@ const TokenSetTab = (props) => {
 						<BootstrapTable
 							wrapperClasses="table-responsive d-none d-lg-block"
 							bordered={false}
-							classes="table table-head-custom table-borderless table-vertical-center overflow-hidden tokensets__table"
+							classes="table table-head-custom table-borderless table-vertical-center table-hover overflow-hidden tokensets__table"
 							bootstrap4
 							remote
 							keyField="id"
