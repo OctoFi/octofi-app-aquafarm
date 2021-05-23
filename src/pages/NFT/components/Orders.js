@@ -97,7 +97,7 @@ const Orders = (props) => {
 
 			{orders.map((order, i) => {
 				return (
-					<Col key={`nft-order-${i}`} xs={12} md={6} lg={3}>
+					<Col key={`nft-order-${i}`} xs={12} md={6} lg={4}>
 						<NFTCard seaport={props.seaport} order={order} />
 					</Col>
 				);
@@ -107,7 +107,7 @@ const Orders = (props) => {
 					{hasMore &&
 						[...Array(orders.length > 0 ? 4 : 8)].map((item, i) => {
 							return (
-								<Col key={`nft-loading-${i}`} xs={12} md={6} lg={3}>
+								<Col key={`nft-loading-${i}`} xs={12} md={6} lg={4}>
 									<NFTCard loading={true} />
 								</Col>
 							);
