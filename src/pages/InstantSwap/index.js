@@ -11,7 +11,8 @@ import { Modal } from "../../components/Modal/bootstrap";
 import { ResponsiveCard } from "../../components/Card";
 import withWeb3Account from "../../components/hoc/withWeb3Account";
 import {
-	BTC, CHANGE_NOW_FLOW,
+	BTC,
+	CHANGE_NOW_FLOW,
 	DEXesImages,
 	DEXesName,
 	PARASWAP_REFERRER_ACCOUNT,
@@ -103,7 +104,7 @@ const ProgressContainer = styled.div`
 `;
 
 const PlatformCard = styled.div`
-	padding: 8px 8px 8px 20px;
+	padding: 12px 20px;
 	border-radius: 18px;
 	background-color: ${({ selected, theme }) => (selected ? theme.bg2 : "rgba(135, 220, 225, 0.15)")};
 	margin-bottom: 10px;
@@ -141,19 +142,18 @@ const LoadingContainer = styled.div`
 	margin-bottom: 1.25rem;
 	cursor: pointer;
 	transition: border-color 0.3s ease;
-	
+
 	&:hover {
 		border-color: ${({ theme }) => theme.primary};
 	}
-`
+`;
 
 const LoadingText = styled.span`
-	font-size: .75rem;
+	font-size: 0.75rem;
 	font-weight: 500;
 	color: ${({ theme }) => theme.text3};
-	margin-right: .75rem;
-	
-`
+	margin-right: 0.75rem;
+`;
 
 const PATTERN = {
 	btc: /^[13][a-km-zA-HJ-NP-Z1-9]{25,80}$|^(bc1)[0-9A-Za-z]{25,80}$/,
@@ -309,33 +309,33 @@ class InstantSwap extends React.Component {
 		return new Promise((resolve) => {
 			callback()
 				.then((response) => {
-					this.setState(prevState => {
+					this.setState((prevState) => {
 						return {
 							loadingState: {
 								all: 36,
 								loaded: prevState.loadingState.loaded + count,
 							},
-						}
-					})
+						};
+					});
 					resolve({
 						id,
 						result: response,
-					})
+					});
 				})
 				.catch((error) => {
-					this.setState(prevState => {
+					this.setState((prevState) => {
 						return {
 							loadingState: {
 								all: 36,
 								loaded: prevState.loadingState.loaded + count,
 							},
-						}
-					})
+						};
+					});
 					resolve({
 						id,
-						result: undefined
-					})
-				})
+						result: undefined,
+					});
+				});
 		});
 	};
 
@@ -430,8 +430,12 @@ class InstantSwap extends React.Component {
 					}
 					break;
 				}
-				case 'changeNow': {
-					if((apiRates.hasOwnProperty('rate') && apiRates?.rate?.toAmount) && apiRates.hasOwnProperty('range')) {
+				case "changeNow": {
+					if (
+						apiRates.hasOwnProperty("rate") &&
+						apiRates?.rate?.toAmount &&
+						apiRates.hasOwnProperty("range")
+					) {
 						result.push({
 							rate: Number(apiRates?.rate?.toAmount || 0),
 							rateId: apiRates?.rate?.rateId,
@@ -439,20 +443,23 @@ class InstantSwap extends React.Component {
 							max: Number(apiRates?.range?.maxAmount || 0),
 							platform: "changeNow",
 							source: "changeNow",
-						})
+						});
 					}
 					break;
 				}
-				case 'sideShift': {
-					if(apiRates.hasOwnProperty('rate')) {
+				case "sideShift": {
+					if (apiRates.hasOwnProperty("rate")) {
 						result.push({
 							rate: Number(apiRates?.rate || 0),
 							min: Number(apiRates?.min || 0),
 							max: Number(apiRates?.max || 0),
 							platform: "sideShift",
 							source: "sideShift",
-						})
+						});
 					}
+					break;
+				}
+				default: {
 					break;
 				}
 			}
@@ -469,20 +476,19 @@ class InstantSwap extends React.Component {
 
 	transformFetchedData = (data) => {
 		const result = {};
-		for(let i in data) {
+		for (let i in data) {
 			const row = data[i];
-			if(row?.id === 'oneInch') {
-				result['1inch'] = row?.result;
+			if (row?.id === "oneInch") {
+				result["1inch"] = row?.result;
 			}
 
 			result[row?.id] = row?.result;
 		}
 
 		return result;
-	}
+	};
 
 	getPricesPromises = (deposit, destination) => {
-
 		let fromAmount = 10 ** deposit.token.decimals;
 
 		let dexagParams = {
@@ -494,72 +500,78 @@ class InstantSwap extends React.Component {
 
 		const promises = [];
 
-		promises.push(this.promiseHandler("oneInch", 10, () =>
-			this.api.oneInch.get("quote", {
-				fromTokenAddress: deposit.token.address,
-				toTokenAddress: destination.token.address,
-				amount: fromAmount,
-			})
-		))
+		promises.push(
+			this.promiseHandler("oneInch", 10, () =>
+				this.api.oneInch.get("quote", {
+					fromTokenAddress: deposit.token.address,
+					toTokenAddress: destination.token.address,
+					amount: fromAmount,
+				})
+			)
+		);
 
-		promises.push(this.promiseHandler("paraswap", 6, () =>
-			this.api.paraswap.getRate(deposit.token.address, destination.token.address, fromAmount)
-		))
+		promises.push(
+			this.promiseHandler("paraswap", 6, () =>
+				this.api.paraswap.getRate(deposit.token.address, destination.token.address, fromAmount)
+			)
+		);
 
-		promises.push(this.promiseHandler("dexag", 8, () =>
-			this.api.dexag.sdk.getPrice(dexagParams)
-		))
+		promises.push(this.promiseHandler("dexag", 8, () => this.api.dexag.sdk.getPrice(dexagParams)));
 
-		promises.push(this.promiseHandler("simpleSwap", 3, () =>
-			this.api.simpleSwap.get("exchange", {
-				query: {
-					fixed: SIMPLE_SWAP_FIXED,
-					currency_from: deposit.token.symbol.toLowerCase(),
-					currency_to: destination.token.symbol.toLowerCase(),
-				},
-			})
-		))
+		promises.push(
+			this.promiseHandler("simpleSwap", 3, () =>
+				this.api.simpleSwap.get("exchange", {
+					query: {
+						fixed: SIMPLE_SWAP_FIXED,
+						currency_from: deposit.token.symbol.toLowerCase(),
+						currency_to: destination.token.symbol.toLowerCase(),
+					},
+				})
+			)
+		);
 
+		promises.push(
+			this.promiseHandler("changeNow", 5, () =>
+				this.api.changeNow.get("exchange", {
+					range: {
+						params: {
+							fromNetwork: "eth",
+							toNetwork: destination.token.symbol.toLowerCase() === "btc" ? "btc" : "eth",
+							fromCurrency: deposit.token.symbol.toLowerCase(),
+							toCurrency: destination.token.symbol.toLowerCase(),
+							flow: CHANGE_NOW_FLOW,
+						},
+					},
+					rate: {
+						params: {
+							fromNetwork: "eth",
+							toNetwork: destination.token.symbol.toLowerCase() === "btc" ? "btc" : "eth",
+							fromCurrency: deposit.token.symbol.toLowerCase(),
+							toCurrency: destination.token.symbol.toLowerCase(),
+							flow: CHANGE_NOW_FLOW,
+							useRateId: !!(CHANGE_NOW_FLOW === "fixed-rate"),
+							fromAmount: 1,
+						},
+					},
+				})
+			)
+		);
 
-		promises.push(this.promiseHandler("changeNow", 5, () =>
-			this.api.changeNow.get('exchange', {
-				range: {
-					params: {
-						fromNetwork: "eth",
-						toNetwork: destination.token.symbol.toLowerCase() === 'btc' ? "btc" : "eth",
-						fromCurrency: deposit.token.symbol.toLowerCase(),
-						toCurrency: destination.token.symbol.toLowerCase(),
-						flow: CHANGE_NOW_FLOW
-					}
-				},
-				rate: {
-					params: {
-						fromNetwork: "eth",
-						toNetwork: destination.token.symbol.toLowerCase() === 'btc' ? "btc" : "eth",
-						fromCurrency: deposit.token.symbol.toLowerCase(),
-						toCurrency: destination.token.symbol.toLowerCase(),
-						flow: CHANGE_NOW_FLOW,
-						useRateId: !!(CHANGE_NOW_FLOW === 'fixed-rate'),
-						fromAmount: 1,
-					}
-				}
-			})
-		))
-
-		promises.push(this.promiseHandler("sideShift", 4, () =>
-			this.api.sideShift.get("pairs", {
-				fromCurrency: deposit.token.symbol.toLowerCase(),
-				toCurrency: destination.token.symbol.toLowerCase(),
-			})
-		))
+		promises.push(
+			this.promiseHandler("sideShift", 4, () =>
+				this.api.sideShift.get("pairs", {
+					fromCurrency: deposit.token.symbol.toLowerCase(),
+					toCurrency: destination.token.symbol.toLowerCase(),
+				})
+			)
+		);
 
 		return promises;
-	}
+	};
 
 	fetchPrices = async (pair) => {
 		const { t } = this.props;
 		let { deposit, destination } = pair;
-
 
 		clearInterval(this.priceInterval);
 
@@ -769,8 +781,7 @@ class InstantSwap extends React.Component {
 					destReceiver: this.state.recipient !== null ? this.state.recipient : undefined,
 				});
 
-
-				if(res?.statusCode === 500 && res?.message) {
+				if (res?.statusCode === 500 && res?.message) {
 					toast.error(res?.message);
 					return false;
 				}
@@ -827,7 +838,7 @@ class InstantSwap extends React.Component {
 				}
 			} else {
 				if (e.hasOwnProperty("response")) {
-					if(e?.response?.data?.message) {
+					if (e?.response?.data?.message) {
 						toast.error(e?.response?.data?.message);
 						return false;
 					}
@@ -1039,6 +1050,9 @@ class InstantSwap extends React.Component {
 						toast.error(t("errors.insufficientGas"));
 						break;
 					}
+					default: {
+						break;
+					}
 				}
 			});
 
@@ -1211,14 +1225,14 @@ class InstantSwap extends React.Component {
 				return;
 			}
 
-			const validation = await this.api.changeNow.get('address_validation', {
+			const validation = await this.api.changeNow.get("address_validation", {
 				params: {
 					currency: destination.token.symbol.toLowerCase(),
 					address: this.state.recipient !== null ? this.state.recipient : this.props.web3.account,
-				}
-			})
+				},
+			});
 
-			if(!validation?.data?.result) {
+			if (!validation?.data?.result) {
 				toast.error(validation?.data?.message);
 				return false;
 			}
@@ -1226,18 +1240,18 @@ class InstantSwap extends React.Component {
 			this.setBuyState("create_tx");
 			const res = await this.api.changeNow.createTransaction({
 				body: {
-					"fromCurrency": deposit.token.symbol.toLowerCase(),
-					"toCurrency": destination.token.symbol.toLowerCase(),
-					"fromAmount": deposit.value,
-					"address": this.state.recipient !== null ? this.state.recipient : this.props.web3.account,
-					"flow": CHANGE_NOW_FLOW,
-					"type": "direct",
-					"rateId": CHANGE_NOW_FLOW === "fixed-rate" ? rate.rateId : ""
-				}
-			})
+					fromCurrency: deposit.token.symbol.toLowerCase(),
+					toCurrency: destination.token.symbol.toLowerCase(),
+					fromAmount: deposit.value,
+					address: this.state.recipient !== null ? this.state.recipient : this.props.web3.account,
+					flow: CHANGE_NOW_FLOW,
+					type: "direct",
+					rateId: CHANGE_NOW_FLOW === "fixed-rate" ? rate.rateId : "",
+				},
+			});
 
 			if (res) {
-				if(res?.message) {
+				if (res?.message) {
 					toast.error(res?.message);
 					this.setBuyState("failed");
 					this.setDefaultBuyState();
@@ -1255,9 +1269,9 @@ class InstantSwap extends React.Component {
 				toast.error(t("errors.failedTxn"));
 			}
 		} catch (e) {
-			if(e?.message) {
+			if (e?.message) {
 				toast.error(e?.message);
-			} else if(e?.response?.data?.message) {
+			} else if (e?.response?.data?.message) {
 				toast.error(e?.message);
 			} else {
 				toast.error(t("errors.default"));
@@ -1265,7 +1279,7 @@ class InstantSwap extends React.Component {
 			this.setBuyState("failed");
 			this.setDefaultBuyState();
 		}
-	}
+	};
 
 	sideShiftBuyHandler = async (pair, rate) => {
 		const { t } = this.props;
@@ -1286,22 +1300,22 @@ class InstantSwap extends React.Component {
 				return false;
 			}
 
-			const validation = await this.api.sideShift.get('permissions');
-			if(!validation?.createOrder || !validation?.createQuote) {
-				toast.error(t('errors.default'));
+			const validation = await this.api.sideShift.get("permissions");
+			if (!validation?.createOrder || !validation?.createQuote) {
+				toast.error(t("errors.default"));
 				return false;
 			}
 
 			const order = await this.api.sideShift.post("order", {
 				body: {
-					"depositMethod": deposit.token.symbol.toLowerCase(),
-					"settleMethod": destination.token.symbol.toLowerCase(),
-					"settleAddress": this.state.recipient !== null ? this.state.recipient : this.props.web3.account,
-					"depositAmount": deposit.value,
-				}
-			})
-			if(order) {
-				if(order.hasOwnProperty("error")) {
+					depositMethod: deposit.token.symbol.toLowerCase(),
+					settleMethod: destination.token.symbol.toLowerCase(),
+					settleAddress: this.state.recipient !== null ? this.state.recipient : this.props.web3.account,
+					depositAmount: deposit.value,
+				},
+			});
+			if (order) {
+				if (order.hasOwnProperty("error")) {
 					toast.error(order?.error?.message);
 					this.setBuyState("failed");
 					this.setDefaultBuyState();
@@ -1321,9 +1335,9 @@ class InstantSwap extends React.Component {
 				}
 			}
 		} catch (e) {
-			if(e?.hasOwnProperty("error")) {
+			if (e?.hasOwnProperty("error")) {
 				toast.error(e?.error?.message);
-			} else if(e?.response?.data?.error) {
+			} else if (e?.response?.data?.error) {
 				toast.error(e?.response?.data?.error?.message);
 			} else {
 				toast.error(t("errors.default"));
@@ -1331,7 +1345,7 @@ class InstantSwap extends React.Component {
 			this.setBuyState("failed");
 			this.setDefaultBuyState();
 		}
-	}
+	};
 
 	buyHandler = async () => {
 		if (!this.props.web3.account) {
@@ -1395,6 +1409,9 @@ class InstantSwap extends React.Component {
 						result = await this.godexBuyHandler(pair, rate);
 						break;
 					}
+					default: {
+						break;
+					}
 				}
 
 				this.isExchangeInProgress = false;
@@ -1414,7 +1431,7 @@ class InstantSwap extends React.Component {
 		this.setState({
 			recipient: value,
 		});
-	}
+	};
 
 	getNewPrice = async (deposit, destination) => {
 		const { t } = this.props;
@@ -1442,11 +1459,11 @@ class InstantSwap extends React.Component {
 				toast.error(t("errors.unavailablePair"));
 			}
 
-			this.setState(prevState => {
+			this.setState((prevState) => {
 				let newRate = result[0];
-				if(prevState.rate?.hasOwnProperty('platform')) {
-					const newRes = result.find(_ => _.platform === prevState.rate.platform);
-					if(newRes) {
+				if (prevState.rate?.hasOwnProperty("platform")) {
+					const newRes = result.find((_) => _.platform === prevState.rate.platform);
+					if (newRes) {
 						newRate = newRes;
 					}
 				}
@@ -1454,35 +1471,44 @@ class InstantSwap extends React.Component {
 					rates: result,
 					rate: result.length > 0 ? newRate : undefined,
 					priceLoading: false,
-					hasEnoughBalance:
-						!prevState.max || Number(deposit.value) <= Number(prevState.max.toSignificant(6)),
-				}
+					hasEnoughBalance: !prevState.max || Number(deposit.value) <= Number(prevState.max.toSignificant(6)),
+				};
 			});
 		}
-	}
+	};
 
 	updatePriceIntervally = (deposit, destination) => {
-		if(this.priceInterval) {
+		if (this.priceInterval) {
 			clearInterval(this.priceInterval);
 			this.priceInterval = null;
 		}
 		this.priceInterval = setInterval(() => {
 			this.getNewPrice(deposit, destination);
-		}, 15000)
-	}
+		}, 15000);
+	};
 
 	forceRefreshPrices = async () => {
 		const { deposit, destination } = this.state.pair;
-		if(this.priceInterval) {
+		if (this.priceInterval) {
 			clearInterval(this.priceInterval);
 			this.priceInterval = null;
 		}
 		await this.getNewPrice(deposit, destination);
 		this.updatePriceIntervally(deposit, destination);
-	}
+	};
 
 	render() {
-		const { pair, rate, hasEnoughBalance, rates, loading, priceLoading, loadingState, buyState, recipient } = this.state;
+		const {
+			pair,
+			rate,
+			hasEnoughBalance,
+			rates,
+			loading,
+			priceLoading,
+			loadingState,
+			buyState,
+			recipient,
+		} = this.state;
 		const { t } = this.props;
 		const theme = this.context;
 
@@ -1493,10 +1519,15 @@ class InstantSwap extends React.Component {
 						<CustomCard>
 							<Row>
 								{rates.length > 0 && (
-									<Col xs={12} className={'d-flex align-items-center justify-content-end'}>
+									<Col xs={12} className={"d-flex align-items-center justify-content-end"}>
 										<LoadingContainer onClick={this.forceRefreshPrices}>
-											<LoadingText>{t('instantSwap.refreshPrice')}</LoadingText>
-											<CircleLoading fill={theme.primary} pair={pair} loading={loading} priceLoading={priceLoading}/>
+											<LoadingText>{t("instantSwap.refreshPrice")}</LoadingText>
+											<CircleLoading
+												fill={theme.primary}
+												pair={pair}
+												loading={loading}
+												priceLoading={priceLoading}
+											/>
 										</LoadingContainer>
 									</Col>
 								)}
@@ -1570,7 +1601,7 @@ class InstantSwap extends React.Component {
 										</Col>
 									</>
 								)}
-								{!!rate ? (
+								{!!rate && (
 									<Col
 										xs={12}
 										className={"d-flex justify-content-between align-items-center gutter-b"}
@@ -1589,8 +1620,6 @@ class InstantSwap extends React.Component {
 												: null}
 										</RateText>
 									</Col>
-								) : (
-									""
 								)}
 
 								<Col
@@ -1695,7 +1724,7 @@ class InstantSwap extends React.Component {
 
 													<div
 														className={
-															"d-flex flex-row align-items-center justify-content-center"
+															"d-flex flex-row align-items-center justify-content-end"
 														}
 														style={{ flex: 1 }}
 													>
@@ -1751,7 +1780,7 @@ class InstantSwap extends React.Component {
 								}}
 							/>
 						</RowBetween>
-						{(this.state.orderType === "simpleSwap" || this.state.orderType === "stealthex") ? (
+						{this.state.orderType === "simpleSwap" || this.state.orderType === "stealthex" ? (
 							<div className="d-flex flex-column flex-grow-1 justify-content-start align-items-center">
 								<h4 className="font-weight-bold mt-0 mb-0" style={{ paddingTop: 30 }}>
 									{t("instantSwap.submitted")}
@@ -1847,11 +1876,15 @@ class InstantSwap extends React.Component {
 
 								<div className={"align-self-stretch d-flex flex-column mb-3"}>
 									<span className="opacity-50 mb-2">ADDRESS</span>
-									<span className=" font-weight-bold">{this.state.order?.depositAddress?.address}</span>
+									<span className=" font-weight-bold">
+										{this.state.order?.depositAddress?.address}
+									</span>
 								</div>
 								<div className={"align-self-stretch d-flex flex-column mb-3"}>
 									<span className="opacity-50 mb-2">EXPIRATION DATE</span>
-									<span className=" font-weight-bold">{moment(this.state.order?.expiresAtISO).format("YYYY-MM-DD HH:mm")}</span>
+									<span className=" font-weight-bold">
+										{moment(this.state.order?.expiresAtISO).format("YYYY-MM-DD HH:mm")}
+									</span>
 								</div>
 								<div className={"align-self-stretch d-flex flex-column mb-3"}>
 									<span className="opacity-50 mb-2">Order ID</span>
