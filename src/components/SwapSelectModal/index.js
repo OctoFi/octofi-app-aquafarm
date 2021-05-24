@@ -9,18 +9,12 @@ import { InputGroupFormControl as FormControl, InputGroup, InputGroupPrepend, In
 import SVG from "react-inlinesvg";
 
 const StyledColumn = styled(Column)`
-	padding: 15px;
-	@media (min-width: 991px) {
-		padding: 67px 90px 10px;
-	}
+	padding: 0;
 `;
 
 const HeaderContainer = styled.div`
-	margin-bottom: 51px;
-
-	@media (max-width: 1199px) {
-		margin-bottom: 14px;
-	}
+	padding: 30px 30px 20px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 `;
 
 export default function SwapSelectModal({ isOpen, onDismiss, onCurrencySelect, selectedCurrency, currencies, type }) {
@@ -65,7 +59,7 @@ export default function SwapSelectModal({ isOpen, onDismiss, onCurrencySelect, s
 	);
 
 	return (
-		<Modal isOpen={isOpen} onDismiss={onDismiss} maxHeight={80} minHeight={80} maxWidth={530}>
+		<Modal isOpen={isOpen} onDismiss={onDismiss} maxHeight={80} minHeight={80} maxWidth={420}>
 			<StyledColumn style={{ width: "100%", flex: "1 1", minHeight: "100px" }}>
 				<HeaderContainer>
 					<InputGroup className={"w-auto"} bg={"darker"}>

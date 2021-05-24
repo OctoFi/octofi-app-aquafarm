@@ -69,7 +69,7 @@ class HistoricalChart extends React.Component {
 				},
 				type: "area",
 					dropShadow: {
-					color: ["#4AC8AA", "#a890fe", "#87dce1", "#FBAA9E"],
+					color: ["#34D399", "#a890fe", "#0891B2", "#FBAA9E"],
 						enabled: !this.props.isPrimary,
 						top: 2,
 						left: 2,
@@ -88,7 +88,7 @@ class HistoricalChart extends React.Component {
 				width: 2,
 					curve: "smooth",
 			},
-			colors: ["#4AC8AA", "#a890fe", "#87dce1", "#FBAA9E"],
+			colors: ["#34D399", "#a890fe", "#0891B2", "#FBAA9E"],
 				xaxis: {
 				type: "datetime",
 					tickAmount: 6,

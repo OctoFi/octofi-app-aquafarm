@@ -1,7 +1,7 @@
 import ReactApexChart from "react-apexcharts";
 import { Component } from "react";
 
-const primaryColor = `#87dce1`;
+const primaryColor = `#0891B2`;
 const secondaryColor = `#a890fe`;
 
 const colors = {

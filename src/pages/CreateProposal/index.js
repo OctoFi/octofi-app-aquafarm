@@ -287,7 +287,7 @@ const CreateProposals = (props) => {
 															wrapperClassName={"d-flex"}
 															value={form.dateRange}
 															onChange={(e) => handleChange("dateRange", e)}
-															colorPrimary="#87dce1"
+															colorPrimary="#0891B2"
 															colorPrimaryLight="rgba(135, 220, 225, 0.2)"
 															renderInput={StartDayPicker}
 															shouldHighlightWeekends
@@ -300,7 +300,7 @@ const CreateProposals = (props) => {
 															wrapperClassName={"d-flex"}
 															value={form.dateRange}
 															onChange={(e) => handleChange("dateRange", e)}
-															colorPrimary="#87dce1"
+															colorPrimary="#0891B2"
 															colorPrimaryLight="rgba(135, 220, 225, 0.2)"
 															renderInput={EndDayPicker}
 															shouldHighlightWeekends
