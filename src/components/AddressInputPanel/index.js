@@ -1,8 +1,8 @@
-import React, { useContext, useCallback } from "react";
-import styled, { ThemeContext } from "styled-components";
+import React, { useCallback } from "react";
+import styled from "styled-components";
 import useENS from "../../hooks/useENS";
 import { useActiveWeb3React } from "../../hooks";
-import { ExternalLink, TYPE } from "../../theme";
+import { ExternalLink } from "../../theme";
 import { AutoColumn } from "../Column";
 import { RowBetween } from "../Row";
 import { getEtherscanLink } from "../../utils";
@@ -12,10 +12,10 @@ const InputPanel = styled.div`
 	position: relative;
 	z-index: 1;
 	width: 100%;
-	margin-bottom: ${({ withoutMargin }) => withoutMargin ? '.5rem' : '2.75rem'};
+	margin-bottom: ${({ withoutMargin }) => (withoutMargin ? ".5rem" : "2.75rem")};
 
 	@media (max-width: 767px) {
-		margin-bottom: ${({ withoutMargin }) => withoutMargin ? '.5rem' : '1.5rem'};
+		margin-bottom: ${({ withoutMargin }) => (withoutMargin ? ".5rem" : "1.5rem")};
 	}
 `;
 
@@ -79,9 +79,15 @@ const Label = styled.span`
 
 const PATTERN = /^[13][a-km-zA-HJ-NP-Z1-9]{25,80}$|^(bc1)[0-9A-Za-z]{25,80}$|^(0x[a-fA-F0-9]{40})$|^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/;
 
-export default function AddressInputPanel({ id, value, onChange, withoutMargin = false, label = "Recipient", placeholder = "Wallet Address or ENS name" }) {
+export default function AddressInputPanel({
+	id,
+	value,
+	onChange,
+	withoutMargin = false,
+	label = "Recipient",
+	placeholder = "Wallet Address or ENS name",
+}) {
 	const { chainId } = useActiveWeb3React();
-
 	const { address, name } = useENS(value);
 
 	const handleInput = useCallback(

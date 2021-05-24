@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { useActiveWeb3React } from "../../../../hooks";
 import { tokenAmountInUnits, tokenSymbolToDisplayString } from "../../../../utils/spot/tokens";
 import { getGasInfo, getStepsModalCurrentStep } from "../../../../state/selectors";
-import { borrowDefiToken, lendingDefiToken, repayDefiToken, unLendingDefiToken } from "../../../../state/defi/actions";
+import { borrowDefiToken, repayDefiToken } from "../../../../state/defi/actions";
 
 const LendingToken = (props) => {
 	const [loading, setLoading] = useState(false);

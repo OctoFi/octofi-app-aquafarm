@@ -50,9 +50,9 @@ const SectionBody = styled.div`
 `;
 
 const SectionList = (props) => {
-	return props.sections.map((section) => {
+	return props.sections.map((section, index) => {
 		return (
-			<Section>
+			<Section key={index}>
 				<SectionHeader>
 					<SectionHeaderInner>
 						<SectionTitle>{section.title}</SectionTitle>

@@ -120,12 +120,12 @@ const SideDrawer = ({ open, onDismiss, ...props }) => {
 						/>
 					)}
 
-					{Object.keys(routes).map((key) => {
+					{Object.keys(routes).map((key, index) => {
 						const r = routes[key];
 						if (r.hasOwnProperty("path")) {
-							return <LinkItem to={r.path}>{r.title}</LinkItem>;
+							return <LinkItem to={r.path} key={index}>{r.title}</LinkItem>;
 						} else {
-							return <SideDrawerItem title={r.title} items={r.routes} />;
+							return <SideDrawerItem title={r.title} items={r.routes} key={index} />;
 						}
 					})}
 				</Content>

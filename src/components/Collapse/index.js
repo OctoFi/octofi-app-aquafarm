@@ -500,7 +500,7 @@ const Collapse = (props) => {
 							<Separator />
 							<Body className="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center">
 								<BodyInside className="d-flex flex-column justify-content-center">
-									{tokens.from.map((token) => {
+									{tokens.from.map((token, index) => {
 										const currency =
 											token.contractAddress && token.tokenDecimal
 												? new Token(
@@ -512,7 +512,7 @@ const Collapse = (props) => {
 												  )
 												: ETHER;
 										return (
-											<BodyToken>
+											<BodyToken key={index}>
 												<CurrencyLogo currency={currency} size={"34px"} />
 												<div
 													className="d-flex justify-content-center flex-column"
@@ -542,7 +542,7 @@ const Collapse = (props) => {
 									</PrimaryCircle>
 								</VerticalSeparator>
 								<ReceivedCoins>
-									{tokens.to.map((token) => {
+									{tokens.to.map((token, index) => {
 										const currency =
 											token.contractAddress && token.tokenDecimal
 												? new Token(
@@ -554,7 +554,7 @@ const Collapse = (props) => {
 												  )
 												: ETHER;
 										return (
-											<BodyToken>
+											<BodyToken key={index}>
 												<CurrencyLogo currency={currency} size={"34px"} />
 												<div
 													className="d-flex justify-content-center flex-column"

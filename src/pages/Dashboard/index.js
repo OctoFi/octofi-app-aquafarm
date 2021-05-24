@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Row, Col, Spinner } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { Route } from "react-router-dom";
 import { connect, useDispatch, useSelector } from "react-redux";
 import SVG from "react-inlinesvg";

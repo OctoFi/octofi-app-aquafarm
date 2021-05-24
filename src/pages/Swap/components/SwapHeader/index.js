@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import styled, { ThemeContext } from "styled-components";
 import { Settings } from "react-feather";
 

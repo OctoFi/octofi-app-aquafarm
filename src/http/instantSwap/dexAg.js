@@ -1,5 +1,4 @@
 import axios from "axios";
-import { encodeQuery } from "../../lib/helper";
 
 export default class DexAgApi {
 	constructor() {
@@ -15,6 +14,9 @@ export default class DexAgApi {
 			}
 			case "trade": {
 				return this.getTrade(payload);
+			}
+			default: {
+				break;
 			}
 		}
 	}

@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { Row, Col } from "react-bootstrap";
 import NFTCard from "../../../components/NFTCard";
 import Dropdown from "../../../components/UI/Dropdown";
-import { useRef, useEffect, useState, useCallback } from "react";
-import { OrderSide } from "opensea-js/lib/types";
+import { useRef, useEffect } from "react";
+// import { OrderSide } from "opensea-js/lib/types";
 import { useTranslation } from "react-i18next";
 
 const HeaderCol = styled(Col)`

@@ -1,7 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
-import { darken } from "polished";
-
 import { RowBetween } from "../Row";
 import { Input as NumericalInput } from "../NumericalInput";
 import { ReactComponent as DropDown } from "../../assets/images/dropdown.svg";

@@ -12,7 +12,7 @@ const CustomRow = styled(Row)`
 	padding: 10px 20px 6px;
 `;
 
-const GasButton = styled.button`
+const GasButton = styled(Button)`
 	padding: 10px 30px;
 	border-radius: 18px;
 	background-color: ${({ selected, theme }) => (selected ? theme.primary : "rgba(135, 220, 225, 0.15)")};

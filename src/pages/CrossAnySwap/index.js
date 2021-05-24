@@ -33,11 +33,10 @@ import {toast} from "react-hot-toast";
 
 const config = getNetConfig();
 
-const BridgeType = {
-	"SWAP": "SWAP",
-	"SEND": "SEND"
-}
-
+// const BridgeType = {
+// 	"SWAP": "SWAP",
+// 	"SEND": "SEND"
+// }
 
 const Modal = styled(BSModal)`
   	& .modal-dialog {
@@ -81,13 +80,13 @@ const Button = styled(BS)`
   min-width: 205px;
 `
 
-const AlertButton = styled(BS)`
-  min-height: 48px;
-  height: 48px;
-  border-radius: 18px;
-  font-weight: 500;
-  min-width: 105px;
-`
+// const AlertButton = styled(BS)`
+//   min-height: 48px;
+//   height: 48px;
+//   border-radius: 18px;
+//   font-weight: 500;
+//   min-width: 105px;
+// `
 
 const Title = styled.h1`
 	margin: 0;
@@ -109,7 +108,6 @@ const Title = styled.h1`
 	}
 `
 
-
 const Header = styled.div`
 	display: flex;
 	align-items: center;
@@ -130,7 +128,6 @@ const Card = styled(DefaultCard)`
   & > .card-body {
     padding: 36px 64px 24px;
 
-
     @media (max-width: 991px) {
       padding: 24px;
     }
@@ -141,25 +138,22 @@ const Card = styled(DefaultCard)`
   }
 `
 
-const SlippageCard = styled(DefaultCard)`
-  margin-bottom: 1rem;
+// const SlippageCard = styled(DefaultCard)`
+//   margin-bottom: 1rem;
   
-  & > .card-body {
-    padding: 0 64px;
-    min-height: 56px;
+//   & > .card-body {
+//     padding: 0 64px;
+//     min-height: 56px;
 
+//     @media (max-width: 991px) {
+//       padding: 0 24px;
+//     }
 
-    @media (max-width: 991px) {
-      padding: 0 24px;
-    }
-
-    @media (max-width: 576px) {
-      padding: 0 16px;
-    }
-  }
-`
-
-
+//     @media (max-width: 576px) {
+//       padding: 0 16px;
+//     }
+//   }
+// `
 
 const TabHeader = styled.div`
   display: grid;
@@ -179,12 +173,11 @@ const TabHeader = styled.div`
     grid-template-columns: 1fr;
     grid-row-gap: 12px;
     grid-column-gap: 0;
-    
   }
 `
 
 const SwapCurrencies = styled.div`
-	display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px;
@@ -193,9 +186,7 @@ const SwapCurrencies = styled.div`
 
   @media (max-width: 576px) {
     padding: 8px;
-
   }
-  
 `
 
 const SubmitButtonContainer = styled.div`
@@ -211,47 +202,42 @@ const SubmitButtonContainer = styled.div`
   
   @media (max-width: 991px) {
     margin-top: 24px;
-    
   }
   
   @media (max-width: 767px) {
     margin-top: 16px;
     align-items: stretch;
   }
-  
 `
 
-const AlertContainer = styled.div`
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4px 4px 4px 64px;
-  background-color: ${({ theme }) => theme.primaryLight};
-
+// const AlertContainer = styled.div`
+//   border-radius: 18px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 4px 4px 4px 64px;
+//   background-color: ${({ theme }) => theme.primaryLight};
   
-  @media (max-width: 1199px) {
-    padding-left: 48px;
-  }
+//   @media (max-width: 1199px) {
+//     padding-left: 48px;
+//   }
 
-  @media (max-width: 991px) {
-    padding-left: 36px;
-  }
+//   @media (max-width: 991px) {
+//     padding-left: 36px;
+//   }
 
-  @media (max-width: 767px) {
-    padding-left: 16px;
-  }
-  
-`
+//   @media (max-width: 767px) {
+//     padding-left: 16px;
+//   }
+// `
 
-const AlertText = styled.span`
-  font-weight: 500;
-  font-size: 1rem;
-  color: ${({ theme }) => theme.primary};
-  line-height: 21px;
-  padding-right: 1rem;
-`
-
+// const AlertText = styled.span`
+//   font-weight: 500;
+//   font-size: 1rem;
+//   color: ${({ theme }) => theme.primary};
+//   line-height: 21px;
+//   padding-right: 1rem;
+// `
 
 const TransactionInfo = styled.div`
   padding: 0 0 1.5625rem;
@@ -275,6 +261,7 @@ const LastSummaryText = styled.div`
   color: ${({ theme }) => theme.text1};
   height: 32px;
   margin-bottom: 0.625rem;
+
   .icon {
     width: 32px;
     height: 32px;
@@ -302,10 +289,8 @@ const ValueWrapper = styled.span`
   font-variant: tabular-nums;
 `
 
-
 const INPUT = 0
 const OUTPUT = 1
-
 const ETH_TO_TOKEN = 0
 const TOKEN_TO_ETH = 1
 const TOKEN_TO_TOKEN = 2
@@ -319,8 +304,6 @@ const DEFAULT_DEADLINE_FROM_NOW = 60 * 15
 
 // % above the calculated gas cost that we actually send, denominated in bips
 const GAS_MARGIN = new BigNumber(1000)
-
-
 
 function calculateSlippageBounds(value, token = false, tokenAllowedSlippage, allowedSlippage) {
 	if (value) {
@@ -498,7 +481,6 @@ const CrossAnySwap = props => {
 	const [inputCurrencySwap, setInputCurrency] = useState(ETHER);
 	const [outputCurrencySwap, setOutputCurrency] = useState(undefined);
 
-
 	const { t } = useTranslation()
 	const { account, chainId, error } = useActiveWeb3React();
 	const [showBetaMessage] = useBetaMessageManager()
@@ -561,7 +543,6 @@ const CrossAnySwap = props => {
 		},
 		getInitialSwapState
 	)
-
 
 	const { independentValue, dependentValue, independentField, inputCurrency, outputCurrency } = swapState
 

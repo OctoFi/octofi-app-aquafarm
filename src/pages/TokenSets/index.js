@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Row, Col, Tab, InputGroup, FormControl, Nav } from "react-bootstrap";
+import { Row, Col, Tab, Nav } from "react-bootstrap";
 
 import Page from "../../components/Page";
 import { ResponsiveCard } from "../../components/Card";

@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { Button as BootstrapButton, Row, Col } from "react-bootstrap";
-
 import { Link, withRouter } from "react-router-dom";
 import Img from "../UI/Img";
 import { rates } from "../../constants";
@@ -23,10 +22,6 @@ const Wrapper = styled.div`
 const Item = styled.div`
 	display: flex;
 	align-items: center;
-`;
-
-const Button = styled.button`
-	margin-right: 0.75rem;
 `;
 
 const DropDown = styled.div`

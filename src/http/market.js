@@ -1,8 +1,7 @@
 import axios from "axios";
-import moment from "moment";
 import Web3 from "web3";
 
-import { marketCoins, PROXY_URL } from "../constants";
+import { marketCoins } from "../constants";
 import ChainLinkABI from "../constants/abis/chainlinkABI.json";
 
 export default class MarketApi {

@@ -3,8 +3,7 @@ import { FixedSizeList } from "react-window";
 import { Text } from "rebass";
 import styled from "styled-components";
 import Column from "../Column";
-import { RowBetween, RowFixed } from "../Row";
-import CurrencyLogo from "../CurrencyLogo";
+import { RowBetween } from "../Row";
 import EUR from "../../assets/images/currencies/EU.svg";
 import dompurify from "dompurify";
 

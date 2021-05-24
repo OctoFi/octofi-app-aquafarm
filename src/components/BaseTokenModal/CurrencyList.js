@@ -3,9 +3,8 @@ import { FixedSizeList } from "react-window";
 import { Text } from "rebass";
 import styled from "styled-components";
 import Column from "../Column";
-import { RowBetween, RowFixed } from "../Row";
+import { RowBetween } from "../Row";
 import CurrencyLogo from "../CurrencyLogo";
-import EUR from "../../assets/images/currencies/EU.svg";
 
 export const MenuItem = styled(RowBetween)`
 	padding: 4px 20px;
@@ -19,30 +18,6 @@ export const MenuItem = styled(RowBetween)`
 		background-color: ${({ theme, disabled }) => !disabled && theme.bg2};
 	}
 	opacity: ${({ disabled, selected }) => (disabled || selected ? 0.5 : 1)};
-`;
-
-const Logo = styled.img`
-	width: ${({ size }) => (size ? `${size}px` : "24px")};
-	height: ${({ size }) => (size ? `${size}px` : "24px")};
-	border-radius: ${({ size }) => (size ? `${size}px` : "24px")};
-	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.075);
-	margin-right: ${({ margin }) => (margin ? "8px" : 0)};
-`;
-const LogoDiv = styled.div`
-	width: ${({ size }) => (size ? `${size}px` : "24px")};
-	height: ${({ size }) => (size ? `${size}px` : "24px")};
-	border-radius: ${({ size }) => (size ? `${size}px` : "24px")};
-	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.075);
-	margin-right: ${({ margin }) => (margin ? "8px" : 0)};
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	& svg {
-		width: 24px;
-		height: 24px;
-		border-radius: 24px;
-	}
 `;
 
 const StyledBalanceText = styled(Text)`
@@ -64,15 +39,15 @@ function CurrencyRow({ currency, onSelect, isSelected, style }) {
 			onClick={() => (isSelected ? null : onSelect())}
 			disabled={isSelected}
 		>
-			<CurrencyLogo currency={currency} size={'24px'}/>
+			<CurrencyLogo currency={currency} size={"24px"} />
 			<Column>
 				<Text title={currency.name} fontWeight={500}>
-					{currency.symbol === 'WETH' ? 'Ethereum' : currency.name}
+					{currency.symbol === "WETH" ? "Ethereum" : currency.name}
 				</Text>
 			</Column>
 
 			<Column style={{ justifySelf: "flex-end" }}>
-				<Symbol symbol={currency.symbol === 'WETH' ? 'ETH' : currency.symbol} />
+				<Symbol symbol={currency.symbol === "WETH" ? "ETH" : currency.symbol} />
 			</Column>
 		</MenuItem>
 	);

@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import styled from "styled-components";
-import CurrencySearchModal from "../SearchModal/CurrencySearchModal";
+// import CurrencySearchModal from "../SearchModal/CurrencySearchModal";
 import CurrencyLogo from "../CurrencyLogo";
 import DoubleCurrencyLogo from "../DoubleLogo";
 import { RowBetween } from "../Row";

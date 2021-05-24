@@ -31,6 +31,9 @@ export default class OneInchApi {
 			case "approve": {
 				return this.getApprove(payload);
 			}
+			default: {
+				break;
+			}
 		}
 	}
 

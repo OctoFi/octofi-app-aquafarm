@@ -4,7 +4,6 @@ import Column from "../Column";
 import AutoSizer from "react-virtualized-auto-sizer";
 import CurrencyList from "./CurrencyList";
 import { PaddedColumn, Separator } from "../SearchModal/styleds";
-import { Form } from "react-bootstrap";
 import { ThemeContext } from "styled-components";
 import { FormControl } from "../Form";
 import { useTranslation } from "react-i18next";
@@ -46,7 +45,7 @@ export default function CurrencySelectModal({
 			onCurrencySelect(currency, type);
 			onDismiss();
 		},
-		[onDismiss, onCurrencySelect]
+		[onDismiss, onCurrencySelect, type]
 	);
 
 	return (
