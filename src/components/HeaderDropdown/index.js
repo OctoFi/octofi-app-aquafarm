@@ -115,7 +115,7 @@ const HeaderDropdown = ({ items, title, ...props }) => {
 		<Wrapper>
 			<Item>
 				<ItemInner>{t(`menu.${title}`)}</ItemInner>
-				<SVG src={ArrowDown} style={{ color: theme.primary }} />
+				<SVG src={ArrowDown} style={{ color: theme.text3 }} />
 			</Item>
 			<DropDown className={"header-dropdown"}>
 				{Object.values(items).map((item, index) => {

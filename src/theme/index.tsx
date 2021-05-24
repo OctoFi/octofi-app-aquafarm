@@ -57,10 +57,10 @@ export function colors(darkMode?: boolean): Colors {
 		advancedBG: darkMode ? "#232429" : "#FFFFFF",
 
 		//primary colors
-		primary1: "#87dce1",
+		primary1: "#0891B2",
 
 		// color text
-		primaryText1: "#87dce1",
+		primaryText1: "#0891B2",
 
 		// secondary colors
 		secondary1: "#a890fe",
@@ -75,15 +75,15 @@ export function colors(darkMode?: boolean): Colors {
 
 		// other
 		red1: "#EB6B6B",
-		green1: "#4AC8AA",
+		green1: "#34D399",
 		yellow1: "#F3BA2F",
-		blue1: "#87dce1",
+		blue1: "#0891B2",
 
 		danger: "#EB6B6B",
 		dangerLight: "rgba(235, 107, 107, 0.15)",
 		warning: "#F3BA2F",
-		success: "#4AC8AA",
-		primary: "#87dce1",
+		success: "#34D399",
+		primary: "#0891B2",
 		primaryLight: "rgba(135,220,225, 0.15)",
 		secondary: "#a890fe",
 		tertiary: "#FBAA9E",
@@ -101,7 +101,7 @@ export function theme(darkMode?: boolean): DefaultTheme {
 		},
 
 		//shadows
-		shadow1: "#87dce1",
+		shadow1: "#0891B2",
 
 		// media queries
 		mediaWidth: mediaWidthTemplates,

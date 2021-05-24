@@ -199,7 +199,7 @@ const IconButton = styled(Link)`
 // `
 
 // const NoticeCard = styled(Card)`
-//   background-image: linear-gradient(-345.39deg, #a890fe -17.91%, #87dce1 68.92%);
+//   background-image: linear-gradient(-345.39deg, #a890fe -17.91%, #0891B2 68.92%);
 //   border: none;
 
 //   & .card-body {

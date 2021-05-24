@@ -10,6 +10,7 @@ import { useIsDarkMode } from "../../../state/user/hooks";
 
 const StyleButton = styled(Button)`
 	height: 56px;
+	font-weight: 500;
 
 	&.btn-lg {
 		height: 70px;
