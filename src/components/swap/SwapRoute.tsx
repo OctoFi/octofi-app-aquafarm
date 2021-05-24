@@ -28,9 +28,9 @@ export default memo(function SwapRoute({ trade }: { trade: Trade }) {
 							<LogoContainer>
 								<CurrencyLogo currency={token} />
 							</LogoContainer>
-							<TYPE.black fontSize={16} fontWeight={500} color={theme.text1} ml="0.875rem">
+							<TYPE.Black fontSize={16} fontWeight={500} color={theme.text1} ml="0.875rem">
 								{token.symbol}
-							</TYPE.black>
+							</TYPE.Black>
 						</Flex>
 						{isLastItem ? null : <ChevronRight color={theme.text2} />}
 					</Fragment>

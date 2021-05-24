@@ -79,9 +79,9 @@ export default function ManageTokens({
 					<RowFixed>
 						<CurrencyLogo currency={token} size={"20px"} />
 						<ExternalLink href={getEtherscanLink(chainId, token.address, "address")}>
-							<TYPE.main ml={"10px"} fontWeight={600}>
+							<TYPE.Main ml={"10px"} fontWeight={600}>
 								{token.symbol}
-							</TYPE.main>
+							</TYPE.Main>
 						</ExternalLink>
 					</RowFixed>
 					<RowFixed>
@@ -109,7 +109,7 @@ export default function ManageTokens({
 						/>
 					</Row>
 					{searchQuery !== "" && !isAddressSearch && (
-						<TYPE.error error={true}>Enter valid token address</TYPE.error>
+						<TYPE.Error error={true}>Enter valid token address</TYPE.Error>
 					)}
 					{searchToken && (
 						<Card backgroundColor={theme.bg2} padding="10px 0">
@@ -125,12 +125,12 @@ export default function ManageTokens({
 				<Separator />
 				<PaddedColumn gap="lg">
 					<RowBetween>
-						<TYPE.main fontWeight={600}>
+						<TYPE.Main fontWeight={600}>
 							{userAddedTokens?.length} Custom {userAddedTokens.length === 1 ? "Token" : "Tokens"}
-						</TYPE.main>
+						</TYPE.Main>
 						{userAddedTokens.length > 0 && (
 							<ButtonText onClick={handleRemoveAll}>
-								<TYPE.blue>Clear all</TYPE.blue>
+								<TYPE.Blue>Clear all</TYPE.Blue>
 							</ButtonText>
 						)}
 					</RowBetween>
@@ -138,7 +138,7 @@ export default function ManageTokens({
 				</PaddedColumn>
 			</Column>
 			<Footer>
-				<TYPE.darkGray>Tip: Custom tokens are stored locally in your browser</TYPE.darkGray>
+				<TYPE.DarkGray>Tip: Custom tokens are stored locally in your browser</TYPE.DarkGray>
 			</Footer>
 		</Wrapper>
 	);

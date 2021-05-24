@@ -298,9 +298,9 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
 					</Button>
 				</CustomRow>
 				{addError ? (
-					<TYPE.error title={addError} style={{ textOverflow: "ellipsis", overflow: "hidden" }} error>
+					<TYPE.Error title={addError} style={{ textOverflow: "ellipsis", overflow: "hidden" }} error>
 						{addError}
-					</TYPE.error>
+					</TYPE.Error>
 				) : null}
 			</PaddedColumn>
 

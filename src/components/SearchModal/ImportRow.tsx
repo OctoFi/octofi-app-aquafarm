@@ -70,16 +70,16 @@ export default function ImportRow({
 			<CurrencyLogo currency={token} size={"24px"} style={{ opacity: dim ? "0.6" : "1" }} />
 			<AutoColumn gap="4px" style={{ opacity: dim ? "0.6" : "1" }}>
 				<AutoRow>
-					<TYPE.body fontWeight={500}>{token.symbol}</TYPE.body>
-					<TYPE.darkGray ml="8px" fontWeight={300}>
+					<TYPE.Body fontWeight={500}>{token.symbol}</TYPE.Body>
+					<TYPE.DarkGray ml="8px" fontWeight={300}>
 						<NameOverflow title={token.name}>{token.name}</NameOverflow>
-					</TYPE.darkGray>
+					</TYPE.DarkGray>
 				</AutoRow>
 				{list && list.logoURI && (
 					<RowFixed>
-						<TYPE.small mr="4px" color={theme.text2}>
+						<TYPE.Small mr="4px" color={theme.text2}>
 							via {list.name}
-						</TYPE.small>
+						</TYPE.Small>
 						<ListLogo logoURI={list.logoURI} size="12px" />
 					</RowFixed>
 				)}
@@ -98,7 +98,7 @@ export default function ImportRow({
 			) : (
 				<RowFixed style={{ minWidth: "fit-content" }}>
 					<CheckIcon />
-					<TYPE.main color={theme.green1}>Active</TYPE.main>
+					<TYPE.Main color={theme.green1}>Active</TYPE.Main>
 				</RowFixed>
 			)}
 			{/* </RowBetween> */}

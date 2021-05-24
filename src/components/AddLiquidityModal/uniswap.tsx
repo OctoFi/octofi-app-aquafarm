@@ -142,7 +142,7 @@ const HeaderCurrencyText = styled(Text)`
 	}
 `;
 
-export default function ({
+export default function UniswapLiquidityModal({
 	match: {
 		params: { currencyIdA, currencyIdB },
 	},
@@ -333,11 +333,11 @@ export default function ({
 				<HeaderCurrencyText>
 					{currencies[Field.CURRENCY_A]?.symbol + "/" + currencies[Field.CURRENCY_B]?.symbol + " Pool Tokens"}
 				</HeaderCurrencyText>
-				<TYPE.italic fontSize={12} textAlign="left" padding={"8px 0 0 0 "}>
+				<TYPE.Italic fontSize={12} textAlign="left" padding={"8px 0 0 0 "}>
 					{`Output is estimated. If the price changes by more than ${
 						allowedSlippage / 100
 					}% your transaction will revert.`}
-				</TYPE.italic>
+				</TYPE.Italic>
 			</HeaderAutoColumn>
 		);
 	};

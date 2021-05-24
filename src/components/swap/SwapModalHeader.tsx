@@ -89,7 +89,7 @@ export default function SwapModalHeader({
 					<RowBetween>
 						<RowFixed>
 							<AlertTriangle size={20} style={{ marginRight: "8px", minWidth: 24 }} />
-							<TYPE.main color={theme.primary1}> Price Updated</TYPE.main>
+							<TYPE.Main color={theme.primary1}> Price Updated</TYPE.Main>
 						</RowFixed>
 						<ButtonPrimary
 							style={{
@@ -107,30 +107,30 @@ export default function SwapModalHeader({
 			) : null}
 			<AutoColumn justify="flex-start" gap="sm" style={{ padding: "12px 0 0 0px" }}>
 				{trade.tradeType === TradeType.EXACT_INPUT ? (
-					<TYPE.italic textAlign="left" style={{ width: "100%" }}>
+					<TYPE.Italic textAlign="left" style={{ width: "100%" }}>
 						{`Output is estimated. You will receive at least `}
 						<b>
 							{slippageAdjustedAmounts[Field.OUTPUT]?.toSignificant(6)}{" "}
 							{trade.outputAmount.currency.symbol}
 						</b>
 						{" or the transaction will revert."}
-					</TYPE.italic>
+					</TYPE.Italic>
 				) : (
-					<TYPE.italic textAlign="left" style={{ width: "100%" }}>
+					<TYPE.Italic textAlign="left" style={{ width: "100%" }}>
 						{`Input is estimated. You will sell at most `}
 						<b>
 							{slippageAdjustedAmounts[Field.INPUT]?.toSignificant(6)} {trade.inputAmount.currency.symbol}
 						</b>
 						{" or the transaction will revert."}
-					</TYPE.italic>
+					</TYPE.Italic>
 				)}
 			</AutoColumn>
 			{recipient !== null ? (
 				<AutoColumn justify="flex-start" gap="sm" style={{ padding: "12px 0 0 0px" }}>
-					<TYPE.main>
+					<TYPE.Main>
 						Output will be sent to{" "}
 						<b title={recipient}>{isAddress(recipient) ? shortenAddress(recipient) : recipient}</b>
-					</TYPE.main>
+					</TYPE.Main>
 				</AutoColumn>
 			) : null}
 		</AutoColumn>

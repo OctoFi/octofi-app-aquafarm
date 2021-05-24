@@ -7,13 +7,13 @@ import { Field } from "../../state/mint/actions";
 import { TYPE } from "../../theme";
 import styled from "styled-components";
 
-const Description = styled(TYPE.body)`
+const Description = styled(TYPE.Body)`
 	@media (max-width: 1199px) {
 		font-size: 0.75rem;
 	}
 `;
 
-const Value = styled(TYPE.body)`
+const Value = styled(TYPE.Body)`
 	@media (max-width: 1199px) {
 		font-size: 0.875rem;
 		font-weight: 700;

@@ -112,7 +112,7 @@ export const ResponsivePlatformTitle = styled(PlatformTitle)`
 	margin-left: 10px;
 `;
 
-export default function ({ history }: RouteComponentProps) {
+export default function AddLiquidityModal ({ history }: RouteComponentProps) {
 	const { account, chainId, library } = useActiveWeb3React();
 	const dispatch = useDispatch();
 	const { t } = useTranslation();
@@ -280,11 +280,11 @@ export default function ({ history }: RouteComponentProps) {
 					</div>
 				</div>
 				<HeaderCurrencyText>{pool?.poolName + " Pool Tokens"}</HeaderCurrencyText>
-				<TYPE.italic fontSize={12} textAlign="left" padding={"8px 0 0 0 "}>
+				<TYPE.Italic fontSize={12} textAlign="left" padding={"8px 0 0 0 "}>
 					{`Output is estimated. If the price changes by more than ${
 						allowedSlippage / 100
 					}% your transaction will revert.`}
-				</TYPE.italic>
+				</TYPE.Italic>
 			</HeaderAutoColumn>
 		);
 	};
@@ -293,13 +293,13 @@ export default function ({ history }: RouteComponentProps) {
 		return (
 			<>
 				<RowBetween>
-					<TYPE.body>{currencies[Field.CURRENCY_A]?.symbol} Input</TYPE.body>
+					<TYPE.Body>{currencies[Field.CURRENCY_A]?.symbol} Input</TYPE.Body>
 					<RowFixed>
 						<CurrencyLogo currency={currencies[Field.CURRENCY_A]} size={"24px"} />
 					</RowFixed>
 				</RowBetween>
 				<RowBetween>
-					<TYPE.body>{pool?.poolName} Output</TYPE.body>
+					<TYPE.Body>{pool?.poolName} Output</TYPE.Body>
 					<RowFixed>
 						<PlatformLogo platform={type} name={pool?.poolName} size={24} />
 					</RowFixed>

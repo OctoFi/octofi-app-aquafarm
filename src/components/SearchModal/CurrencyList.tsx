@@ -131,9 +131,9 @@ function CurrencyRow({
 				<Text title={currency.name} fontWeight={500}>
 					{currency.symbol}
 				</Text>
-				<TYPE.darkGray ml="0px" fontSize={"12px"} fontWeight={300}>
+				<TYPE.DarkGray ml="0px" fontSize={"12px"} fontWeight={300}>
 					{currency.name} {!isOnSelectedList && customAdded && "• Added by user"}
-				</TYPE.darkGray>
+				</TYPE.DarkGray>
 			</Column>
 			<TokenTags currency={currency} />
 			<RowFixed style={{ justifySelf: "flex-end" }}>
@@ -203,9 +203,9 @@ export default function CurrencyList({
 							<RowBetween>
 								<RowFixed>
 									<TokenListLogoWrapper src={TokenListLogo} />
-									<TYPE.main ml="6px" fontSize="12px" color={theme.text1}>
+									<TYPE.Main ml="6px" fontSize="12px" color={theme.text1}>
 										Expanded results from inactive Token Lists
-									</TYPE.main>
+									</TYPE.Main>
 								</RowFixed>
 								<QuestionHelper text="Tokens from inactive lists. Import specific tokens below or click 'Manage' to activate more lists." />
 							</RowBetween>
