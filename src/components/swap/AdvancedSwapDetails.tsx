@@ -10,7 +10,7 @@ import { RowFixed } from "../Row";
 import FormattedPriceImpact from "./FormattedPriceImpact";
 import SwapRoute from "./SwapRoute";
 
-const CustomTypeBlack = styled(TYPE.black)`
+const CustomTypeBlack = styled(TYPE.Black)`
 	font-size: 0.75rem;
 
 	@media (min-width: 768px) {
@@ -107,14 +107,14 @@ export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {
 					{showRoute && (
 						<div className={"d-flex flex-column"}>
 							<AutoColumn style={{ padding: "0 15px" }} gap={"7px"}>
-								<TYPE.black
+								<TYPE.Black
 									fontSize={16}
 									color={theme.text1}
 									fontWeight={500}
 									className={"d-none d-lg-block"}
 								>
 									Route
-								</TYPE.black>
+								</TYPE.Black>
 								<SwapRoute trade={trade} />
 							</AutoColumn>
 						</div>

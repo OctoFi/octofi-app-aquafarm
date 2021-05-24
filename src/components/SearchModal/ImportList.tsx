@@ -71,7 +71,7 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
 			<PaddedColumn gap="14px" style={{ width: "100%", flex: "1 1" }}>
 				<RowBetween>
 					<ArrowLeft style={{ cursor: "pointer" }} onClick={() => setModalView(CurrencyModalView.manage)} />
-					<TYPE.mediumHeader>{t("importList.import")}</TYPE.mediumHeader>
+					<TYPE.MediumHeader>{t("importList.import")}</TYPE.MediumHeader>
 					<CloseIcon onClick={onDismiss} />
 				</RowBetween>
 			</PaddedColumn>
@@ -84,18 +84,18 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
 								{list.logoURI && <ListLogo logoURI={list.logoURI} size="40px" />}
 								<AutoColumn gap="sm" style={{ marginLeft: "20px" }}>
 									<RowFixed>
-										<TYPE.body fontWeight={600} mr="6px">
+										<TYPE.Body fontWeight={600} mr="6px">
 											{list.name}
-										</TYPE.body>
+										</TYPE.Body>
 										<TextDot />
-										<TYPE.main fontSize={"16px"} ml="6px">
+										<TYPE.Main fontSize={"16px"} ml="6px">
 											{list.tokens.length} {t("importList.token")}
-										</TYPE.main>
+										</TYPE.Main>
 									</RowFixed>
 									<ExternalLink href={`https://tokenlists.org/token-list?url=${listURL}`}>
-										<TYPE.main fontSize={"12px"} color={theme.blue1}>
+										<TYPE.Main fontSize={"12px"} color={theme.blue1}>
 											{listURL}
-										</TYPE.main>
+										</TYPE.Main>
 									</ExternalLink>
 								</AutoColumn>
 							</RowFixed>
@@ -104,18 +104,18 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
 					<Card style={{ backgroundColor: transparentize(0.8, theme.red1) }}>
 						<AutoColumn justify="center" style={{ textAlign: "center", gap: "16px", marginBottom: "12px" }}>
 							<AlertTriangle stroke={theme.red1} size={32} />
-							<TYPE.body fontWeight={500} fontSize={20} color={theme.red1}>
+							<TYPE.Body fontWeight={500} fontSize={20} color={theme.red1}>
 								{t("importToken.tradeRisk")}
-							</TYPE.body>
+							</TYPE.Body>
 						</AutoColumn>
 
 						<AutoColumn style={{ textAlign: "center", gap: "16px", marginBottom: "12px" }}>
-							<TYPE.body fontWeight={500} color={theme.red1}>
+							<TYPE.Body fontWeight={500} color={theme.red1}>
 								{t("importList.listWarning")}
-							</TYPE.body>
-							<TYPE.body fontWeight={600} color={theme.red1}>
+							</TYPE.Body>
+							<TYPE.Body fontWeight={600} color={theme.red1}>
 								{t("importToken.cantSell")}
-							</TYPE.body>
+							</TYPE.Body>
 						</AutoColumn>
 						<AutoRow
 							justify="center"
@@ -128,9 +128,9 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
 								checked={confirmed}
 								onChange={() => setConfirmed(!confirmed)}
 							/>
-							<TYPE.body ml="10px" fontSize="16px" color={theme.red1} fontWeight={500}>
+							<TYPE.Body ml="10px" fontSize="16px" color={theme.red1} fontWeight={500}>
 								{t("importToken.understand")}
-							</TYPE.body>
+							</TYPE.Body>
 						</AutoRow>
 					</Card>
 
@@ -144,12 +144,11 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
 						{t("import")}
 					</ButtonPrimary>
 					{addError ? (
-						<TYPE.error title={addError} style={{ textOverflow: "ellipsis", overflow: "hidden" }} error>
+						<TYPE.Error title={addError} style={{ textOverflow: "ellipsis", overflow: "hidden" }} error>
 							{addError}
-						</TYPE.error>
+						</TYPE.Error>
 					) : null}
 				</AutoColumn>
-				{/* </Card> */}
 			</PaddedColumn>
 		</Wrapper>
 	);

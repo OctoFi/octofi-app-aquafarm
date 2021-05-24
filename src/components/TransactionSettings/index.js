@@ -2,7 +2,6 @@ import { useContext, useRef, useState } from "react";
 import styled, { ThemeContext } from "styled-components";
 import { darken } from "polished";
 import { TYPE } from "../../theme";
-
 import { AutoColumn } from "../Column";
 import { RowBetween, RowFixed } from "../Row";
 import QuestionHelper from "../QuestionHelper";
@@ -144,9 +143,9 @@ const TransactionSettings = ({ rawSlippage, setRawSlippage, deadline, setDeadlin
 		<AutoColumn gap="md">
 			<AutoColumn gap="sm">
 				<CustomRowFixed>
-					<TYPE.black fontWeight={400} fontSize={14} color={theme.text1}>
+					<TYPE.Black fontWeight={400} fontSize={14} color={theme.text1}>
 						Slippage tolerance
-					</TYPE.black>
+					</TYPE.Black>
 					<QuestionHelper text="Your transaction will revert if the price changes unfavorably by more than this percentage." />
 				</CustomRowFixed>
 				<RowBetween>
@@ -224,9 +223,9 @@ const TransactionSettings = ({ rawSlippage, setRawSlippage, deadline, setDeadlin
 
 			<AutoColumn gap="sm">
 				<CustomRowFixed>
-					<TYPE.black fontSize={14} fontWeight={400} color={theme.text1}>
+					<TYPE.Black fontSize={14} fontWeight={400} color={theme.text1}>
 						Transaction deadline
-					</TYPE.black>
+					</TYPE.Black>
 					<QuestionHelper text="Your transaction will revert if it is pending for more than this long." />
 				</CustomRowFixed>
 				<RowFixed>
@@ -241,9 +240,9 @@ const TransactionSettings = ({ rawSlippage, setRawSlippage, deadline, setDeadlin
 							onChange={(e) => parseCustomDeadline(e.target.value)}
 						/>
 					</OptionCustom>
-					<TYPE.body style={{ paddingLeft: "12px" }} fontSize={14}>
+					<TYPE.Body style={{ paddingLeft: "12px" }} fontSize={14}>
 						minutes
-					</TYPE.body>
+					</TYPE.Body>
 				</RowFixed>
 			</AutoColumn>
 		</AutoColumn>

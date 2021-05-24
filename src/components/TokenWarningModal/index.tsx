@@ -61,19 +61,19 @@ function TokenWarningCard({ token }: TokenWarningCardProps) {
 					<div> </div>
 				</AutoColumn>
 				<AutoColumn gap="10px" justify="flex-start">
-					<TYPE.main>
+					<TYPE.Main>
 						{token && token.name && token.symbol && token.name !== token.symbol
 							? `${token.name} (${token.symbol})`
 							: token.name || token.symbol}{" "}
-					</TYPE.main>
+					</TYPE.Main>
 					{chainId && (
 						<ExternalLink
 							style={{ fontWeight: 400 }}
 							href={getEtherscanLink(chainId, token.address, "token")}
 						>
-							<TYPE.blue title={token.address}>
+							<TYPE.Blue title={token.address}>
 								{shortenAddress(token.address)} (View on Etherscan)
-							</TYPE.blue>
+							</TYPE.Blue>
 						</ExternalLink>
 					)}
 				</AutoColumn>

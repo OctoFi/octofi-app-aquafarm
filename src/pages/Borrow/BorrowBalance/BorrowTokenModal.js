@@ -31,7 +31,7 @@ export const SummaryRow = styled.div`
 	font-weight: 500;
 `;
 
-const CustomTypeBlack = styled(TYPE.black)`
+const CustomTypeBlack = styled(TYPE.Black)`
 	font-size: 0.75rem;
 
 	@media (min-width: 768px) {

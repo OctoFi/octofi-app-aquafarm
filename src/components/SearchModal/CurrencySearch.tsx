@@ -207,9 +207,9 @@ export function CurrencySearch({
 				</div>
 			) : (
 				<Column style={{ padding: "20px", height: "100%" }}>
-					<TYPE.main color={theme.text2} textAlign="center" mb="20px">
+					<TYPE.Main color={theme.text2} textAlign="center" mb="20px">
 						{t("noResult")}
-					</TYPE.main>
+					</TYPE.Main>
 				</Column>
 			)}
 			<Footer>
@@ -219,7 +219,7 @@ export function CurrencySearch({
 							<IconWrapper size="16px" marginRight="6px">
 								<Edit />
 							</IconWrapper>
-							<TYPE.main color={theme.blue1}>{t("manage")}</TYPE.main>
+							<TYPE.Main color={theme.blue1}>{t("manage")}</TYPE.Main>
 						</RowFixed>
 					</ButtonText>
 				</Row>

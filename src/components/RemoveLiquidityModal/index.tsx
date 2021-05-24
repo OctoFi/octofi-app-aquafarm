@@ -135,7 +135,7 @@ export const PlatformControl = styled.div`
 	}
 `;
 
-export default function ({ history }: RouteComponentProps) {
+export default function RemoveLiquidityModal({ history }: RouteComponentProps) {
 	const { account, chainId, library } = useActiveWeb3React();
 	const [token, setToken] = useState(ETHER);
 	const [selectedOption, setSelectedOption] = useState("custom");
@@ -358,11 +358,11 @@ export default function ({ history }: RouteComponentProps) {
 					</div>
 				</div>
 				<HeaderCurrencyText>{pool?.poolName + " Pool Tokens"}</HeaderCurrencyText>
-				<TYPE.italic fontSize={12} textAlign="left" padding={"8px 0 0 0 "}>
+				<TYPE.Italic fontSize={12} textAlign="left" padding={"8px 0 0 0 "}>
 					{`Output is estimated. If the price changes by more than ${
 						allowedSlippage / 100
 					}% your transaction will revert.`}
-				</TYPE.italic>
+				</TYPE.Italic>
 			</HeaderAutoColumn>
 		);
 	};
@@ -371,13 +371,13 @@ export default function ({ history }: RouteComponentProps) {
 		return (
 			<>
 				<RowBetween>
-					<TYPE.body>{pool?.poolName} Pool Token</TYPE.body>
+					<TYPE.Body>{pool?.poolName} Pool Token</TYPE.Body>
 					<RowFixed>
 						<PlatformLogo platform={type} name={pool?.poolName} size={24} style={{ marginRight: "8px" }} />
 					</RowFixed>
 				</RowBetween>
 				<RowBetween>
-					<TYPE.body>Ethereum Output</TYPE.body>
+					<TYPE.Body>Ethereum Output</TYPE.Body>
 					<RowFixed>
 						<CurrencyLogo currency={ETHER} size={"24px"} />
 					</RowFixed>
@@ -404,14 +404,11 @@ export default function ({ history }: RouteComponentProps) {
 	const handleDismissConfirmation = useCallback(() => {
 		setShowConfirm(false);
 		setTxHash("");
-	}, [txHash]);
+	}, []);
 
-	const onFieldAInput = useCallback(
-		(value) => {
-			setAmount(value);
-		},
-		[amount]
-	);
+	const onFieldAInput = useCallback((value) => {
+		setAmount(value);
+	}, []);
 
 	return (
 		<>

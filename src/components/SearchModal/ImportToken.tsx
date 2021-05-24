@@ -32,7 +32,7 @@ const WarningWrapper = styled(Card)<{ highWarning: boolean }>`
 	width: fit-content;
 `;
 
-const AddressText = styled(TYPE.blue)`
+const AddressText = styled(TYPE.Blue)`
 	font-size: 12px;
 
 	${({ theme }) => theme.mediaWidth.upToSmall`
@@ -69,7 +69,7 @@ export function ImportToken({ tokens, onBack, onDismiss, handleCurrencySelect }:
 			<PaddedColumn gap="14px" style={{ width: "100%", flex: "1 1" }}>
 				<RowBetween>
 					{onBack ? <ArrowLeft style={{ cursor: "pointer" }} onClick={onBack} /> : <div></div>}
-					<TYPE.mediumHeader>Import {tokens.length > 1 ? "Tokens" : "Token"}</TYPE.mediumHeader>
+					<TYPE.MediumHeader>Import {tokens.length > 1 ? "Tokens" : "Token"}</TYPE.MediumHeader>
 					{onDismiss ? <CloseIcon onClick={onDismiss} /> : <div></div>}
 				</RowBetween>
 			</PaddedColumn>
@@ -86,10 +86,10 @@ export function ImportToken({ tokens, onBack, onDismiss, handleCurrencySelect }:
 							<AutoColumn gap="10px">
 								<AutoRow align="center">
 									<CurrencyLogo currency={token} size={"24px"} />
-									<TYPE.body ml="8px" mr="8px" fontWeight={500}>
+									<TYPE.Body ml="8px" mr="8px" fontWeight={500}>
 										{token.symbol}
-									</TYPE.body>
-									<TYPE.darkGray fontWeight={300}>{token.name}</TYPE.darkGray>
+									</TYPE.Body>
+									<TYPE.DarkGray fontWeight={300}>{token.name}</TYPE.DarkGray>
 								</AutoRow>
 								{chainId && (
 									<ExternalLink href={getEtherscanLink(chainId, token.address, "address")}>
@@ -99,17 +99,17 @@ export function ImportToken({ tokens, onBack, onDismiss, handleCurrencySelect }:
 								{list !== undefined ? (
 									<RowFixed>
 										{list.logoURI && <ListLogo logoURI={list.logoURI} size="12px" />}
-										<TYPE.small ml="6px" color={theme.text2}>
+										<TYPE.Small ml="6px" color={theme.text2}>
 											via {list.name}
-										</TYPE.small>
+										</TYPE.Small>
 									</RowFixed>
 								) : (
 									<WarningWrapper borderRadius="4px" padding="4px" highWarning={true}>
 										<RowFixed>
 											<AlertTriangle stroke={theme.red1} size="10px" />
-											<TYPE.body color={theme.red1} ml="4px" fontSize="10px" fontWeight={500}>
+											<TYPE.Body color={theme.red1} ml="4px" fontSize="10px" fontWeight={500}>
 												{t("importToken.unknownSource")}
-											</TYPE.body>
+											</TYPE.Body>
 										</RowFixed>
 									</WarningWrapper>
 								)}
@@ -127,18 +127,18 @@ export function ImportToken({ tokens, onBack, onDismiss, handleCurrencySelect }:
 				>
 					<AutoColumn justify="center" style={{ textAlign: "center", gap: "16px", marginBottom: "12px" }}>
 						<AlertTriangle stroke={fromLists ? theme.warning : theme.red1} size={32} />
-						<TYPE.body fontWeight={600} fontSize={20} color={fromLists ? theme.warning : theme.red1}>
+						<TYPE.Body fontWeight={600} fontSize={20} color={fromLists ? theme.warning : theme.red1}>
 							{t("importToken.tradeRisk")}
-						</TYPE.body>
+						</TYPE.Body>
 					</AutoColumn>
 
 					<AutoColumn style={{ textAlign: "center", gap: "16px", marginBottom: "12px" }}>
-						<TYPE.body fontWeight={400} color={fromLists ? theme.warning : theme.red1}>
+						<TYPE.Body fontWeight={400} color={fromLists ? theme.warning : theme.red1}>
 							{t("importToken.tokenWarning")}
-						</TYPE.body>
-						<TYPE.body fontWeight={600} color={fromLists ? theme.warning : theme.red1}>
+						</TYPE.Body>
+						<TYPE.Body fontWeight={600} color={fromLists ? theme.warning : theme.red1}>
 							{t("importToken.cantSell")}
-						</TYPE.body>
+						</TYPE.Body>
 					</AutoColumn>
 					<AutoRow justify="center" style={{ cursor: "pointer" }} onClick={() => setConfirmed(!confirmed)}>
 						<Checkbox
@@ -148,14 +148,14 @@ export function ImportToken({ tokens, onBack, onDismiss, handleCurrencySelect }:
 							checked={confirmed}
 							onChange={() => setConfirmed(!confirmed)}
 						/>
-						<TYPE.body
+						<TYPE.Body
 							ml="10px"
 							fontSize="16px"
 							color={fromLists ? theme.warning : theme.red1}
 							fontWeight={500}
 						>
 							{t("importToken.understand")}
-						</TYPE.body>
+						</TYPE.Body>
 					</AutoRow>
 				</Card>
 				<ButtonPrimary
