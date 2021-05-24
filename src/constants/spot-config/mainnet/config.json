@@ -1,7 +1,7 @@
 {
 	"walletTokens": [
 		{
-			"address": "0x6c3f90f043a72fa612cbac8115ee7e52bde6e490",
+			"address": "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/3Pool Curve-icon.png",
@@ -9,7 +9,7 @@
 			"symbol": "3PoolCurve"
 		},
 		{
-			"address": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+			"address": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/AAVE-icon.png",
@@ -17,7 +17,7 @@
 			"symbol": "AAVE"
 		},
 		{
-			"address": "0x94d863173ee77439e4292284ff13fad54b3ba182",
+			"address": "0x94d863173EE77439E4292284fF13fAD54b3BA182",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ADEL-icon.png",
@@ -25,7 +25,7 @@
 			"symbol": "ADEL"
 		},
 		{
-			"address": "0x8ab7404063ec4dbcfd4598215992dc3f8ec853d7",
+			"address": "0x8Ab7404063Ec4DBcfd4598215992DC3F8EC853d7",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/AKRO-icon.png",
@@ -33,7 +33,7 @@
 			"symbol": "AKRO"
 		},
 		{
-			"address": "0x27702a26126e0b3702af63ee09ac4d1a084ef628",
+			"address": "0x27702a26126e0B3702af63Ee09aC4d1A084EF628",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ALEPH-icon.png",
@@ -41,7 +41,7 @@
 			"symbol": "ALEPH"
 		},
 		{
-			"address": "0xd46ba6d942050d489dbd938a2c909a5d5039a161",
+			"address": "0xD46bA6D942050d489DBd938a2C909A5d5039A161",
 			"chainId": 1,
 			"decimals": 9,
 			"logoURI": "https://zapper.fi/images/AMPL-icon.png",
@@ -49,7 +49,7 @@
 			"symbol": "AMPL"
 		},
 		{
-			"address": "0xcd62b1c403fa761baadfc74c525ce2b51780b184",
+			"address": "0xcD62b1C403fa761BAadFC74C525ce2B51780b184",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ANJ-icon.png",
@@ -57,7 +57,7 @@
 			"symbol": "ANJ"
 		},
 		{
-			"address": "0x960b236a07cf122663c4303350609a66a7b288c0",
+			"address": "0x960b236A07cf122663c4303350609A66A7B288C0",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ANT-icon.png",
@@ -65,7 +65,7 @@
 			"symbol": "ANT"
 		},
 		{
-			"address": "0x209c1808febf6c1ab7c65764bb61ad67d3923fcc",
+			"address": "0x209C1808FeBf6c1aB7C65764bb61AD67d3923fcc",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/APE-icon.png",
@@ -73,7 +73,7 @@
 			"symbol": "APE"
 		},
 		{
-			"address": "0x34612903db071e888a4dadcaa416d3ee263a87b9",
+			"address": "0x34612903Db071e888a4dADcaA416d3EE263a87b9",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ARTE-icon.png",
@@ -81,7 +81,7 @@
 			"symbol": "ARTE"
 		},
 		{
-			"address": "0x27054b13b1b798b345b591a4d22e6562d47ea75a",
+			"address": "0x27054b13b1B798B345b591a4d22e6562d47eA75a",
 			"chainId": 1,
 			"decimals": 4,
 			"logoURI": "https://zapper.fi/images/AST-icon.png",
@@ -89,7 +89,7 @@
 			"symbol": "AST"
 		},
 		{
-			"address": "0xc12d099be31567add4e4e4d0d45691c3f58f5663",
+			"address": "0xc12d099be31567add4e4e4d0D45691C3F58f5663",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/AUC-icon.png",
@@ -97,7 +97,7 @@
 			"symbol": "AUC"
 		},
 		{
-			"address": "0x18aaa7115705e8be94bffebde57af9bfc265b998",
+			"address": "0x18aAA7115705e8be94bfFEBDE57Af9BFc265B998",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/AUDIO-icon.png",
@@ -105,7 +105,7 @@
 			"symbol": "AUDIO"
 		},
 		{
-			"address": "0xba100000625a3754423978a60c9317c58a424e3d",
+			"address": "0xba100000625a3754423978a60c9317c58a424e3D",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BAL-icon.png",
@@ -113,7 +113,7 @@
 			"symbol": "BAL"
 		},
 		{
-			"address": "0xba11d00c5f74255f56a5e366f4f77f5a186d7f55",
+			"address": "0xBA11D00c5f74255f56a5E366F4F77f5A186d7f55",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BAND-icon.png",
@@ -121,7 +121,7 @@
 			"symbol": "BAND"
 		},
 		{
-			"address": "0x68a118ef45063051eac49c7e647ce5ace48a68a5",
+			"address": "0x68A118Ef45063051Eac49c7e647CE5Ace48a68a5",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/$BASED-icon.png",
@@ -129,7 +129,7 @@
 			"symbol": "BASED"
 		},
 		{
-			"address": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+			"address": "0x0D8775F648430679A709E98d2b0Cb6250d2887EF",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BAT-icon.png",
@@ -137,7 +137,7 @@
 			"symbol": "BAT"
 		},
 		{
-			"address": "0x668dbf100635f593a3847c0bdaf21f0a09380188",
+			"address": "0x668DbF100635f593A3847c0bDaF21f0a09380188",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BNSD-icon.png",
@@ -145,7 +145,7 @@
 			"symbol": "BNSD"
 		},
 		{
-			"address": "0x1f573d6fb3f13d689ff844b4ce37794d79a7ff1c",
+			"address": "0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BNT-icon.png",
@@ -153,7 +153,7 @@
 			"symbol": "BNT"
 		},
 		{
-			"address": "0x0391d2021f89dc339f60fff84546ea23e337750f",
+			"address": "0x0391D2021f89DC339F60Fff84546EA23E337750f",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BOND-icon.png",
@@ -161,7 +161,7 @@
 			"symbol": "BOND"
 		},
 		{
-			"address": "0x3e780920601d61cedb860fe9c4a90c9ea6a35e78",
+			"address": "0x3e780920601D61cEdb860fe9c4a90c9EA6A35E78",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BOOST-icon.png",
@@ -169,7 +169,7 @@
 			"symbol": "BOOST"
 		},
 		{
-			"address": "0x5beabaebb3146685dd74176f68a0721f91297d37",
+			"address": "0x5bEaBAEBB3146685Dd74176f68a0721F91297D37",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BOT-icon.png",
@@ -177,7 +177,7 @@
 			"symbol": "BOT"
 		},
 		{
-			"address": "0x0327112423f3a68efdf1fcf402f6c5cb9f7c33fd",
+			"address": "0x0327112423F3A68efdF1fcF402F6c5CB9f7C33fd",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BTC++-icon.png",
@@ -185,7 +185,7 @@
 			"symbol": "BTC++"
 		},
 		{
-			"address": "0x7b123f53421b1bf8533339bfbdc7c98aa94163db",
+			"address": "0x7b123f53421b1bF8533339BFBdc7C98aA94163db",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BUIDL-icon.png",
@@ -193,7 +193,7 @@
 			"symbol": "BUIDL"
 		},
 		{
-			"address": "0x6e36556b3ee5aa28def2a8ec3dae30ec2b208739",
+			"address": "0x6e36556B3ee5Aa28Def2a8EC3DAe30eC2B208739",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BUILD-icon.png",
@@ -201,7 +201,7 @@
 			"symbol": "BUILD"
 		},
 		{
-			"address": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
+			"address": "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BUSD-icon.png",
@@ -209,7 +209,7 @@
 			"symbol": "BUSD"
 		},
 		{
-			"address": "0x3b3ac5386837dc563660fb6a0937dfaa5924333b",
+			"address": "0x3B3Ac5386837Dc563660FB6a0937DFAa5924333B",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BUSD Curve-icon.png",
@@ -217,7 +217,7 @@
 			"symbol": "BUSDCurve"
 		},
 		{
-			"address": "0x56d811088235f11c8920698a204a5010a788f4b3",
+			"address": "0x56d811088235F11C8920698a204A5010a788f4b3",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/BZRX-icon.png",
@@ -225,7 +225,7 @@
 			"symbol": "BZRX"
 		},
 		{
-			"address": "0x26e75307fc0c021472feb8f727839531f112f317",
+			"address": "0x26E75307Fc0C021472fEb8F727839531F112f317",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/C20-icon.png",
@@ -233,7 +233,7 @@
 			"symbol": "C20"
 		},
 		{
-			"address": "0xaaaebe6fe48e54f431b0c390cfaf0b017d09d42d",
+			"address": "0xaaAEBE6Fe48E54f431b0C390CfaF0b017d09D42d",
 			"chainId": 1,
 			"decimals": 4,
 			"logoURI": "https://zapper.fi/images/CEL-icon.png",
@@ -241,7 +241,7 @@
 			"symbol": "CEL"
 		},
 		{
-			"address": "0x4f9254c83eb525f9fcf346490bbb3ed28a81c667",
+			"address": "0x4F9254C83EB525f9FCf346490bbb3ed28a81C667",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/CELR-icon.png",
@@ -249,7 +249,7 @@
 			"symbol": "CELR"
 		},
 		{
-			"address": "0xc4c2614e694cf534d407ee49f8e44d125e4681c4",
+			"address": "0xC4C2614E694cF534D407Ee49F8E44D125E4681c4",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/CHAIN-icon.png",
@@ -257,7 +257,7 @@
 			"symbol": "CHAIN"
 		},
 		{
-			"address": "0x3936ad01cf109a36489d93cabda11cf062fd3d48",
+			"address": "0x3936Ad01cf109a36489d93cabdA11cF062fd3d48",
 			"chainId": 1,
 			"decimals": 9,
 			"logoURI": "https://zapper.fi/images/COIL-icon.png",
@@ -265,7 +265,7 @@
 			"symbol": "COIL"
 		},
 		{
-			"address": "0x87b008e57f640d94ee44fd893f0323af933f9195",
+			"address": "0x87b008E57F640D94Ee44Fd893F0323AF933F9195",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/COIN-icon.png",
@@ -273,7 +273,7 @@
 			"symbol": "COIN"
 		},
 		{
-			"address": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+			"address": "0xc00e94Cb662C3520282E6f5717214004A7f26888",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/COMP-icon.png",
@@ -281,7 +281,7 @@
 			"symbol": "COMP"
 		},
 		{
-			"address": "0x62359ed7505efc61ff1d56fef82158ccaffa23d7",
+			"address": "0x62359Ed7505Efc61FF1D56fEF82158CcaffA23D7",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/CORE-icon.png",
@@ -289,7 +289,7 @@
 			"symbol": "CORE"
 		},
 		{
-			"address": "0x2ba592f78db6436527729929aaf6c908497cb200",
+			"address": "0x2ba592F78dB6436527729929AAf6c908497cB200",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/CREAM-icon.png",
@@ -297,7 +297,7 @@
 			"symbol": "CREAM"
 		},
 		{
-			"address": "0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b",
+			"address": "0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/CRO-icon.png",
@@ -305,7 +305,7 @@
 			"symbol": "CRO"
 		},
 		{
-			"address": "0xd533a949740bb3306d119cc777fa900ba034cd52",
+			"address": "0xD533a949740bb3306d119CC777fa900bA034cd52",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/CRV-icon.png",
@@ -313,7 +313,7 @@
 			"symbol": "CRV"
 		},
 		{
-			"address": "0x6b175474e89094c44da98b954eedeac495271d0f",
+			"address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DAI-icon.png",
@@ -321,7 +321,7 @@
 			"symbol": "DAI"
 		},
 		{
-			"address": "0x80ab141f324c3d6f2b18b030f1c4e95d4d658778",
+			"address": "0x80aB141F324C3d6F2b18b030f1C4E95d4d658778",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DEA-icon.png",
@@ -329,15 +329,7 @@
 			"symbol": "DEA"
 		},
 		{
-			"address": "0x80ab141f324c3d6f2b18b030f1c4e95d4d658778",
-			"chainId": 1,
-			"decimals": 18,
-			"logoURI": "https://zapper.fi/images/DEA-icon.png",
-			"name": "DEA",
-			"symbol": "DEA"
-		},
-		{
-			"address": "0x78f225869c08d478c34e5f645d07a87d3fe8eb78",
+			"address": "0x78F225869c08d478c34e5f645d07A87d3fe8eb78",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DEFI+L-icon.png",
@@ -345,7 +337,7 @@
 			"symbol": "DEFI+L"
 		},
 		{
-			"address": "0xad6a626ae2b43dcb1b39430ce496d2fa0365ba9c",
+			"address": "0xaD6A626aE2B43DCb1B39430Ce496d2FA0365BA9C",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DEFI+S-icon.png",
@@ -353,7 +345,7 @@
 			"symbol": "DEFI+S"
 		},
 		{
-			"address": "0x88ef27e69108b2633f8e1c184cc37940a075cc02",
+			"address": "0x88EF27e69108B2633F8E1C184CC37940A075cC02",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DEGO-icon.png",
@@ -361,7 +353,7 @@
 			"symbol": "DEGO"
 		},
 		{
-			"address": "0x3b62f3820e0b035cc4ad602dece6d796bc325325",
+			"address": "0x3b62F3820e0B035cc4aD602dECe6d796BC325325",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DEUS-icon.png",
@@ -369,15 +361,7 @@
 			"symbol": "DEUS"
 		},
 		{
-			"address": "0x3b62f3820e0b035cc4ad602dece6d796bc325325",
-			"chainId": 1,
-			"decimals": 18,
-			"logoURI": "https://zapper.fi/images/DEUS-icon.png",
-			"name": "DEUS",
-			"symbol": "DEUS"
-		},
-		{
-			"address": "0x5caf454ba92e6f2c929df14667ee360ed9fd5b26",
+			"address": "0x5cAf454Ba92e6F2c929DF14667Ee360eD9fD5b26",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DEV-icon.png",
@@ -385,7 +369,7 @@
 			"symbol": "DEV"
 		},
 		{
-			"address": "0xc666081073e8dff8d3d1c2292a29ae1a2153ec09",
+			"address": "0xc666081073E8DfF8D3d1c2292A29aE1A2153eC09",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DGTX-icon.png",
@@ -393,7 +377,7 @@
 			"symbol": "DGTX"
 		},
 		{
-			"address": "0x4f3afec4e5a3f2a6a1a411def7d7dfe50ee057bf",
+			"address": "0x4f3AfEC4E5a3F2A6a1A411DEF7D7dFe50eE057bF",
 			"chainId": 1,
 			"decimals": 9,
 			"logoURI": "https://zapper.fi/images/DGX-icon.png",
@@ -401,7 +385,7 @@
 			"symbol": "DGX"
 		},
 		{
-			"address": "0xca1207647ff814039530d7d35df0e1dd2e91fa84",
+			"address": "0xca1207647Ff814039530D7d35df0e1Dd2e91Fa84",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DHT-icon.png",
@@ -409,7 +393,7 @@
 			"symbol": "DHT"
 		},
 		{
-			"address": "0x84ca8bc7997272c7cfb4d0cd3d55cd942b3c9419",
+			"address": "0x84cA8bc7997272c7CfB4D0Cd3D55cd942B3c9419",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DIA-icon.png",
@@ -417,7 +401,7 @@
 			"symbol": "DIA"
 		},
 		{
-			"address": "0xc719d010b63e5bbf2c0551872cd5316ed26acd83",
+			"address": "0xc719d010B63E5bbF2C0551872CD5316ED26AcD83",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DIP-icon.png",
@@ -425,7 +409,7 @@
 			"symbol": "DIP"
 		},
 		{
-			"address": "0xed91879919b71bb6905f23af0a68d231ecf87b14",
+			"address": "0xEd91879919B71bB6905f23af0A68d231EcF87b14",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DMG-icon.png",
@@ -433,7 +417,7 @@
 			"symbol": "DMG"
 		},
 		{
-			"address": "0x0abdace70d3790235af448c88547603b945604ea",
+			"address": "0x0AbdAce70D3790235af448C88547603b945604ea",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DNT-icon.png",
@@ -441,7 +425,7 @@
 			"symbol": "DNT"
 		},
 		{
-			"address": "0x43dfc4159d86f3a37a5a4b3d4580b888ad7d4ddd",
+			"address": "0x43Dfc4159D86F3A37A5A4B3D4580b888ad7d4DDd",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DODO-icon.png",
@@ -449,7 +433,7 @@
 			"symbol": "DODO"
 		},
 		{
-			"address": "0xc0f9bd5fa5698b6505f643900ffa515ea5df54a9",
+			"address": "0xC0F9bD5Fa5698B6505F643900FFA515Ea5dF54A9",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DONUT-icon.png",
@@ -457,7 +441,7 @@
 			"symbol": "DONUT"
 		},
 		{
-			"address": "0x0a913bead80f321e7ac35285ee10d9d922659cb7",
+			"address": "0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DOS-icon.png",
@@ -465,7 +449,7 @@
 			"symbol": "DOS"
 		},
 		{
-			"address": "0xad32a8e6220741182940c5abf610bde99e737b2d",
+			"address": "0xad32A8e6220741182940c5aBF610bDE99E737b2D",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DOUGH-icon.png",
@@ -473,7 +457,7 @@
 			"symbol": "DOUGH"
 		},
 		{
-			"address": "0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b",
+			"address": "0x1494CA1F11D487c2bBe4543E90080AeBa4BA3C2b",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DPI-icon.png",
@@ -481,7 +465,7 @@
 			"symbol": "DPI"
 		},
 		{
-			"address": "0x5bc25f649fc4e26069ddf4cf4010f9f706c23831",
+			"address": "0x5BC25f649fc4e26069dDF4cF4010F9f706c23831",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DUSD-icon.png",
@@ -489,7 +473,7 @@
 			"symbol": "DUSD"
 		},
 		{
-			"address": "0xa1d65e8fb6e87b60feccbc582f7f97804b725521",
+			"address": "0xa1d65E8fB6e87b60FECCBc582F7f97804B725521",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/DXD-icon.png",
@@ -497,7 +481,7 @@
 			"symbol": "DXD"
 		},
 		{
-			"address": "0x9cb2f26a23b8d89973f08c957c4d7cdf75cd341c",
+			"address": "0x9Cb2f26A23b8d89973F08c957C4d7cdf75CD341c",
 			"chainId": 1,
 			"decimals": 6,
 			"logoURI": "https://zapper.fi/images/DZAR-icon.png",
@@ -505,7 +489,7 @@
 			"symbol": "DZAR"
 		},
 		{
-			"address": "0xf0ee6b27b759c9893ce4f094b49ad28fd15a23e4",
+			"address": "0xf0Ee6b27b759C9893Ce4f094b49ad28fd15A23e4",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/ENG-icon.png",
@@ -513,7 +497,7 @@
 			"symbol": "ENG"
 		},
 		{
-			"address": "0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c",
+			"address": "0xF629cBd94d3791C9250152BD8dfBDF380E2a3B9c",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ENJ-icon.png",
@@ -521,7 +505,7 @@
 			"symbol": "ENJ"
 		},
 		{
-			"address": "0x47dd62d4d075dead71d0e00299fc56a2d747bebb",
+			"address": "0x47dD62D4D075DeAd71d0e00299fc56a2d747beBb",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/EQL-icon.png",
@@ -529,7 +513,7 @@
 			"symbol": "EQL"
 		},
 		{
-			"address": "0x36f3fd68e7325a35eb768f1aedaae9ea0689d723",
+			"address": "0x36F3FD68E7325a35EB768F1AedaAe9EA0689d723",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ESD-icon.png",
@@ -545,7 +529,7 @@
 			"symbol": "ETH"
 		},
 		{
-			"address": "0xeeeeeeeee2af8d0e1940679860398308e0ef24d6",
+			"address": "0xEeEeeeeEe2aF8D0e1940679860398308e0eF24d6",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ETHV-icon.png",
@@ -553,7 +537,7 @@
 			"symbol": "ETHV"
 		},
 		{
-			"address": "0x178c820f862b14f316509ec36b13123da19a6054",
+			"address": "0x178c820f862B14f316509ec36b13123DA19A6054",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/EWTB-icon.png",
@@ -561,7 +545,7 @@
 			"symbol": "EWTB"
 		},
 		{
-			"address": "0xa0246c9032bc3a600820415ae600c6388619a14d",
+			"address": "0xa0246c9032bC3A600820415aE600c6388619A14D",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/FARM-icon.png",
@@ -569,7 +553,7 @@
 			"symbol": "FARM"
 		},
 		{
-			"address": "0xaea46a60368a7bd060eec7df8cba43b7ef41ad85",
+			"address": "0xaea46A60368A7bD060eec7DF8CBa43b7EF41Ad85",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/FET-icon.png",
@@ -577,7 +561,7 @@
 			"symbol": "FET"
 		},
 		{
-			"address": "0xc6e64729931f60d2c8bc70a27d66d9e0c28d1bf9",
+			"address": "0xC6e64729931f60D2c8Bc70A27D66D9E0c28D1BF9",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/FLOW-icon.png",
@@ -585,7 +569,7 @@
 			"symbol": "FLOW"
 		},
 		{
-			"address": "0x4946fcea7c692606e8908002e55a582af44ac121",
+			"address": "0x4946Fcea7C692606e8908002e55A582af44AC121",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/FOAM-icon.png",
@@ -593,7 +577,7 @@
 			"symbol": "FOAM"
 		},
 		{
-			"address": "0xfffffffff15abf397da76f1dcc1a1604f45126db",
+			"address": "0xfffffffFf15AbF397dA76f1dcc1A1604F45126DB",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/FSW-icon.png",
@@ -601,7 +585,7 @@
 			"symbol": "FSW"
 		},
 		{
-			"address": "0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9",
+			"address": "0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/FTT-icon.png",
@@ -609,7 +593,7 @@
 			"symbol": "FTT"
 		},
 		{
-			"address": "0x4a57e687b9126435a9b19e4a802113e266adebde",
+			"address": "0x4a57E687b9126435a9B19E4A802113e266AdeBde",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/FXC-icon.png",
@@ -617,7 +601,7 @@
 			"symbol": "FXC"
 		},
 		{
-			"address": "0x3f382dbd960e3a9bbceae22651e88158d2791550",
+			"address": "0x3F382DbD960E3a9bbCeaE22651E88158d2791550",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/GHST-icon.png",
@@ -625,7 +609,7 @@
 			"symbol": "GHST"
 		},
 		{
-			"address": "0x6810e776880c02933d47db1b9fc05908e5386b96",
+			"address": "0x6810e776880C02933D47DB1b9fc05908e5386b96",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/GNO-icon.png",
@@ -633,7 +617,7 @@
 			"symbol": "GNO"
 		},
 		{
-			"address": "0x056fd409e1d7a124bd7017459dfea2f387b6d5cd",
+			"address": "0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd",
 			"chainId": 1,
 			"decimals": 2,
 			"logoURI": "https://zapper.fi/images/GUSD-icon.png",
@@ -641,7 +625,7 @@
 			"symbol": "GUSD"
 		},
 		{
-			"address": "0x0e29e5abbb5fd88e28b2d355774e73bd47de3bcd",
+			"address": "0x0E29e5AbbB5FD88e28b2d355774e73BD47dE3bcd",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/HAKKA-icon.png",
@@ -649,7 +633,7 @@
 			"symbol": "HAKKA"
 		},
 		{
-			"address": "0x0316eb71485b0ab14103307bf65a021042c6d380",
+			"address": "0x0316EB71485b0Ab14103307bf65a021042c6d380",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/HBTC-icon.png",
@@ -657,7 +641,7 @@
 			"symbol": "HBTC"
 		},
 		{
-			"address": "0x584bc13c7d411c00c01a62e8019472de68768430",
+			"address": "0x584bC13c7D411c00c01A62e8019472dE68768430",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/HEGIC-icon.png",
@@ -665,7 +649,7 @@
 			"symbol": "HEGIC"
 		},
 		{
-			"address": "0x7968bc6a03017ea2de509aaa816f163db0f35148",
+			"address": "0x7968bc6a03017eA2de509AAA816F163Db0f35148",
 			"chainId": 1,
 			"decimals": 6,
 			"logoURI": "https://zapper.fi/images/HGET-icon.png",
@@ -673,7 +657,7 @@
 			"symbol": "HGET"
 		},
 		{
-			"address": "0x19810559df63f19cfe88923313250550edadb743",
+			"address": "0x19810559dF63f19cfE88923313250550eDADB743",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/HOUSE-icon.png",
@@ -681,7 +665,7 @@
 			"symbol": "HOUSE"
 		},
 		{
-			"address": "0xdf574c24545e5ffecb9a659c229253d4111d87e1",
+			"address": "0xdF574c24545E5FfEcb9a659c229253D4111d87e1",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/HUSD-icon.png",
@@ -689,7 +673,7 @@
 			"symbol": "HUSD"
 		},
 		{
-			"address": "0xb705268213d593b8fd88d3fdeff93aff5cbdcfae",
+			"address": "0xB705268213D593B8FD88d3FDEFF93AFF5CbDcfAE",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/IDEX-icon.png",
@@ -697,7 +681,7 @@
 			"symbol": "IDEX"
 		},
 		{
-			"address": "0xcc13fc627effd6e35d2d2706ea3c4d7396c610ea",
+			"address": "0xCc13Fc627EFfd6E35D2D2706Ea3C4D7396c610ea",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/IDXM-icon.png",
@@ -705,7 +689,7 @@
 			"symbol": "IDXM"
 		},
 		{
-			"address": "0xaf1250fa68d7decd34fd75de8742bc03b29bd58e",
+			"address": "0xaF1250fa68D7DECD34fD75dE8742Bc03B29BD58e",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/IHF-icon.png",
@@ -713,7 +697,7 @@
 			"symbol": "IHF"
 		},
 		{
-			"address": "0x0954906da0bf32d5479e25f46056d22f08464cab",
+			"address": "0x0954906da0Bf32d5479e25f46056d22f08464cab",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/INDEX-icon.png",
@@ -721,7 +705,7 @@
 			"symbol": "INDEX"
 		},
 		{
-			"address": "0x8a9c67fee641579deba04928c4bc45f66e26343a",
+			"address": "0x8A9C67fee641579dEbA04928c4BC45F66e26343A",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/JRT-icon.png",
@@ -729,7 +713,7 @@
 			"symbol": "JRT"
 		},
 		{
-			"address": "0x85eee30c52b0b379b046fb0f85f4f3dc3009afec",
+			"address": "0x85Eee30c52B0b379b046Fb0F85F4f3Dc3009aFEC",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/KEEP-icon.png",
@@ -737,7 +721,7 @@
 			"symbol": "KEEP"
 		},
 		{
-			"address": "0x177ba0cac51bfc7ea24bad39d81dcefd59d74faa",
+			"address": "0x177BA0cac51bFC7eA24BAd39d81dcEFd59d74fAa",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/KIF-icon.png",
@@ -745,7 +729,7 @@
 			"symbol": "KIF"
 		},
 		{
-			"address": "0xdd974d5c2e2928dea5f71b9825b8b646686bd200",
+			"address": "0xdd974D5C2e2928deA5F71b9825b8b646686BD200",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/KNC-icon.png",
@@ -753,7 +737,7 @@
 			"symbol": "KNC"
 		},
 		{
-			"address": "0xa866f0198208eb07c83081d5136be7f775c2399e",
+			"address": "0xA866F0198208Eb07c83081d5136BE7f775c2399e",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/KORE-icon.png",
@@ -761,7 +745,7 @@
 			"symbol": "KORE"
 		},
 		{
-			"address": "0x1ceb5cb57c4d4e2b2433641b95dd330a33185a44",
+			"address": "0x1cEB5cB57C4D4E2b2433641b95Dd330A33185A44",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/KP3R-icon.png",
@@ -769,7 +753,7 @@
 			"symbol": "KP3R"
 		},
 		{
-			"address": "0xbbff34e47e559ef680067a6b1c980639eeb64d24",
+			"address": "0xBbff34E47E559ef680067a6B1c980639EEb64D24",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/L2-icon.png",
@@ -777,7 +761,7 @@
 			"symbol": "L2"
 		},
 		{
-			"address": "0x80fb784b7ed66730e8b1dbd9820afd29931aab03",
+			"address": "0x80fB784B7eD66730e8b1DBd9820aFD29931aab03",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/LEND-icon.png",
@@ -785,7 +769,7 @@
 			"symbol": "LEND"
 		},
 		{
-			"address": "0xab37e1358b639fd877f015027bb62d3ddaa7557e",
+			"address": "0xaB37e1358b639Fd877f015027Bb62d3ddAa7557E",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/LIEN-icon.png",
@@ -793,7 +777,7 @@
 			"symbol": "LIEN"
 		},
 		{
-			"address": "0x514910771af9ca656af840dff83e8264ecf986ca",
+			"address": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/LINK-icon.png",
@@ -801,7 +785,7 @@
 			"symbol": "LINK"
 		},
 		{
-			"address": "0x0e2ec54fc0b509f445631bf4b91ab8168230c752",
+			"address": "0x0E2EC54fC0B509F445631Bf4b91AB8168230C752",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/LINKUSD-icon.png",
@@ -809,7 +793,7 @@
 			"symbol": "LINKUSD"
 		},
 		{
-			"address": "0xa4e8c3ec456107ea67d3075bf9e3df3a75823db0",
+			"address": "0xA4e8C3Ec456107eA67d3075bF9e3DF3A75823DB0",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/LOOM-icon.png",
@@ -817,7 +801,7 @@
 			"symbol": "LOOM"
 		},
 		{
-			"address": "0x58b6a8a3302369daec383334672404ee733ab239",
+			"address": "0x58b6A8A3302369DAEc383334672404Ee733aB239",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/LPT-icon.png",
@@ -825,7 +809,7 @@
 			"symbol": "LPT"
 		},
 		{
-			"address": "0xbbbbca6a901c926f240b89eacb641d8aec7aeafd",
+			"address": "0xBBbbCA6A901c926F240b89EacB641d8Aec7AEafD",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/LRC-icon.png",
@@ -833,15 +817,7 @@
 			"symbol": "LRC"
 		},
 		{
-			"address": "0xb1f66997a5760428d3a87d68b90bfe0ae64121cc",
-			"chainId": 1,
-			"decimals": 18,
-			"logoURI": "https://zapper.fi/images/LUA-icon.png",
-			"name": "Lua Token",
-			"symbol": "LUA"
-		},
-		{
-			"address": "0xb1f66997a5760428d3a87d68b90bfe0ae64121cc",
+			"address": "0xB1f66997A5760428D3a87D68b90BfE0aE64121cC",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/LUA-icon.png",
@@ -849,7 +825,7 @@
 			"symbol": "LUA"
 		},
 		{
-			"address": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942",
+			"address": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/MANA-icon.png",
@@ -857,7 +833,7 @@
 			"symbol": "MANA"
 		},
 		{
-			"address": "0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0",
+			"address": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/MATIC-icon.png",
@@ -865,7 +841,7 @@
 			"symbol": "MATIC"
 		},
 		{
-			"address": "0x4e352cf164e64adcbad318c3a1e222e9eba4ce42",
+			"address": "0x4e352cF164E64ADCBad318C3a1e222E9EBa4Ce42",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/MCB-icon.png",
@@ -873,7 +849,7 @@
 			"symbol": "MCB"
 		},
 		{
-			"address": "0xd5525d397898e5502075ea5e830d8914f6f0affe",
+			"address": "0xD5525D397898e5502075Ea5E830d8914f6F0affe",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/MEME-icon.png",
@@ -881,7 +857,7 @@
 			"symbol": "MEME"
 		},
 		{
-			"address": "0xefc1c73a3d8728dc4cf2a18ac5705fe93e5914ac",
+			"address": "0xEfc1C73A3D8728Dc4Cf2A18ac5705FE93E5914AC",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/METRIC-icon.png",
@@ -889,7 +865,7 @@
 			"symbol": "METRIC"
 		},
 		{
-			"address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+			"address": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/MKR-icon.png",
@@ -897,7 +873,7 @@
 			"symbol": "MKR"
 		},
 		{
-			"address": "0xec67005c4e498ec7f55e092bd1d35cbc47c91892",
+			"address": "0xec67005c4E498Ec7f55E092bd1d35cbC47C91892",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/MLN-icon.png",
@@ -905,7 +881,7 @@
 			"symbol": "MLN"
 		},
 		{
-			"address": "0x68a3637ba6e75c0f66b61a42639c4e9fcd3d4824",
+			"address": "0x68a3637bA6E75c0f66B61A42639c4e9fCD3D4824",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/MOON-icon.png",
@@ -913,7 +889,7 @@
 			"symbol": "MOON"
 		},
 		{
-			"address": "0xa3bed4e1c75d00fa6f4e5e6922db7261b5e9acd2",
+			"address": "0xa3BeD4E1c75D00fa6f4E5E6922DB7261B5E9AcD2",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/MTA-icon.png",
@@ -921,7 +897,7 @@
 			"symbol": "MTA"
 		},
 		{
-			"address": "0xf433089366899d83a9f26a773d59ec7ecf30355e",
+			"address": "0xF433089366899D83a9f26A773D59ec7eCF30355e",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/MTL-icon.png",
@@ -929,7 +905,7 @@
 			"symbol": "MTL"
 		},
 		{
-			"address": "0xcc80c051057b774cd75067dc48f8987c4eb97a5e",
+			"address": "0xCc80C051057B774cD75067Dc48f8987C4Eb97A5e",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/NEC-icon.png",
@@ -937,7 +913,7 @@
 			"symbol": "NEC"
 		},
 		{
-			"address": "0xb62132e35a6c13ee1ee0f84dc5d40bad8d815206",
+			"address": "0xB62132e35a6c13ee1EE0f84dC5d40bad8d815206",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/NEXO-icon.png",
@@ -945,7 +921,7 @@
 			"symbol": "NEXO"
 		},
 		{
-			"address": "0x1776e1f26f98b1a5df9cd347953a26dd3cb46671",
+			"address": "0x1776e1F26f98b1A5dF9cD347953a26dd3Cb46671",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/NMR-icon.png",
@@ -953,7 +929,7 @@
 			"symbol": "NMR"
 		},
 		{
-			"address": "0xd7c49cee7e9188cca6ad8ff264c1da2e69d4cf3b",
+			"address": "0xd7c49CEE7E9188cCa6AD8FF264C1DA2e69D4Cf3B",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/NXM-icon.png",
@@ -961,7 +937,7 @@
 			"symbol": "NXM"
 		},
 		{
-			"address": "0x967da4048cd07ab37855c090aaf366e4ce1b9f48",
+			"address": "0x967da4048cD07aB37855c090aAF366e4ce1b9F48",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/OCEAN-icon.png",
@@ -969,7 +945,7 @@
 			"symbol": "OCEAN"
 		},
 		{
-			"address": "0x7240ac91f01233baaf8b064248e80feaa5912ba3",
+			"address": "0x7240aC91f01233BaAf8b064248E80feaA5912BA3",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/OCTO-icon.png",
@@ -977,7 +953,7 @@
 			"symbol": "OCTO"
 		},
 		{
-			"address": "0x8207c1ffc5b6804f6024322ccf34f29c3541ae26",
+			"address": "0x8207c1FfC5B6804F6024322CcF34F29c3541Ae26",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/OGN-icon.png",
@@ -985,7 +961,7 @@
 			"symbol": "OGN"
 		},
 		{
-			"address": "0xd26114cd6ee289accf82350c8d8487fedb8a0c07",
+			"address": "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/OMG-icon.png",
@@ -993,7 +969,7 @@
 			"symbol": "OMG"
 		},
 		{
-			"address": "0x2a8e1e676ec238d8a992307b495b45b3feaa5e86",
+			"address": "0x2A8e1E676Ec238d8A992307B495b45B3fEAa5e86",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/OUSD-icon.png",
@@ -1001,7 +977,7 @@
 			"symbol": "OUSD"
 		},
 		{
-			"address": "0x2a7f709ee001069771ceb6d42e85035f7d18e736",
+			"address": "0x2a7f709eE001069771ceB6D42e85035f7D18E736",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/OWL-icon.png",
@@ -1009,7 +985,7 @@
 			"symbol": "OWL"
 		},
 		{
-			"address": "0xd56dac73a4d6766464b38ec6d91eb45ce7457c44",
+			"address": "0xD56daC73A4d6766464b38ec6D91eB45Ce7457c44",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/PAN-icon.png",
@@ -1017,7 +993,7 @@
 			"symbol": "PAN"
 		},
 		{
-			"address": "0xe54f9e6ab80ebc28515af8b8233c1aee6506a15e",
+			"address": "0xE54f9E6Ab80ebc28515aF8b8233c1aeE6506a15E",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/PASTA-icon.png",
@@ -1025,7 +1001,7 @@
 			"symbol": "PASTA"
 		},
 		{
-			"address": "0x8e870d67f660d95d5be530380d0ec0bd388289e1",
+			"address": "0x8E870D67F660D95d5be530380D0eC0bd388289E1",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/PAX-icon.png",
@@ -1033,7 +1009,7 @@
 			"symbol": "PAX"
 		},
 		{
-			"address": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+			"address": "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/PAXG-icon.png",
@@ -1041,7 +1017,7 @@
 			"symbol": "PAXG"
 		},
 		{
-			"address": "0xbc16da9df0a22f01a16bc0620a27e7d6d6488550",
+			"address": "0xbc16da9df0A22f01A16BC0620a27e7D6d6488550",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/PCT-icon.png",
@@ -1049,7 +1025,7 @@
 			"symbol": "PCT"
 		},
 		{
-			"address": "0xbc396689893d065f41bc2c6ecbee5e0085233447",
+			"address": "0xbC396689893D065F41bc2C6EcbeE5e0085233447",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/PERP-icon.png",
@@ -1057,7 +1033,7 @@
 			"symbol": "PERP"
 		},
 		{
-			"address": "0x429881672b9ae42b8eba0e26cd9c73711b891ca5",
+			"address": "0x429881672B9AE42b8EbA0E26cD9C73711b891Ca5",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/PICKLE-icon.png",
@@ -1065,7 +1041,7 @@
 			"symbol": "PICKLE"
 		},
 		{
-			"address": "0xe3818504c1b32bf1557b16c238b2e01fd3149c17",
+			"address": "0xe3818504c1B32bF1557b16C238B2E01Fd3149C17",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/PLR-icon.png",
@@ -1073,7 +1049,7 @@
 			"symbol": "PLR"
 		},
 		{
-			"address": "0xd8912c10681d8b21fd3742244f44658dba12264e",
+			"address": "0xD8912C10681D8B21Fd3742244f44658dBA12264E",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/PLU-icon.png",
@@ -1081,7 +1057,7 @@
 			"symbol": "PLU"
 		},
 		{
-			"address": "0x93ed3fbe21207ec2e8f2d3c3de6e058cb73bc04d",
+			"address": "0x93ED3FBe21207Ec2E8f2d3c3de6e058Cb73Bc04d",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/PNK-icon.png",
@@ -1089,7 +1065,7 @@
 			"symbol": "PNK"
 		},
 		{
-			"address": "0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a",
+			"address": "0xd4fa1460F537bb9085d22C7bcCB5DD450Ef28e3a",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/PPT-icon.png",
@@ -1097,7 +1073,7 @@
 			"symbol": "PPT"
 		},
 		{
-			"address": "0x362bc847a3a9637d3af6624eec853618a43ed7d2",
+			"address": "0x362bc847A3a9637d3af6624EeC853618a43ed7D2",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/PRQ-icon.png",
@@ -1105,7 +1081,7 @@
 			"symbol": "PRQ"
 		},
 		{
-			"address": "0xd7b7d3c0bda57723fb54ab95fd8f9ea033af37f2",
+			"address": "0xD7B7d3C0bdA57723Fb54ab95Fd8F9EA033AF37f2",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/PYLON-icon.png",
@@ -1113,7 +1089,7 @@
 			"symbol": "PYLON"
 		},
 		{
-			"address": "0xfca59cd816ab1ead66534d82bc21e7515ce441cf",
+			"address": "0xFca59Cd816aB1eaD66534D82bc21E7515cE441CF",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/RARI-icon.png",
@@ -1121,7 +1097,7 @@
 			"symbol": "RARI"
 		},
 		{
-			"address": "0xf970b8e36e23f7fc3fd752eea86f8be8d83375a6",
+			"address": "0xF970b8E36e23F7fC3FD752EeA86f8Be8D83375A6",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/RCN-icon.png",
@@ -1129,7 +1105,7 @@
 			"symbol": "RCN"
 		},
 		{
-			"address": "0x255aa6df07540cb5d3d297f0d0d4d84cb52bc8e6",
+			"address": "0x255Aa6DF07540Cb5d3d297f0D0D4D84cb52bc8e6",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/RDN-icon.png",
@@ -1137,7 +1113,7 @@
 			"symbol": "RDN"
 		},
 		{
-			"address": "0x408e41876cccdc0f92210600ef50372656052a38",
+			"address": "0x408e41876cCCDC0F92210600ef50372656052a38",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/REN-icon.png",
@@ -1145,7 +1121,7 @@
 			"symbol": "REN"
 		},
 		{
-			"address": "0x459086f2376525bdceba5bdda135e4e9d3fef5bf",
+			"address": "0x459086F2376525BdCebA5bDDA135e4E9d3FeF5bf",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/RENBCH-icon.png",
@@ -1153,7 +1129,7 @@
 			"symbol": "RENBCH"
 		},
 		{
-			"address": "0x1c5db575e2ff833e46a2e9864c22f4b22e0b37c2",
+			"address": "0x1C5db575E2Ff833E46a2E9864C22F4B22E0B37C2",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/RENZEC-icon.png",
@@ -1161,7 +1137,7 @@
 			"symbol": "RENZEC"
 		},
 		{
-			"address": "0x221657776846890989a759ba2973e427dff5c9bb",
+			"address": "0x221657776846890989a759BA2973e427DfF5C9bB",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/REP-icon.png",
@@ -1169,7 +1145,7 @@
 			"symbol": "REP"
 		},
 		{
-			"address": "0x8f8221afbb33998d8584a2b05749ba73c37a938a",
+			"address": "0x8f8221aFbB33998d8584A2B05749bA73c37a938a",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/REQ-icon.png",
@@ -1177,7 +1153,7 @@
 			"symbol": "REQ"
 		},
 		{
-			"address": "0xaf9f549774ecedbd0966c52f250acc548d3f36e5",
+			"address": "0xaf9f549774ecEDbD0966C52f250aCc548D3F36E5",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/RFuel-icon.png",
@@ -1185,7 +1161,7 @@
 			"symbol": "RFuel"
 		},
 		{
-			"address": "0xd291e7a03283640fdc51b121ac401383a46cc623",
+			"address": "0xD291E7a03283640FDc51b121aC401383A46cC623",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/RGT-icon.png",
@@ -1193,7 +1169,7 @@
 			"symbol": "RGT"
 		},
 		{
-			"address": "0x607f4c5bb672230e8672085532f7e901544a7375",
+			"address": "0x607F4C5BB672230e8672085532f7e901544a7375",
 			"chainId": 1,
 			"decimals": 9,
 			"logoURI": "https://zapper.fi/images/RLC-icon.png",
@@ -1201,7 +1177,7 @@
 			"symbol": "RLC"
 		},
 		{
-			"address": "0xf1f955016ecbcd7321c7266bccfb96c68ea5e49b",
+			"address": "0xf1f955016EcbCd7321c7266BccFB96c68ea5E49b",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/RLY-icon.png",
@@ -1209,7 +1185,7 @@
 			"symbol": "RLY"
 		},
 		{
-			"address": "0xe17f017475a709de58e976081eb916081ff4c9d5",
+			"address": "0xE17f017475a709De58E976081eB916081ff4c9d5",
 			"chainId": 1,
 			"decimals": 9,
 			"logoURI": "https://zapper.fi/images/RMPL-icon.png",
@@ -1217,7 +1193,7 @@
 			"symbol": "RMPL"
 		},
 		{
-			"address": "0x9d47894f8becb68b9cf3428d256311affe8b068b",
+			"address": "0x9D47894f8BECB68B9cF3428d256311Affe8B068B",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ROPE-icon.png",
@@ -1225,7 +1201,7 @@
 			"symbol": "ROPE"
 		},
 		{
-			"address": "0xd04785c4d8195e4a54d9dec3a9043872875ae9e2",
+			"address": "0xD04785C4d8195e4A54d9dEc3a9043872875ae9E2",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ROT-icon.png",
@@ -1233,7 +1209,7 @@
 			"symbol": "ROT"
 		},
 		{
-			"address": "0xb4efd85c19999d84251304bda99e90b92300bd93",
+			"address": "0xB4EFd85c19999D84251304bDA99E90B92300Bd93",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/RPL-icon.png",
@@ -1241,7 +1217,7 @@
 			"symbol": "RPL"
 		},
 		{
-			"address": "0x8762db106b2c2a0bccb3a80d1ed41273552616e8",
+			"address": "0x8762db106B2c2A0bccB3A80d1Ed41273552616E8",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/RSR-icon.png",
@@ -1249,7 +1225,7 @@
 			"symbol": "RSR"
 		},
 		{
-			"address": "0x1aa61c196e76805fcbe394ea00e4ffced24fc469",
+			"address": "0x1Aa61c196E76805fcBe394eA00e4fFCEd24FC469",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SAFE-icon.png",
@@ -1257,7 +1233,7 @@
 			"symbol": "SAFE"
 		},
 		{
-			"address": "0x250a3500f48666561386832f1f1f1019b89a2699",
+			"address": "0x250a3500f48666561386832f1F1f1019b89a2699",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SAFE2-icon.png",
@@ -1265,7 +1241,7 @@
 			"symbol": "SAFE2"
 		},
 		{
-			"address": "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359",
+			"address": "0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SAI-icon.png",
@@ -1273,7 +1249,7 @@
 			"symbol": "SAI"
 		},
 		{
-			"address": "0x066798d9ef0833ccc719076dab77199ecbd178b0",
+			"address": "0x066798d9ef0833ccc719076Dab77199eCbd178b0",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SAKE-icon.png",
@@ -1281,7 +1257,7 @@
 			"symbol": "SAKE"
 		},
 		{
-			"address": "0xc28e27870558cf22add83540d2126da2e4b464c2",
+			"address": "0xC28E27870558cF22ADD83540d2126da2e4b464c2",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SASHIMI-icon.png",
@@ -1289,7 +1265,7 @@
 			"symbol": "SASHIMI"
 		},
 		{
-			"address": "0xe25b0bba01dc5630312b6a21927e578061a13f55",
+			"address": "0xe25b0BBA01Dc5630312B6A21927E578061A13f55",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SHIP-icon.png",
@@ -1297,7 +1273,7 @@
 			"symbol": "SHIP"
 		},
 		{
-			"address": "0xed0439eacf4c4965ae4613d77a5c2efe10e5f183",
+			"address": "0xEd0439EACf4c4965AE4613D77a5C2Efe10e5f183",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SHROOM-icon.png",
@@ -1305,7 +1281,7 @@
 			"symbol": "SHROOM"
 		},
 		{
-			"address": "0x37236cd05b34cc79d3715af2383e96dd7443dcf1",
+			"address": "0x37236CD05b34Cc79d3715AF2383E96dd7443dCF1",
 			"chainId": 1,
 			"decimals": 0,
 			"logoURI": "https://zapper.fi/images/SLP-icon.png",
@@ -1313,7 +1289,7 @@
 			"symbol": "SLP"
 		},
 		{
-			"address": "0xfe9a29ab92522d14fc65880d817214261d8479ae",
+			"address": "0xfe9A29aB92522D14Fc65880d817214261D8479AE",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SNOW-icon.png",
@@ -1321,7 +1297,7 @@
 			"symbol": "SNOW"
 		},
 		{
-			"address": "0x744d70fdbe2ba4cf95131626614a1763df805b9e",
+			"address": "0x744d70FDBE2Ba4CF95131626614a1763DF805B9E",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SNT-icon.png",
@@ -1329,7 +1305,7 @@
 			"symbol": "SNT"
 		},
 		{
-			"address": "0x7865af71cf0b288b4e7f654f4f7851eb46a2b7f8",
+			"address": "0x7865af71cf0b288b4E7F654f4F7851EB46a2B7F8",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SNTVT-icon.png",
@@ -1337,7 +1313,7 @@
 			"symbol": "SNTVT"
 		},
 		{
-			"address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+			"address": "0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SNX-icon.png",
@@ -1345,7 +1321,7 @@
 			"symbol": "SNX"
 		},
 		{
-			"address": "0x476c5e26a75bd202a9683ffd34359c0cc15be0ff",
+			"address": "0x476c5E26a75bd202a9683ffD34359C0CC15be0fF",
 			"chainId": 1,
 			"decimals": 6,
 			"logoURI": "https://zapper.fi/images/SRM-icon.png",
@@ -1353,7 +1329,7 @@
 			"symbol": "SRM"
 		},
 		{
-			"address": "0xa7de087329bfcda5639247f96140f9dabe3deed1",
+			"address": "0xa7DE087329BFcda5639247F96140f9DAbe3DeED1",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/STA-icon.png",
@@ -1361,7 +1337,7 @@
 			"symbol": "STA"
 		},
 		{
-			"address": "0x0ae055097c6d159879521c384f1d2123d1f195e6",
+			"address": "0x0Ae055097C6d159879521C384F1D2123D1f195e6",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/STAKE-icon.png",
@@ -1369,7 +1345,7 @@
 			"symbol": "STAKE"
 		},
 		{
-			"address": "0xb64ef51c888972c908cfacf59b47c1afbc0ab8ac",
+			"address": "0xB64ef51C888972c908CFacf59B47C1AfBC0Ab8aC",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/STORJ-icon.png",
@@ -1377,7 +1353,7 @@
 			"symbol": "STORJ"
 		},
 		{
-			"address": "0x990f341946a3fdb507ae7e52d17851b87168017c",
+			"address": "0x990f341946A3fdB507aE7e52d17851B87168017c",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/STRONG-icon.png",
@@ -1385,7 +1361,7 @@
 			"symbol": "STRONG"
 		},
 		{
-			"address": "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
+			"address": "0x6B3595068778DD592e39A122f4f5a5cF09C90fE2",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SUSHI-icon.png",
@@ -1393,7 +1369,7 @@
 			"symbol": "SUSHI"
 		},
 		{
-			"address": "0xcc4304a31d09258b0029ea7fe63d032f52e44efe",
+			"address": "0xCC4304A31d09258b0029eA7FE63d032f52e44EFe",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SWAP-icon.png",
@@ -1401,7 +1377,7 @@
 			"symbol": "SWAP"
 		},
 		{
-			"address": "0xb8baa0e4287890a5f79863ab62b7f175cecbd433",
+			"address": "0xB8BAa0e4287890a5F79863aB62b7F175ceCbD433",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SWRV-icon.png",
@@ -1409,7 +1385,7 @@
 			"symbol": "SWRV"
 		},
 		{
-			"address": "0x8ce9137d39326ad0cd6491fb5cc0cba0e089b6a9",
+			"address": "0x8CE9137d39326AD0cD6491fb5CC0CbA0e089b6A9",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/SXP-icon.png",
@@ -1417,7 +1393,7 @@
 			"symbol": "SXP"
 		},
 		{
-			"address": "0x33c2da7fd5b125e629b3950f3c38d7f721d7b30d",
+			"address": "0x33c2DA7Fd5B125E629B3950f3c38d7f721D7B30D",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/Seal-icon.png",
@@ -1425,15 +1401,7 @@
 			"symbol": "Seal"
 		},
 		{
-			"address": "0x33c2da7fd5b125e629b3950f3c38d7f721d7b30d",
-			"chainId": 1,
-			"decimals": 18,
-			"logoURI": "https://zapper.fi/images/Seal-icon.png",
-			"name": "Seal Finance",
-			"symbol": "Seal"
-		},
-		{
-			"address": "0x3a92bd396aef82af98ebc0aa9030d25a23b11c6b",
+			"address": "0x3A92bD396aEf82af98EbC0Aa9030D25a23B11C6b",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/TBX-icon.png",
@@ -1441,7 +1409,7 @@
 			"symbol": "TBX"
 		},
 		{
-			"address": "0xaaaf91d9b90df800df4f55c205fd6989c977e73a",
+			"address": "0xaAAf91D9b90dF800Df4F55c205fd6989c977E73a",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/TKN-icon.png",
@@ -1449,7 +1417,7 @@
 			"symbol": "TKN"
 		},
 		{
-			"address": "0x6f87d756daf0503d08eb8993686c7fc01dc44fb1",
+			"address": "0x6F87D756DAf0503d08Eb8993686c7Fc01Dc44fB1",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/TRADE-icon.png",
@@ -1457,7 +1425,7 @@
 			"symbol": "TRADE"
 		},
 		{
-			"address": "0x0ba45a8b5d5575935b8158a88c631e9f9c95a2e5",
+			"address": "0x0Ba45A8b5d5575935B8158a88C631E9F9C95a2e5",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/TRB-icon.png",
@@ -1465,7 +1433,7 @@
 			"symbol": "TRB"
 		},
 		{
-			"address": "0x2c537e5624e4af88a7ae4060c022609376c8d0eb",
+			"address": "0x2C537E5624e4af88A7ae4060C022609376C8D0EB",
 			"chainId": 1,
 			"decimals": 6,
 			"logoURI": "https://zapper.fi/images/TRYb-icon.png",
@@ -1473,7 +1441,7 @@
 			"symbol": "TRYb"
 		},
 		{
-			"address": "0x0000000000085d4780b73119b644ae5ecd22b376",
+			"address": "0x0000000000085d4780B73119b644AE5ecd22b376",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/TUSD-icon.png",
@@ -1481,7 +1449,7 @@
 			"symbol": "TUSD"
 		},
 		{
-			"address": "0x8400d94a5cb0fa0d041a3788e395285d61c9ee5e",
+			"address": "0x8400D94A5cb0fa0D041a3788e395285d61c9ee5e",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/UBT-icon.png",
@@ -1489,7 +1457,7 @@
 			"symbol": "UBT"
 		},
 		{
-			"address": "0x12f649a9e821f90bb143089a6e56846945892ffb",
+			"address": "0x12f649A9E821F90BB143089a6e56846945892ffB",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/UDOO-icon.png",
@@ -1497,7 +1465,7 @@
 			"symbol": "UDOO"
 		},
 		{
-			"address": "0x04fa0d235c4abf4bcf4787af4cf447de572ef828",
+			"address": "0x04Fa0d235C4abf4BcF4787aF4CF447DE572eF828",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/UMA-icon.png",
@@ -1505,7 +1473,7 @@
 			"symbol": "UMA"
 		},
 		{
-			"address": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+			"address": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/UNI-icon.png",
@@ -1513,7 +1481,7 @@
 			"symbol": "UNI"
 		},
 		{
-			"address": "0x9a48bd0ec040ea4f1d3147c025cd4076a2e71e3e",
+			"address": "0x9A48BD0EC040ea4f1D3147C025cd4076A2e71e3e",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/USD++-icon.png",
@@ -1521,7 +1489,7 @@
 			"symbol": "USD++"
 		},
 		{
-			"address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+			"address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
 			"chainId": 1,
 			"decimals": 6,
 			"logoURI": "https://zapper.fi/images/USDC-icon.png",
@@ -1529,7 +1497,7 @@
 			"symbol": "USDC"
 		},
 		{
-			"address": "0x1c48f86ae57291f7686349f12601910bd8d470bb",
+			"address": "0x1c48f86ae57291F7686349F12601910BD8D470bb",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/USDK-icon.png",
@@ -1537,7 +1505,7 @@
 			"symbol": "USDK"
 		},
 		{
-			"address": "0x674c6ad92fd080e4004b2312b45f796a192d27a0",
+			"address": "0x674C6Ad92Fd080e4004b2312b45f796a192D27a0",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/USDN-icon.png",
@@ -1545,7 +1513,7 @@
 			"symbol": "USDN"
 		},
 		{
-			"address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+			"address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
 			"chainId": 1,
 			"decimals": 6,
 			"logoURI": "https://zapper.fi/images/USDT-icon.png",
@@ -1553,7 +1521,7 @@
 			"symbol": "USDT"
 		},
 		{
-			"address": "0x49e833337ece7afe375e44f4e3e8481029218e5c",
+			"address": "0x49E833337ECe7aFE375e44F4E3e8481029218E5c",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/VALUE-icon.png",
@@ -1561,7 +1529,7 @@
 			"symbol": "VALUE"
 		},
 		{
-			"address": "0xb72b31907c1c95f3650b64b2469e08edacee5e8f",
+			"address": "0xB72B31907C1C95F3650b64b2469e08EdACeE5e8F",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/VBZRX-icon.png",
@@ -1569,7 +1537,7 @@
 			"symbol": "VBZRX"
 		},
 		{
-			"address": "0x12d102f06da35cc0111eb58017fd2cd28537d0e1",
+			"address": "0x12D102F06da35cC0111EB58017fd2Cd28537d0e1",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/VOX-icon.png",
@@ -1577,7 +1545,7 @@
 			"symbol": "VOX"
 		},
 		{
-			"address": "0x3a1c1d1c06be03cddc4d3332f7c20e1b37c97ce9",
+			"address": "0x3A1c1d1c06bE03cDDC4d3332F7C20e1B37c97CE9",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/VYBE-icon.png",
@@ -1585,7 +1553,7 @@
 			"symbol": "VYBE"
 		},
 		{
-			"address": "0xb2279b6769cfba691416f00609b16244c0cf4b20",
+			"address": "0xB2279B6769CFBa691416F00609b16244c0cF4b20",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/WAIF-icon.png",
@@ -1593,7 +1561,7 @@
 			"symbol": "WAIF"
 		},
 		{
-			"address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+			"address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/WBTC-icon.png",
@@ -1601,7 +1569,7 @@
 			"symbol": "WBTC"
 		},
 		{
-			"address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+			"address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/WETH-icon.png",
@@ -1609,7 +1577,7 @@
 			"symbol": "WETH"
 		},
 		{
-			"address": "0x4922a015c4407f87432b179bb209e125432e4a2a",
+			"address": "0x4922a015c4407F87432B179bb209e125432E4a2A",
 			"chainId": 1,
 			"decimals": 6,
 			"logoURI": "https://zapper.fi/images/XAUT-icon.png",
@@ -1617,7 +1585,7 @@
 			"symbol": "XAUT"
 		},
 		{
-			"address": "0x0f7f961648ae6db43c75663ac7e5414eb79b5704",
+			"address": "0x0f7F961648aE6Db43C75663aC7E5414Eb79b5704",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/XIO-icon.png",
@@ -1625,7 +1593,7 @@
 			"symbol": "XIO"
 		},
 		{
-			"address": "0x40fd72257597aa14c7231a7b1aaa29fce868f677",
+			"address": "0x40FD72257597aA14C7231A7B1aaa29Fce868F677",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/XOR-icon.png",
@@ -1633,7 +1601,7 @@
 			"symbol": "XOR"
 		},
 		{
-			"address": "0x0aacfbec6a24756c20d41914f2caba817c0d8521",
+			"address": "0x0AaCfbeC6a24756c20D41914F2caba817C0d8521",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/YAM-icon.png",
@@ -1641,7 +1609,7 @@
 			"symbol": "YAM"
 		},
 		{
-			"address": "0xaba8cac6866b83ae4eec97dd07ed254282f6ad8a",
+			"address": "0xAba8cAc6866B83Ae4eec97DD07ED254282f6aD8A",
 			"chainId": 1,
 			"decimals": 24,
 			"logoURI": "https://zapper.fi/images/YAMv2-icon.png",
@@ -1649,7 +1617,7 @@
 			"symbol": "YAMv2"
 		},
 		{
-			"address": "0xb1dc9124c395c1e97773ab855d66e879f053a289",
+			"address": "0xb1dC9124c395c1e97773ab855d66E879f053A289",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/YAX-icon.png",
@@ -1657,7 +1625,7 @@
 			"symbol": "YAX"
 		},
 		{
-			"address": "0xdf5e0e81dff6faf3a7e52ba697820c5e32d806a8",
+			"address": "0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/Y Curve-icon.png",
@@ -1665,7 +1633,7 @@
 			"symbol": "YCurve"
 		},
 		{
-			"address": "0x89ee58af4871b474c30001982c3d7439c933c838",
+			"address": "0x89eE58Af4871b474c30001982c3D7439C933c838",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/YFBETA-icon.png",
@@ -1673,7 +1641,7 @@
 			"symbol": "YFBETA"
 		},
 		{
-			"address": "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
+			"address": "0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/YFI-icon.png",
@@ -1681,7 +1649,7 @@
 			"symbol": "YFI"
 		},
 		{
-			"address": "0xa1d0e215a23d7030842fc67ce582a6afa3ccab83",
+			"address": "0xa1d0E215a23d7030842FC67cE582a6aFa3CCaB83",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/YFII-icon.png",
@@ -1689,7 +1657,7 @@
 			"symbol": "YFII"
 		},
 		{
-			"address": "0x28cb7e841ee97947a86b06fa4090c8451f64c0be",
+			"address": "0x28cb7e841ee97947a86B06fA4090C8451f64c0be",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/YFL-icon.png",
@@ -1697,7 +1665,7 @@
 			"symbol": "YFL"
 		},
 		{
-			"address": "0xfef3bef71a5eb97e097039038776fd967ae5b106",
+			"address": "0xfef3bEf71A5EB97E097039038776fD967ae5B106",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/YFMS-icon.png",
@@ -1705,7 +1673,7 @@
 			"symbol": "YFMS"
 		},
 		{
-			"address": "0x45f24baeef268bb6d63aee5129015d69702bcdfa",
+			"address": "0x45f24BaEef268BB6d63AEe5129015d69702BCDfa",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/YFV-icon.png",
@@ -1713,7 +1681,7 @@
 			"symbol": "YFV"
 		},
 		{
-			"address": "0x6768063279e2b185dc0c972b97f11f231d0b45ad",
+			"address": "0x6768063279E2B185Dc0c972b97f11f231d0B45ad",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/YIELD-icon.png",
@@ -1721,7 +1689,7 @@
 			"symbol": "YIELD"
 		},
 		{
-			"address": "0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27",
+			"address": "0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ZIL-icon.png",
@@ -1729,7 +1697,7 @@
 			"symbol": "ZIL"
 		},
 		{
-			"address": "0xe41d2489571d322189246dafa5ebde1f4699f498",
+			"address": "0xE41d2489571d322189246DaFA5ebDe1F4699F498",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ZRX-icon.png",
@@ -1737,7 +1705,7 @@
 			"symbol": "ZRX"
 		},
 		{
-			"address": "0xc75f15ada581219c95485c578e124df3985e4ce0",
+			"address": "0xc75F15AdA581219c95485c578E124df3985e4CE0",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ZZZ-icon.png",
@@ -1745,7 +1713,7 @@
 			"symbol": "ZZZ"
 		},
 		{
-			"address": "0xfc1e690f61efd961294b3e1ce3313fbd8aa4f85d",
+			"address": "0xfC1E690f61EFd961294b3e1Ce3313fBD8aa4f85d",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/aDAI-icon.png",
@@ -1753,7 +1721,7 @@
 			"symbol": "aDAI"
 		},
 		{
-			"address": "0xa64bd6c70cb9051f6a9ba1f163fdc07e0dfb5f84",
+			"address": "0xA64BD6C70Cb9051F6A9ba1F163Fdc07E0DfB5F84",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/aLINK-icon.png",
@@ -1761,7 +1729,7 @@
 			"symbol": "aLINK"
 		},
 		{
-			"address": "0x5d3a536e4d6dbd6114cc1ead35777bab948e3643",
+			"address": "0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/cDAI-icon.png",
@@ -1769,7 +1737,7 @@
 			"symbol": "cDAI"
 		},
 		{
-			"address": "0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5",
+			"address": "0x4Ddc2D193948926D02f9B1fE9e1daa0718270ED5",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/cETH-icon.png",
@@ -1777,7 +1745,7 @@
 			"symbol": "cETH"
 		},
 		{
-			"address": "0x39aa39c021dfbae8fac545936693ac917d5e7563",
+			"address": "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/cUSDC-icon.png",
@@ -1785,7 +1753,7 @@
 			"symbol": "cUSDC"
 		},
 		{
-			"address": "0xf650c3d88d12db855b8bf7d11be6c55a4e07dcc9",
+			"address": "0xf650C3d88D12dB855b8bf7D11Be6C55A4e07dCC9",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/cUSDT-icon.png",
@@ -1793,7 +1761,7 @@
 			"symbol": "cUSDT"
 		},
 		{
-			"address": "0xa9859874e1743a32409f75bb11549892138bba1e",
+			"address": "0xA9859874e1743A32409f75bB11549892138BBA1E",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/iETH-icon.png",
@@ -1801,7 +1769,7 @@
 			"symbol": "iETH"
 		},
 		{
-			"address": "0xe2f2a5c287993345a840db3b0845fbc70f5935a5",
+			"address": "0xe2f2a5C287993345a840Db3B0845fbC70f5935a5",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/mUSD-icon.png",
@@ -1809,7 +1777,7 @@
 			"symbol": "mUSD"
 		},
 		{
-			"address": "0x26cf82e4ae43d31ea51e72b663d26e26a75af729",
+			"address": "0x26cF82e4aE43D31eA51e72B663d26e26a75AF729",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/mbBASED-icon.png",
@@ -1817,7 +1785,7 @@
 			"symbol": "mbBASED"
 		},
 		{
-			"address": "0x261b45d85ccfeabb11f022eba346ee8d1cd488c0",
+			"address": "0x261b45D85cCFeAbb11F022eBa346ee8D1cd488c0",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/rDAI-icon.png",
@@ -1825,7 +1793,7 @@
 			"symbol": "rDAI"
 		},
 		{
-			"address": "0xeb4c2781e4eba804ce9a9803c67d0893436bb27d",
+			"address": "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
 			"chainId": 1,
 			"decimals": 8,
 			"logoURI": "https://zapper.fi/images/renBTC-icon.png",
@@ -1833,7 +1801,7 @@
 			"symbol": "renBTC"
 		},
 		{
-			"address": "0x49849c98ae39fff122806c06791fa73784fb3675",
+			"address": "0x49849C98ae39Fff122806C06791Fa73784FB3675",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/renBTC Curve-icon.png",
@@ -1841,7 +1809,7 @@
 			"symbol": "renBTCCurve"
 		},
 		{
-			"address": "0x17628a557d1fc88d1c35989dcbac3f3e275e2d2b",
+			"address": "0x17628A557d1Fc88D1c35989dcBAC3f3e275E2d2B",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/sBTC-icon.png",
@@ -1849,7 +1817,7 @@
 			"symbol": "sBTC"
 		},
 		{
-			"address": "0x075b1bb99792c9e1041ba13afef80c91a1e70fb3",
+			"address": "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/sBTC Curve-icon.png",
@@ -1857,7 +1825,7 @@
 			"symbol": "sBTCCurve"
 		},
 		{
-			"address": "0x5e74c9036fb86bd7ecdcb084a0673efc32ea31cb",
+			"address": "0x5e74C9036fb86BD7eCdcb084a0673EFc32eA31cb",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/sETH-icon.png",
@@ -1865,7 +1833,7 @@
 			"symbol": "sETH"
 		},
 		{
-			"address": "0x57ab1ec28d129707052df4df418d58a2d46d5f51",
+			"address": "0x57Ab1ec28D129707052df4dF418D58a2D46d5f51",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/sUSD-icon.png",
@@ -1873,7 +1841,7 @@
 			"symbol": "sUSD"
 		},
 		{
-			"address": "0xc25a3a3b969415c80451098fa907ec722572917f",
+			"address": "0xC25a3A3b969415c80451098fa907EC722572917F",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/sUSD Curve-icon.png",
@@ -1881,7 +1849,7 @@
 			"symbol": "sUSDCurve"
 		},
 		{
-			"address": "0x261efcdd24cea98652b9700800a13dfbca4103ff",
+			"address": "0x261EfCdD24CeA98652B9700800a13DfBca4103fF",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/sXAU-icon.png",
@@ -1889,7 +1857,7 @@
 			"symbol": "sXAU"
 		},
 		{
-			"address": "0x4da27a545c0c5b758a6ba100e3a049001de870f5",
+			"address": "0x4da27a545c0c5B758a6BA100e3a049001de870f5",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/stkAAVE-icon.png",
@@ -1897,7 +1865,7 @@
 			"symbol": "stkAAVE"
 		},
 		{
-			"address": "0x8daebade922df735c38c80c7ebd708af50815faa",
+			"address": "0x8dAEBADE922dF735c38C80C7eBD708Af50815fAa",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/tBTC-icon.png",
@@ -1905,7 +1873,7 @@
 			"symbol": "tBTC"
 		},
 		{
-			"address": "0x0d438f3b5175bebc262bf23753c1e53d03432bde",
+			"address": "0x0d438F3b5175Bebc262bF23753C1E53d03432bDE",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/wNXM-icon.png",
@@ -1913,7 +1881,7 @@
 			"symbol": "wNXM"
 		},
 		{
-			"address": "0xacd43e627e64355f1861cec6d3a6688b31a6f952",
+			"address": "0xACd43E627e64355f1861cEC6d3a6688B31a6F952",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/yDAI-icon.png",
@@ -1921,7 +1889,7 @@
 			"symbol": "yDAI"
 		},
 		{
-			"address": "0xe1237aa7f535b0cc33fd973d66cbf830354d16c7",
+			"address": "0xe1237aA7f535b0CC33Fd973D66cBf830354D16c7",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/yETH-icon.png",
@@ -1929,7 +1897,7 @@
 			"symbol": "yETH"
 		},
 		{
-			"address": "0x37d19d1c4e1fa9dc47bd1ea12f742a0887eda74a",
+			"address": "0x37d19d1c4E1fa9DC47bD1eA12f742a0887eDa74a",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/yTUSD-icon.png",
@@ -1937,7 +1905,7 @@
 			"symbol": "yTUSD"
 		},
 		{
-			"address": "0x5dbcf33d8c2e976c6b560249878e6f1491bca25c",
+			"address": "0x5dbcF33D8c2E976c6b560249878e6F1491Bca25c",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/yUSD-icon.png",
@@ -1945,7 +1913,7 @@
 			"symbol": "yUSD"
 		},
 		{
-			"address": "0xb2fdd60ad80ca7ba89b9bab3b5336c2601c020b4",
+			"address": "0xB2FdD60AD80ca7bA89B9BAb3b5336c2601C020b4",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/yUSD-OCT20-icon.png",
@@ -1953,7 +1921,7 @@
 			"symbol": "yUSD-OCT20"
 		},
 		{
-			"address": "0x81ab848898b5ffd3354dbbefb333d5d183eedcb5",
+			"address": "0x81ab848898b5ffD3354dbbEfb333D5D183eEDcB5",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/yUSD-SEP20-icon.png",
@@ -1961,7 +1929,7 @@
 			"symbol": "yUSD-SEP20"
 		},
 		{
-			"address": "0x597ad1e0c13bfe8025993d9e79c69e1c0233522e",
+			"address": "0x597aD1e0c13Bfe8025993D9e79C69E1c0233522e",
 			"chainId": 1,
 			"decimals": 6,
 			"logoURI": "https://zapper.fi/images/yUSDC-icon.png",
@@ -1969,7 +1937,7 @@
 			"symbol": "yUSDC"
 		},
 		{
-			"address": "0x2f08119c6f07c006695e079aafc638b8789faf18",
+			"address": "0x2f08119C6f07c006695E079AAFc638b8789FAf18",
 			"chainId": 1,
 			"decimals": 6,
 			"logoURI": "https://zapper.fi/images/yUSDT-icon.png",
@@ -1977,7 +1945,7 @@
 			"symbol": "yUSDT"
 		},
 		{
-			"address": "0x2994529c0652d127b7842094103715ec5299bbed",
+			"address": "0x2994529C0652D127b7842094103715ec5299bBed",
 			"chainId": 1,
 			"decimals": 18,
 			"logoURI": "https://zapper.fi/images/ybCRV-icon.png",
@@ -1993,7 +1961,7 @@
 			"primaryColor": "#ff7423",
 			"icon": "assets/icons/zxb.svg",
 			"addresses": {
-				"1": "0xb6ed7644c69416d67b522e20bc294a9a9b405b31"
+				"1": "0xB6eD7644C69416d67B522e20bC294A9a9B405B31"
 			},
 			"displayDecimals": 2,
 			"id": "0xbtc",
@@ -2009,7 +1977,7 @@
 			"primaryColor": "#3333ff",
 			"icon": "assets/icons/weth.svg",
 			"addresses": {
-				"1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+				"1": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
 				"3": "0xc778417e063141139fce010982780140aa0cd5ab",
 				"4": "0xc778417e063141139fce010982780140aa0cd5ab",
 				"42": "0xd0a1e359811322d97991e03f863a0c30c2cf029c",
@@ -2031,7 +1999,7 @@
 			"primaryColor": "#282138",
 			"icon": "assets/icons/wbtc.svg",
 			"addresses": {
-				"1": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+				"1": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
 			},
 			"displayDecimals": 8,
 			"unified_cryptoasset_id": 3717,
@@ -2070,7 +2038,7 @@
 			"unified_cryptoasset_id": 2308,
 			"primaryColor": "#DEA349",
 			"addresses": {
-				"1": "0x6b175474e89094c44da98b954eedeac495271d0f",
+				"1": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
 				"3": "0xfc8862446cd3e4a2e7167e7d97df738407fead07",
 				"4": "0x6f2d6ff85efca691aad23d549771160a12f0a0fc",
 				"42": "0xc4375b7de8af5a38a93548eb8453a498222c4ff2",
@@ -2108,7 +2076,7 @@
 			"unified_cryptoasset_id": 1697,
 			"primaryColor": "#9e1f63",
 			"addresses": {
-				"1": "0x0d8775f648430679a709e98d2b0cb6250d2887ef"
+				"1": "0x0D8775F648430679A709E98d2b0Cb6250d2887EF"
 			},
 			"id": "basic-attention-token",
 			"website": "https://basicattentiontoken.org/",
@@ -2162,7 +2130,7 @@
 			"icon": "assets/icons/usdt.svg",
 			"unified_cryptoasset_id": 825,
 			"addresses": {
-				"1": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+				"1": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
 			},
 			"displayDecimals": 3,
 			"website": "https://tether.to/",
@@ -2179,7 +2147,7 @@
 			"icon": "assets/icons/busd.svg",
 			"unified_cryptoasset_id": 5000,
 			"addresses": {
-				"1": "0x4fabb145d64652a948d72533023f6e7a623c7c53"
+				"1": "0x4Fabb145d64652a948d72533023f6E7A623C7C53"
 			},
 			"displayDecimals": 3,
 			"website": "http://www.paxos.com/busd",
@@ -2213,7 +2181,7 @@
 			"icon": "assets/icons/susd.svg",
 			"unified_cryptoasset_id": 5005,
 			"addresses": {
-				"1": "0x57ab1ec28d129707052df4df418d58a2d46d5f51"
+				"1": "0x57Ab1ec28D129707052df4dF418D58a2D46d5f51"
 			},
 			"displayDecimals": 3,
 			"website": "https://www.synthetix.io/",
@@ -2230,7 +2198,7 @@
 			"icon": "assets/icons/mana.svg",
 			"unified_cryptoasset_id": 5005,
 			"addresses": {
-				"1": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942"
+				"1": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942"
 			},
 			"displayDecimals": 3,
 			"website": "https://decentraland.org/",
@@ -2247,7 +2215,7 @@
 			"icon": "assets/icons/snx.svg",
 			"unified_cryptoasset_id": 5005,
 			"addresses": {
-				"1": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f"
+				"1": "0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F"
 			},
 			"displayDecimals": 3,
 			"website": "https://www.synthetix.io/",
@@ -2281,7 +2249,7 @@
 			"unified_cryptoasset_id": 1982,
 			"icon": "assets/icons/knc.svg",
 			"addresses": {
-				"1": "0xdd974d5c2e2928dea5f71b9825b8b646686bd200"
+				"1": "0xdd974D5C2e2928deA5F71b9825b8b646686BD200"
 			},
 			"displayDecimals": 2,
 			"website": "https://kyber.network/",
@@ -2315,7 +2283,7 @@
 			"unified_cryptoasset_id": 3306,
 			"icon": "assets/icons/gusd.svg",
 			"addresses": {
-				"1": "0x056fd409e1d7a124bd7017459dfea2f387b6d5cd"
+				"1": "0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd"
 			},
 			"displayDecimals": 2,
 			"c_id": "gemini-dollar",

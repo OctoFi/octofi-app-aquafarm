@@ -70,7 +70,7 @@ function Platforms(props) {
 								<Card
 									header={true}
 									title={asset.metadata.type}
-									isTable={true}
+									table={true}
 									marginTop={20}
 									style={{ marginBottom: 10 }}
 								>

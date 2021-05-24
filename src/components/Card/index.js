@@ -32,7 +32,7 @@ export const CustomHeader = styled(Header)`
 	padding: 20px;
 
 	@media (min-width: 768px) {
-		padding: ${({ isTable }) => (isTable ? "30px 60px" : "30px")};
+		padding: ${({ table }) => (table ? "30px 60px" : "30px")};
 	}
 `;
 
@@ -41,7 +41,7 @@ export const CustomBody = styled(Body)`
 	background-color: transparent;
 
 	@media (min-width: 768px) {
-		padding: ${({ isTable }) => (isTable ? "18px 48px" : "30px")};
+		padding: ${({ table }) => (table ? "18px 48px" : "30px")};
 	}
 `;
 
@@ -56,12 +56,12 @@ const Comp = (props) => {
 	return (
 		<CustomCard {...props}>
 			{props.header && (
-				<CustomHeader isTable={props.isTable}>
+				<CustomHeader table={props.table}>
 					{props.title && <CustomTitle>{props.title}</CustomTitle>}
 					{props.header}
 				</CustomHeader>
 			)}
-			<CustomBody isTable={props.isTable}>{props.children || props.body}</CustomBody>
+			<CustomBody table={props.table}>{props.children || props.body}</CustomBody>
 		</CustomCard>
 	);
 };
@@ -69,12 +69,12 @@ export const ResponsiveCard = (props) => {
 	return (
 		<RCard {...props}>
 			{props.header && (
-				<CustomHeader isTable={props.isTable}>
+				<CustomHeader table={props.table}>
 					{props.title && <CustomTitle>{props.title}</CustomTitle>}
 					{props.header}
 				</CustomHeader>
 			)}
-			<CustomBody isTable={props.isTable}>{props.children || props.body}</CustomBody>
+			<CustomBody table={props.table}>{props.children || props.body}</CustomBody>
 		</RCard>
 	);
 };
