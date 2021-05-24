@@ -1,12 +1,9 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import styled from "styled-components";
 import { Button as BootstrapButton, Row, Col } from "react-bootstrap";
 
 import { Link, withRouter } from "react-router-dom";
 import Img from "../UI/Img";
-import { rates } from "../../constants";
-import { useDispatch, useSelector } from "react-redux";
-import * as actions from "../../state/currency/actions";
 import { useTranslation } from "react-i18next";
 import { useAllTransactions } from "../../state/transactions/hooks";
 import { getEtherscanLink } from "../../utils";
@@ -27,10 +24,6 @@ const Item = styled.div`
 	align-items: center;
 `;
 
-const Button = styled.button`
-	margin-right: 0.75rem;
-`;
-
 const DropDown = styled.div`
 	position: absolute;
 	top: 100%;
@@ -49,38 +42,6 @@ const DropDown = styled.div`
 	transform-origin: top center;
 	transition: 0.4s ease all;
 	z-index: 99999;
-`;
-
-const DropDownItem = styled(Link)`
-	display: flex;
-	align-items: center;
-	position: relative;
-	outline: none;
-	text-decoration: none;
-	white-space: nowrap;
-	color: ${({ theme }) => theme.text1};
-
-	&:not(:last-child) {
-		margin-bottom: 20px;
-	}
-
-	&:hover,
-	&:focus,
-	&:active {
-		color: ${({ theme }) => theme.text2};
-		box-shadow: none;
-		outline: none;
-		text-decoration: none;
-	}
-`;
-
-const CurrencyLogo = styled(Img)`
-	width: 24px;
-	height: 24px;
-	margin-right: 20px;
-	border-radius: 24px;
-	border: 1px solid #a890fe;
-	min-width: 24px;
 `;
 
 const FlagButton = styled(BootstrapButton)`

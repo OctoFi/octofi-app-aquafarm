@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
 import Loading from "../Loading";
-import { emitter } from "../../lib/helper";
 
 const Wrapper = styled.div`
 	position: fixed;

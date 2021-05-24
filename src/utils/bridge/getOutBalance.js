@@ -87,11 +87,9 @@ function setLocalOutBalance (chainID, account, token, data) {
 	sessionStorage.setItem(OUT_TOKEN_BALANCE, JSON.stringify(lboj))
 }
 
-let blObj = {}
 export function getTokenBalance (chainId, token, address, type) {
 	return new Promise(resolve => {
 		let lobj = getLocalConfig (address, token, config.chainID, 'APPROVE_BALANCE', Date.now() - (1000 * 60))
-		// console.log(lobj)
 		if (lobj && lobj.info && lobj.info.data && Number(lobj.info.data)) {
 			resolve(lobj.info.data)
 		} else {
@@ -107,7 +105,6 @@ export function getTokenBalance (chainId, token, address, type) {
 					}
 				})
 			} else {
-				// console.log(getNodeRpc(chainId))
 				web3.setProvider(getNodeRpc(chainId))
 				web3.eth.getBalance(address, 'latest').then(res => {
 					setLocalConfig (address, token, {data: res}, config.chainID, 'APPROVE_BALANCE')
@@ -123,8 +120,6 @@ export function getTokenBalance (chainId, token, address, type) {
 			// }
 			// contract.options.address = token
 			// contract.methods.balanceOf(address).call((err, res) => {
-			//   // console.log(err)
-			//   // console.log(res)
 			//   if (err) {
 			//     resolve(0)
 			//   } else {
@@ -138,7 +133,6 @@ export function getTokenBalance (chainId, token, address, type) {
 
 function getOutTokenBalance (chainId, account, tokenList) {
 	return new Promise(resolve => {
-		// console.log(chainId)
 		const batch = new web3.BatchRequest()
 		let BridgeToken = TOKEN[chainId]
 		chainId = Number(chainId)

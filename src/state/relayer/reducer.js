@@ -2,7 +2,6 @@ import { createReducer } from "@reduxjs/toolkit";
 
 import { FEE_PERCENTAGE, FEE_RECIPIENT, MIN_ORDER_EXPIRATION_TIME_ON_ORDERBOOK, ServerState } from "../../constants";
 import * as actions from "./actions";
-import { setMarketMakerStats } from "../spot/actions";
 
 const initialRelayerState = {
 	orders: [],

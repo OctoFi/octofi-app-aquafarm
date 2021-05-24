@@ -4,7 +4,6 @@ import { getCurrencyPairByTokensSymbol } from "../../utils/spot/knownCurrencyPai
 import queryString from "query-string";
 import { createReducer } from "@reduxjs/toolkit";
 import * as actions from "./actions";
-import { setMarketMakerStats } from "./actions";
 
 const parsedUrl = new URL(window.location.href.replace("#/", ""));
 const base = parsedUrl.searchParams.get("base") || getAvailableMarkets()[0].base;

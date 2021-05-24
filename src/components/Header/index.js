@@ -7,7 +7,7 @@ import Logo from "../Logo";
 import "./styles.scss";
 import { useWalletModalToggle } from "../../state/application/hooks";
 import { useActiveWeb3React } from "../../hooks";
-import { getEtherscanLink, shortenAddress } from "../../utils";
+import { getEtherscanLink } from "../../utils";
 import { routes, accountRoutes } from "../../constants/headerRoutes";
 import HeaderDropdown from "../HeaderDropdown";
 import UserDropdown from "../HeaderDropdown/UserDropdown";
@@ -236,11 +236,12 @@ const Header = (props) => {
 						</div>
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="mr-auto header__nav">
-								{Object.keys(routes).map((key) => {
+								{Object.keys(routes).map((key, index) => {
 									const r = routes[key];
 									if (r.hasOwnProperty("path")) {
 										return (
 											<NavLink
+												key={index}
 												to={r.path}
 												className={"header__item"}
 												activeClassName={"header__item--active"}

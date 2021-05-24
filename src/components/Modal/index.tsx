@@ -38,9 +38,10 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, maxW
 		box-shadow: 0 4px 8px 0 ${({ theme }) => transparentize(0.95, theme.shadow1)};
 		padding: 0;
 		width: 50vw;
-		overflow-y: ${({ mobile }) => (mobile ? "scroll" : "hidden")};
 		overflow-x: hidden;
-
+		display: flex;
+		border-radius: 10px;
+		overflow-y: ${({ mobile }) => (mobile ? "scroll" : "hidden")};
 		align-self: ${({ mobile }) => (mobile ? "flex-end" : "center")};
 
 		${({ maxWidth }) =>
@@ -53,29 +54,27 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, maxW
 			css`
 				max-height: ${maxHeight}vh;
 			`}
-    ${({ minHeight }) =>
+		${({ minHeight }) =>
 			minHeight &&
 			css`
 				min-height: ${minHeight}vh;
 			`}
-    display: flex;
-		border-radius: 18px;
 		${({ theme }) => theme.mediaWidth.upToMedium`
-      width: 65vw;
-      margin: 0;
-    `}
+			width: 65vw;
+			margin: 0;
+		`}
 		${({ theme, mobile }) => theme.mediaWidth.upToSmall`
-      width:  85vw;
-      ${
-			mobile &&
-			css`
-				width: 100vw;
-				border-radius: 20px;
-				border-bottom-left-radius: 0;
-				border-bottom-right-radius: 0;
-			`
-		}
-    `}
+			width:  85vw;
+			${
+				mobile &&
+				css`
+					width: 100vw;
+					border-radius: 10px;
+					border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
+				`
+			}
+		`}
 	}
 `;
 

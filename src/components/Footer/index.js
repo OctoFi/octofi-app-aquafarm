@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Trans, useTranslation } from "react-i18next";
 import styled from "styled-components";
-
 import Logo from "../Logo";
 import "./styles.scss";
 import Socials from "../Socials";
@@ -198,7 +197,7 @@ const Footer = (props) => {
 						<CopyRight className="footer__copyright">
 							<Trans i18nKey={"app.copyright"} values={{ company: "OctoFi" }}>
 								Decentralized Finance Tentacles {" "}
-								<a href="#" className={"link"}>
+								<a href="#none" className={"link"}>
 								</a>
 							</Trans>
 						</CopyRight>
@@ -239,7 +238,7 @@ const Footer = (props) => {
 					<CopyRight className="footer__copyright">
 						<Trans i18nKey={"app.copyright"} values={{ company: "OctoFi" }}>
 							Decentralized Finance Tentacles {" "}
-							<a href="#" className={"link"}>
+							<a href="#none" className={"link"}>
 							</a>
 						</Trans>
 					</CopyRight>

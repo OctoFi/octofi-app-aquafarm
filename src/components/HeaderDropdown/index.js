@@ -1,5 +1,5 @@
 import styled, { ThemeContext } from "styled-components";
-import { useState, useCallback, useContext } from "react";
+import { useContext } from "react";
 import SVG from "react-inlinesvg";
 import { Link } from "react-router-dom";
 

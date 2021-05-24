@@ -2,13 +2,13 @@ import {chainInfo} from './nodeConfig'
 
 const NAME_PREFIX = '-FRC20'
 
-const ANY_TEST_TOKEN = '0xC20b5E92E1ce63Af6FE537491f75C19016ea5fb4'
+// const ANY_TEST_TOKEN = '0xC20b5E92E1ce63Af6FE537491f75C19016ea5fb4'
 
 const REWARDS_DAY = 3300
 const DEPOSIT_AMOUNT = 10000
 
 const CHAIN_MAIN_INFO = chainInfo['250']
-const CHAIN_TEST_INFO = chainInfo['97']
+// const CHAIN_TEST_INFO = chainInfo['97']
 
 const COIN_BASE ={
   symbol: 'FTM', // 符号
@@ -72,7 +72,7 @@ const COIN_BASE ={
   }
 }
 
-const INIT_TEST_TOKEN = ANY_TEST_TOKEN
+// const INIT_TEST_TOKEN = ANY_TEST_TOKEN
 
 const MAIN_CONFIG = {
   ...COIN_BASE,

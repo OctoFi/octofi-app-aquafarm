@@ -11,7 +11,6 @@ import ArrowDown from "../../components/Icons/ArrowDown";
 import BootstrapTable from "react-bootstrap-table-next";
 import "./styles.scss";
 import Loading from "../../components/Loading";
-import { fetchCoinMarketPrices } from "../../state/market/actions";
 import { useTranslation } from "react-i18next";
 
 const api = new TokenSetsApi();

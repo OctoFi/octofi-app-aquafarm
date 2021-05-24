@@ -1,21 +1,17 @@
-import React, { useContext, useCallback } from "react";
-import styled, { ThemeContext } from "styled-components";
-import useENS from "../../hooks/useENS";
-import { useActiveWeb3React } from "../../hooks";
-import { ExternalLink, TYPE } from "../../theme";
+import React, { useCallback } from "react";
+import styled from "styled-components";
 import { AutoColumn } from "../Column";
 import { RowBetween } from "../Row";
-import { getEtherscanLink } from "../../utils";
 
 const InputPanel = styled.div`
 	${({ theme }) => theme.flexColumnNoWrap}
 	position: relative;
 	z-index: 1;
 	width: 100%;
-	margin-bottom: ${({ withoutMargin }) => withoutMargin ? '.5rem' : '2.75rem'};
+	margin-bottom: ${({ withoutMargin }) => (withoutMargin ? ".5rem" : "2.75rem")};
 
 	@media (max-width: 767px) {
-		margin-bottom: ${({ withoutMargin }) => withoutMargin ? '.5rem' : '1.5rem'};
+		margin-bottom: ${({ withoutMargin }) => (withoutMargin ? ".5rem" : "1.5rem")};
 	}
 `;
 

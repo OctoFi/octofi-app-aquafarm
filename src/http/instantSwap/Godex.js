@@ -1,5 +1,4 @@
 import axios from "axios";
-import { encodeQuery } from "../../lib/helper";
 
 export default class GodexApi {
 	constructor() {
@@ -24,6 +23,9 @@ export default class GodexApi {
 			}
 			case "getTransactionStatus": {
 				return this.getTransactionStatus(payload);
+			}
+			default: {
+				break;
 			}
 		}
 	}

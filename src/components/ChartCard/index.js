@@ -10,9 +10,9 @@ import EthDater from "../../lib/ethDater";
 import Chart from "../Chart";
 import withWeb3Account from "../hoc/withWeb3Account";
 import TokenSelector from "../TokenSelector";
-import {ERC20_ABI} from "../../constants/abis/erc20";
+import { ERC20_ABI } from "../../constants/abis/erc20";
 import BigNumber from "bignumber.js";
-import {USDC} from "../../constants";
+import { USDC } from "../../constants";
 
 const LoadingCol = styled.div`
 	background-color: ${({ theme }) => theme.modalBG};
@@ -26,7 +26,7 @@ const CustomTitle = styled.span`
 	font-size: 1.25rem;
 	color: ${({ theme }) => theme.text1};
 	margin-bottom: 0.75rem;
-	
+
 	@media (min-width: 991px) {
 		margin-right: 1rem;
 		margin-bottom: 0;
@@ -53,7 +53,7 @@ const ToolbarButton = styled.button`
 	font-size: 0.875rem;
 	padding: 0 20px;
 	color: ${({ theme }) => theme.text1};
-	opacity: ${({ selected }) => selected ? 0.5 : 1 };
+	opacity: ${({ selected }) => (selected ? 0.5 : 1)};
 
 	&:first-child {
 		padding-left: 0;
@@ -142,7 +142,12 @@ class ChartCard extends Component {
 			let date = this.getStartDate(id);
 			let blockNumber = await this.dater.getDate(date, false);
 			let latestBlockNumber = await this.getBlockNumber();
-			let balances = await this.getBalanceInRange(this.props.account, blockNumber.block, latestBlockNumber, token);
+			let balances = await this.getBalanceInRange(
+				this.props.account,
+				blockNumber.block,
+				latestBlockNumber,
+				token
+			);
 			let transformedBalances = balances.map((balance) => {
 				return balance.balance?.toFixed(5);
 			});
@@ -212,25 +217,27 @@ class ChartCard extends Component {
 		try {
 			let promises = [];
 			let tokenContract;
-			if(token?.symbol && token?.symbol !== 'ETH') {
+			if (token?.symbol && token?.symbol !== "ETH") {
 				tokenContract = new web3.eth.Contract(ERC20_ABI, token?.address);
 			}
 			// Loop over the blocks, using the step value
 			for (let i = startBlock; i < endBlock; i = i + step) {
 				// If we already have data about that block, skip it
 				if (!this.state.series[0].data.find((x) => (x.hasOwnProperty("block") ? x.block === i : false))) {
-					let balancePromise
+					let balancePromise;
 
 					// Create a promise to query the ETH balance for that block
-					if(token?.symbol === 'ETH' || !token?.symbol) {
+					if (token?.symbol === "ETH" || !token?.symbol) {
 						balancePromise = this.promisify((cb) => this.web3Provider.eth.getBalance(address, i, cb));
 					} else {
 						tokenContract.defaultBlock = i;
-						balancePromise = this.promisify((cb) => tokenContract.methods.balanceOf(address).call({}, i, cb));
+						balancePromise = this.promisify((cb) =>
+							tokenContract.methods.balanceOf(address).call({}, i, cb)
+						);
 					}
 
 					// Create a promise to get the timestamp for that block
-					let timePromise = this.promisify(cb => this.web3Provider.eth.getBlock(i, cb));
+					let timePromise = this.promisify((cb) => this.web3Provider.eth.getBlock(i, cb));
 					// Push data to a linear array of promises to run in parallel.
 					promises.push(i, balancePromise, timePromise);
 				}
@@ -242,14 +249,16 @@ class ChartCard extends Component {
 			// Restructure the data into an array of objects
 			let balances = [];
 			for (let i = 0; i < results.length; i = i + 3) {
-				let balance = (token?.symbol === 'ETH' || !token?.symbol) ? this.web3Provider.utils.fromWei(results[i + 1], 'ether') : new BigNumber(results[i + 1]).dividedBy(10 ** token?.decimals).toFixed(2);
+				let balance =
+					token?.symbol === "ETH" || !token?.symbol
+						? this.web3Provider.utils.fromWei(results[i + 1], "ether")
+						: new BigNumber(results[i + 1]).dividedBy(10 ** token?.decimals).toFixed(2);
 				balances.push({
 					block: results[i],
 					balance: parseFloat(balance),
 					time: new Date(results[i + 2].timestamp * 1000),
 				});
 			}
-
 
 			return balances;
 		} catch (error) {
@@ -296,10 +305,10 @@ class ChartCard extends Component {
 	changeBaseToken = (token) => {
 		this.setState({
 			token,
-		})
+		});
 
 		this.changeOption(this.state.selected, token);
-	}
+	};
 
 	render() {
 		const theme = this.context;
@@ -316,19 +325,20 @@ class ChartCard extends Component {
 						<CustomTitle>Portfolio Performance</CustomTitle>
 						<TokenSelector
 							showMaxButton={false}
-							label={''}
+							label={""}
 							onCurrencySelect={this.changeBaseToken}
 							currency={this.state.token}
-							id={'currency-chart'}
+							id={"currency-chart"}
 						/>
 					</div>
 					<div className="card-toolbar d-none d-lg-flex">
-						{this.state.options.map((option) => {
+						{this.state.options.map((option, index) => {
 							return (
 								<ToolbarButton
 									onClick={this.changeOption.bind(this, option.id, this.state.token)}
 									className={`btn btn-sm btn-link btn-inline`}
 									selected={this.state.selected === option.id}
+									key={index}
 								>
 									{option.title}
 								</ToolbarButton>

@@ -3,9 +3,8 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import PlatformLogo from "../../components/PlatformLogo";
-import { sortedData, toAbsoluteUrl } from "../../lib/helper";
+import { sortedData } from "../../lib/helper";
 import CurrencyText from "../../components/CurrencyText";
-import SVG from "react-inlinesvg";
 import { fetchPools } from "../../state/pools/actions";
 import ExchangeIcon from "../../components/Icons/Exchange";
 import { PoolsTable } from "./PoolsTable";
@@ -106,7 +105,7 @@ const PoolTab = (props) => {
 		} else {
 			return pools;
 		}
-	}, [query, pools, virtualPage, page]);
+	}, [query, pools]);
 
 	const filteredPools = useMemo(() => {
 		const data = filterHandler().slice(0, virtualPage * 10);

@@ -3,9 +3,6 @@ import { Row, Col } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-
-import ArrowUp from "../../components/Icons/ArrowUp";
-import ArrowDown from "../../components/Icons/ArrowDown";
 import { ResponsiveCard } from "../../components/Card";
 import CurrencyLogo from "../../components/CurrencyLogo";
 import CurrencyText from "../../components/CurrencyText";
@@ -69,15 +66,15 @@ const CellText = styled.span`
 	}
 `;
 
-const SymbolText = styled.span`
-	font-weight: 500;
-	font-size: 1rem;
+// const SymbolText = styled.span`
+// 	font-weight: 500;
+// 	font-size: 1rem;
 
-	@media (max-width: 991px) {
-		font-size: 0.875rem;
-		font-weight: 400;
-	}
-`;
+// 	@media (max-width: 991px) {
+// 		font-size: 0.875rem;
+// 		font-weight: 400;
+// 	}
+// `;
 
 const CustomTitle = styled.h4`
   color: ${({ theme }) => theme.text1}
