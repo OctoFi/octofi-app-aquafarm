@@ -1,6 +1,7 @@
 import SVG from "react-inlinesvg";
 import styled from "styled-components";
 import React, { useState, useCallback } from "react";
+import QuestionMark from "../../../assets/images/question-mark.svg";
 
 const BadSource = styled.div`
 	width: 100%;
@@ -10,6 +11,7 @@ const BadSource = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	color: ${({ theme }) => theme.primary};
 `;
 
 const Img = ({ src, alt, ...props }) => {
@@ -25,7 +27,7 @@ const Img = ({ src, alt, ...props }) => {
 
 	return (
 		<BadSource {...props}>
-			<SVG src={require("../../../assets/images/question-mark.svg").default} />
+			<SVG src={QuestionMark} />
 		</BadSource>
 	);
 };
