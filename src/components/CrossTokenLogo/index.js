@@ -4,7 +4,6 @@ import styled from "styled-components";
 const ImageBox = styled.div`
 	width: ${({ size }) => size};
 	height: ${({ size }) => size};
-
 	min-width: ${({ size }) => size};
 	min-height: ${({ size }) => size};
 	max-width: 100%;
@@ -13,28 +12,20 @@ const ImageBox = styled.div`
 	border-radius: ${({ size }) => size};
 	border: 2px solid ${({ theme }) => theme.text1};
 	overflow: hidden;
+	color: ${({ theme }) => theme.primary};
+
 	img {
 		width: 100%;
 		height: 100%;
 		display: block;
 	}
 `;
-// const Image = styled.img`
-//   width: ${({ size }) => size};
-//   height: ${({ size }) => size};
-//   min-width: ${({ size }) => size};
-//   min-height: ${({ size }) => size};
-//   max-width:100%;
-//   max-height:100%;
-//   background-color: white;
-//   border-radius: ${({ size }) => size};
-// `
 
 const initPath = require("../../assets/images/question-mark.svg").default;
 
 function getSourcePath(symbol) {
 	let path = "";
-	// console.log(symbol)
+
 	try {
 		path = require("../../assets/images/coin/source/" + symbol + ".svg").default;
 	} catch (error) {
@@ -46,6 +37,7 @@ function getSourcePath(symbol) {
 	}
 	return path;
 }
+
 function getAnyPath(symbol) {
 	let path = "";
 	try {

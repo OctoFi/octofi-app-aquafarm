@@ -4,6 +4,7 @@ import { isMobile } from "react-device-detect";
 import { Link } from "react-router-dom";
 import SVG from "react-inlinesvg";
 import Skeleton from "react-loading-skeleton";
+import Img from "../UI/Img";
 
 import { useLogo } from "../../state/governance/hooks";
 
@@ -38,7 +39,7 @@ const Wrapper = styled(Link)`
 	}
 `;
 
-const Logo = styled.img`
+const Logo = styled(Img)`
 	width: 100px;
 	height: 100px;
 	border-radius: 100px;

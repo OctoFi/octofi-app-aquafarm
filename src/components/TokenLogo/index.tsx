@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SVG from "react-inlinesvg";
 import { ImageProps } from "rebass";
 import styled from "styled-components";
+import QuestionMark from '../../assets/images/question-mark.svg';
 
 const BAD_SRCS: { [tokenAddress: string]: true } = {};
 
@@ -17,6 +18,7 @@ const BadSource = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	color: ${({ theme }) => theme.primary};
 `;
 
 /**
@@ -43,7 +45,7 @@ export default function Logo({ srcs, alt, ...rest }: LogoProps) {
 
 	return (
 		<BadSource {...rest}>
-			<SVG src={require("../../assets/images/question-mark.svg").default} />
+			<SVG src={QuestionMark} />
 		</BadSource>
 	);
 }
