@@ -84,7 +84,7 @@ const CustomNavItem = styled(Nav.Item)`
 const CustomNavLink = styled(Nav.Link)`
 	border-radius: 18px !important;
 	color: ${({ theme }) => theme.primary};
-	background-color: rgba(135, 220, 225, 0.15);
+	background-color: ${({ theme }) => theme.primaryLight};
 	white-space: nowrap;
 	padding: 14px 24px;
 	min-height: 56px;

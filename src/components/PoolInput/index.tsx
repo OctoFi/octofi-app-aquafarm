@@ -108,7 +108,7 @@ const StyledTokenName = styled.span`
 `;
 
 const StyledBalanceMax = styled.button`
-	background-color: rgba(135, 220, 225, 0.15);
+	background-color: ${({ theme }) => theme.primaryLight};
 	border: none;
 	border-radius: 10px;
 	font-size: 1rem;

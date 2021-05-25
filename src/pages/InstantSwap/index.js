@@ -87,14 +87,14 @@ const Logo = styled.img`
 `;
 
 const ProgressContainer = styled.div`
-	background: rgba(135, 220, 225, 0.15);
+	background: ${({ theme }) => theme.primaryLight};
 	border-radius: 18px;
 	padding: 26px 20px;
 	margin-top: 10px;
 
 	.progress {
 		height: 5px;
-		background-color: rgba(135, 220, 225, 0.15);
+		background-color: ${({ theme }) => theme.primaryLight};
 		border-radius: 15px;
 
 		&-bar {
@@ -106,7 +106,7 @@ const ProgressContainer = styled.div`
 const PlatformCard = styled.div`
 	padding: 12px 20px;
 	border-radius: 18px;
-	background-color: ${({ selected, theme }) => (selected ? theme.bg2 : "rgba(135, 220, 225, 0.15)")};
+	background-color: ${({ selected, theme }) => (selected ? theme.bg2 : "rgba(6, 115, 141, 0.15)")};
 	margin-bottom: 10px;
 	min-height: 56px;
 	border: 1px solid ${({ theme, selected }) => (selected ? theme.primary : "transparent")};

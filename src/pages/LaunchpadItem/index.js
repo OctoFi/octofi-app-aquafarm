@@ -164,7 +164,7 @@ const IconButton = styled(Link)`
 	overflow: hidden;
 
 	&:hover {
-		background-color: rgba(135, 220, 225, 0.15);
+		background-color: ${({ theme }) => theme.primaryLight};
 	}
 `;
 

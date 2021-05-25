@@ -55,7 +55,7 @@ const CreateNew = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(135, 220, 225, 0.15);
+  background-color: ${({ theme }) => theme.primaryLight};
   color: ${({ theme }) => theme.primary};
   border-radius: 12px;
   text-decoration: none;

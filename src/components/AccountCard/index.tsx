@@ -46,7 +46,7 @@ const CardIcon = styled.div`
 	height: 56px;
 	border-radius: 56px;
 	color: ${({ theme }) => theme.primary};
-	background-color: rgba(135, 220, 225, 0.3);
+	background-color: ${({ theme }) => theme.primaryLight};
 	overflow: hidden;
 	display: flex;
 	align-items: center;

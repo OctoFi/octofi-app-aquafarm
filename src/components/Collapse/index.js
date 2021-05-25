@@ -106,7 +106,7 @@ const TypeIcon = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: rgba(135, 220, 225, 0.15);
+	background-color: ${({ theme }) => theme.primaryLight};
 `;
 
 const HeaderTitle = styled.span`

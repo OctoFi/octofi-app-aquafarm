@@ -15,7 +15,7 @@ const CustomRow = styled(Row)`
 const GasButton = styled(Button)`
 	padding: 10px 30px;
 	border-radius: 18px;
-	background-color: ${({ selected, theme }) => (selected ? theme.primary : "rgba(135, 220, 225, 0.15)")};
+	background-color: ${({ selected, theme }) => (selected ? theme.primary : theme.primaryLight)};
 	color: ${({ selected, theme }) => (selected ? theme.text1 : theme.primary)};
 	display: flex;
 	flex-direction: column;

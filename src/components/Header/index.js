@@ -46,10 +46,11 @@ const Container = styled.div`
 	}
 `;
 
-const WalletLink = styled.a`
-	color: ${({ theme }) => theme.primary};
-	background-color: rgba(135, 220, 225, 0.15);
-	border-radius: 18px;
+const WalletButton = styled(Button)`
+	color: ${({ theme }) => theme.text1} !important;
+	background-color: ${({ theme }) => theme.primaryLight};
+	border-color: rgba(6, 115, 141, 0.5);
+	border-radius: 12px;
 	text-decoration: none;
 	padding: 10px 15px;
 	display: flex;
@@ -90,7 +91,7 @@ const ThemeContainer = styled.div`
 const BackButton = styled.button`
 	border: none;
 	color: ${({ theme }) => theme.primary};
-	background-color: rgba(135, 220, 225, 0.15);
+	background-color: ${({ theme }) => theme.primaryLight};
 	border-radius: 300px;
 	width: 32px;
 	height: 32px;

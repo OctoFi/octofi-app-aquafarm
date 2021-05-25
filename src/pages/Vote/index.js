@@ -185,7 +185,7 @@ const ResultTitle = styled.span`
 `;
 
 const ResultProgress = styled.div`
-	background-color: rgba(135, 220, 225, 0.3);
+	background-color: ${({ theme }) => theme.primaryLight};
 	height: 5px;
 	border: none;
 	width: 100%;
