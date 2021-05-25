@@ -84,9 +84,7 @@ export function colors(darkMode?: boolean): Colors {
 		warning: "#F3BA2F",
 		success: "#34D399",
 		primary: "#0891B2",
-		primaryLight: "rgba(135,220,225, 0.15)",
-		secondary: "#a890fe",
-		tertiary: "#FBAA9E",
+		primaryLight: "rgba(6, 115, 141, 0.15)",
 	};
 }
 

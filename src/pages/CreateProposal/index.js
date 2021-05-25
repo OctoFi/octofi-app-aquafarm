@@ -288,7 +288,7 @@ const CreateProposals = (props) => {
 															value={form.dateRange}
 															onChange={(e) => handleChange("dateRange", e)}
 															colorPrimary="#0891B2"
-															colorPrimaryLight="rgba(135, 220, 225, 0.2)"
+															colorPrimaryLight="rgba(6, 115, 141, 0.2)"
 															renderInput={StartDayPicker}
 															shouldHighlightWeekends
 														/>
@@ -301,7 +301,7 @@ const CreateProposals = (props) => {
 															value={form.dateRange}
 															onChange={(e) => handleChange("dateRange", e)}
 															colorPrimary="#0891B2"
-															colorPrimaryLight="rgba(135, 220, 225, 0.2)"
+															colorPrimaryLight="rgba(6, 115, 141, 0.2)"
 															renderInput={EndDayPicker}
 															shouldHighlightWeekends
 														/>
