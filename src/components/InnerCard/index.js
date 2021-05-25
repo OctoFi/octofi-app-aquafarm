@@ -30,8 +30,8 @@ const Wrapper = styled.div`
 
 	&:hover {
 		background-color: ${({ theme }) => theme.bg2};
-		border-color: ${({ theme }) => theme.primary1};
-		box-shadow: ${({ theme }) => `0 5px 15px ${theme.primary1}20`};
+		border-color: ${({ theme }) => theme.primary};
+		box-shadow: ${({ theme }) => `0 5px 15px ${theme.primary}20`};
 	}
 `;
 
@@ -191,7 +191,7 @@ const InnerCard = (props) => {
 					{props.src && (
 						<Link className={"d-none d-md-flex align-items-center justify-content-end"} to={props.src}>
 							<Details>Details</Details>
-							<ArrowRightIcon size={14} fill={theme.primary1} />
+							<ArrowRightIcon size={14} fill={theme.primary} />
 						</Link>
 					)}
 				</Header>

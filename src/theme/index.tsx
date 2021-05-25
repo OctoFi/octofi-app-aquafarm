@@ -57,14 +57,12 @@ export function colors(darkMode?: boolean): Colors {
 		advancedBG: darkMode ? "#232429" : "#FFFFFF",
 
 		//primary colors
-		primary1: "#0891B2",
-
-		// color text
-		primaryText1: "#0891B2",
+		primary: "#0891B2",
+		primaryLight: "rgba(6, 115, 141, 0.15)",
 
 		// secondary colors
-		secondary1: "#a890fe",
-		secondary2: "#a890fe",
+		secondary: "#a890fe", // purple?
+		tertiary: "#FBAA9E", // pinkish
 
 		bodyBg: darkMode
 			? "linear-gradient(201.32deg, #222429 -48.82%, #232429 51.35%)"
@@ -83,8 +81,6 @@ export function colors(darkMode?: boolean): Colors {
 		dangerLight: "rgba(235, 107, 107, 0.15)",
 		warning: "#F3BA2F",
 		success: "#34D399",
-		primary: "#0891B2",
-		primaryLight: "rgba(6, 115, 141, 0.15)",
 	};
 }
 
@@ -133,7 +129,7 @@ export const TYPE = {
 		return <TextWrapper fontWeight={500} color={"text2"} {...props} />;
 	},
 	Link(props: TextProps) {
-		return <TextWrapper fontWeight={500} color={"primary1"} {...props} />;
+		return <TextWrapper fontWeight={500} color={"primary"} {...props} />;
 	},
 	Black(props: TextProps) {
 		return <TextWrapper fontWeight={500} color={"text1"} {...props} />;
@@ -157,7 +153,7 @@ export const TYPE = {
 		return <TextWrapper fontWeight={500} fontSize={11} {...props} />;
 	},
 	Blue(props: TextProps) {
-		return <TextWrapper fontWeight={500} color={"primary1"} {...props} />;
+		return <TextWrapper fontWeight={500} color={"primary"} {...props} />;
 	},
 	Yellow(props: TextProps) {
 		return <TextWrapper fontWeight={500} color={"yellow1"} {...props} />;

@@ -43,7 +43,7 @@ export default function SwapModalHeader({
 					<TruncatedText
 						fontSize={24}
 						fontWeight={500}
-						color={showAcceptChanges && trade.tradeType === TradeType.EXACT_OUTPUT ? theme.primary1 : ""}
+						color={showAcceptChanges && trade.tradeType === TradeType.EXACT_OUTPUT ? theme.primary : ""}
 					>
 						{trade.inputAmount.toSignificant(6)}
 					</TruncatedText>
@@ -71,7 +71,7 @@ export default function SwapModalHeader({
 							priceImpactSeverity > 2
 								? theme.red1
 								: showAcceptChanges && trade.tradeType === TradeType.EXACT_INPUT
-								? theme.primary1
+								? theme.primary
 								: ""
 						}
 					>
@@ -89,7 +89,7 @@ export default function SwapModalHeader({
 					<RowBetween>
 						<RowFixed>
 							<AlertTriangle size={20} style={{ marginRight: "8px", minWidth: 24 }} />
-							<TYPE.Main color={theme.primary1}> Price Updated</TYPE.Main>
+							<TYPE.Main color={theme.primary}> Price Updated</TYPE.Main>
 						</RowFixed>
 						<ButtonPrimary
 							style={{

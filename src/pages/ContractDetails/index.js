@@ -123,7 +123,7 @@ const ContractDetails = (props) => {
 								theme={theme}
 								darkMode={darkMode}
 								variant={"primary"}
-								color={theme.primary1}
+								color={theme.primary}
 								series={[
 									{
 										name: "Price",

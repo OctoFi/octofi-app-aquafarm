@@ -20,11 +20,11 @@ const Button = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	color: ${({ variant, theme }) => (variant === "secondary" ? theme.secondary2 : theme.primary)};
+	color: ${({ variant, theme }) => (variant === "secondary" ? theme.secondary : theme.primary)};
 	border: none;
 
 	&:hover {
-		background-color: ${({ variant, theme }) => (variant === "secondary" ? theme.secondary2 : theme.primary)};
+		background-color: ${({ variant, theme }) => (variant === "secondary" ? theme.secondary : theme.primary)};
 		color: ${({ theme }) => theme.text1};
 	}
 
@@ -32,7 +32,7 @@ const Button = styled.button`
 	&:active {
 		outline: none;
 		background-color: ${({ variant, theme }) =>
-			variant === "secondary" ? darken(0.1, theme.secondary2) : darken(0.1, theme.primary)};
+			variant === "secondary" ? darken(0.1, theme.secondary) : darken(0.1, theme.primary)};
 		box-shadow: 0 0 0 5px
 			${({ variant, theme }) => (variant === "secondary" ? "rgba(121, 133, 246, 0.15)" : theme.primaryLight)};
 		color: ${({ theme }) => theme.text1};

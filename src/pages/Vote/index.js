@@ -140,7 +140,7 @@ const TokenValue = styled.span`
 `;
 
 const AuthorLink = styled.a`
-	color: ${({ theme }) => theme.primary1};
+	color: ${({ theme }) => theme.primary};
 	font-weight: 700;
 	font-size: 0.875rem;
 

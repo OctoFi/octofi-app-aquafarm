@@ -389,7 +389,7 @@ const Wallet = (props) => {
 										row.metadata.symbol === "ETH" ? "ETH" : row.metadata.address
 									}`}
 								>
-									<TradeButton variant={"secondary2"}>{t("buttons.sell")}</TradeButton>
+									<TradeButton variant={"secondary"}>{t("buttons.sell")}</TradeButton>
 								</StyledLink>
 								{value <= 0.001 ? (
 									<StyledLink
