@@ -14,17 +14,17 @@ const Button = styled.button`
 	padding-left: ${({ size }) => (size === "sm" ? "16px" : "20px")};
 	padding-right: ${({ size }) => (size === "sm" ? "22px" : "24px")};
 	border-radius: ${({ size }) => (size === "sm" ? "12px" : "18px")};
-	background-color: ${({ variant }) =>
-		variant === "secondary" ? "rgba(121, 133, 246, 0.15)" : "rgba(135, 220, 225, 0.15)"};
+	background-color: ${({ variant, theme }) =>
+		variant === "secondary" ? "rgba(121, 133, 246, 0.15)" : theme.primaryLight};
 	transition: 0.4s ease all;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	color: ${({ variant, theme }) => (variant === "secondary" ? theme.secondary2 : theme.primary)};
+	color: ${({ variant, theme }) => (variant === "secondary" ? theme.secondary : theme.primary)};
 	border: none;
 
 	&:hover {
-		background-color: ${({ variant, theme }) => (variant === "secondary" ? theme.secondary2 : theme.primary)};
+		background-color: ${({ variant, theme }) => (variant === "secondary" ? theme.secondary : theme.primary)};
 		color: ${({ theme }) => theme.text1};
 	}
 
@@ -32,9 +32,9 @@ const Button = styled.button`
 	&:active {
 		outline: none;
 		background-color: ${({ variant, theme }) =>
-			variant === "secondary" ? darken(0.1, theme.secondary2) : darken(0.1, theme.primary)};
+			variant === "secondary" ? darken(0.1, theme.secondary) : darken(0.1, theme.primary)};
 		box-shadow: 0 0 0 5px
-			${({ variant }) => (variant === "secondary" ? "rgba(121, 133, 246, 0.15)" : "rgba(135, 220, 225, 0.15)")};
+			${({ variant, theme }) => (variant === "secondary" ? "rgba(121, 133, 246, 0.15)" : theme.primaryLight)};
 		color: ${({ theme }) => theme.text1};
 	}
 

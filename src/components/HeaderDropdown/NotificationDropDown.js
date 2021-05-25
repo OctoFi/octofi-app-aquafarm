@@ -1,12 +1,12 @@
 import { useMemo } from "react";
 import styled from "styled-components";
 import { Button as BootstrapButton, Row, Col } from "react-bootstrap";
-
+import SVG from "react-inlinesvg";
 import { Link, withRouter } from "react-router-dom";
-import Img from "../UI/Img";
 import { useTranslation } from "react-i18next";
 import { useAllTransactions } from "../../state/transactions/hooks";
 import { getEtherscanLink } from "../../utils";
+import BellIcon from "../../assets/images/bell.svg";
 
 const Wrapper = styled.div`
 	position: relative;
@@ -44,7 +44,8 @@ const DropDown = styled.div`
 	z-index: 99999;
 `;
 
-const FlagButton = styled(BootstrapButton)`
+const BellButton = styled(BootstrapButton)`
+	color: ${({ theme }) => theme.primary};
 	margin-right: 20px;
 `;
 
@@ -120,9 +121,9 @@ const NotificationDropdown = (props) => {
 	return (
 		<Wrapper>
 			<Item>
-				<FlagButton variant={"link"} className={"py-0 px-0"}>
-					<Img src={require("../../assets/images/header/bell.svg").default} alt={""} />
-				</FlagButton>
+				<BellButton variant={"link"} className={"py-0 px-0"}>
+					<SVG src={BellIcon} />
+				</BellButton>
 			</Item>
 			<DropDown className={"header-dropdown"}>
 				<Row>

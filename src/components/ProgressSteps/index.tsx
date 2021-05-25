@@ -14,7 +14,7 @@ const Circle = styled.div<{ confirmed?: boolean; disabled?: boolean }>`
 	min-width: 30px;
 	min-height: 30px;
 	background-color: ${({ theme, confirmed, disabled }) =>
-		disabled ? theme.bg2 : confirmed ? theme.green1 : theme.primary1};
+		disabled ? theme.bg2 : confirmed ? theme.green1 : theme.primary};
 	border-radius: 0.5rem;
 	color: ${({ theme }) => theme.text1};
 	display: flex;
@@ -36,9 +36,9 @@ const Connector = styled.div<{ prevConfirmed?: boolean; disabled?: boolean }>`
 	background: linear-gradient(
 		90deg,
 		${({ theme, prevConfirmed, disabled }) =>
-				disabled ? theme.bg2 : transparentize(0.5, prevConfirmed ? theme.green1 : theme.primary1)}
+				disabled ? theme.bg2 : transparentize(0.5, prevConfirmed ? theme.green1 : theme.primary)}
 			0%,
-		${({ theme, prevConfirmed, disabled }) => (disabled ? theme.bg2 : prevConfirmed ? theme.primary1 : theme.bg2)}
+		${({ theme, prevConfirmed, disabled }) => (disabled ? theme.bg2 : prevConfirmed ? theme.primary : theme.bg2)}
 			80%
 	);
 	opacity: 0.6;

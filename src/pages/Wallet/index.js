@@ -79,7 +79,7 @@ const CustomInputGroup = styled(InputGroup)`
 const CustomNavLink = styled(Nav.Link)`
 	border-radius: 18px !important;
 	color: ${({ theme }) => theme.primary};
-	background-color: rgba(135, 220, 225, 0.15);
+	background-color: ${({ theme }) => theme.primaryLight};
 	white-space: nowrap;
 	padding: 14px 24px;
 	min-height: 56px;
@@ -389,7 +389,7 @@ const Wallet = (props) => {
 										row.metadata.symbol === "ETH" ? "ETH" : row.metadata.address
 									}`}
 								>
-									<TradeButton variant={"secondary2"}>{t("buttons.sell")}</TradeButton>
+									<TradeButton variant={"secondary"}>{t("buttons.sell")}</TradeButton>
 								</StyledLink>
 								{value <= 0.001 ? (
 									<StyledLink

@@ -53,7 +53,7 @@ const StyledLink = styled(Link)`
 
 		&:focus,
 		&:active {
-			color: ${({ theme }) => theme.primary1} !important;
+			color: ${({ theme }) => theme.primary} !important;
 		}
 	}
 

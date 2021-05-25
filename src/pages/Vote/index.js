@@ -140,7 +140,7 @@ const TokenValue = styled.span`
 `;
 
 const AuthorLink = styled.a`
-	color: ${({ theme }) => theme.primary1};
+	color: ${({ theme }) => theme.primary};
 	font-weight: 700;
 	font-size: 0.875rem;
 
@@ -185,7 +185,7 @@ const ResultTitle = styled.span`
 `;
 
 const ResultProgress = styled.div`
-	background-color: rgba(135, 220, 225, 0.3);
+	background-color: ${({ theme }) => theme.primaryLight};
 	height: 5px;
 	border: none;
 	width: 100%;

@@ -106,7 +106,7 @@ const TypeIcon = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: rgba(135, 220, 225, 0.15);
+	background-color: ${({ theme }) => theme.primaryLight};
 `;
 
 const HeaderTitle = styled.span`
@@ -333,14 +333,14 @@ const Collapse = (props) => {
 				<HeaderSection className="d-flex align-items-center" type={"title"}>
 					<TypeIcon>
 						{tokens.ref.value === "0" && props.txn.length === 1 ? (
-							<FileIcon size={24} fill={theme.primary1} />
+							<FileIcon size={24} fill={theme.primary} />
 						) : tokens.from.length === 1 && tokens.to.length === 1 ? (
-							<ExchangeIcon size={24} fill={theme.primary1} />
+							<ExchangeIcon size={24} fill={theme.primary} />
 						) : (tokens.from.length > 1 && tokens.to.length === 1) ||
 						  (tokens.from.length === 1 && tokens.to.length > 1) ? (
-							<ArrowUpIcon size={24} fill={theme.primary1} />
+							<ArrowUpIcon size={24} fill={theme.primary} />
 						) : (
-							<ArrowDownIcon size={24} fill={theme.primary1} />
+							<ArrowDownIcon size={24} fill={theme.primary} />
 						)}
 					</TypeIcon>
 					<div className=" d-flex justify-content-center flex-column ml-3">
@@ -490,7 +490,7 @@ const Collapse = (props) => {
 					</div>
 				</HeaderSection>
 				<HeaderShowMore show={show}>
-					<ArrowRightIcon size={16} fill={theme.primary1} />
+					<ArrowRightIcon size={16} fill={theme.primary} />
 				</HeaderShowMore>
 			</Header>
 			<CollapseView height={height}>

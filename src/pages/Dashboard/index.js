@@ -98,7 +98,7 @@ const Dashboard = (props) => {
 						<Col xs={12} md={4}>
 							<ValueCard
 								className={"gutter-b"}
-								color={"secondary2"}
+								color={"secondary"}
 								title={t("totalAssets")}
 								value={props.overview.deposits.total + props.overview.wallet.total}
 								type={"assets"}
@@ -115,7 +115,7 @@ const Dashboard = (props) => {
 						<Col xs={12} md={4}>
 							<ValueCard
 								className={"gutter-b"}
-								color={"secondary2"}
+								color={"secondary"}
 								title={t("netWorth")}
 								value={
 									props.overview.deposits.total +

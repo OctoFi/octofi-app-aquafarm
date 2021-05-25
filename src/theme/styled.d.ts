@@ -2,53 +2,45 @@ import { FlattenSimpleInterpolation, ThemedCssFunction } from "styled-components
 
 export type Color = string;
 export interface Colors {
-	// base
+	// Base
 	white: Color;
 	black: Color;
 
-	// text
+	// Text
 	text1: Color;
 	text2: Color;
 	text3: Color;
 	text4: Color;
 
-	// backgrounds / greys
+	// Backgrounds
 	bg1: Color;
 	bg2: Color;
 	bg3: Color;
 	bg4: Color;
 	bg5: Color;
-	backdrop: Color;
-
-	modalBG: Color;
-	advancedBG: Color;
-
+	
+	// UI
 	bodyBg: Color;
 	splashBG: Color;
+	backdrop: Color;
+	modalBG: Color;
+	advancedBG: Color;
+	warning: Color;
+	danger: Color;
+	dangerLight: Color;
+	success: Color;
 
-	//blues
-	primary1: Color;
+	// Primaries
+	primary: Color;
+	primaryLight: Color;
+	secondary: Color;
+	tertiary: Color;
 
-	primaryText1: Color;
-
-	// pinks
-	secondary1: Color;
-	secondary2: Color;
-
-	// other
+	// Other
 	red1: Color;
 	green1: Color;
 	yellow1: Color;
 	blue1: Color;
-
-	primary: Color;
-	primaryLight: Color;
-	secondary: Color;
-	warning: Color;
-	danger: Color;
-	dangerLight: Color;
-	tertiary: Color;
-	success: Color;
 }
 
 export interface Grids {

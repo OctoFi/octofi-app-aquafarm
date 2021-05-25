@@ -75,12 +75,12 @@ const AddLiquidityButton = styled(PoolsButton)`
 `;
 
 const WithdrawButton = styled(PoolsButton)`
-	color: ${({ theme }) => theme.secondary2};
+	color: ${({ theme }) => theme.secondary};
 	transition: 0.4s ease all;
 
 	&:hover {
 		color: ${({ theme }) => theme.bg2};
-		background-color: ${({ theme }) => theme.secondary2};
+		background-color: ${({ theme }) => theme.secondary};
 	}
 `;
 

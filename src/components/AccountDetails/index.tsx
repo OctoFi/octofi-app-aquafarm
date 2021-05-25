@@ -155,7 +155,7 @@ const WalletButtons = styled.span`
 
 const WalletLink = styled.p`
 	color: ${({ theme }) => theme.primary};
-	background-color: rgba(135, 220, 225, 0.15);
+	background-color: ${({ theme }) => theme.primaryLight};
 	border-radius: 18px;
 	padding: 10px 15px;
 	display: flex;

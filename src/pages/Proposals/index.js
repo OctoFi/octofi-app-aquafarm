@@ -114,7 +114,7 @@ const CellText = styled.span`
 `;
 
 const NewButton = styled(Link)`
-	background-color: rgba(135, 220, 225, 0.12);
+	background-color: ${({ theme }) => theme.primaryLight};
 	height: 56px;
 	padding: 6px 20px;
 	border-radius: 18px;
@@ -127,7 +127,7 @@ const NewButton = styled(Link)`
 	:hover,
 	:focus,
 	:active {
-		background-color: rgba(135, 220, 225, 1);
+		background-color: ${({ theme }) => theme.primary};
 		color: ${({ theme }) => theme.text1};
 		text-decoration: none;
 		outline: none;

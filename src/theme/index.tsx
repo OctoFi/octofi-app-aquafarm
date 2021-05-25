@@ -35,58 +35,49 @@ const black = "#000000";
 
 export function colors(darkMode?: boolean): Colors {
 	return {
-		// base
+		// Base
 		white,
 		black,
-		// text
-		text1: darkMode ? "#ffffff" : "#000000",
+
+		// Text
+		text1: darkMode ? white : black,
 		text2: darkMode ? "#D3D6E8" : "#B1B2B6",
 		text3: darkMode ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)",
 		text4: darkMode ? "rgba(255, 255, 255, 0.3)" : "#CACCD2",
 
-		// backgrounds / greys
-		bg1: darkMode ? "#232429" : "#FFFFFF",
-		bg2: darkMode ? "#232429" : "#FFFFFF",
+		// Backgrounds
+		bg1: darkMode ? "#232429" : white,
+		bg2: darkMode ? "#232429" : white,
 		bg3: darkMode ? "rgba(33, 36, 41, 1)" : "#FFF",
 		bg4: darkMode ? "#232429" : "rgb(212, 218, 242)",
-		bg5: darkMode ? `rgba(255, 255, 255, 0.15) `: `rgba(0, 0, 0, 0.15)`,
-		backdrop: "rgba(33, 36, 41, 0.5)",
+		bg5: darkMode ? `rgba(255, 255, 255, 0.15) ` : `rgba(0, 0, 0, 0.15)`,
 
-		//specialty colors
-		modalBG: darkMode ? "#272a31" : "#F3F5FD",
-		advancedBG: darkMode ? "#232429" : "#FFFFFF",
-
-		//primary colors
-		primary1: "#0891B2",
-
-		// color text
-		primaryText1: "#0891B2",
-
-		// secondary colors
-		secondary1: "#a890fe",
-		secondary2: "#a890fe",
-
+		// UI
 		bodyBg: darkMode
 			? "linear-gradient(201.32deg, #222429 -48.82%, #232429 51.35%)"
 			: "linear-gradient(201.32deg, #fff -48.82%, #fff 51.35%)",
 		splashBG: darkMode
 			? "linear-gradient(201.32deg, #4E5780 -48.82%, #232429 51.35%)"
 			: "linear-gradient(201.32deg, #d4daf2 -48.82%, #fff 51.35%)",
+		backdrop: "rgba(33, 36, 41, 0.5)",
+		modalBG: darkMode ? "#272a31" : "#F3F5FD",
+		advancedBG: darkMode ? "#232429" : white,
+		warning: "#F3BA2F",
+		danger: "#EB6B6B",
+		dangerLight: "rgba(235, 107, 107, 0.15)",
+		success: "#34D399",
 
-		// other
+		// Primaries
+		primary: "#0891B2",
+		primaryLight: "rgba(6, 115, 141, 0.15)",
+		secondary: "#a890fe", // purple?
+		tertiary: "#FBAA9E", // pinkish
+
+		// Other
 		red1: "#EB6B6B",
 		green1: "#34D399",
 		yellow1: "#F3BA2F",
 		blue1: "#0891B2",
-
-		danger: "#EB6B6B",
-		dangerLight: "rgba(235, 107, 107, 0.15)",
-		warning: "#F3BA2F",
-		success: "#34D399",
-		primary: "#0891B2",
-		primaryLight: "rgba(135,220,225, 0.15)",
-		secondary: "#a890fe",
-		tertiary: "#FBAA9E",
 	};
 }
 
@@ -135,7 +126,7 @@ export const TYPE = {
 		return <TextWrapper fontWeight={500} color={"text2"} {...props} />;
 	},
 	Link(props: TextProps) {
-		return <TextWrapper fontWeight={500} color={"primary1"} {...props} />;
+		return <TextWrapper fontWeight={500} color={"primary"} {...props} />;
 	},
 	Black(props: TextProps) {
 		return <TextWrapper fontWeight={500} color={"text1"} {...props} />;
@@ -159,7 +150,7 @@ export const TYPE = {
 		return <TextWrapper fontWeight={500} fontSize={11} {...props} />;
 	},
 	Blue(props: TextProps) {
-		return <TextWrapper fontWeight={500} color={"primary1"} {...props} />;
+		return <TextWrapper fontWeight={500} color={"primary"} {...props} />;
 	},
 	Yellow(props: TextProps) {
 		return <TextWrapper fontWeight={500} color={"yellow1"} {...props} />;
