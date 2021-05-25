@@ -2,11 +2,13 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { Button as BootstrapButton, Row, Col } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import SVG from 'react-inlinesvg';
 import Img from "../UI/Img";
 import { rates } from "../../constants";
-import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../state/currency/actions";
-import { useTranslation } from "react-i18next";
+import FlagIcon from "../../assets/images/flag.svg";
 
 const Wrapper = styled.div`
 	position: relative;
@@ -77,6 +79,7 @@ const CurrencyLogo = styled(Img)`
 `;
 
 const FlagButton = styled(BootstrapButton)`
+	color: ${({ theme }) => theme.primary};
 	margin-right: 12px;
 `;
 
@@ -104,7 +107,7 @@ const HeaderDropdown = ({ items, title, ...props }) => {
 		<Wrapper>
 			<Item>
 				<FlagButton variant={"link"} className={"py-0 px-0"}>
-					<Img src={require("../../assets/images/header/flag.svg").default} alt={""} />
+					<SVG src={FlagIcon} />
 				</FlagButton>
 			</Item>
 			<DropDown className={"header-dropdown"}>

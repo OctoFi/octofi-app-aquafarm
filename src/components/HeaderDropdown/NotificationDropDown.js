@@ -6,7 +6,7 @@ import { Link, withRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAllTransactions } from "../../state/transactions/hooks";
 import { getEtherscanLink } from "../../utils";
-import BellIcon from "../../assets/images/header/bell.svg";
+import BellIcon from "../../assets/images/bell.svg";
 
 const Wrapper = styled.div`
 	position: relative;
