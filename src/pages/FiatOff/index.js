@@ -73,6 +73,7 @@ const ListIcon = styled.div`
 	justify-content: center;
 	width: 35px;
 	height: 32px;
+	color: ${({theme}) => theme.primary};
 `;
 
 const ListTitle = styled.span`
