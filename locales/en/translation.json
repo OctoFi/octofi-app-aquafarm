@@ -4,7 +4,7 @@
         "getInTouch": "Get in touch",
         "copyright": "Decentralized Finance Tentacles",
         "features": {
-            "support": {
+          "support": {
                 "title": "Support",
                 "desc": "Got a problem? Our Community will help you."
             },
@@ -53,7 +53,7 @@
         "launchpad": "INKubator",
         "cross": "Crosstopus",
         "bridges": "Bridges",
-        "anySwap": "AnySwap",
+        "anySwap": "Swap",
         "crossBalance": "Balance"
     },
     "wallet": {
@@ -95,7 +95,7 @@
         "approvalPending": "Token approval is pending or rejected",
         "invalidRecipient": "Invalid Recipient",
         "insufficientBalance": "Insufficient {{ symbol }} balance",
-        "noTrade": "There are no trades to show",
+        "noTrade" : "There are no trades to show",
         "noMarket": "here are no market details to show",
         "notEnoughGas": "Not enough ETH for the gas",
         "noAssets": "There are no assets",
