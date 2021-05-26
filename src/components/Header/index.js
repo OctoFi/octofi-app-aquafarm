@@ -46,11 +46,10 @@ const Container = styled.div`
 	}
 `;
 
-const WalletButton = styled(Button)`
-	color: ${({ theme }) => theme.text1} !important;
-	background-color: ${({ theme }) => theme.primaryLight};
-	border-color: rgba(6, 115, 141, 0.5);
-	border-radius: 12px;
+const WalletLink = styled.a`
+	color: ${({ theme }) => theme.primary};
+	background-color: rgba(135, 220, 225, 0.15);
+	border-radius: 18px;
 	text-decoration: none;
 	padding: 10px 15px;
 	display: flex;
