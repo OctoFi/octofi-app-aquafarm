@@ -12,47 +12,13 @@ import SVG from "react-inlinesvg";
 import { ExternalLink } from "../../theme";
 
 export const ModifiedJazzicon = styled(Jazzicon)`
-	width: 48px;
-	height: 48px;
-	border-radius: 48px;
-
-	@media (max-width: 1199px) {
-		width: 32px;
-		height: 32px;
-		border-radius: 32px;
-	}
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
 `;
+
 const UpperSection = styled.div`
 	position: relative;
-
-	h5 {
-		margin: 0;
-		margin-bottom: 0.5rem;
-		font-size: 1rem;
-		font-weight: 400;
-	}
-
-	h5:last-child {
-		margin-bottom: 0px;
-	}
-
-	h4 {
-		margin-top: 0;
-		font-weight: 500;
-	}
-`;
-
-const InfoCard = styled.div`
-	padding: 1rem 0;
-	position: relative;
-	display: grid;
-	grid-row-gap: 30px;
-	margin-bottom: 20px;
-
-	@media (max-width: 1199px) {
-		padding: 0;
-		margin-bottom: 0;
-	}
 `;
 
 const AccountGroupingRow = styled.div`
@@ -69,34 +35,18 @@ const AccountGroupingRow = styled.div`
 `;
 
 const AccountSection = styled.div`
-	background-color: ${({ theme }) => theme.modalBG};
-
-	@media (max-width: 1199px) {
-		padding: 1.25rem 3.5rem 1rem;
-	}
-`;
-
-const YourAccount = styled.div`
-	h5 {
-		margin: 0 0 1rem 0;
-		font-weight: 400;
-	}
-
-	h4 {
-		margin: 0;
-		font-weight: 500;
-	}
+	margin: 1rem 0;
+	position: relative;
+	display: grid;
+	grid-row-gap: 30px;
 `;
 
 const AccountControl = styled.div`
 	display: flex;
 	min-width: 0;
 	width: 100%;
-
 	font-weight: 500;
 	font-size: 1.25rem;
-
-	padding-top: 1.5rem;
 
 	@media (max-width: 1199px) {
 		padding-top: 0.75rem;
@@ -106,7 +56,7 @@ const AccountControl = styled.div`
 
 		& > a,
 		& > button {
-			margin-bottom: 45px;
+			margin-bottom: 32px;
 		}
 	}
 
@@ -212,95 +162,91 @@ export default function AccountDetails({
 		<>
 			<UpperSection>
 				<AccountSection>
-					<YourAccount>
-						<InfoCard>
-							<AccountGroupingRow>{formatConnectorName()}</AccountGroupingRow>
-							<AccountGroupingRow id="web3-account-identifier-row">
+					<AccountGroupingRow>{formatConnectorName()}</AccountGroupingRow>
+					<AccountGroupingRow id="web3-account-identifier-row">
+						<AccountControl>
+							{ENSName ? (
+								<>
+									<div>
+										<div className="symbol symbol-md mr-3">
+											<ModifiedJazzicon address={account || ""} />
+										</div>
+										<WalletLink>{ENSName}</WalletLink>
+									</div>
+								</>
+							) : (
+								<>
+									<div>
+										<div className="symbol symbol-md mr-3">
+											<ModifiedJazzicon address={account || ""} />
+										</div>
+										<WalletLink>{account && shortenAddress(account)}</WalletLink>
+									</div>
+								</>
+							)}
+						</AccountControl>
+					</AccountGroupingRow>
+					<AccountGroupingRow>
+						{ENSName ? (
+							<>
 								<AccountControl>
-									{ENSName ? (
-										<>
-											<div>
-												<div className="symbol symbol-md mr-3">
-													<ModifiedJazzicon address={account || ""} />
-												</div>
-												<WalletLink> {ENSName}</WalletLink>
-											</div>
-										</>
-									) : (
-										<>
-											<div>
-												<div className="symbol symbol-md mr-3">
-													<ModifiedJazzicon address={account || ""} />
-												</div>
-												<WalletLink> {account && shortenAddress(account)}</WalletLink>
-											</div>
-										</>
+									{account && (
+										<Copy toCopy={account}>
+											<WalletButtons style={{ marginLeft: "10px" }}>
+												Copy Address
+											</WalletButtons>
+										</Copy>
+									)}
+									{chainId && account && (
+										<AddressLink
+											hasENS={!!ENSName}
+											isENS={true}
+											href={chainId && getEtherscanLink(chainId, ENSName, "address")}
+										>
+											<SVG
+												src={
+													require("../../assets/images/account/external-link.svg")
+														.default
+												}
+											/>
+											<WalletButtons style={{ marginLeft: "10px" }}>
+												View on Etherscan
+											</WalletButtons>
+										</AddressLink>
 									)}
 								</AccountControl>
-							</AccountGroupingRow>
-							<AccountGroupingRow>
-								{ENSName ? (
-									<>
-										<AccountControl>
-											{account && (
-												<Copy toCopy={account}>
-													<WalletButtons style={{ marginLeft: "10px" }}>
-														Copy Address
-													</WalletButtons>
-												</Copy>
-											)}
-											{chainId && account && (
-												<AddressLink
-													hasENS={!!ENSName}
-													isENS={true}
-													href={chainId && getEtherscanLink(chainId, ENSName, "address")}
-												>
-													<SVG
-														src={
-															require("../../assets/images/account/external-link.svg")
-																.default
-														}
-													/>
-													<WalletButtons style={{ marginLeft: "10px" }}>
-														View on Etherscan
-													</WalletButtons>
-												</AddressLink>
-											)}
-										</AccountControl>
-									</>
-								) : (
-									<>
-										<AccountControl>
-											{account && (
-												<Copy toCopy={account}>
-													<WalletButtons style={{ marginLeft: "10px" }}>
-														Copy Address
-													</WalletButtons>
-												</Copy>
-											)}
-											{chainId && account && (
-												<AddressLink
-													hasENS={!!ENSName}
-													isENS={false}
-													href={getEtherscanLink(chainId, account, "address")}
-												>
-													<SVG
-														src={
-															require("../../assets/images/account/external-link.svg")
-																.default
-														}
-													/>
-													<WalletButtons style={{ marginLeft: "10px" }}>
-														View on Etherscan
-													</WalletButtons>
-												</AddressLink>
-											)}
-										</AccountControl>
-									</>
-								)}
-							</AccountGroupingRow>
-						</InfoCard>
-					</YourAccount>
+							</>
+						) : (
+							<>
+								<AccountControl>
+									{account && (
+										<Copy toCopy={account}>
+											<WalletButtons style={{ marginLeft: "10px" }}>
+												Copy Address
+											</WalletButtons>
+										</Copy>
+									)}
+									{chainId && account && (
+										<AddressLink
+											hasENS={!!ENSName}
+											isENS={false}
+											href={getEtherscanLink(chainId, account, "address")}
+										>
+											<SVG
+												src={
+													require("../../assets/images/account/external-link.svg")
+														.default
+												}
+											/>
+											<WalletButtons style={{ marginLeft: "10px" }}>
+												View on Etherscan
+											</WalletButtons>
+										</AddressLink>
+									)}
+								</AccountControl>
+							</>
+						)}
+					</AccountGroupingRow>
 				</AccountSection>
 
 				<ChangeAccountContainer>

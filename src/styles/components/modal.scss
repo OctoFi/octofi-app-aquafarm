@@ -5,7 +5,6 @@
 }
 
 .modal-header {
-	border-bottom-color: rgba(255, 255, 255, 0.5);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -13,6 +12,10 @@
 
 	.close {
 		margin-left: 0;
+	}
+
+	.dark-mode & {
+		border-bottom-color:rgba(255, 255, 255, 0.1);
 	}
 }
 
