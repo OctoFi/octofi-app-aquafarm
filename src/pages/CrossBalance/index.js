@@ -151,6 +151,11 @@ const CoinContent = styled.div`
   }
 `
 
+const ShowMoreWrap = styled.div`
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+`
+
 const ShowMoreButton = styled.button`
   background-color: transparent;
   padding: 8px 0;
@@ -447,9 +452,11 @@ const CrossBalance = props => {
 								entities={!Array.isArray(data) ? [] : !showFull ? data?.slice(0, 3) : data}
 							/>
 							{!showFull && (
-								<div className="align-self-center text-center">
-									<ShowMoreButton onClick={setShowFull.bind(this, true)}>See More</ShowMoreButton>
-								</div>
+								<ShowMoreWrap>
+									<ShowMoreButton onClick={setShowFull.bind(this, true)}>
+										See More
+									</ShowMoreButton>
+								</ShowMoreWrap>
 							)}
 						</div>
 					</Card>
