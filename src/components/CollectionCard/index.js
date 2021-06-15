@@ -29,13 +29,12 @@ const LogoContainer = styled.div`
 	margin-right: 20px;
 	position: relative;
 	overflow: hidden;
+	box-shadow: 0 0 0 1pt ${({ theme }) => theme.text1};
 `;
 
 const Logo = styled(Img)`
 	width: 100%;
 	height: 100%;
-	border: 1px solid ${({ theme }) => theme.text1};
-	border-radius: 320px;
 `;
 
 const Name = styled.span`
