@@ -7,7 +7,6 @@ import Logo from "../Logo";
 import "./styles.scss";
 import { useWalletModalToggle } from "../../state/application/hooks";
 import { useActiveWeb3React } from "../../hooks";
-import { getEtherscanLink } from "../../utils";
 import { routes, accountRoutes } from "../../constants/headerRoutes";
 import HeaderDropdown from "../HeaderDropdown";
 import UserDropdown from "../HeaderDropdown/UserDropdown";
@@ -46,7 +45,7 @@ const Container = styled.div`
 	}
 `;
 
-const WalletLink = styled.a`
+const WalletLink = styled.div`
 	color: ${({ theme }) => theme.primary};
 	background-color: rgba(135, 220, 225, 0.15);
 	border-radius: 18px;
@@ -134,7 +133,7 @@ const MenuIcon = styled.div`
 `;
 
 const Header = (props) => {
-	const { account, chainId } = useActiveWeb3React();
+	const { account } = useActiveWeb3React();
 	const toggleConnectModal = useWalletModalToggle();
 	const [sidedrawer, setSidedrawer] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
@@ -266,11 +265,7 @@ const Header = (props) => {
 									</Button>
 								) : (
 									<div className={"d-flex align-items-center justify-content-center pt-3 pt-lg-0"}>
-										<WalletLink
-											href={chainId && getEtherscanLink(chainId, account, "address")}
-											target={"_blank"}
-											rel={"noopener noreferrer"}
-										>
+										<WalletLink onClick={toggleConnectModal}>
 											{shorten(account, "symbol")}
 										</WalletLink>
 										<UserDropdown items={accountRoutes} title={"account"} />
