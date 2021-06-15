@@ -9,6 +9,7 @@ import TokenLogo from '../../components/CrossTokenLogo';
 import getConfig from '../../config';
 import Page from "../../components/Page";
 import DefaultCard from '../../components/Card';
+import { useIsDarkMode } from "../../state/user/hooks";
 import {
 	InputGroup,
 	InputGroupFormControl as FormControl,
@@ -152,34 +153,9 @@ const CoinContent = styled.div`
 `
 
 const ShowMoreWrap = styled.div`
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-`
-
-const ShowMoreButton = styled.button`
-  background-color: transparent;
-  padding: 8px 0;
-  border: none;
-  border-bottom: 2px solid ${({ theme }) => theme.primary};
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.25rem;
-  color: ${({ theme }) => theme.primary};
-  display: inline-block;
-  margin-top: 2rem;
-  
-  &:hover,
-  &:focus,
-  &:active {
-    outline: none;
-    text-decoration: none;
-    box-shadow: none;
-  }
-  
-  &:hover {
-    color: ${({ theme }) => darken(0.1, theme.primary)};
-    border-bottom-color: ${({ theme }) => darken(0.1, theme.primary)};
-  }
+	border-top: 1px solid rgba(255, 255, 255, 0.5);
+	padding-top: 2rem;
+	text-align: center;
 `
 
 function isBaseUSD (coin) {
@@ -199,6 +175,7 @@ function isBaseUSD (coin) {
 
 const CrossBalance = props => {
 	const { account } = useActiveWeb3React();
+	const darkMode = useIsDarkMode();
 	const allBalances = useAllBalances()
 	const allTokens = useAllTokenDetails()
 	const { t } = useTranslation()
@@ -453,9 +430,12 @@ const CrossBalance = props => {
 							/>
 							{!showFull && (
 								<ShowMoreWrap>
-									<ShowMoreButton onClick={setShowFull.bind(this, true)}>
+									<Button
+										variant={darkMode ? "outline-primary" : "primary"}
+										onClick={setShowFull.bind(this, true)}
+									>
 										See More
-									</ShowMoreButton>
+									</Button>
 								</ShowMoreWrap>
 							)}
 						</div>
