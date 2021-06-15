@@ -106,7 +106,7 @@ const ProgressContainer = styled.div`
 const PlatformCard = styled.div`
 	padding: 12px 20px;
 	border-radius: 18px;
-	background-color: ${({ selected, theme }) => (selected ? theme.bg2 : "rgba(6, 115, 141, 0.15)")};
+	background-color: ${({ selected, theme }) => (selected ? theme.bg2 : theme.primaryLight)};
 	margin-bottom: 10px;
 	min-height: 56px;
 	border: 1px solid ${({ theme, selected }) => (selected ? theme.primary : "transparent")};
