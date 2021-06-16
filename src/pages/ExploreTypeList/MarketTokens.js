@@ -131,7 +131,7 @@ const MarketLink = styled.a`
 
 const CustomTitle = styled.h4`
 	color: ${({ theme }) => theme.text1};
-	font-size: 1.25rem;
+	font-size: 1rem;
 
 	@media (max-width: 991px) {
 		font-size: 0.875rem;
@@ -140,7 +140,7 @@ const CustomTitle = styled.h4`
 
 const SymbolText = styled.span`
 	font-weight: 500;
-	font-size: 1rem;
+	font-size: 0.75rem;
 	color: ${({ theme }) => theme.text1};
 
 	@media (max-width: 991px) {
