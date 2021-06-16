@@ -70,7 +70,8 @@ export function colors(darkMode?: boolean): Colors {
 		// Primaries
 		primary: "#0891B2",
 		primaryLight: "rgba(6, 115, 141, 0.15)",
-		secondary: "#a890fe", // purple?
+		secondary: "#a890fe", // purple
+		secondaryLight: "rgba(121, 133, 246, 0.15)",
 		tertiary: "#FBAA9E", // pinkish
 
 		// Other
