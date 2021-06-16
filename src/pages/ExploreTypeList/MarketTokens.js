@@ -347,7 +347,7 @@ const MarketTokens = (props) => {
 						row.price_change_percentage_24h >= 0 ? "label-light-success" : "label-light-danger"
 					} `}
 				>
-					{row.price_change_percentage_24h ? `${row.price_change_percentage_24h.toFixed(4)}%` : "-"}
+					{row.price_change_percentage_24h ? `${row.price_change_percentage_24h.toFixed(2)}%` : "-"}
 				</span>
 			),
 			sort: true,
@@ -362,7 +362,7 @@ const MarketTokens = (props) => {
 					} `}
 				>
 					{row.price_change_percentage_7d_in_currency
-						? `${row.price_change_percentage_7d_in_currency.toFixed(4)}%`
+						? `${row.price_change_percentage_7d_in_currency.toFixed(2)}%`
 						: "-"}
 				</span>
 			),
@@ -378,7 +378,7 @@ const MarketTokens = (props) => {
 					} `}
 				>
 					{row.price_change_percentage_30d_in_currency
-						? `${row.price_change_percentage_30d_in_currency.toFixed(4)}%`
+						? `${row.price_change_percentage_30d_in_currency.toFixed(2)}%`
 						: "-"}
 				</span>
 			),
@@ -394,7 +394,7 @@ const MarketTokens = (props) => {
 					} `}
 				>
 					{row.price_change_percentage_1y_in_currency
-						? `${row.price_change_percentage_1y_in_currency.toFixed(4)}%`
+						? `${row.price_change_percentage_1y_in_currency.toFixed(2)}%`
 						: "-"}
 				</span>
 			),
