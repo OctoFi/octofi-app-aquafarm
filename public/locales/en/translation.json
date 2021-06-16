@@ -365,6 +365,7 @@
     "amount": "Amount",
     "time": "Time",
     "markets": "Markets",
+    "last7Days": "Last 7 Days",
     "noWallet": "No Ethereum wallet found",
     "installWeb3MobileBrowser": "Please visit us from a web3-enabled mobile browser such as Trust Wallet or Coinbase Wallet.",
     "installMetamask": "Please visit us after installing Metamask on Chrome or Brave.",
