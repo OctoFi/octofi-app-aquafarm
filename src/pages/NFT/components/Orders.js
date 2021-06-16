@@ -89,7 +89,7 @@ const Orders = (props) => {
 			<HeaderCol xs={12} className={"d-flex align-items-end justify-content-end"}>
 				<Dropdown
 					placeholder={t("sort.placeholder")}
-					variant={"secondary"}
+					variant={"primary"}
 					items={sortItems}
 					onChange={changeSort}
 				/>

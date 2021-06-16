@@ -34,6 +34,7 @@ export interface Colors {
 	primary: Color;
 	primaryLight: Color;
 	secondary: Color;
+	secondaryLight: Color;
 	tertiary: Color;
 
 	// Other
