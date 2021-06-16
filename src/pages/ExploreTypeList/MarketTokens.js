@@ -296,9 +296,6 @@ const MarketTokens = (props) => {
 			dataField: "id",
 			text: "ID",
 			formatter: (cellContent, row, rowIndex) => rowIndex + 1,
-			style: {
-				width: 120,
-			},
 			sort: true,
 		},
 		{
