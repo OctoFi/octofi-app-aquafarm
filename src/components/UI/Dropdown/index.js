@@ -59,7 +59,7 @@ const ButtonText = styled.span`
 `;
 
 const DropdownList = styled.div`
-	background-image: linear-gradient(346.84deg, #9aa7d0 1.12%, #b7c2e4 78.56%);
+	background-color: #f2f2f2;
 	box-shadow: -1px 11px 43px rgba(0, 0, 0, 0.12);
 	border-radius: 12px;
 	position: absolute;
