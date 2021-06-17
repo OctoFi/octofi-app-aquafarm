@@ -14,7 +14,7 @@ OctoFi is an open source project and we love to receive contributions from our c
 
 ### Support questions
 
-Please, don't use the issue tracker for this. The issue tracker is a tool to address bugs and feature requests in OctoFi dApp itself. Use the [Den Help Center](https://den.octo.fi/t/support) for this
+Please, don't use the issue tracker for this. The issue tracker is a tool to address bugs and feature requests in OctoFi dApp itself. Use the [Den Help Center](https://den.octo.fi/t/support).
 
 # Ground Rules
 
