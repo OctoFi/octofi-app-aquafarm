@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	background-color: ${({ theme }) => theme.bg2};
 	border-radius: 12px;
-	padding: 10px 10px;
+	padding: 10px;
 	height: calc(100% - 20px);
 	margin-bottom: 20px;
 	border: 1px solid ${({ theme }) => theme.text4};
@@ -34,6 +34,12 @@ const Wrapper = styled.div`
 		outline: none;
 		text-decoration: none;
 		box-shadow: none;
+	}
+
+	> div {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
 	}
 `;
 
