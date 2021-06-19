@@ -50,7 +50,7 @@ export function colors(darkMode?: boolean): Colors {
 		bg2: darkMode ? "#232429" : white,
 		bg3: darkMode ? "rgba(33, 36, 41, 1)" : "#FFF",
 		bg4: darkMode ? "#232429" : "rgb(212, 218, 242)",
-		bg5: darkMode ? `rgba(255, 255, 255, 0.15) ` : `rgba(0, 0, 0, 0.15)`,
+		bg5: darkMode ? `rgba(255, 255, 255, 0.1) ` : `rgba(0, 0, 0, 0.05)`,
 
 		// UI
 		borderColor: darkMode ? `rgba(255, 255, 255, 0.15) ` : `rgba(0, 0, 0, 0.15)`,
