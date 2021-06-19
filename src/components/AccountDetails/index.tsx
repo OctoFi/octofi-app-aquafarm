@@ -13,8 +13,8 @@ import { ExternalLink } from "../../theme";
 
 export const ModifiedJazzicon = styled(Jazzicon)`
 	border-radius: 50%;
-	width: 40px;
-	height: 40px;
+	width: 16px;
+	height: 16px;
 `;
 
 const UpperSection = styled.div`
@@ -35,10 +35,10 @@ const AccountGroupingRow = styled.div`
 `;
 
 const AccountSection = styled.div`
-	margin: 1rem 0;
+	margin-bottom: 1rem;
 	position: relative;
 	display: grid;
-	grid-row-gap: 30px;
+	grid-row-gap: 16px;
 `;
 
 const AccountControl = styled.div`
@@ -104,23 +104,9 @@ const WalletButtons = styled.span`
 `;
 
 const WalletLink = styled.p`
-	color: ${({ theme }) => theme.primary};
-	background-color: ${({ theme }) => theme.primaryLight};
-	border-radius: 18px;
-	padding: 10px 15px;
-	display: flex;
-	align-items: center;
+	color: ${({ theme }) => theme.text1};
 	font-size: 1rem;
-	max-height: 48px;
-	height: 48px;
 	font-weight: 500;
-
-	@media (max-width: 1199px) {
-		height: 32px;
-		max-height: 32px;
-		padding: 5px 15px;
-		border-radius: 12px;
-	}
 `;
 
 const ChangeAccountContainer = styled.div`

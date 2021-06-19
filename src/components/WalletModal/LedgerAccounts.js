@@ -30,20 +30,9 @@ const UpperSection = styled.div`
 
 const ContentWrapper = styled.div`
 	background-color: ${({ theme }) => theme.modalBG};
-	padding-bottom: 2rem;
+	margin-bottom: 1rem;
 	border-bottom-left-radius: 0.42rem;
 	border-bottom-right-radius: 0.42rem;
-`;
-
-const LedgerContentWrapper = styled(ContentWrapper)`
-    padding: 32px 0;
-	@media (max-width: 1199px) {
-		padding: 24px 20px 112px;
-	}
-  
-    @media (max-width: 576px) {
-        padding: 24px 0 112px;
-    }
 `;
 
 const Select = styled(Form.Control)`
@@ -133,7 +122,7 @@ const LedgerAccount = props => {
 
     return (
         <UpperSection>
-            <LedgerContentWrapper>
+            <ContentWrapper>
                 <Form onSubmit={selectLedgerAccount}>
                     <Row>
                         <Form.Group as={Col} xs={12}>
@@ -152,7 +141,7 @@ const LedgerAccount = props => {
                     </Row>
 
                 </Form>
-            </LedgerContentWrapper>
+            </ContentWrapper>
         </UpperSection>
     )
 }

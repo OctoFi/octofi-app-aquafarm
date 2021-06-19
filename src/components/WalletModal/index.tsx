@@ -1,10 +1,9 @@
+import React, { useEffect, useMemo, useState } from "react";
 import { AbstractConnector } from "@web3-react/abstract-connector";
 import { UnsupportedChainIdError, useWeb3React } from "@web3-react/core";
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { Row, Col, Form } from "react-bootstrap";
-import React, { useEffect, useMemo, useState } from "react";
 import { isMobile } from "react-device-detect";
-import styled from "styled-components";
 import { injected } from "../../connectors";
 import usePrevious from "../../hooks/usePrevious";
 import { ApplicationModal } from "../../state/application/actions";
@@ -25,128 +24,11 @@ import "./style.scss";
 import getNetConfig from "../../config";
 import { chainList } from "../../config/coinbase/nodeConfig";
 import NetworkOption from "./NetworkOption";
+import { useTranslation } from "react-i18next";
+import RecentTransactionsList from "../TransactionsList/RecentTransactionsList";
+import { Wrapper, ContentWrapper, LedgerContentWrapper, UpperSection, OptionGrid, ModalBody, ModalHeader, SectionHeader, SectionTitle, SectionNumber, AlertContainer, AlertText, SeeAllButton } from './styles';
 
 const { Check } = Form;
-
-const Wrapper = styled.div`
-	${({ theme }) => theme.flexColumnNoWrap};
-	margin: 0;
-	padding: 0;
-	width: 100%;
-`;
-
-const ContentWrapper = styled.div`
-	background-color: ${({ theme }) => theme.modalBG};
-	padding-bottom: 2rem;
-	border-bottom-left-radius: 0.42rem;
-	border-bottom-right-radius: 0.42rem;
-`;
-
-const LedgerContentWrapper = styled(ContentWrapper)`
-	@media (max-width: 1199px) {
-		padding: 24px 20px 112px;
-	}
-`;
-
-const UpperSection = styled.div`
-	position: relative;
-
-	h5 {
-		margin: 0;
-		margin-bottom: 0.5rem;
-		font-size: 1rem;
-		font-weight: 400;
-	}
-
-	h5:last-child {
-		margin-bottom: 0px;
-	}
-
-	h4 {
-		margin-top: 0;
-		font-weight: 500;
-	}
-`;
-
-const OptionGrid = styled.div`
-	display: grid;
-	grid-gap: 10px;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	
-	@media (max-width: 991px) {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		grid-gap: 8px;
-	}
-	
-	@media (max-width: 576px) {
-		grid-template-columns: 1fr 1fr 1fr;
-		grid-gap: 6px;
-	}
-	
-	@media (max-width: 320px) {
-		grid-template-columns: 1fr 1fr;
-		grid-gap: 4px;
-	}
-`;
-
-const ModalBody = styled(Modal.Body)`
-  padding: 20px 36px;
-`
-
-const ModalHeader = styled(Modal.Header)`
-	padding-left: 36px;
-	padding-right: 36px;
-`
-
-const SectionHeader = styled.div`
-	display: flex;
-	align-items: center;
-	margin-bottom: 20px;
-`
-
-const SectionTitle = styled.h3`
-	font-weight: 500;
-	font-size: 1rem;
-	color: ${({theme}) => theme.text1};
-	line-height: 21px;
-	margin: 0 0 0 8px;
-`
-
-const SectionNumber = styled.div`
-	width: 24px;
-	height: 24px;
-	font-weight: 500;
-	font-size: 1rem;
-	line-height: 19px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 24px;
-	background-color: ${({ theme }) => theme.primaryLight};
-	color: ${({ theme }) => theme.primary};
-	
-`
-
-
-
-const AlertContainer = styled.div`
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 56px;
-  padding: 4px 4px 4px 16px;
-  background-color: ${({ theme }) => theme.dangerLight};
-  
-`
-
-const AlertText = styled.span`
-  font-weight: 500;
-  font-size: 1rem;
-  color: ${({ theme }) => theme.danger};
-  line-height: 21px;
-  padding-right: 1rem;
-`
 
 const WALLET_VIEWS = {
 	OPTIONS: "options",
@@ -170,7 +52,7 @@ export default function WalletModal() {
 	const [selected, setSelected] = useState<string | undefined>(undefined);
 	const [chainChanged, setChainChanged] = useState(false);
 	const [usedChain] = useState(chainId);
-
+	const { t } = useTranslation();
 
 	let config = getNetConfig();
 
@@ -449,22 +331,36 @@ export default function WalletModal() {
 		}
 		if (account && walletView === WALLET_VIEWS.ACCOUNT) {
 			return (
-				<AccountDetails
-					toggleWalletModal={toggleWalletModal}
-					pendingTransactions={pendingTransactions}
-					confirmedTransactions={confirmedTransactions}
-					ENSName={ENSName}
-					openOptions={() => setWalletView(WALLET_VIEWS.OPTIONS)}
-				/>
+				<>
+					<AccountDetails
+						toggleWalletModal={toggleWalletModal}
+						pendingTransactions={pendingTransactions}
+						confirmedTransactions={confirmedTransactions}
+						ENSName={ENSName}
+						openOptions={() => setWalletView(WALLET_VIEWS.OPTIONS)}
+					/>
+
+					<div>
+						<RecentTransactionsList />
+						<SeeAllButton to={"/account/history"}>{t("seeAllTransactions")}</SeeAllButton>
+					</div>
+				</>
 			);
 		}
 		if(walletView === WALLET_VIEWS.LEDGER_ACCOUNT) {
 			return (
-				<LedgerAccount
-					onDone={() => {
-						setWalletView(WALLET_VIEWS.ACCOUNT);
-					}}
-				/>
+				<>
+					<LedgerAccount
+						onDone={() => {
+							setWalletView(WALLET_VIEWS.ACCOUNT);
+						}}
+					/>
+
+					<div>
+						<RecentTransactionsList />
+						<SeeAllButton to={"/account/history"}>{t("seeAllTransactions")}</SeeAllButton>
+					</div>
+				</>
 			)
 		}
 		if (walletView === WALLET_VIEWS.LEDGER_PATH) {

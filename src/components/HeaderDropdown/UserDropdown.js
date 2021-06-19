@@ -1,49 +1,16 @@
 import { useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
+import { Link, withRouter } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import SVG from "react-inlinesvg";
 
 import ArrowDown from "../../assets/images/global/arrow-down.svg";
-import UserIcon from "../Icons/User";
-import { Link, withRouter } from "react-router-dom";
 import { useActiveWeb3React } from "../../hooks";
-import { useTranslation } from "react-i18next";
-
-const Wrapper = styled.div`
-	position: relative;
-	padding: 14px 0;
-
-	&:hover .header-dropdown {
-		opacity: 1;
-		visibility: visible;
-		transform: rotateX(0deg) scale(1);
-	}
-`;
-
-const Item = styled.div`
-	display: flex;
-	align-items: center;
-`;
+import UserIcon from "../Icons/User";
+import { Wrapper, Item, DropDown } from "./styles";
 
 const Button = styled.button`
 	margin-right: 0.75rem;
-`;
-
-const DropDown = styled.div`
-	position: absolute;
-	top: 100%;
-	right: 0;
-	background-color: ${({ theme }) => theme.modalBG};
-	border-radius: 0.75rem;
-	box-shadow: -1px 11px 43px rgba(0, 0, 0, 0.12);
-	padding: 20px;
-
-	opacity: 0;
-	visibility: hidden;
-	transform-style: preserve-3d;
-	transform: rotateX(-40deg) scale(0.8);
-	transform-origin: top center;
-	transition: 0.4s ease all;
-	z-index: 99999;
 `;
 
 const DropDownItem = styled(Link)`
@@ -129,6 +96,7 @@ const HeaderDropdown = ({ items, title, ...props }) => {
 			props.history.push("/");
 		}
 	};
+
 	return (
 		<Wrapper>
 			<Item>
