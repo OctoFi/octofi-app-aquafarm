@@ -4,12 +4,13 @@ import { useActiveWeb3React } from "../../hooks";
 import { shortenAddress } from "../../utils";
 import Copy from "./Copy";
 import { Jazzicon } from "@ukstv/jazzicon-react";
+import { useTranslation } from "react-i18next";
 
 import { SUPPORTED_WALLETS } from "../../connectors";
 import { getEtherscanLink } from "../../utils";
 import { injected } from "../../connectors";
 import SVG from "react-inlinesvg";
-import { ExternalLink } from "../../theme";
+import { ExternalLink, LinkStyledButton } from "../../theme";
 
 export const ModifiedJazzicon = styled(Jazzicon)`
 	border-radius: 50%;
@@ -115,6 +116,27 @@ const ChangeAccountContainer = styled.div`
 	align-items: stretch;
 `;
 
+const DisconnectButton = styled(LinkStyledButton)`
+	color: ${({ theme }) => theme.text3};
+	flex-shrink: 0;
+	display: flex;
+	text-decoration: none;
+	font-size: 0.825rem;
+	align-items: center;
+	margin-left: 1.75rem;
+
+	:hover,
+	:active,
+	:focus {
+		text-decoration: none;
+		color: ${({ theme }) => theme.text3};
+	}
+
+	@media (max-width: 1199px) {
+		padding: 0;
+	}
+`;
+
 interface AccountDetailsProps {
 	toggleWalletModal: () => void;
 	pendingTransactions: string[];
@@ -129,7 +151,14 @@ export default function AccountDetails({
 	ENSName,
 	openOptions,
 }: AccountDetailsProps) {
-	const { chainId, account, connector } = useActiveWeb3React();
+	const { chainId, account, connector, deactivate } = useActiveWeb3React();
+	const { t } = useTranslation();
+
+	const logoutHandler = () => {
+		if (account) {
+			deactivate();
+		}
+	};
 
 	function formatConnectorName() {
 		const { ethereum } = window;
@@ -178,9 +207,7 @@ export default function AccountDetails({
 								<AccountControl>
 									{account && (
 										<Copy toCopy={account}>
-											<WalletButtons style={{ marginLeft: "10px" }}>
-												Copy Address
-											</WalletButtons>
+											<WalletButtons style={{ marginLeft: "10px" }}>Copy Address</WalletButtons>
 										</Copy>
 									)}
 									{chainId && account && (
@@ -190,15 +217,22 @@ export default function AccountDetails({
 											href={chainId && getEtherscanLink(chainId, ENSName, "address")}
 										>
 											<SVG
-												src={
-													require("../../assets/images/account/external-link.svg")
-														.default
-												}
+												src={require("../../assets/images/account/external-link.svg").default}
 											/>
 											<WalletButtons style={{ marginLeft: "10px" }}>
 												View on Etherscan
 											</WalletButtons>
 										</AddressLink>
+									)}
+									{account && (
+										<DisconnectButton onClick={logoutHandler}>
+											<SVG
+												src={require("../../assets/images/global/close.svg").default}
+											/>
+											<WalletButtons style={{ marginLeft: "10px" }}>
+												{t("menu.disconnect")}
+											</WalletButtons>
+										</DisconnectButton>
 									)}
 								</AccountControl>
 							</>
@@ -207,9 +241,7 @@ export default function AccountDetails({
 								<AccountControl>
 									{account && (
 										<Copy toCopy={account}>
-											<WalletButtons style={{ marginLeft: "10px" }}>
-												Copy Address
-											</WalletButtons>
+											<WalletButtons style={{ marginLeft: "10px" }}>Copy Address</WalletButtons>
 										</Copy>
 									)}
 									{chainId && account && (
@@ -219,15 +251,22 @@ export default function AccountDetails({
 											href={getEtherscanLink(chainId, account, "address")}
 										>
 											<SVG
-												src={
-													require("../../assets/images/account/external-link.svg")
-														.default
-												}
+												src={require("../../assets/images/account/external-link.svg").default}
 											/>
 											<WalletButtons style={{ marginLeft: "10px" }}>
 												View on Etherscan
 											</WalletButtons>
 										</AddressLink>
+									)}
+									{account && (
+										<DisconnectButton onClick={logoutHandler}>
+											<SVG
+												src={require("../../assets/images/global/close.svg").default}
+											/>
+											<WalletButtons style={{ marginLeft: "10px" }}>
+												{t("menu.disconnect")}
+											</WalletButtons>
+										</DisconnectButton>
 									)}
 								</AccountControl>
 							</>

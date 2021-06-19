@@ -11,8 +11,7 @@ $ease: cubic-bezier(0.38, 0.24, 0.28, 1.17);
 // Switches style
 .switch {
 	position: relative;
-	display: flex;
-	align-items: center;
+	display: inline-block;
 	cursor: pointer;
 	margin-bottom: 0;
 

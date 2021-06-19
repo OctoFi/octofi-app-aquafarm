@@ -56,7 +56,7 @@ const Page = (props) => {
 	return (
 		<>
 			<Header />
-			<PageContainer hasBg={props.hasBg} className="page container">
+			<PageContainer hasBg={props.hasBg} className="page container-lg">
 				<PageContent size={props.size || "base"}>
 					{props.title && (
 						<Row>
