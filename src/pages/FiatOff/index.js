@@ -22,7 +22,7 @@ const InnerCard = styled.div`
 	background-color: ${({ theme }) => theme.bg1};
 	padding: 10px;
 	align-items: stretch;
-	border: 1px solid ${({ theme }) => theme.bg5};
+	border: 1px solid ${({ theme }) => theme.borderColor};
 	margin-bottom: 20px;
 `;
 

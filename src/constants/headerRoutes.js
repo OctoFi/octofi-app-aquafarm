@@ -2,6 +2,21 @@ export const routes = {
 	fiat: {
 		title: "buy",
 		routes: {
+			instantSwap: {
+				title: "swap",
+				path: "/swap/all",
+				state: "success",
+			},
+			swap: {
+				title: "uniswap",
+				path: "/swap/uni",
+				state: "success",
+			},
+			cross: {
+				title: "cross",
+				path: "/cross/anyswap",
+				state: "success",
+			},
 			on: {
 				title: "crypto",
 				path: "/fiat/on",
@@ -10,21 +25,6 @@ export const routes = {
 			off: {
 				title: "giftCards",
 				path: "/fiat/off-cards",
-				state: "success",
-			},
-		},
-	},
-	swap: {
-		title: "swap",
-		routes: {
-			instantSwap: {
-				title: "aggregator",
-				path: "/swap/all",
-				state: "success",
-			},
-			swap: {
-				title: "uniswap",
-				path: "/swap/uni",
 				state: "success",
 			},
 		},
@@ -99,22 +99,24 @@ export const routes = {
 			},
 		},
 	},
-};
-
-export const accountRoutes = {
-	dashboard: {
-		title: "dashboard",
-		path: "/dashboard",
-		state: "success",
-	},
-	wallet: {
-		title: "wallet",
-		path: "/account/wallet",
-		state: "success",
-	},
-	history: {
-		title: "history",
-		path: "/account/history",
-		state: "success",
-	},
+	account: {
+		title: "Account",
+		routes: {
+			dashboard: {
+				title: "dashboard",
+				path: "/dashboard",
+				state: "success",
+			},
+			wallet: {
+				title: "wallet",
+				path: "/account/wallet",
+				state: "success",
+			},
+			history: {
+				title: "history",
+				path: "/account/history",
+				state: "success",
+			},
+		}
+	}
 };

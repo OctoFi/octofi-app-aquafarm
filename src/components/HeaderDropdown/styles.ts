@@ -14,6 +14,10 @@ export const Wrapper = styled.div`
     }
 `;
 
+export const CurrencyWrapper = styled(Wrapper)`
+    padding: 0;
+`;
+
 export const Item = styled.div`
     display: flex;
     align-items: center;

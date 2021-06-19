@@ -1,13 +1,10 @@
-import styled, { ThemeContext } from "styled-components";
+import styled from "styled-components";
 import SVG from "react-inlinesvg";
 
 import Logo from "../Logo";
-import { useActiveWeb3React } from "../../hooks";
 import SideDrawerItem from "./Item";
-import { routes, accountRoutes } from "../../constants/headerRoutes";
+import { routes } from "../../constants/headerRoutes";
 import { Link } from "react-router-dom";
-import UserIcon from "../Icons/User";
-import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 
 const Wrapper = styled.div`
@@ -94,8 +91,6 @@ const LinkItem = styled(Link)`
 `;
 
 const SideDrawer = ({ open, onDismiss, ...props }) => {
-	const theme = useContext(ThemeContext);
-	const { account } = useActiveWeb3React();
 	const { t } = useTranslation();
 	return (
 		<>
@@ -112,18 +107,15 @@ const SideDrawer = ({ open, onDismiss, ...props }) => {
 					<LogoContainer>
 						<Logo />
 					</LogoContainer>
-					{account && (
-						<SideDrawerItem
-							title={"Account"}
-							items={accountRoutes}
-							icon={<UserIcon size={"20px"} style={{ color: theme.primary }} />}
-						/>
-					)}
 
 					{Object.keys(routes).map((key, index) => {
 						const r = routes[key];
 						if (r.hasOwnProperty("path")) {
-							return <LinkItem to={r.path} key={index}>{r.title}</LinkItem>;
+							return (
+								<LinkItem to={r.path} key={index}>
+									{r.title}
+								</LinkItem>
+							);
 						} else {
 							return <SideDrawerItem title={r.title} items={r.routes} key={index} />;
 						}

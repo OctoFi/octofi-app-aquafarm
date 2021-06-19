@@ -7,7 +7,7 @@ import SVG from "react-inlinesvg";
 import { rates } from "../../constants";
 import * as actions from "../../state/currency/actions";
 import FlagIcon from "../../assets/images/flag.svg";
-import { Wrapper, Item, IconButton, DropDown, DropDownItem, CurrencyLogo, Title2 } from "./styles";
+import { CurrencyWrapper, Item, IconButton, DropDown, DropDownItem, CurrencyLogo, Title2 } from "./styles";
 
 const HeaderDropdown = ({ items, title, ...props }) => {
 	const selectedCurrency = useSelector((state) => state.currency.selected);
@@ -24,7 +24,7 @@ const HeaderDropdown = ({ items, title, ...props }) => {
 	}, [selectedCurrency, dispatch]);
 
 	return (
-		<Wrapper>
+		<CurrencyWrapper>
 			<Item>
 				<IconButton variant={"link"} className={"py-0 px-0"}>
 					<SVG src={FlagIcon} />
@@ -45,7 +45,7 @@ const HeaderDropdown = ({ items, title, ...props }) => {
 					))}
 				</Row>
 			</DropDown>
-		</Wrapper>
+		</CurrencyWrapper>
 	);
 };
 
