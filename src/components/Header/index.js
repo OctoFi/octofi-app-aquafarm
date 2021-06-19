@@ -17,7 +17,6 @@ import { emitter } from "../../lib/helper";
 import { shorten } from "../../state/governance/hooks";
 import ThemeToggler from "../ThemeToggler";
 import { useTranslation } from "react-i18next";
-import NotificationDropdown from "../HeaderDropdown/NotificationDropDown";
 
 const Container = styled.div`
 	transition: all ease 0.4s;
@@ -257,7 +256,6 @@ const Header = (props) => {
 								<ThemeContainer>
 									<ThemeToggler />
 								</ThemeContainer>
-								<NotificationDropdown />
 								<CurrencyDropdown />
 								{!account ? (
 									<Button variant={"outline-primary"} onClick={toggleConnectModal}>
