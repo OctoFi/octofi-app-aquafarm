@@ -1,8 +1,8 @@
 import ReactApexChart from "react-apexcharts";
 import { Component } from "react";
 
-const primaryColor = `#0891B2`;
-const secondaryColor = `#a890fe`;
+const primaryColor = `#34D399`;
+const secondaryColor = `#EB6B6B`;
 
 const colors = {
 	primary: primaryColor,
@@ -128,7 +128,7 @@ class SparklineChart extends Component {
 			<ReactApexChart
 				options={this.state.options}
 				series={this.state.series}
-				type="area"
+				type="line"
 				height={this.props.minHeight || 40}
 				width={this.props.minWidth || 120}
 			/>

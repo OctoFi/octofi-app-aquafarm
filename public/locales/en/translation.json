@@ -25,8 +25,8 @@
     "menu": {
         "Account": "Account",
         "menu": "Menu",
-        "buy": "Buy",
-        "crypto": "Crypto",
+        "buy": "Buy / Swap",
+        "crypto": "Crypto with fiat",
         "giftCards": "Gift Cards & more",
         "swap": "Swaptopus",
         "aggregator": "Aggregator",
@@ -53,7 +53,7 @@
         "launchpad": "INKubator",
         "cross": "Crosstopus",
         "bridges": "Bridges",
-        "anySwap": "AnySwap",
+        "anySwap": "Swap",
         "crossBalance": "Balance"
     },
     "wallet": {
@@ -100,6 +100,7 @@
         "notEnoughGas": "Not enough ETH for the gas",
         "noAssets": "There are no assets",
         "noTransaction": "There are no transactions",
+        "noRecentTransaction": "Your transactions will appear here",
         "noTransactionDesc": "Please make some transactions first.",
         "noPlatform": "There is no Platform",
         "noPlatformDesc": "Please make some transactions on investment platforms first.",
@@ -216,7 +217,7 @@
         "portfolios": "Portfolios",
         "rebalancingSets": "Rebalancing Sets",
         "oneDay": "1 Day",
-        "week": "A Week",
+        "week": "1 Week",
         "month": "1 Month",
         "sixMonth": "6 Month",
         "year": "1 Year"
@@ -322,6 +323,7 @@
     "seeAllTransactions": "See all Transactions",
     "pendingTransactions": "Pending Transactions",
     "confirmedTransactions": "Confirmed Transactions",
+    "recentTransactions": "Recent Transactions",
     "showMore": "Show More",
     "invest": "Invest",
     "openOrders": "Open Orders",
@@ -365,6 +367,7 @@
     "amount": "Amount",
     "time": "Time",
     "markets": "Markets",
+    "last7Days": "Last 7 Days",
     "noWallet": "No Ethereum wallet found",
     "installWeb3MobileBrowser": "Please visit us from a web3-enabled mobile browser such as Trust Wallet or Coinbase Wallet.",
     "installMetamask": "Please visit us after installing Metamask on Chrome or Brave.",

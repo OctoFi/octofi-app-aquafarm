@@ -20,6 +20,7 @@ export interface Colors {
 	bg5: Color;
 	
 	// UI
+	borderColor: Color;
 	bodyBg: Color;
 	splashBG: Color;
 	backdrop: Color;
@@ -34,6 +35,7 @@ export interface Colors {
 	primary: Color;
 	primaryLight: Color;
 	secondary: Color;
+	secondaryLight: Color;
 	tertiary: Color;
 
 	// Other

@@ -208,11 +208,12 @@ const Currencies = (props) => {
 		},
 		{
 			dataField: "sparkline",
-			text: t("markets"),
+			text: t("last7Days"),
 			formatter: (cell, row, index) => {
 				const data = row?.sparkline_in_7d?.price;
+			
 				return row.hasOwnProperty("sparkline_in_7d") ? (
-					<SparklineChart data={data} theme={index % 2 === 1 ? "secondary" : "primary"} />
+					<SparklineChart data={data} theme={row.price_change_percentage_7d_in_currency >= 0 ? "primary" : "secondary"} />
 				) : (
 					<Skeleton width={120} height={40} />
 				);

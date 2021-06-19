@@ -7,18 +7,14 @@ import Logo from "../Logo";
 import "./styles.scss";
 import { useWalletModalToggle } from "../../state/application/hooks";
 import { useActiveWeb3React } from "../../hooks";
-import { getEtherscanLink } from "../../utils";
-import { routes, accountRoutes } from "../../constants/headerRoutes";
+import { routes } from "../../constants/headerRoutes";
 import HeaderDropdown from "../HeaderDropdown";
-import UserDropdown from "../HeaderDropdown/UserDropdown";
-import CurrencyDropdown from "../HeaderDropdown/CurrencyDropdown";
+import SettingsDropdown from "../SettingsDropdown";
 import SideDrawer from "../SideDrawer";
 import { useEffect, useState } from "react";
 import { emitter } from "../../lib/helper";
-import { shorten } from "../../state/governance/hooks";
-import ThemeToggler from "../ThemeToggler";
+import { shortenAddress } from "../../utils";
 import { useTranslation } from "react-i18next";
-import NotificationDropdown from "../HeaderDropdown/NotificationDropDown";
 
 const Container = styled.div`
 	transition: all ease 0.4s;
@@ -46,31 +42,14 @@ const Container = styled.div`
 	}
 `;
 
-const WalletLink = styled.a`
-	color: ${({ theme }) => theme.primary};
-	background-color: rgba(135, 220, 225, 0.15);
-	border-radius: 18px;
-	text-decoration: none;
-	padding: 10px 15px;
-	display: flex;
-	align-items: center;
+const WalletLink = styled.div`
+	color: ${({ theme }) => theme.text};
+	background-color: ${({ theme }) => theme.bg5};
+	border-radius: 12px;
+	padding: 8px 16px;
 	font-size: 1rem;
-	max-height: 48px;
-	height: 48px;
 	font-weight: 500;
-	margin-bottom: 0;
 	cursor: pointer;
-	margin-right: 10px;
-
-	:hover {
-		text-decoration: none;
-	}
-
-	:focus,
-	:active {
-		text-decoration: none;
-		outline: none;
-	}
 `;
 
 const StyledNavbarBrand = styled(Navbar.Brand)`
@@ -81,10 +60,6 @@ const StyledNavbarBrand = styled(Navbar.Brand)`
 			transform: ${({ hasCallback }) => (hasCallback ? "translateX(52px)" : "translateX(0)")};
 		}
 	}
-`;
-
-const ThemeContainer = styled.div`
-	margin-right: 18px;
 `;
 
 const BackButton = styled.button`
@@ -134,7 +109,7 @@ const MenuIcon = styled.div`
 `;
 
 const Header = (props) => {
-	const { account, chainId } = useActiveWeb3React();
+	const { account } = useActiveWeb3React();
 	const toggleConnectModal = useWalletModalToggle();
 	const [sidedrawer, setSidedrawer] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
@@ -216,9 +191,9 @@ const Header = (props) => {
 		<>
 			<SideDrawer open={sidedrawer} onDismiss={dismissHandler} />
 			<Container scrolled={scrolled} right={scrollbarWidth} hasCallback={callback.action !== undefined}>
-				<div className="container">
-					<Navbar className={"header px-0"} expand={"xl"} variant={"dark"}>
-						<div className="back-button d-xl-none">
+				<div className="container-lg">
+					<Navbar className={"header px-0"} expand={"lg"} variant={"dark"}>
+						<div className="back-button d-lg-none">
 							<BackButton onClick={callback.action} hasCallback={callback.action !== undefined}>
 								<SVG src={require("../../assets/images/global/arrow-left.svg").default} />
 							</BackButton>
@@ -227,7 +202,7 @@ const Header = (props) => {
 							<StyledNavbarBrand hasCallback={callback.action !== undefined}>
 								<Logo hideOnMobile />
 							</StyledNavbarBrand>
-							<MenuIcon className={"d-flex d-xl-none"}>
+							<MenuIcon className={"d-flex d-lg-none"}>
 								<SVG
 									src={require("../../assets/images/menu.svg").default}
 									onClick={() => setSidedrawer(true)}
@@ -255,27 +230,18 @@ const Header = (props) => {
 								})}
 							</Nav>
 							<div className={"d-flex align-items-stretch align-items-lg-center flex-column flex-lg-row"}>
-								<ThemeContainer>
-									<ThemeToggler />
-								</ThemeContainer>
-								<NotificationDropdown />
-								<CurrencyDropdown />
 								{!account ? (
-									<Button variant={"outline-primary"} onClick={toggleConnectModal}>
+									<Button variant={"primary"} onClick={toggleConnectModal}>
 										{t("menu.connect")}
 									</Button>
 								) : (
 									<div className={"d-flex align-items-center justify-content-center pt-3 pt-lg-0"}>
-										<WalletLink
-											href={chainId && getEtherscanLink(chainId, account, "address")}
-											target={"_blank"}
-											rel={"noopener noreferrer"}
-										>
-											{shorten(account, "symbol")}
+										<WalletLink onClick={toggleConnectModal}>
+											{account && shortenAddress(account)}
 										</WalletLink>
-										<UserDropdown items={accountRoutes} title={"account"} />
 									</div>
 								)}
+								<SettingsDropdown />
 							</div>
 						</Navbar.Collapse>
 					</Navbar>

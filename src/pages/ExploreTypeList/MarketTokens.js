@@ -131,7 +131,7 @@ const MarketLink = styled.a`
 
 const CustomTitle = styled.h4`
 	color: ${({ theme }) => theme.text1};
-	font-size: 1.25rem;
+	font-size: 1rem;
 
 	@media (max-width: 991px) {
 		font-size: 0.875rem;
@@ -140,7 +140,7 @@ const CustomTitle = styled.h4`
 
 const SymbolText = styled.span`
 	font-weight: 500;
-	font-size: 1rem;
+	font-size: 0.75rem;
 	color: ${({ theme }) => theme.text1};
 
 	@media (max-width: 991px) {
@@ -296,10 +296,7 @@ const MarketTokens = (props) => {
 			dataField: "id",
 			text: "ID",
 			formatter: (cellContent, row, rowIndex) => rowIndex + 1,
-			style: {
-				width: 120,
-			},
-			sort: true,
+			sort: false,
 		},
 		{
 			dataField: "name",
@@ -347,7 +344,7 @@ const MarketTokens = (props) => {
 						row.price_change_percentage_24h >= 0 ? "label-light-success" : "label-light-danger"
 					} `}
 				>
-					{row.price_change_percentage_24h ? `${row.price_change_percentage_24h.toFixed(4)}%` : "-"}
+					{row.price_change_percentage_24h ? `${row.price_change_percentage_24h.toFixed(2)}%` : "-"}
 				</span>
 			),
 			sort: true,
@@ -362,7 +359,7 @@ const MarketTokens = (props) => {
 					} `}
 				>
 					{row.price_change_percentage_7d_in_currency
-						? `${row.price_change_percentage_7d_in_currency.toFixed(4)}%`
+						? `${row.price_change_percentage_7d_in_currency.toFixed(2)}%`
 						: "-"}
 				</span>
 			),
@@ -378,7 +375,7 @@ const MarketTokens = (props) => {
 					} `}
 				>
 					{row.price_change_percentage_30d_in_currency
-						? `${row.price_change_percentage_30d_in_currency.toFixed(4)}%`
+						? `${row.price_change_percentage_30d_in_currency.toFixed(2)}%`
 						: "-"}
 				</span>
 			),
@@ -394,7 +391,7 @@ const MarketTokens = (props) => {
 					} `}
 				>
 					{row.price_change_percentage_1y_in_currency
-						? `${row.price_change_percentage_1y_in_currency.toFixed(4)}%`
+						? `${row.price_change_percentage_1y_in_currency.toFixed(2)}%`
 						: "-"}
 				</span>
 			),

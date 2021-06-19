@@ -15,7 +15,7 @@ const Button = styled.button`
 	padding-right: ${({ size }) => (size === "sm" ? "22px" : "24px")};
 	border-radius: ${({ size }) => (size === "sm" ? "12px" : "18px")};
 	background-color: ${({ variant, theme }) =>
-		variant === "secondary" ? "rgba(121, 133, 246, 0.15)" : theme.primaryLight};
+		variant === "secondary" ? theme.secondaryLight : theme.primaryLight};
 	transition: 0.4s ease all;
 	display: flex;
 	align-items: center;
@@ -34,7 +34,7 @@ const Button = styled.button`
 		background-color: ${({ variant, theme }) =>
 			variant === "secondary" ? darken(0.1, theme.secondary) : darken(0.1, theme.primary)};
 		box-shadow: 0 0 0 5px
-			${({ variant, theme }) => (variant === "secondary" ? "rgba(121, 133, 246, 0.15)" : theme.primaryLight)};
+			${({ variant, theme }) => (variant === "secondary" ? theme.secondaryLight : theme.primaryLight)};
 		color: ${({ theme }) => theme.text1};
 	}
 
@@ -59,7 +59,7 @@ const ButtonText = styled.span`
 `;
 
 const DropdownList = styled.div`
-	background-image: linear-gradient(346.84deg, #9aa7d0 1.12%, #b7c2e4 78.56%);
+	background-color: #f2f2f2;
 	box-shadow: -1px 11px 43px rgba(0, 0, 0, 0.12);
 	border-radius: 12px;
 	position: absolute;

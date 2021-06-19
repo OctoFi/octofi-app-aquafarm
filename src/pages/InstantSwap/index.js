@@ -130,7 +130,7 @@ const SwitchCol = styled(Col)`
 const LoadingContainer = styled.div`
 	padding: 10px;
 	background-color: ${({ theme }) => theme.bg1};
-	border: 1px solid ${({ theme }) => theme.bg5};
+	border: 1px solid ${({ theme }) => theme.borderColor};
 	border-radius: 12px;
 	height: 40px;
 	width: 140px;

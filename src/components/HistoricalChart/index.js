@@ -11,12 +11,6 @@ import Observer from "../ComponentObserver";
 import "./style.scss";
 import {formatMoney} from "../../lib/helper";
 
-const ChartWrapper = styled.div`
-	border-radius: 18px;
-	border: 1px solid ${({ theme }) => theme.text4};
-	padding: 25px 23px 29px;
-`;
-
 const Title = styled.span`
 	font-size: ${({ isPrimary }) => (isPrimary ? "1.875rem" : "1.25rem")};
 	font-weight: 700;
@@ -243,7 +237,7 @@ class HistoricalChart extends React.Component {
 
 	render() {
 		return (
-			<ChartWrapper id="chart" className={this.props.isPrimary ? "primary-chart" : ""}>
+			<div id="chart" className={this.props.isPrimary ? "primary-chart" : ""}>
 				<Observer value={this.props.data} didUpdate={this.updateSeries} />
 				<div className="d-flex align-items-center justify-content-between card-spacer flex-grow-1">
 					<div className="d-flex flex-column text-left">
@@ -278,7 +272,7 @@ class HistoricalChart extends React.Component {
 						/>
 					)}
 				</ChartBody>
-			</ChartWrapper>
+			</div>
 		);
 	}
 }
