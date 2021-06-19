@@ -166,7 +166,7 @@ const TabHeader = styled.div`
     background-color: ${({ theme }) => theme.modalBG};
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 16px;
-    border: 1px solid ${({ theme }) => theme.bg5};
+    border: 1px solid ${({ theme }) => theme.borderColor};
   }
   
   @media (max-width: 576px) {

@@ -53,6 +53,7 @@ export function colors(darkMode?: boolean): Colors {
 		bg5: darkMode ? `rgba(255, 255, 255, 0.15) ` : `rgba(0, 0, 0, 0.15)`,
 
 		// UI
+		borderColor: darkMode ? `rgba(255, 255, 255, 0.15) ` : `rgba(0, 0, 0, 0.15)`,
 		bodyBg: darkMode
 			? "linear-gradient(201.32deg, #222429 -48.82%, #232429 51.35%)"
 			: "linear-gradient(201.32deg, #fff -48.82%, #fff 51.35%)",
