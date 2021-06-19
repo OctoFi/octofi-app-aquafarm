@@ -2,7 +2,7 @@ import { useContext, useRef } from "react";
 import styled, { ThemeContext } from "styled-components";
 import { Settings } from "react-feather";
 
-import { useModalOpen, useToggleSettingsMenu } from "../../../../state/application/hooks";
+import { useModalOpen, useToggleUniswapSettingsMenu } from "../../../../state/application/hooks";
 import { ApplicationModal } from "../../../../state/application/actions";
 import { useUserSlippageTolerance, useUserTransactionTTL } from "../../../../state/user/hooks";
 import { useOnClickOutside } from "../../../../hooks/useOnClickOutside";
@@ -79,8 +79,8 @@ const StyledMenuButton = styled.button`
 
 const SwapHeader = (props) => {
 	const node = useRef();
-	const open = useModalOpen(ApplicationModal.SETTINGS);
-	const toggle = useToggleSettingsMenu();
+	const open = useModalOpen(ApplicationModal.UNISWAPSETTINGS);
+	const toggle = useToggleUniswapSettingsMenu();
 
 	const theme = useContext(ThemeContext);
 	const [userSlippageTolerance, setUserslippageTolerance] = useUserSlippageTolerance();
