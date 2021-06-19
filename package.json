@@ -1,6 +1,6 @@
 {
 	"name": "octofi-app-aquafarm",
-	"version": "4.2.0",
+	"version": "4.2.1",
 	"private": true,
 	"homepage": "https://app.octo.fi",
 	"dependencies": {

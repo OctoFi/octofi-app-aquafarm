@@ -1,6 +1,8 @@
 import { HashRouter as Router } from "react-router-dom";
 import { SkeletonTheme } from "react-loading-skeleton";
 import { Toaster } from "react-hot-toast";
+import { Suspense } from "react";
+import SplashScreen from "./components/SplashScreen";
 
 import { FixedGlobalStyle, ThemedGlobalStyle } from "./theme";
 import RouteChanger from "./components/RouteChanger/routeChanger";
@@ -32,36 +34,38 @@ function App() {
 	const darkMode = useIsDarkMode();
 
 	return (
-		<Web3ReactManager>
-			<FixedGlobalStyle />
-			<Updaters />
-			<Toaster
-				position="bottom-left"
-				toastOptions={{
-					className: "",
-					style: {
-						background: "#464646",
-						color: "#fff",
-						zIndex: 9999999,
-						boxShadow: "initial",
-						borderRadius: 12,
-					},
-					duration: 5000,
-				}}
-			/>
-			<TransactionHandler />
-			<SkeletonTheme
-				color={darkMode ? "#1e1f24" : "rgb(212, 218, 242)"}
-				highlightColor={darkMode ? "#232429" : "#F3F5FD"}
-			>
-				<ThemedGlobalStyle />
-				<Router>
-					<WalletModal />
-					<RouteChanger />
-					<Routes />
-				</Router>
-			</SkeletonTheme>
-		</Web3ReactManager>
+		<Suspense fallback={<SplashScreen />}>
+			<Web3ReactManager>
+				<FixedGlobalStyle />
+				<Updaters />
+				<Toaster
+					position="bottom-left"
+					toastOptions={{
+						className: "",
+						style: {
+							background: "#464646",
+							color: "#fff",
+							zIndex: 9999999,
+							boxShadow: "initial",
+							borderRadius: 12,
+						},
+						duration: 5000,
+					}}
+				/>
+				<TransactionHandler />
+				<SkeletonTheme
+					color={darkMode ? "#1e1f24" : "rgb(212, 218, 242)"}
+					highlightColor={darkMode ? "#232429" : "#F3F5FD"}
+				>
+					<ThemedGlobalStyle />
+					<Router>
+						<WalletModal />
+						<RouteChanger />
+						<Routes />
+					</Router>
+				</SkeletonTheme>
+			</Web3ReactManager>
+		</Suspense>
 	);
 }
 
