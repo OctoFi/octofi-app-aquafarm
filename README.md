@@ -105,12 +105,9 @@ If you'd like to use this project as a template to create your own dApp, this sh
 ```
  "homepage": "https://{Github-username}.github.io/{Github-repo-name}",
  ```
-3. Open /src/index.js and find the following line then change according to the Github repo name:
-```
- HashRouter basename={‘/{Github-repo-name}’}
- ```
-4. Open /public directory and delete CNAME.
-5. Then back to your terminal and enter the following commands:<br/>
+3. Open /public directory and delete CNAME.
+4. Use edit.env.production as a starter file for your own environment variables to be put in a local `.env.local` file.
+5. Then go back to your terminal and enter the following commands:<br/>
  rm -rf ./.git <br/>
  yarn cache clean --all <br/>
  yarn install --ignore-engines --ignore-scripts --network-timeout 600000<br/>
