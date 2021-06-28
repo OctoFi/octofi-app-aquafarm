@@ -47,18 +47,13 @@ function Platforms(props) {
 		<Page title={props.match.params.platform}>
 			<Row className={"custom-row"}>
 				<Col xs={12} md={4}>
-					<ValueCard className={"gutter-b"} title={"Supplied Total"} value={totalAssets} type={"assets"} />
+					<ValueCard title={"Supplied Total"} value={totalAssets} type={"assets"} />
 				</Col>
 				<Col xs={12} md={4}>
-					<ValueCard className={"gutter-b"} title={"Borrowed Total"} value={totalDebts} type={"debts"} />
+					<ValueCard title={"Borrowed Total"} value={totalDebts} type={"debts"} />
 				</Col>
 				<Col xs={12} md={4}>
-					<ValueCard
-						className={"gutter-b"}
-						title={"Net"}
-						value={platform ? platform.total : 0}
-						type={"netWorth"}
-					/>
+					<ValueCard title={"Net"} value={platform ? platform.total : 0} type={"netWorth"} />
 				</Col>
 			</Row>
 			<Row>

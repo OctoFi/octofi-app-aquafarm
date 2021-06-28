@@ -97,7 +97,6 @@ const Dashboard = (props) => {
 					<Row className={"custom-row"}>
 						<Col xs={12} md={4}>
 							<ValueCard
-								className={"gutter-b"}
 								color={"secondary"}
 								title={t("totalAssets")}
 								value={props.overview.deposits.total + props.overview.wallet.total}
@@ -106,7 +105,6 @@ const Dashboard = (props) => {
 						</Col>
 						<Col xs={12} md={4}>
 							<ValueCard
-								className={"gutter-b"}
 								title={t("totalDebts")}
 								value={props.overview.debts.total}
 								type={"debts"}
@@ -114,7 +112,6 @@ const Dashboard = (props) => {
 						</Col>
 						<Col xs={12} md={4}>
 							<ValueCard
-								className={"gutter-b"}
 								color={"secondary"}
 								title={t("netWorth")}
 								value={
