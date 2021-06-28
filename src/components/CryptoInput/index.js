@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState} from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 
@@ -128,11 +128,11 @@ export default function CryptoInput({
 	}, [setModalOpen]);
 
 	const iconHTML = useMemo(() => {
-		if('icon' in selected) {
+		if ("icon" in selected) {
 			return dompurify.sanitize(selected.icon);
 		}
-		return ''
-	}, [selected])
+		return "";
+	}, [selected]);
 
 	return (
 		<InputPanel id={id}>
@@ -179,17 +179,15 @@ export default function CryptoInput({
 						</CurrencySelect>
 					)}
 					{!hideInput && (
-						<>
-							<NumericalInput
-								noBorder={true}
-								className="token-amount-input"
-								value={value}
-								onUserInput={(val) => {
-									onUserInput(val, type);
-								}}
-								reverse={reverse && !isMobile}
-							/>
-						</>
+						<NumericalInput
+							noBorder={true}
+							className="token-amount-input"
+							value={value}
+							onUserInput={(val) => {
+								onUserInput(val, type);
+							}}
+							reverse={reverse && !isMobile}
+						/>
 					)}
 					{reverse && !isMobile && (
 						<CurrencySelect

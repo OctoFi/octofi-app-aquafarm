@@ -54,7 +54,7 @@ function App() {
 				/>
 				<TransactionHandler />
 				<SkeletonTheme
-					color={darkMode ? "#1e1f24" : "rgb(212, 218, 242)"}
+					color={darkMode ? "#1e1f24" : "#d4daf2"}
 					highlightColor={darkMode ? "#232429" : "#F3F5FD"}
 				>
 					<ThemedGlobalStyle />

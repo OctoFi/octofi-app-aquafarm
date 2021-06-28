@@ -365,9 +365,7 @@ class NFT extends Component {
 						};
 					});
 				}
-			} catch (e) {
-
-			}
+			} catch (e) {}
 		}
 	};
 }

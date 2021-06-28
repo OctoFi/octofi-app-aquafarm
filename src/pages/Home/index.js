@@ -43,21 +43,10 @@ const HomePage = (props) => {
 
 	return (
 		<Page disableAccountCheck={true} notNetworkSensitive={true}>
-			{/* Home-Hero: start */}
 			<Hero />
-			{/* Home-Hero: end */}
-
-			{/* Home-Currencies: start */}
 			<Banners />
-			{/* Home-Currencies: end */}
-
-			{/* Home-Currencies: start */}
 			<Currencies />
-			{/* Home-Currencies: end */}
-
-			{/* Home-Features: start */}
 			<Features />
-			{/* Home-Features: end */}
 		</Page>
 	);
 };

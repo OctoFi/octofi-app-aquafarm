@@ -38,7 +38,7 @@ const CheckBalance = (props) => {
 		return (
 			<Row>
 				<Col xs={12} lg={{ offset: 3, span: 6 }}>
-					<ResponsiveCard className={"d-flex align-items-center justify-content-center py-5"} marginTop={-30}>
+					<ResponsiveCard className={"d-flex align-items-center justify-content-center py-5"}>
 						<Loading width={40} height={40} id={"check-balance"} active />
 					</ResponsiveCard>
 				</Col>

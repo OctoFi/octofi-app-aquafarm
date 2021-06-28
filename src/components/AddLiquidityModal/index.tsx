@@ -112,7 +112,7 @@ export const ResponsivePlatformTitle = styled(PlatformTitle)`
 	margin-left: 10px;
 `;
 
-export default function AddLiquidityModal ({ history }: RouteComponentProps) {
+export default function AddLiquidityModal({ history }: RouteComponentProps) {
 	const { account, chainId, library } = useActiveWeb3React();
 	const dispatch = useDispatch();
 	const { t } = useTranslation();

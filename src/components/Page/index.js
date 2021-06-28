@@ -47,7 +47,7 @@ const Title = styled.h1`
 const Page = (props) => {
 	const { chainId } = useActiveWeb3React();
 
-	const notNetworkSensitive = props?.notNetworkSensitive || false
+	const notNetworkSensitive = props?.notNetworkSensitive || false;
 
 	useEffect(() => {
 		document.body.scrollTo(0, 0);
@@ -65,14 +65,13 @@ const Page = (props) => {
 							</Col>
 						</Row>
 					)}
-					{notNetworkSensitive
-						? props.children
-						: (!chainId || (chainId === 1))
-						? props.children
-						: (
-							<WrongNetwork/>
-						)
-					}
+					{notNetworkSensitive ? (
+						props.children
+					) : !chainId || chainId === 1 ? (
+						props.children
+					) : (
+						<WrongNetwork />
+					)}
 				</PageContent>
 				<Footer />
 			</PageContainer>

@@ -193,7 +193,7 @@ const NFTCard = (props) => {
 	return (
 		<Wrapper>
 			<SkeletonTheme
-				color={darkMode ? "#232429" : "rgb(212, 218, 242)"}
+				color={darkMode ? "#232429" : "#d4daf2"}
 				highlightColor={darkMode ? "#2b2f36" : "#F3F5FD"}
 			>
 				<ImageContainer>

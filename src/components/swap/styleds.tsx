@@ -20,7 +20,7 @@ export const ArrowWrapper = styled.div<{ clickable: boolean }>`
 						opacity: 0.8;
 					}
 			  `
-			: null}
+			: null};
 `;
 
 export const SectionBreak = styled.div`

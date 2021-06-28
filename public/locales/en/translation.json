@@ -269,7 +269,7 @@
     "netWorth": "Net Worth",
     "platforms": "Platforms",
     "accountOverview": "Account Overview",
-    "dashboard": " ",
+    "dashboard": "Dashboard",
     "blockNumber": "Block Number",
     "transactionHash": "Transaction Hash",
     "download": "Download {{ file }}",
