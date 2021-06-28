@@ -87,7 +87,7 @@ const CurrencySelect = styled.button`
 	height: 56px;
 	font-size: 1rem;
 	font-weight: 700;
-	background-color: ${({ theme }) => theme.bg3};
+	background-color: ${({ theme }) => theme.bg1};
 	color: ${({ theme }) => theme.text1};
 	border-bottom-left-radius: ${({ reverse }) => (reverse ? "0" : `1.125rem`)};
 	border-top-left-radius: ${({ reverse }) => (reverse ? "0" : `1.125rem`)};

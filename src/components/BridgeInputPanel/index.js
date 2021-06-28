@@ -208,7 +208,7 @@ const StyledBalanceMax = styled.button`
 
 	:hover {
 		background-color: ${({ theme }) => theme.primary};
-		color: ${({ theme }) => theme.bg2};
+		color: ${({ theme }) => theme.bg1};
 	}
 
 	:focus {
@@ -224,7 +224,7 @@ const NumericalInput = styled.input`
   font-family: inherit;
   outline: none;
   flex: 1 1 auto;
-  background-color: ${({ theme }) => theme.bg3};
+  background-color: ${({ theme }) => theme.bg1};
   text-align: ${({ align }) => align && align};
   white-space: nowrap;
   overflow: hidden;

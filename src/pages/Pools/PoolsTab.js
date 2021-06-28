@@ -42,7 +42,7 @@ const PlatformName = styled.span`
 
 const PoolsButton = styled.button`
 	border-radius: 12px;
-	background-color: ${({ theme }) => theme.bg2};
+	background-color: ${({ theme }) => theme.bg1};
 	padding: 6px 18px;
 	max-height: 40px;
 	min-height: 40px;
@@ -69,7 +69,7 @@ const AddLiquidityButton = styled(PoolsButton)`
 	transition: 0.4s ease all;
 
 	&:hover {
-		color: ${({ theme }) => theme.bg2};
+		color: ${({ theme }) => theme.bg1};
 		background-color: ${({ theme }) => theme.primary};
 	}
 `;
@@ -79,7 +79,7 @@ const WithdrawButton = styled(PoolsButton)`
 	transition: 0.4s ease all;
 
 	&:hover {
-		color: ${({ theme }) => theme.bg2};
+		color: ${({ theme }) => theme.bg1};
 		background-color: ${({ theme }) => theme.secondary};
 	}
 `;

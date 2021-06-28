@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 	min-width: 30px;
 	min-height: 30px;
 	padding: 10px 6px;
-	background-color: ${({ theme }) => theme.bg3};
+	background-color: ${({ theme }) => theme.bg1};
 	border-radius: 30px;
 	opacity: ${({ active }) => (active ? "1" : "0.5")};
 	cursor: pointer;

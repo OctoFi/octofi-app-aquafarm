@@ -43,8 +43,8 @@ const PopoverContainer = styled.div<{ show: boolean }>`
 	visibility: ${(props) => (props.show ? "visible" : "hidden")};
 	opacity: ${(props) => (props.show ? 1 : 0)};
 	transition: visibility 150ms linear, opacity 150ms linear;
-	background: ${({ theme }) => theme.bg2};
-	border: 1px solid ${({ theme }) => theme.bg2};
+	background: ${({ theme }) => theme.bg1};
+	border: 1px solid ${({ theme }) => theme.bg1};
 	box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
 		0px 24px 32px rgba(0, 0, 0, 0.01);
 	color: ${({ theme }) => theme.text2};
@@ -79,7 +79,7 @@ const StyledListUrlText = styled(TYPE.Main)<{ active: boolean }>`
 `;
 
 const RowWrapper = styled(Row)<{ bgColor: string; active: boolean }>`
-	background-color: ${({ bgColor, active, theme }) => (active ? bgColor ?? "transparent" : theme.bg2)};
+	background-color: ${({ bgColor, active, theme }) => (active ? bgColor ?? "transparent" : theme.bg1)};
 	transition: 200ms;
 	align-items: center;
 	padding: 1rem;
@@ -324,7 +324,7 @@ export function ManageLists({
 			</PaddedColumn>
 			{tempList && (
 				<PaddedColumn style={{ paddingTop: 0 }}>
-					<Card backgroundColor={theme.bg2} padding="12px 20px">
+					<Card backgroundColor={theme.bg1} padding="12px 20px">
 						<RowBetween>
 							<RowFixed>
 								{tempList.logoURI && <ListLogo logoURI={tempList.logoURI} size="40px" />}

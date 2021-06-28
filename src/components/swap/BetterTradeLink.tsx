@@ -14,7 +14,7 @@ function VersionLinkContainer({ children }: { children: React.ReactNode }) {
 
 	return (
 		<div
-			style={{ marginTop: "12px", padding: "0.75rem 0.5rem", borderRadius: ".75rem", backgroundColor: theme.bg2 }}
+			style={{ marginTop: "12px", padding: "0.75rem 0.5rem", borderRadius: ".75rem", backgroundColor: theme.bg1 }}
 		>
 			<AutoColumn gap="sm" justify="center" style={{ alignItems: "center", textAlign: "center" }}>
 				<Text lineHeight="145.23%;" fontSize={14} fontWeight={400} color={theme.text1}>

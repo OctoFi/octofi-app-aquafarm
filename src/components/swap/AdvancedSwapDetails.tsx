@@ -20,7 +20,7 @@ const CustomTypeBlack = styled(TYPE.Black)`
 
 export const InfoLink = styled(ExternalLink)`
 	width: 100%;
-	border: 1px solid ${({ theme }) => theme.bg2};
+	border: 1px solid ${({ theme }) => theme.bg1};
 	padding: 6px 6px;
 	border-radius: 8px;
 	text-align: center;

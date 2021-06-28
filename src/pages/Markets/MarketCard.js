@@ -102,7 +102,7 @@ const CustomNavLink = styled(Nav.Link)`
 `;
 const PoolsButton = styled.button`
 	border-radius: 12px;
-	background-color: ${({ theme }) => theme.bg2};
+	background-color: ${({ theme }) => theme.bg1};
 	padding: 6px 20px;
 	max-height: 40px;
 	min-height: 40px;
@@ -131,7 +131,7 @@ const TradeButton = styled(PoolsButton)`
 	width: 100%;
 
 	&:hover {
-		color: ${({ theme }) => theme.bg2};
+		color: ${({ theme }) => theme.bg1};
 		background-color: ${({ theme }) => theme.primary};
 	}
 `;

@@ -13,7 +13,7 @@ import { AutoColumn } from "../Column";
 import { AlertTriangle } from "react-feather";
 
 const Wrapper = styled.div<{ error: boolean }>`
-	background: ${({ theme }) => transparentize(0.6, theme.bg2)};
+	background: ${({ theme }) => transparentize(0.6, theme.bg1)};
 	padding: 0.75rem;
 	border-radius: 0.42rem;
 `;

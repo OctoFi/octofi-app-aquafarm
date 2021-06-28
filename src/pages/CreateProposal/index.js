@@ -64,7 +64,7 @@ const FormLabel = styled(Form.Label)`
 
 const FormControl = styled(Form.Control)`
 	border-radius: 18px;
-	background-color: ${({ theme }) => theme.bg2};
+	background-color: ${({ theme }) => theme.bg1};
 	min-height: 56px;
 	padding: 18px 20px;
 	color: ${({ theme }) => theme.text1};
@@ -84,7 +84,7 @@ const FormControl = styled(Form.Control)`
 	&:focus,
 	&:active {
 		outline: none;
-		background-color: ${({ theme }) => theme.bg2};
+		background-color: ${({ theme }) => theme.bg1};
 	}
 `;
 

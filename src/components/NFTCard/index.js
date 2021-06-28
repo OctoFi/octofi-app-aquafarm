@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 	text-decoration: none;
 	display: flex;
 	flex-direction: column;
-	background-color: ${({ theme }) => theme.bg2};
+	background-color: ${({ theme }) => theme.bg1};
 	border-radius: 12px;
 	padding: 10px;
 	height: calc(100% - 20px);

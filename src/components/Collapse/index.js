@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next";
 
 const Wrapper = styled.div`
 	border: 1px solid ${({ theme }) => theme.text4};
-	background-color: ${({ theme }) => theme.bg3};
+	background-color: ${({ theme }) => theme.bg1};
 	border-radius: 18px;
 	margin-bottom: 15px;
 	overflow: hidden;
@@ -52,7 +52,7 @@ const HeaderSection = styled.div`
 const HeaderShowMore = styled.div`
 	width: 40px;
 	height: 40px;
-	background-color: ${({ theme }) => theme.bg2};
+	background-color: ${({ theme }) => theme.bg1};
 	display: flex;
 	align-items: center;
 	justify-content: center;

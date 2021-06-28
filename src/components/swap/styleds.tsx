@@ -26,7 +26,7 @@ export const ArrowWrapper = styled.div<{ clickable: boolean }>`
 export const SectionBreak = styled.div`
 	height: 1px;
 	width: 100%;
-	background-color: ${({ theme }) => theme.bg2};
+	background-color: ${({ theme }) => theme.bg1};
 `;
 
 export const BottomGrouping = styled.div``;
@@ -45,7 +45,7 @@ export const ErrorText = styled(Text)<{ severity?: 0 | 1 | 2 | 3 | 4 }>`
 export const StyledBalanceMaxMini = styled.button`
 	height: 22px;
 	width: 22px;
-	background-color: ${({ theme }) => theme.bg2};
+	background-color: ${({ theme }) => theme.bg1};
 	border: none;
 	border-radius: 50%;
 	padding: 0.2rem;
@@ -60,10 +60,10 @@ export const StyledBalanceMaxMini = styled.button`
 	float: right;
 
 	:hover {
-		background-color: ${({ theme }) => theme.bg2};
+		background-color: ${({ theme }) => theme.bg1};
 	}
 	:focus {
-		background-color: ${({ theme }) => theme.bg2};
+		background-color: ${({ theme }) => theme.bg1};
 		outline: none;
 	}
 `;

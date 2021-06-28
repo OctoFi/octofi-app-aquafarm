@@ -79,7 +79,7 @@ export function ImportToken({ tokens, onBack, onDismiss, handleCurrencySelect }:
 					const list = chainId && inactiveTokenList?.[chainId]?.[token.address]?.list;
 					return (
 						<Card
-							backgroundColor={theme.bg2}
+							backgroundColor={theme.bg1}
 							key={"import" + token.address}
 							className=".token-warning-container"
 						>

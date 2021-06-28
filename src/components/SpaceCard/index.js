@@ -28,7 +28,7 @@ const Wrapper = styled(Link)`
 	}
 
 	&:hover {
-		background-color: ${({ theme, loading }) => !loading && theme.bg2};
+		background-color: ${({ theme, loading }) => !loading && theme.bg1};
 		text-decoration: none;
 		border-color: ${({ theme }) => theme.primary};
 	}
