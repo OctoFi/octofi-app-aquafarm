@@ -12,11 +12,11 @@ import { Colors } from "./styled";
 export * from "./components";
 
 const MEDIA_WIDTHS = {
-	upToExtraSmall: 576,
-	upToSmall: 768,
-	upToMedium: 992,
-	upToLarge: 1200,
-	upToExtraLarge: 1400,
+	upToExtraSmall: 575,
+	upToSmall: 767,
+	upToMedium: 991,
+	upToLarge: 1199,
+	upToExtraLarge: 1399,
 };
 
 const mediaWidthTemplates: { [width in keyof typeof MEDIA_WIDTHS]: typeof css } = Object.keys(MEDIA_WIDTHS).reduce(
