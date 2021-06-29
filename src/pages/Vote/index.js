@@ -367,7 +367,7 @@ const Vote = (props) => {
 	}, [selectedProposal, selectedVote, account, address, api, id, library, spaces]);
 
 	const voteBody = useMemo(() => {
-		return dompurify.sanitize(selectedProposal.msg.payload.body);
+		return dompurify.sanitize(selectedProposal?.msg?.payload?.body);
 	}, [selectedProposal?.msg?.payload?.body])
 
 	return (
