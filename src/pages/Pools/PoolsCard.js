@@ -78,16 +78,6 @@ const CustomNavItem = styled(Nav.Item)`
 	}
 `;
 
-const StyledResponsiveCard = styled(ResponsiveCard)`
-	margin-left: -60px;
-	margin-right: -60px;
-
-	@media (max-width: 991px) {
-		margin-left: -30px;
-		margin-right: -30px;
-	}
-`;
-
 const CustomNavLink = styled(Nav.Link)`
 	border-radius: 18px !important;
 	color: ${({ theme }) => theme.primary};
@@ -129,10 +119,9 @@ class PoolsCard extends Component {
 		});
 	};
 	render() {
-		const theme = this.context;
 		const { t } = this.props;
 		return (
-			<StyledResponsiveCard className={`gutter-b`} marginTop={20}>
+			<ResponsiveCard className={`gutter-b`}>
 				<div className="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center justify-content-between border-0">
 					<div className="d-flex justify-content-center align-items-start flex-column">
 						<CustomTitle>{t("pools.title")}</CustomTitle>
@@ -224,7 +213,7 @@ class PoolsCard extends Component {
 					</Tab.Container>
 				</Content>
 				{/*end::body*/}
-			</StyledResponsiveCard>
+			</ResponsiveCard>
 		);
 	}
 }

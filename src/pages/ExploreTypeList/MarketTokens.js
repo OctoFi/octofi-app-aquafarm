@@ -424,7 +424,7 @@ const MarketTokens = (props) => {
 					setExpanded(expanded.concat(row.id));
 				}
 			} else {
-				props.history.push(`/tools/market/${row.id}`);
+				props.history.push(`/market/${row.id}`);
 			}
 		},
 	};

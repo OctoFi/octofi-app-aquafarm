@@ -52,14 +52,14 @@ export const routes = {
 	invest: {
 		title: "invest",
 		routes: {
+			explore: {
+				title: "explore",
+				path: "/invest",
+				state: "success",
+			},
 			pools: {
 				title: "pools",
 				path: "/invest/pools",
-				state: "success",
-			},
-			tokenSets: {
-				title: "tokenSets",
-				path: "/invest/tokensets",
 				state: "success",
 			},
 			loans: {
@@ -76,7 +76,7 @@ export const routes = {
 				title: "launchpad",
 				path: "/invest/launchpad",
 				state: "success",
-			}
+			},
 		},
 	},
 	tools: {
@@ -85,16 +85,6 @@ export const routes = {
 			governance: {
 				title: "governance",
 				path: "/governance",
-				state: "success",
-			},
-			rankings: {
-				title: "rankings",
-				path: "/tools/explore/tokens",
-				state: "success",
-			},
-			explore: {
-				title: "explore",
-				path: "/tools/explore",
 				state: "success",
 			},
 		},
@@ -117,6 +107,6 @@ export const routes = {
 				path: "/account/history",
 				state: "success",
 			},
-		}
-	}
+		},
+	},
 };

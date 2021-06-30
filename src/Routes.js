@@ -71,19 +71,29 @@ const Routes = (props) => {
 							<Route path={"/platforms/:platform"} component={Platform} />
 							<Route path={"/fiat/off-cards"} component={FiatOff} />
 							<Route path={"/fiat/on"} component={FiatOn} />
+							<Route path={"/invest"} exact component={Explore} />
 							<Route path={"/invest/pools"} component={Pools} />
-							<Route exact path={"/invest/nft"} component={NFT} />
+							<Route path={"/invest/nft"} exact component={NFT} />
 							<Route path={"/invest/loans"} component={Borrow} />
 							<Route path={"/invest/tokensets"} component={TokenSets} />
 							<Route path={"/invest/launchpad"} exact component={Launchpad}/>
 							<Route path={"/invest/launchpad/new"} exact component={NewLaunchpad}/>
 							<Route path={'/invest/launchpad/:address'} exact component={LaunchpadItem}/>
+							<Route path={"/invest/:type"} exact component={ExploreTypeList} />
 							<Route path={"/swap/uni"} component={Swap} />
 							<Route path={"/swap/all"} component={InstantSwap} />
-				<Route path={"/governance"} exact component={Governance} />
-				<Route path={"/governance/:space/create"} exact component={CreateProposal} />
-				<Route path={"/governance/:space"} exact component={Proposals} />
-				<Route path={"/governance/:space/proposal/:id"} exact component={Vote} />
+							<Route path={"/swap/all"} component={InstantSwap} />
+							<Route path={"/governance"} exact component={Governance} />
+							<Route path={"/governance/:space/create"} exact component={CreateProposal} />
+							<Route path={"/governance/:space"} exact component={Proposals} />
+							<Route path={"/governance/:space/proposal/:id"} exact component={Vote} />
+							<Route path={"/market/:id"} exact component={CoinDetails} />
+							<Route path={"/coins/:id"} exact component={CoinDetails} />
+							{account && (
+								<>
+									<Route path={"/account/history"} exact component={History} />
+									<Route path={"/account/wallet"} exact component={Wallet} />
+									<Route path={"/dashboard"} component={Dashboard} />
 								</>
 							)}
 

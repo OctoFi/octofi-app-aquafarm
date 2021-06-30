@@ -232,7 +232,7 @@ const Currencies = (props) => {
 			formatter(cellContent, row) {
 				return (
 					<div className="d-flex flex-column align-items-stretch align-items-lg-center justify-content-center w-100">
-						<StyledLink to={`/tools/market/${row?.id}`}>
+						<StyledLink to={`/market/${row?.id}`}>
 							<TradeButton>View More</TradeButton>
 						</StyledLink>
 					</div>
@@ -244,7 +244,7 @@ const Currencies = (props) => {
 
 	const rowEvents = {
 		onClick: (e, row) => {
-			props.history.push(`/tools/market/${row?.id}`);
+			props.history.push(`/market/${row?.id}`);
 		},
 	};
 
@@ -258,7 +258,7 @@ const Currencies = (props) => {
 			>
 				<div className="d-flex align-items-start justify-content-between">
 					<h2 className="h2 mr-auto">{t("tokens.assets")}</h2>
-					<Link to={"/tools/explore/tokens"} className={"d-flex d-lg-none"}>
+					<Link to={"/invest/tokens"} className={"d-flex d-lg-none"}>
 						<button className="btn btn-link p-0" style={{ fontWeight: 500 }}>
 							{t("tokens.allAssets")}
 						</button>
@@ -296,7 +296,7 @@ const Currencies = (props) => {
 							/>
 							<ResponsiveTable breakpoint={"lg"} columns={mobileColumns} data={coins} />
 							<GotoMarketContainer>
-								<Link to={"/tools/explore/tokens"}>
+								<Link to={"/invest/tokens"}>
 									<button className="btn btn-link p-0" style={{ fontWeight: 500 }}>
 										{t("tokens.allAssets")}
 									</button>

@@ -180,15 +180,15 @@ const ExploreTypeList = (props) => {
 				setColumns(tokenSetsColumns);
 			}
 		} else {
-			props.history.push("/tools/explore");
+			props.history.push("/invest");
 		}
 	}, [props.match.params.type, exploreSets, dispatch, props.history]);
 
 	return (
-		<Page title={"Explore"} morePadding>
+		<Page title={"Top Tokens"} notNetworkSensitive={true}>
 			<Row>
 				<Col xs={12}>
-					<ResponsiveCard marginTop={-30}>
+					<ResponsiveCard>
 						{props.match.params.type === "tokens" ? (
 							<MarketTokens />
 						) : (

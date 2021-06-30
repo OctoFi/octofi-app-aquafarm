@@ -1,19 +1,52 @@
-import { Row, Col } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import BootstrapTable from "react-bootstrap-table-next";
 
 import ResponsiveTable from "../../components/ResponsiveTable";
 import TokenSetsApi from "../../http/tokenSet";
-import React, { useState, useEffect } from "react";
 import Img from "../../components/UI/Img";
 import CurrencyText from "../../components/CurrencyText";
 import ArrowUp from "../../components/Icons/ArrowUp";
 import ArrowDown from "../../components/Icons/ArrowDown";
-import BootstrapTable from "react-bootstrap-table-next";
-import "./styles.scss";
 import Loading from "../../components/Loading";
-import { useTranslation } from "react-i18next";
 
 const api = new TokenSetsApi();
+
+const TokenSetsTableWrap = styled.div`
+	.table {
+		position: relative;
+		width: 100%;
+		border-collapse: collapse;
+		color: white;
+
+		th,
+		td {
+			border: 0;
+			border-bottom: 1px solid ${({ theme }) => theme.borderColor};
+			color: ${({ theme }) => theme.text1};
+		}
+
+		th {
+			font-weight: 500;
+			font-size: 0.875rem;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		td {
+			cursor: pointer;
+			padding: 1rem 0.75rem;
+			vertical-align: middle;
+		}
+
+		tr:last-child td {
+			border-bottom-width: 0;
+		}
+	}
+`;
 
 const Title = styled.span`
 	font-size: 1.125rem;
@@ -30,35 +63,21 @@ const Title = styled.span`
 `;
 
 const LogoContainer = styled.div`
-	max-width: 55px;
-	max-height: 55px;
-	min-width: 55px;
-	min-height: 55px;
-	height: 55px;
-	width: 55px;
-	border-radius: 12px;
-	background-color: ${({ theme }) => theme.text1};
+	max-width: 40px;
+	max-height: 40px;
+	min-width: 40px;
+	min-height: 40px;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	overflow: hidden;
 
 	& img {
 		width: 40px;
-		height: 40px;
-	}
-
-	@media (max-width: 991px) {
-		max-width: 40px;
-		max-height: 40px;
-		min-width: 40px;
-		min-height: 40px;
-		height: 40px;
-		width: 40px;
-
-		& img {
-			width: 24px;
-			height: 24px;
-		}
+		height: auto;
 	}
 `;
 
@@ -321,31 +340,31 @@ const TokenSetTab = (props) => {
 		},
 	};
 
+	if (loading) {
+		return (
+			<div className="w-100 h-100 d-flex align-items-center justify-content-center py-5">
+				<Loading width={40} height={40} id={`token-sets-${tabKey || "rebalancing"}`} active />
+			</div>
+		);
+	}
+
 	return (
-		<Row>
-			<Col xs={12}>
-				{loading ? (
-					<div className="w-100 h-100 d-flex align-items-center justify-content-center py-5">
-						<Loading width={40} height={40} id={`token-sets-${tabKey || "rebalancing"}`} active />
-					</div>
-				) : (
-					<>
-						<BootstrapTable
-							wrapperClasses="table-responsive d-none d-lg-block"
-							bordered={false}
-							classes="table table-head-custom table-borderless table-vertical-center table-hover overflow-hidden tokensets__table"
-							bootstrap4
-							remote
-							keyField="id"
-							data={sets === null ? [] : sets}
-							columns={columns}
-							rowEvents={rowEvents}
-						></BootstrapTable>
-						<ResponsiveTable breakpoint={"lg"} columns={columns} data={sets} direction={"rtl"} />
-					</>
-				)}
-			</Col>
-		</Row>
+		<>
+			<TokenSetsTableWrap>
+				<BootstrapTable
+					wrapperClasses="table-responsive d-none d-lg-block"
+					bordered={false}
+					classes="table table-head-custom table-vertical-center table-hover overflow-hidden"
+					bootstrap4
+					remote
+					keyField="id"
+					data={sets === null ? [] : sets}
+					columns={columns}
+					rowEvents={rowEvents}
+				></BootstrapTable>
+			</TokenSetsTableWrap>
+			<ResponsiveTable breakpoint={"lg"} columns={columns} data={sets} direction={"rtl"} />
+		</>
 	);
 };
 

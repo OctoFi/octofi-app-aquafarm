@@ -499,10 +499,10 @@ export const exploreSections = {
 				price: row.current_price,
 				priceDiff: row.price_change_percentage_24h,
 				title: false,
-				src: "/coins/" + row.id,
+				src: "/#/coins/" + row.id,
 			};
 		},
-		seeMore: "/tools/explore/tokens",
+		seeMore: "/#/invest/tokens",
 	},
 	tokenSets: {
 		title: "Token Sets",
@@ -520,7 +520,7 @@ export const exploreSections = {
 				title: false,
 			};
 		},
-		seeMore: "/tools/explore/tokenSets",
+		seeMore: "/#/invest/tokenSets",
 	},
 	pools: {
 		title: "Pools",
@@ -538,7 +538,7 @@ export const exploreSections = {
 				title: "Total Liquidity",
 			};
 		},
-		seeMore: "/invest/pools",
+		seeMore: "/#/invest/pools",
 	},
 	trending: {
 		title: "Trending on Coingecko",
@@ -554,7 +554,7 @@ export const exploreSections = {
 				price: row.market_data.current_price.usd,
 				priceDiff: row.market_data.price_change_percentage_24h,
 				title: false,
-				src: "/coins/" + row.id,
+				src: "/#/coins/" + row.id,
 			};
 		},
 		seeMore: false,
@@ -572,7 +572,7 @@ export const exploreSections = {
 				symbol: row?.symbol?.toUpperCase() || "-",
 				price: row?.volume_24h,
 				priceDiff: row.price_percentage_change_24h,
-				seeMore: "/tools/explore/derivatives",
+				seeMore: "/#/invest/derivatives",
 				title: "Volume (24h)",
 			};
 		},
@@ -592,7 +592,7 @@ export const exploreSections = {
 				price: row?.current_price || "-",
 				priceDiff: row?.price_change_percentage_24h || "-",
 				title: false,
-				src: "/coins/" + row?.id,
+				src: "/#/coins/" + row?.id,
 			};
 		},
 		seeMore: false,
@@ -611,7 +611,7 @@ export const exploreSections = {
 				price: row?.current_price || "-",
 				priceDiff: row?.price_change_percentage_24h || "-",
 				title: false,
-				src: "/coins/" + row?.id,
+				src: "/#/coins/" + row?.id,
 			};
 		},
 		seeMore: false,

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Row, Col } from "react-bootstrap";
 import { Route, Switch } from "react-router-dom";
 
 import PoolsCard from "./PoolsCard";
@@ -10,15 +9,6 @@ import UniswapLiquidityModal from "../../components/AddLiquidityModal/uniswap";
 import * as actions from "../../state/pools/actions";
 import Page from "../../components/Page";
 import { emitter } from "../../lib/helper";
-import styled from "styled-components";
-
-const StyledRow = styled(Row)`
-	margin-top: 40px;
-
-	@media (max-width: 767px) {
-		margin-top: 20px;
-	}
-`;
 
 class Pools extends Component {
 	investButtonClick = () => {
@@ -58,16 +48,12 @@ class Pools extends Component {
 	};
 	render() {
 		return (
-			<Page>
-				<StyledRow>
-					<Col span={12}>
-						<PoolsCard
-							investHandler={this.investButtonClick}
-							addLiquidityHandler={this.addLiquidityDialog}
-							removeLiquidityHandler={this.removeLiquidityDialog}
-						/>
-					</Col>
-				</StyledRow>
+			<Page title={"Pools"} notNetworkSensitive={false}>
+				<PoolsCard
+					investHandler={this.investButtonClick}
+					addLiquidityHandler={this.addLiquidityDialog}
+					removeLiquidityHandler={this.removeLiquidityDialog}
+				/>
 				<Switch>
 					<Route path={"/invest/pools/remove/ETH"} exact component={RemoveLiquidityModal} />
 					<Route path={"/invest/pools/:currencyIdA/:currencyIdB"} exact component={UniswapLiquidityModal} />
