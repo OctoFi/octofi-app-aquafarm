@@ -31,7 +31,7 @@ const Borrow = lazy(() => import("./pages/Borrow"));
 const TokenSets = lazy(() => import("./pages/TokenSets"));
 const Launchpad = lazy(() => import("./pages/Launchpad"));
 const LaunchpadItem = lazy(() => import("./pages/LaunchpadItem"));
-const NewLaunchpad = lazy(() => import("./pages/NewLaunchpad"));;
+const NewLaunchpad = lazy(() => import("./pages/NewLaunchpad"));
 const CrossRouteHandler = lazy(() => import("./CrossRouteHandler"));
 
 
