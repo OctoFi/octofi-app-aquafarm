@@ -80,19 +80,10 @@ const Routes = (props) => {
 							<Route path={'/invest/launchpad/:address'} exact component={LaunchpadItem}/>
 							<Route path={"/swap/uni"} component={Swap} />
 							<Route path={"/swap/all"} component={InstantSwap} />
-							<Route path={"/tools/governance"} exact component={Governance} />
-							<Route path={"/tools/governance/:space/create"} exact component={CreateProposal} />
-							<Route path={"/tools/governance/:space"} exact component={Proposals} />
-							<Route path={"/tools/governance/:space/proposal/:id"} exact component={Vote} />
-							<Route path={"/tools/explore"} exact component={Explore} />
-							<Route path={"/tools/explore/:type"} exact component={ExploreTypeList} />
-							<Route path={"/tools/market/:id"} exact component={CoinDetails} />
-							<Route path={"/coins/:id"} exact component={CoinDetails} />
-							{account && (
-								<>
-									<Route path={"/account/history"} exact component={History} />
-									<Route path={"/account/wallet"} exact component={Wallet} />
-									<Route path={"/dashboard"} component={Dashboard} />
+				<Route path={"/governance"} exact component={Governance} />
+				<Route path={"/governance/:space/create"} exact component={CreateProposal} />
+				<Route path={"/governance/:space"} exact component={Proposals} />
+				<Route path={"/governance/:space/proposal/:id"} exact component={Vote} />
 								</>
 							)}
 

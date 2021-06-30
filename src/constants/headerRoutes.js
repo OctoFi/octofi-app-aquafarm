@@ -84,7 +84,7 @@ export const routes = {
 		routes: {
 			governance: {
 				title: "governance",
-				path: "/tools/governance",
+				path: "/governance",
 				state: "success",
 			},
 			rankings: {

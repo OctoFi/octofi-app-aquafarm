@@ -17,15 +17,6 @@ import { toast } from "react-hot-toast";
 import { useWalletModalToggle } from "../../state/application/hooks";
 import { useTranslation } from "react-i18next";
 
-const StyledResponsiveCard = styled(ResponsiveCard)`
-	border: none;
-	margin-top: -70px;
-
-	@media (min-width: 768px) {
-		margin-top: -30px;
-	}
-`;
-
 const Header = styled.div`
 	padding: 0;
 	display: flex;
@@ -191,7 +182,7 @@ const CreateProposals = (props) => {
 				setLoading(false);
 				toast.success("Your Proposal is in!");
 				if (res.hasOwnProperty("ipfsHash")) {
-					props.history.push(`/tools/governance/${id}`);
+					props.history.push(`/governance/${id}`);
 				}
 			} catch (error) {
 				toast.error("Something went wrong!");
@@ -207,7 +198,7 @@ const CreateProposals = (props) => {
 			dispatch(fetchSpaces());
 		} else {
 			if (!spaces.hasOwnProperty(id)) {
-				props.history.push("/tools/governance");
+				props.history.push("/governance");
 			}
 		}
 	}, [spaces, id, dispatch, props.history]);
@@ -239,10 +230,10 @@ const CreateProposals = (props) => {
 	);
 
 	return (
-		<Page title={t("governance.title")} hasBg>
+		<Page title={t("governance.title")} notNetworkSensitive={false}>
 			<Row>
 				<Col xs={12}>
-					<StyledResponsiveCard marginBottom={0}>
+					<ResponsiveCard>
 						<Header>
 							<Title className="card-title">{t("governance.createProposal")}</Title>
 						</Header>
@@ -252,8 +243,7 @@ const CreateProposals = (props) => {
 									<FormGroup as={Col} xs={12}>
 										<FormLabel>{t("governance.question")}</FormLabel>
 										<FormControl
-											as={"textarea"}
-											rows={"5"}
+											as={"input"}
 											placeholder="Question"
 											value={form.name}
 											onChange={(e) => handleChange("name", e.target.value)}
@@ -263,7 +253,8 @@ const CreateProposals = (props) => {
 										<FormLabel>{t("governance.whatIsYourProposal")}</FormLabel>
 										<FormControl
 											as={"textarea"}
-											rows={"5"}
+											rows={"8"}
+											style={{ resize: "vertical" }}
 											placeholder={t("governance.whatIsYourProposal")}
 											value={form.body}
 											onChange={(e) => handleChange("body", e.target.value)}
@@ -390,7 +381,7 @@ const CreateProposals = (props) => {
 								</FormRow>
 							</Form>
 						</div>
-					</StyledResponsiveCard>
+					</ResponsiveCard>
 				</Col>
 			</Row>
 		</Page>
