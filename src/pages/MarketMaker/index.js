@@ -50,7 +50,7 @@ const ContainerCard = styled(ResponsiveCard)`
 
 const MarketMaker = (props) => {
 	return (
-		<Page title={"Market Maker"} morePadding size={"lg"}>
+		<Page title={"Market Maker"} size={"lg"} notNetworkSensitive={false}>
 			<Provider>
 				<Row style={{ marginTop: -30 }}>
 					<Col>

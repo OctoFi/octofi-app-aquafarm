@@ -51,14 +51,6 @@ const ListItem = styled(Item)`
 	margin-bottom: 6px;
 `;
 
-const StyledRow = styled(Row)`
-	margin-top: 40px;
-
-	@media (max-width: 767px) {
-		margin-top: 20px;
-	}
-`;
-
 const CustomNav = styled(Nav)`
 	margin-bottom: 12px;
 	min-width: 100%;
@@ -695,8 +687,8 @@ const LaunchpadItem = (props) => {
 	};
 
 	return (
-		<Page title={false}>
-			<StyledRow>
+		<Page title={false} notNetworkSensitive={false}>
+			<Row>
 				<Col xs={{ span: 12, offset: 0 }} md={{ span: 6, offset: 3 }}>
 					<SafetyAlert />
 				</Col>
@@ -1281,7 +1273,7 @@ const LaunchpadItem = (props) => {
 						</Row>
 					</Card>
 				</Col>
-			</StyledRow>
+			</Row>
 		</Page>
 	);
 };

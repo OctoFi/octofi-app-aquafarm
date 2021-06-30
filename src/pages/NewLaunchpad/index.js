@@ -57,14 +57,6 @@ const IconButton = styled(Link)`
   }
 `
 
-const StyledRow = styled(Row)`
-  margin-top: 40px;
-  
-  @media (max-width: 767px) {
-    margin-top: 20px;
-  }
-`
-
 const Title = styled.h2`
   line-height: 1.5rem;
   font-size: 1.5rem;
@@ -605,8 +597,8 @@ const NewLaunchpad = props => {
     }
 
     return (
-        <Page>
-            <StyledRow>
+        <Page title={false} notNetworkSensitive={false}>
+            <Row>
                 <Col xs={{ span: 12, offset: 0 }} md={{ span: 6, offset: 3 }}>
                     <Card>
                         {!account ? (
@@ -1026,7 +1018,7 @@ const NewLaunchpad = props => {
                         )}
                     </Card>
                 </Col>
-            </StyledRow>
+            </Row>
         </Page>
     )
 }

@@ -83,7 +83,7 @@ const Dashboard = (props) => {
 	};
 
 	return (
-		<Page title={t("dashboard")}>
+		<Page title={t("dashboard")} notNetworkSensitive={true}>
 			{props.loading ? (
 				<Row>
 					<Col xs={12}>

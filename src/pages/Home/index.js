@@ -42,7 +42,7 @@ const HomePage = (props) => {
 	}, [queryString]);
 
 	return (
-		<Page disableAccountCheck={true} notNetworkSensitive={true}>
+		<Page notNetworkSensitive={true}>
 			<Hero />
 			<Banners />
 			<Currencies />

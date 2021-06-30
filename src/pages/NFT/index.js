@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { OpenSeaPort, Network } from "opensea-js";
 import { Component } from "react";
-import { Button } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import Web3 from "web3";
 
 import Page from "../../components/Page";
@@ -11,36 +11,6 @@ import Orders from "./components/Orders";
 import { OrderSide } from "opensea-js/lib/types";
 import withWeb3Account from "../../components/hoc/withWeb3Account";
 import { withTranslation } from "react-i18next";
-
-const Row = styled.div`
-	margin-top: -30px;
-	margin-left: -10px;
-	margin-right: -10px;
-`;
-
-const StyledRow = styled(Row)`
-	margin-top: 40px;
-
-	@media (max-width: 767px) {
-		margin-top: 20px;
-	}
-`;
-
-const Col = styled.div`
-	padding: 0 10px 20px;
-`;
-
-const Sidebar = styled(Col)`
-	width: 340px;
-
-	@media (max-width: 991px) {
-		width: 100%;
-	}
-`;
-
-const Content = styled(Col)`
-	flex: 1;
-`;
 
 const StyledCard = styled(Card)`
 	.card-body {
@@ -111,9 +81,9 @@ class NFT extends Component {
 		const { t } = this.props;
 
 		return (
-			<Page size={"lg"}>
-				<StyledRow className="d-flex flex-column align-items-stretch flex-lg-row align-items-lg-start">
-					<Sidebar>
+			<Page notNetworkSensitive={false}>
+				<Row>
+					<Col xs={12} md={4}>
 						<StyledCard>
 							<CardSection hasBorder>
 								<Title>{t("orderbookSide")}</Title>
@@ -174,8 +144,8 @@ class NFT extends Component {
 								/>
 							</CardSection>
 						</StyledCard>
-					</Sidebar>
-					<Content>
+					</Col>
+					<Col xs={12} md={8}>
 						<StyledResponsiveCard>
 							<CardSection>
 								<Orders
@@ -191,8 +161,8 @@ class NFT extends Component {
 								/>
 							</CardSection>
 						</StyledResponsiveCard>
-					</Content>
-				</StyledRow>
+					</Col>
+				</Row>
 			</Page>
 		);
 	}

@@ -92,7 +92,7 @@ const Spot = (props) => {
 	}, [dispatch]);
 
 	return (
-		<Page title={false} morePadding size={"xl"}>
+		<Page title={false} size={"xl"} notNetworkSensitive={false}>
 			<Provider>
 				<ModalProvider>
 					<Row justDesktop>

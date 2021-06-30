@@ -182,7 +182,7 @@ const Launchpad = props => {
     const presales = usePresales()
 
     return (
-        <Page title={false}>
+        <Page title={false} notNetworkSensitive={false}>
             <Row>
                 <Col xs={{ span: 12, offset: 0 }} md={{ span: 6, offset: 3 }}>
                     <StyledCard>

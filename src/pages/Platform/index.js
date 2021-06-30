@@ -44,7 +44,7 @@ function Platforms(props) {
 	}, [props.balances, props.match.params.platform]);
 
 	return (
-		<Page title={props.match.params.platform}>
+		<Page title={props.match.params.platform} notNetworkSensitive={false}>
 			<Row className={"custom-row"}>
 				<Col xs={12} md={4}>
 					<ValueCard title={"Supplied Total"} value={totalAssets} type={"assets"} />
