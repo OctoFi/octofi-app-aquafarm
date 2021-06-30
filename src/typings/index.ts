@@ -4,10 +4,16 @@ export type FiatOffItem = {
     thumbnail: string;
     title: string;
     url: string;
-    traits: Array<TraitItem>;
+    traits: Array<FiatOffTraitItem>;
 }
 
-export type TraitItem = {
+export type FiatOffTraitItem = {
     title: string;
     icon: string;
 }
+
+export type SnapshotSpaceProps = {
+    name: string;
+    symbol: string;
+    network: string;
+};

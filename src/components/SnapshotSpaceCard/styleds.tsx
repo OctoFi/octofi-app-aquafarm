@@ -1,14 +1,8 @@
-import React from "react";
 import styled from "styled-components";
-import { isMobile } from "react-device-detect";
 import { Link } from "react-router-dom";
-import SVG from "react-inlinesvg";
-import Skeleton from "react-loading-skeleton";
 import Img from "../UI/Img";
 
-import { useLogo } from "../../state/governance/hooks";
-
-const Wrapper = styled(Link)`
+export const Wrapper = styled(Link)<{ loading: boolean }>`
 	background-color: ${({ theme }) => theme.modalBG};
 	border: 1px solid transparent;
 	padding: 50px;
@@ -39,7 +33,7 @@ const Wrapper = styled(Link)`
 	}
 `;
 
-const Logo = styled(Img)`
+export const Logo = styled(Img)`
 	width: 100px;
 	height: 100px;
 	border-radius: 100px;
@@ -53,7 +47,7 @@ const Logo = styled(Img)`
 	}
 `;
 
-const Title = styled.h3`
+export const Title = styled.h3`
 	font-size: 1.25rem;
 	font-weight: 700;
 	color: ${({ theme }) => theme.text1};
@@ -66,7 +60,7 @@ const Title = styled.h3`
 		margin-bottom: 0.875rem;
 	}
 `;
-const CurrencyName = styled.span`
+export const CurrencyName = styled.span`
 	font-size: 1rem;
 	font-weight: 500;
 	color: ${({ theme }) => theme.text1};
@@ -78,7 +72,7 @@ const CurrencyName = styled.span`
 	}
 `;
 
-const StarWrapper = styled.div`
+export const StarWrapper = styled.div`
 	position: absolute;
 	right: 20px;
 	top: 20px;
@@ -101,32 +95,3 @@ const StarWrapper = styled.div`
 		}
 	}
 `;
-
-const SpaceCard = (props) => {
-	const LogoURL = useLogo(props.id, props.symbolIndex);
-	return (
-		<Wrapper to={props.loading ? "#" : `/tools/governance/${props.id}`} loading={props.loading}>
-			{!props.loading && props.pinned && (
-				<StarWrapper>
-					<SVG src={require("../../assets/images/governance/pin-start.svg").default} width={16} height={16} />
-				</StarWrapper>
-			)}
-			{props.loading ? (
-				<Skeleton
-					circle={true}
-					width={isMobile ? 100 : 66}
-					height={isMobile ? 100 : 66}
-					style={{ marginBottom: "1.25rem" }}
-				/>
-			) : (
-				<Logo src={LogoURL} />
-			)}
-			<Title>{props.loading ? <Skeleton height={20} width={isMobile ? 80 : 120} /> : props.name}</Title>
-			<CurrencyName>
-				{props.loading ? <Skeleton height={15} width={isMobile ? 50 : 80} /> : props.symbol}
-			</CurrencyName>
-		</Wrapper>
-	);
-};
-
-export default SpaceCard;
