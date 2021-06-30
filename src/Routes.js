@@ -76,9 +76,6 @@ const Routes = (props) => {
 							<Route path={"/invest/nft"} exact component={NFT} />
 							<Route path={"/invest/loans"} component={Borrow} />
 							<Route path={"/invest/tokensets"} component={TokenSets} />
-							<Route path={"/invest/launchpad"} exact component={Launchpad}/>
-							<Route path={"/invest/launchpad/new"} exact component={NewLaunchpad}/>
-							<Route path={'/invest/launchpad/:address'} exact component={LaunchpadItem}/>
 							<Route path={"/invest/:type"} exact component={ExploreTypeList} />
 							<Route path={"/swap/uni"} component={Swap} />
 							<Route path={"/swap/all"} component={InstantSwap} />
@@ -87,6 +84,9 @@ const Routes = (props) => {
 							<Route path={"/governance/:space/create"} exact component={CreateProposal} />
 							<Route path={"/governance/:space"} exact component={Proposals} />
 							<Route path={"/governance/:space/proposal/:id"} exact component={Vote} />
+							<Route path={"/launchpad"} exact component={Launchpad}/>
+							<Route path={"/launchpad/new"} exact component={NewLaunchpad}/>
+							<Route path={'/launchpad/:address'} exact component={LaunchpadItem}/>
 							<Route path={"/market/:id"} exact component={CoinDetails} />
 							<Route path={"/coins/:id"} exact component={CoinDetails} />
 							{account && (

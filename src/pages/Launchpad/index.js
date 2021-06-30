@@ -192,7 +192,7 @@ const Launchpad = props => {
                             </Col>
                             <Col xs={12} className={'d-flex align-items-stretch flex-column mb-3'}>
                                 <div className="align-self-end mb-3">
-                                    <CreateNew to={'/invest/launchpad/new'}>{t("launchpad.createNew")}</CreateNew>
+                                    <CreateNew to={'/launchpad/new'}>{t("launchpad.createNew")}</CreateNew>
                                 </div>
                                 <InputGroup bg={"darker"}>
                                     <FormControl

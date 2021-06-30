@@ -435,7 +435,7 @@ const LaunchpadItem = (props) => {
 
 	useEffect(() => {
 		if (presale?.hasOwnProperty("error")) {
-			props.history.push("/invest/launchpad");
+			props.history.push("/launchpad");
 		}
 	}, [presale]);
 
@@ -696,7 +696,7 @@ const LaunchpadItem = (props) => {
 					<Card>
 						<Row>
 							<Col xs={12} className={"d-flex align-items-center justify-content-between mb-3"}>
-								<IconButton to={"/invest/launchpad"}>
+								<IconButton to={"/launchpad"}>
 									<ArrowLeft color={theme.text1} width={24} height={24} />
 								</IconButton>
 								<span

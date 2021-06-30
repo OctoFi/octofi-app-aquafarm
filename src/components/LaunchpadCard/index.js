@@ -223,7 +223,7 @@ const LaunchpadCard = ({ address, presale }) => {
 	}, [presale, baseToken]);
 
 	return (
-		<Wrapper to={`/invest/launchpad/${address}`}>
+		<Wrapper to={`/launchpad/${address}`}>
 			<Row>
 				<div className="d-flex align-items-center">
 					<LogoContainer>

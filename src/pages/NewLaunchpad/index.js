@@ -24,8 +24,8 @@ import {
 import PresaleGeneratorABI from '../../constants/abis/Presale/PresaleGenerator.json'
 import {useActiveWeb3React} from "../../hooks";
 import {useContract} from "../../hooks/useContract";
-import {AccountState, AccountStateContent, AccountStateTitle} from "../../components/AddLiquidityModal/uniswap";
-import SVG from "react-inlinesvg";
+import WalletConnectStatus from '../../components/WalletConnectStatus';
+import { AccountState, AccountStateContent, AccountStateTitle } from "../../components/WalletConnectStatus/styles";
 import {useTranslation} from "react-i18next";
 import GradientButton from "../../components/UI/Button";
 import {useWalletModalToggle} from "../../state/application/hooks";
@@ -586,7 +586,7 @@ const NewLaunchpad = props => {
             .then(() => {
                 setLoading(false);
                 toast.success('The presale created successfully!');
-                props.history.push('/invest/launchpad')
+                props.history.push('/launchpad')
             })
             .catch(err => {
                 setLoading(false);
@@ -601,30 +601,18 @@ const NewLaunchpad = props => {
             <Row>
                 <Col xs={{ span: 12, offset: 0 }} md={{ span: 6, offset: 3 }}>
                     <Card>
+                        <WalletConnectStatus hidden={account} />
+
                         {!account ? (
                             <Row>
                                 <Col xs={12} className={'d-flex align-items-center justify-content-between'}>
-                                    <IconButton to={'/invest/launchpad'}>
+                                    <IconButton to={'/launchpad'}>
                                         <ArrowLeft color={theme.text1} width={24} height={24}/>
                                     </IconButton>
 
                                 </Col>
                                 <Col xs={12}>
                                     <Title className={'text-center'}>New Initial Liquidity Offering</Title>
-                                </Col>
-                                <Col xs={12} style={{ paddingTop: 40 }}>
-                                    <AccountState type={"danger"} className={"bg-light-danger"}>
-                                        <SVG
-                                            src={require("../../assets/images/account/wallet.svg").default}
-                                            width={36}
-                                            height={36}
-                                        />
-                                        <AccountStateContent>
-                                            <AccountStateTitle className={"mb-0"}>
-                                                {t("wallet.notConnected")}
-                                            </AccountStateTitle>
-                                        </AccountStateContent>
-                                    </AccountState>
                                 </Col>
                                 <Col
                                     xs={12}
@@ -639,7 +627,7 @@ const NewLaunchpad = props => {
                         ) : (
                             <Row>
                                 <Col xs={12} className={'d-flex align-items-center justify-content-between'}>
-                                    <IconButton to={'/invest/launchpad'}>
+                                    <IconButton to={'/launchpad'}>
                                         <ArrowLeft color={theme.text1} width={24} height={24}/>
                                     </IconButton>
 
