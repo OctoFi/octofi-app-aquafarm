@@ -6,7 +6,7 @@ export const Card = styled.div`
 	display: flex;
 	align-items: center;
 	border-radius: 12px;
-	padding: 30px;
+	padding: 1.5rem;
 	margin-bottom: 10px;
 `;
 
@@ -32,7 +32,7 @@ export const Img = styled.img`
 `;
 
 export const CardContent = styled.div`
-	margin-left: 20px;
+	margin-left: 1rem;
 `;
 
 export const Title = styled.p`
