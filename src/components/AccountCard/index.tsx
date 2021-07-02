@@ -1,172 +1,98 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { isMobile } from "react-device-detect";
-
-import CurrencyText from "../CurrencyText";
-import styled from "styled-components";
-import WalletIcon from "../../assets/images/account/wallet.svg";
-import DepositsIcon from "../../assets/images/account/deposits.svg";
-import DebtIcon from "../../assets/images/account/debts.svg";
-import WalletTable from "../AssetTable/wallet";
-import AssetTable from "../AssetTable";
-import SVG from "react-inlinesvg";
+import { PropsWithChildren, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import SVG from "react-inlinesvg";
+import { Button } from "react-bootstrap";
+import { ThemeContext } from "styled-components";
+
+import AssetIcon from "../../assets/images/account/assets.svg";
+import DebtIcon from "../../assets/images/account/debts.svg";
+import DepositsIcon from "../../assets/images/account/deposits.svg";
+import NetWorthIcon from "../../assets/images/account/networth.svg";
+import WalletIcon from "../../assets/images/account/wallet.svg";
+import ArrowRightIcon from "../../assets/images/global/arrow-right.svg";
+import CurrencyText from "../CurrencyText";
+import Loading from "../Loading";
+import * as Styled from "./styleds";
 
 const icons: any = {
-	wallet: WalletIcon,
+	assets: AssetIcon,
 	debts: DebtIcon,
 	deposits: DepositsIcon,
+	netWorth: NetWorthIcon,
+	wallet: WalletIcon,
 };
-const Wrapper = styled.div`
-	padding-bottom: 20px;
-	height: 100%;
-	display: block;
-`;
 
-const Card = styled.div`
-	background-color: ${({ theme }) => theme.modalBG};
-	color: ${({ theme }) => theme.text1};
-	display: flex;
-	flex-direction: column;
-	border-radius: 20px;
-	cursor: pointer;
-	height: 100%;
-`;
-
-const TableContainer = styled.div`
-	padding: 0 0.75rem;
-
-	@media (min-width: 768px) {
-		padding: 0;
-	}
-`;
-
-const CardIcon = styled.div`
-	width: 56px;
-	height: 56px;
-	border-radius: 56px;
-	color: ${({ theme }) => theme.primary};
-	background-color: ${({ theme }) => theme.primaryLight};
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	@media (min-width: 768px) {
-		width: 74px;
-		height: 74px;
-		border-radius: 74px;
-	}
-`;
-
-const CardBody = styled.div`
-	display: flex;
-	align-items: center;
-	padding: 1.875rem 1.25rem;
-	border-bottom: 1px solid ${({ theme }) => theme.text3};
-
-	@media (min-width: 768px) {
-		padding: 1.875rem;
-	}
-`;
-
-const CardBottomBody = styled.div`
-	display: flex;
-	flex-direction: column;
-	padding: 1.25rem 0.5rem 0.5rem;
-	height: 100%;
-`;
-
-const CardContent = styled.div`
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	justify-content: center;
-	padding-left: 26px;
-
-	@media (min-width: 768px) {
-		padding-left: 30px;
-	}
-`;
-
-const Title = styled.span`
-	font-weight: 500;
-	font-size: 1rem;
-	color: ${({ theme }) => theme.text1};
-	display: block;
-	margin-bottom: 0.25rem;
-`;
-
-const Value = styled.span`
-	font-weight: 700;
-	font-size: 1.25rem;
-	color: ${({ theme }) => theme.text1};
-	display: block;
-	margin: 0;
-
-	@media (min-width: 768px) {
-		font-size: 1.75rem;
-	}
-`;
+export type AccountCardProps = {
+	color?: any;
+	type?: string;
+	title: string;
+	value: string;
+	assets?: any;
+	onShowMore?: any;
+	loading?: boolean;
+	show?: boolean;
+	className?: string | undefined;
+};
 
 function AccountCard({
-	className,
-	value,
-	title,
-	clickHandler,
+	color = "primary",
 	type = "wallet",
-	balances,
-}: {
-	className: string | undefined;
-	value: string | null;
-	title: string;
-	clickHandler?: any;
-	type?: string;
-	balances: any;
-}) {
+	title,
+	value,
+	assets,
+	onShowMore,
+	loading = false,
+	show,
+	className = "",
+	children,
+}: PropsWithChildren<AccountCardProps>) {
 	const { t } = useTranslation();
+	const theme = useContext(ThemeContext);
+	// @ts-ignore
+	const themeColor = theme[color];
+	const showCardBody = children && assets?.balances?.length > 0;
+	const showCardAction = assets?.balances?.length > 5;
+
+	if (loading) {
+		return <Loading width={55} height={55} active color={"primary"} />;
+	}
+
+	if (!show) {
+		return null;
+	}
 
 	return (
-		<Wrapper>
-			<Card className={className} onClick={clickHandler}>
-				{/* begin::Body */}
-				<CardBody>
-					<CardIcon>
-						<SVG src={icons[type]} width={isMobile ? 24 : 32} height={isMobile ? 24 : 32} />
-					</CardIcon>
+		<Styled.Card className={className}>
+			<Styled.CardHeader>
+				<Styled.CardIcon color={themeColor}>
+					<Styled.CardImg src={icons[type]} />
+				</Styled.CardIcon>
 
-					<CardContent>
-						<Title>{title}</Title>
-						<Value>
-							<CurrencyText>{value}</CurrencyText>
-						</Value>
-					</CardContent>
-				</CardBody>
-				<CardBottomBody>
+				<Styled.CardHeaderContent>
+					<Styled.Title>{title}</Styled.Title>
+					<Styled.Value>
+						<CurrencyText>{value}</CurrencyText>
+					</Styled.Value>
+				</Styled.CardHeaderContent>
+			</Styled.CardHeader>
+
+			{showCardBody && (
+				<Styled.CardBody>
 					<div className={"d-flex flex-column w-100 flex-grow-1"}>
-						<TableContainer className={"flex-grow-1 align-self-stretch"}>
-							{type === "wallet" ? (
-								<WalletTable size={"sm"} balances={balances.balances?.slice(0, 5)} clickable={false} />
-							) : (
-								<AssetTable size={"sm"} balances={balances.balances?.slice(0, 5)} />
-							)}
-						</TableContainer>
-						<div className={"d-flex align-items-center justify-content-end align-self-stretch"}>
-							<button className="btn btn-link text-primary font-weight-medium">
-								{t("more")}
-								<SVG
-									src={require("../../assets/images/global/arrow-right.svg").default}
-									width={6}
-									height={10}
-									style={{ marginLeft: 18 }}
-								/>
-							</button>
-						</div>
+						<div className={"flex-grow-1 align-self-stretch"}>{children}</div>
+
+						{showCardAction && (
+							<div className={"d-flex justify-content-end"}>
+								<Button variant={"link"} onClick={onShowMore} className="d-flex align-items-center">
+									<span>{t("more")}</span>
+									<SVG src={ArrowRightIcon} width={8} height={12} className="ml-3" />
+								</Button>
+							</div>
+						)}
 					</div>
-				</CardBottomBody>
-				{/* end::Body */}
-			</Card>
-		</Wrapper>
+				</Styled.CardBody>
+			)}
+		</Styled.Card>
 	);
 }
 

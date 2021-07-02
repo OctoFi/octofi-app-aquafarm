@@ -9,7 +9,7 @@ export function WalletPageTable({ entities, columns }) {
 			<BootstrapTable
 				wrapperClasses="table-responsive d-none d-lg-block"
 				bordered={false}
-				classes="table table-head-custom table-borderless table-vertical-center overflow-hidden wallet-page__table"
+				classes="table table-head-custom table-vertical-center overflow-hidden wallet-page__table"
 				bootstrap4
 				remote
 				keyField="id"

@@ -3,7 +3,7 @@ import { Modal } from "../Modal/bootstrap";
 import { useSelector } from "react-redux";
 
 import styled from "styled-components";
-import WalletTable from "../AssetTable/wallet";
+import WalletTable from "../AssetTable/WalletTable";
 import SVG from "react-inlinesvg";
 
 const CustomTitle = styled.h4`
@@ -53,7 +53,7 @@ const WalletModal = (props) => {
 		if (token.metadata.symbol === "ETH") {
 			props.history.push("/coins/ethereum");
 		} else {
-			props.history.push(`/coins/contract/${token.metadata.address}`);
+			props.history.push(`/coins/${token.metadata.address}`);
 		}
 	};
 	let data = overview.wallet.balances || [];
@@ -70,7 +70,7 @@ const WalletModal = (props) => {
 				</CloseButton>
 			</Modal.Header>
 			<Modal.Body className={"py-3"}>
-				<WalletTable balances={data} onClickToken={onClickToken} clickable={true} />
+				<WalletTable balances={data} onClickToken={onClickToken} />
 			</Modal.Body>
 		</Modal>
 	);

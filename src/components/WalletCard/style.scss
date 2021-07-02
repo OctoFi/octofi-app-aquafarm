@@ -1,5 +1,5 @@
 .wallet-page__table {
-	border-collapse: separate;
+	border-collapse: collapse;
 	border-spacing: 0 0;
 
 	thead th {
@@ -11,6 +11,7 @@
 		white-space: nowrap;
 		min-height: 56px;
 		padding: 1rem 1.5rem !important;
+		border: 0 !important;
 
 		.dark-mode & {
 			background-color: rgba(white, 0.1);
@@ -29,24 +30,22 @@
 		&:last-child {
 			border-top-right-radius: 18px;
 			border-bottom-right-radius: 18px;
+			text-align: right;
 		}
 	}
 
 	th,
 	td {
-		vertical-align: middle;
-
-		&:last-child {
-			text-align: left;
-		}
+		vertical-align: middle !important;
 	}
 
 	td {
-		border-bottom: 1px solid rgba(#202020, 0.5);
+		border-top: 0 !important;
+		border-bottom: 1px solid rgba(black, 0.15);
 		padding: 1.25rem 1.5rem;
 
 		.dark-mode & {
-			border-color: rgba(white, 0.5);
+			border-color: rgba(white, 0.15);
 		}
 	}
 

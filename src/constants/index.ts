@@ -63,6 +63,7 @@ export const COMP = new Token(ChainId.MAINNET, "0xc00e94Cb662C3520282E6f57172140
 export const MKR = new Token(ChainId.MAINNET, "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2", 18, "MKR", "Maker");
 export const AMPL = new Token(ChainId.MAINNET, "0xD46bA6D942050d489DBd938a2C909A5d5039A161", 9, "AMPL", "Ampleforth");
 export const WBTC = new Token(ChainId.MAINNET, "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599", 18, "WBTC", "Wrapped BTC");
+export const OCTO = new Token(ChainId.MAINNET, "0x7240aC91f01233BaAf8b064248E80feaA5912BA3", 18, "OCTO", "Octo.fi");
 
 export const BalanceToken = new Token(
 	ChainId.MAINNET,

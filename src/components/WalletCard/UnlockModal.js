@@ -1,6 +1,6 @@
-import { ConfirmationPendingContent, TransactionSubmittedContent } from "../../components/TransactionConfirmationModal";
+import { ConfirmationPendingContent, TransactionSubmittedContent } from "../TransactionConfirmationModal";
 import React from "react";
-import { Modal } from "../../components/Modal/bootstrap";
+import { Modal } from "../Modal/bootstrap";
 import { CHAIN_ID } from "../../constants";
 
 const UnlockModal = (props) => {

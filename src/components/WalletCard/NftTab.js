@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
+import moment from "moment";
 
 import OpenSeaApi from "../../http/opensea";
-import { WalletPageTable } from "./WalletPageTable";
 import { useActiveWeb3React } from "../../hooks";
-import Loading from "../../components/Loading";
-import { CustomText, LogoContainer, Title, TradeButton } from "./index";
-import moment from "moment";
-import { useTranslation } from "react-i18next";
+import { WalletPageTable } from "./WalletPageTable";
+import Loading from "../Loading";
+import { CustomText, LogoContainer, Title, TradeButton } from "./styleds";
 
 const Logo = styled.img`
 	width: 100%;
@@ -72,7 +72,11 @@ const NftTab = (props) => {
 						)}
 						<div className="d-flex flex-column align-items-end align-items-lg-start">
 							<Title className={"mb-1"}>{row.name}</Title>
-							<CustomText>{row?.description?.length > 120 ? row?.description?.slice(0, 120) + '...' : row?.description}</CustomText>
+							<CustomText>
+								{row?.description?.length > 120
+									? row?.description?.slice(0, 120) + "..."
+									: row?.description}
+							</CustomText>
 						</div>
 					</div>
 				);
@@ -106,7 +110,9 @@ const NftTab = (props) => {
 			formatter: (cellContent, row) => {
 				return (
 					<div className="d-flex align-items-center flex-row-reverse flex-lg-row">
-						<CustomText>{moment(row.asset_contract.created_date).format("YYYY-MM-DD<br/>HH:mm:ss")}</CustomText>
+						<CustomText>
+							{moment(row.asset_contract.created_date).format("YYYY-MM-DD<br/>HH:mm:ss")}
+						</CustomText>
 					</div>
 				);
 			},

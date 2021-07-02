@@ -1,18 +1,19 @@
 import styled from "styled-components";
+import SVG from "react-inlinesvg";
 
 export const Card = styled.div`
 	background-color: ${({ theme }) => theme.modalBG};
 	color: ${({ theme }) => theme.text1};
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 	border-radius: 18px;
 	margin-bottom: 1rem;
-	padding: 1.5rem;
 `;
 
-export const CardBody = styled.div`
+export const CardHeader = styled.div`
 	display: flex;
 	align-items: center;
+	padding: 1.5rem;
 `;
 
 export const CardIcon = styled.div<{ color: string }>`
@@ -26,13 +27,21 @@ export const CardIcon = styled.div<{ color: string }>`
 	justify-content: center;
 `;
 
-export const Img = styled.img`
-    width: 50%;
-    height: auto;
+export const CardImg = styled(SVG)`
+	width: 50%;
+	height: auto;
 `;
 
-export const CardContent = styled.div`
-	margin-left: 1rem;
+export const CardBody = styled.div`
+	display: flex;
+	flex-direction: column;
+	padding: 20px 0.5rem;
+	height: 100%;
+	border-top: 1px solid ${({ theme }) => theme.borderColor};
+`;
+
+export const CardHeaderContent = styled.div`
+	margin-left: 20px;
 `;
 
 export const Title = styled.p`

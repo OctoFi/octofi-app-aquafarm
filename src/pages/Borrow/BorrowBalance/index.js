@@ -25,7 +25,7 @@ import {
 } from "../../../state/spotUI/actions";
 import CurrencyLogo from "../../../components/CurrencyLogo";
 import Skeleton from "react-loading-skeleton";
-import { StyledLink, TradeButton } from "../../Wallet";
+import { StyledLink, TradeButton } from "../../../components/WalletCard/styleds";
 import BootstrapTable from "react-bootstrap-table-next";
 import ResponsiveTable from "../../../components/ResponsiveTable";
 import BorrowTokenModal from "./BorrowTokenModal";
@@ -33,6 +33,7 @@ import RepayTokenModal from "./RepayTokenModal";
 import { Token } from "@uniswap/sdk";
 import { sortedData } from "../../../lib/helper";
 import { useTranslation } from "react-i18next";
+import useTheme from "../../../hooks/useTheme";
 
 const LogoContainer = styled.div`
 	width: 32px;
@@ -84,6 +85,7 @@ const CellText = styled.span`
 `;
 
 const BorrowBalance = (props) => {
+	const theme = useTheme();
 	const [isEthState, setIsEthState] = useState(false);
 	const [isHideZeroBalance, setIsHideZeroBalance] = useState(false);
 	const [isStableCoin, setIsStableCoin] = useState(false);
@@ -401,7 +403,7 @@ const BorrowBalance = (props) => {
 
 						<StyledLink>
 							<TradeButton
-								variant={"warning"}
+								variant={theme.warning}
 								onClick={openRepayModal.bind(this, tokenD, isEthToken, tokB, token, borrowBalance)}
 								disabled={(borrowBalance && borrowBalance.isEqualTo(0)) || !account}
 							>

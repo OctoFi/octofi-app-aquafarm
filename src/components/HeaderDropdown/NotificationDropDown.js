@@ -21,7 +21,7 @@ const NotificationDropdown = () => {
 				<PendingTransactionsList />
 				<Title>{t("confirmedTransactions")}</Title>
 				<ConfirmedTransactionsList />
-				<SeeAllButton to={"/account/history"}>{t("seeAllTransactions")}</SeeAllButton>
+				<SeeAllButton to={"/history"}>{t("seeAllTransactions")}</SeeAllButton>
 			</DropDown>
 		</Wrapper>
 	);

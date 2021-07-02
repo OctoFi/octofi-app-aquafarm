@@ -1,5 +1,4 @@
 import { transparentize } from "polished";
-import React from "react";
 import { AlertTriangle } from "react-feather";
 import styled, { css } from "styled-components";
 import { Text } from "rebass";
@@ -10,6 +9,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`
+	// padding: 2px 16px;
 	padding: 2px;
 
 	${({ clickable }) =>

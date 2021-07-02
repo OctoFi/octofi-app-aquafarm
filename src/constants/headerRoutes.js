@@ -19,12 +19,12 @@ export const routes = {
 			},
 			on: {
 				title: "crypto",
-				path: "/fiat/on",
+				path: "/onramp",
 				state: "success",
 			},
 			off: {
 				title: "giftCards",
-				path: "/fiat/off-cards",
+				path: "/offramp",
 				state: "success",
 			},
 		},
@@ -72,11 +72,6 @@ export const routes = {
 				path: "/invest/nft",
 				state: "success",
 			},
-			launchpad: {
-				title: "launchpad",
-				path: "/invest/launchpad",
-				state: "success",
-			},
 		},
 	},
 	tools: {
@@ -85,6 +80,11 @@ export const routes = {
 			governance: {
 				title: "governance",
 				path: "/governance",
+				state: "success",
+			},
+			launchpad: {
+				title: "launchpad",
+				path: "/launchpad",
 				state: "success",
 			},
 		},
@@ -97,14 +97,9 @@ export const routes = {
 				path: "/dashboard",
 				state: "success",
 			},
-			wallet: {
-				title: "wallet",
-				path: "/account/wallet",
-				state: "success",
-			},
 			history: {
 				title: "history",
-				path: "/account/history",
+				path: "/history",
 				state: "success",
 			},
 		},

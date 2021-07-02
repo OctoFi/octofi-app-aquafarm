@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
 
+import AssetIcon from "../../assets/images/account/assets.svg";
+import DebtIcon from "../../assets/images/account/debts.svg";
+import NetWorthIcon from "../../assets/images/account/networth.svg";
 import CurrencyText from "../CurrencyText";
-import AssetIcon from "../../assets/images/assets/assets.svg";
-import DebtIcon from "../../assets/images/assets/debts.svg";
-import NetWorthIcon from "../../assets/images/assets/networth.svg";
+import Loading from "../Loading";
 import * as Styled from "./styleds";
 
 const icons: any = {
@@ -14,17 +15,36 @@ const icons: any = {
 };
 
 export type ValueCardProps = {
-	className: string;
+	className?: string;
+	color?: any;
 	value: string;
 	title: string;
 	type: string;
-	color: any;
+	show?: boolean;
+	loading?: boolean;
 };
 
-function ValueCard({ className, value, title, type, color = "primary" }: ValueCardProps) {
+function ValueCard({
+	className = "",
+	value,
+	title,
+	type,
+	color = "primary",
+	show = true,
+	loading = false,
+}: ValueCardProps) {
 	const theme = useContext(ThemeContext);
 	// @ts-ignore
 	const themeColor = theme[color];
+
+	if (loading) {
+		return <Loading width={55} height={55} active color={"primary"} />;
+	}
+
+	if (!show) {
+		return null;
+	}
+
 	return (
 		<Styled.Card className={className}>
 			<Styled.CardBody>

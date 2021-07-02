@@ -2,57 +2,30 @@ import React, { useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { Route } from "react-router-dom";
 import { connect, useDispatch, useSelector } from "react-redux";
-import SVG from "react-inlinesvg";
-import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import { useActiveWeb3React } from "../../hooks";
-import ValueCard from "../../components/ValueCard";
-import OverviewCard from "../../components/OverviewCard";
-import ChartCard from "../../components/ChartCard";
-import AssetModal from "../../components/AssetModal";
-import WalletModal from "../../components/AssetModal/wallet";
-import Page from "../../components/Page";
-import Loading from "../../components/Loading";
-import AccountCard from "../../components/AccountCard";
 import { emitter } from "../../lib/helper";
 import { fetchBalances, fetchTransformedBalances } from "../../state/balances/actions";
 import { useMemoTokenBalances } from "../../state/balances/hooks";
-import { useTranslation } from "react-i18next";
-
-const LoadingCol = styled.div`
-	background-color: ${({ theme }) => theme.modalBG};
-	border-radius: 20px;
-	min-height: 550px;
-`;
-
-const Card = styled.div`
-	background-color: ${({ theme }) => theme.modalBG};
-	color: ${({ theme }) => theme.text1};
-	display: flex;
-	align-items: center;
-	border-radius: 20px;
-	justify-content: center;
-	flex-direction: column;
-	padding: 45px;
-`;
-
-const RowTitle = styled.h4`
-	margin-top: 30px;
-	margin-bottom: 20px;
-
-	@media (min-width: 768px) {
-		margin-top: 60px;
-		margin-bottom: 30px;
-	}
-`;
+import Page from "../../components/Page";
+import AccountCard from "../../components/AccountCard";
+import AssetModal from "../../components/AssetModal";
+import WalletModal from "../../components/AssetModal/WalletModal";
+import AssetTable from "../../components/AssetTable";
+// import WalletTable from "../../components/AssetTable/WalletTable";
+import WalletCard from "../../components/WalletCard";
+import ChartCard from "../../components/ChartCard";
+import Platforms from "../../components/Platforms";
+import * as Styled from "./styleds";
 
 const Dashboard = (props) => {
+	const { t } = useTranslation();
 	const { account } = useActiveWeb3React();
 	const balances = useSelector((state) => state.balances.data);
 	const { ETH } = useSelector((state) => state.currency.currenciesRate);
 	const dispatch = useDispatch();
 	const walletBalances = useMemoTokenBalances();
-	const { t } = useTranslation();
 
 	useEffect(() => {
 		if (account) {
@@ -64,134 +37,119 @@ const Dashboard = (props) => {
 		dispatch(fetchTransformedBalances(balances, walletBalances, ETH));
 	}, [balances, walletBalances, ETH, dispatch]);
 
-	const clickOnAsset = (asset) => {
+	const onClickToken = (token) => {
+		if (token.metadata.symbol === "ETH") {
+			props.history.push("/coins/ethereum");
+		} else {
+			props.history.push(`/coins/${token.metadata.address}`);
+			// props.history.push(`/coins/contract/${token.metadata.address}`);
+		}
+	};
+
+	const onSelectCard = (asset) => {
 		emitter.emit("open-modal", {
 			action: () => {
-				props.history.push(`/dashboard`);
+				props.history.push("/dashboard");
 				emitter.emit("close-modal");
 			},
 		});
 		if (asset === "wallet") {
-			props.history.push("/dashboard/wallet");
+			props.history.push("/dashboard/assets");
 		} else {
-			props.history.push(`/dashboard/asset/${asset}`);
+			props.history.push(`/dashboard/account/${asset}`);
 		}
 	};
 
-	const showPlatform = (platform) => {
+	const onSelectPlatform = (platform) => {
 		props.history.push(`/platforms/${platform}`);
 	};
 
 	return (
-		<Page title={t("dashboard")} notNetworkSensitive={true}>
-			{props.loading ? (
-				<Row>
-					<Col xs={12}>
-						<LoadingCol className={"d-flex align-items-center justify-content-center"}>
-							<Loading width={55} height={55} active color={"primary"} id={"dashboard-loading"} />
-						</LoadingCol>
-					</Col>
-				</Row>
-			) : (
-				<>
-					<Row className={"custom-row"}>
-						<Col xs={12} md={4}>
-							<ValueCard
-								color={"secondary"}
-								title={t("totalAssets")}
-								value={props.overview.deposits.total + props.overview.wallet.total}
-								type={"assets"}
-							/>
-						</Col>
-						<Col xs={12} md={4}>
-							<ValueCard
-								title={t("totalDebts")}
-								value={props.overview.debts.total}
-								type={"debts"}
-							/>
-						</Col>
-						<Col xs={12} md={4}>
-							<ValueCard
-								color={"secondary"}
-								title={t("netWorth")}
-								value={
-									props.overview.deposits.total +
-									props.overview.wallet.total -
-									props.overview.debts.total
-								}
-								type={"netWorth"}
-							/>
-						</Col>
-					</Row>
-					<Row>
-						<Col>
-							<ChartCard className="gutter-b card-stretch" chartColor={"success"} account={account} />
-						</Col>
-					</Row>
-					<Row>
-						<Col>
-							<RowTitle className={"h4"}>{t("accountOverview")}</RowTitle>
-						</Col>
-					</Row>
-					<Row className={"custom-row d-flex align-items-stretch"}>
-						{props.overview &&
-							Object.keys(props.overview).map((key) => {
-								const account = props.overview[key];
-								return (
-									<Col key={key} span={12} md={4}>
-										<AccountCard
-											clickHandler={clickOnAsset.bind(this, account.slug)}
-											className={"gutter-b"}
-											balances={account}
-											title={account.title}
-											type={key}
-											value={account.total}
-										/>
-									</Col>
-								);
-							})}
-					</Row>
+		<Page title={false} notNetworkSensitive={true}>
+			<Row className="mb-3">
+				<Col xs={12} lg={8} className="mb-3 mb-lg-0">
+					{/* TODO: replace with a Portfolio Balance Chart */}
+					<ChartCard account={account} className="mb-3" />
+					<WalletCard />
+					{/* <WalletTable
+						balances={props.overview.wallet.balances}
+						size={"sm"}
+						onClickToken={onClickToken}
+						loading={!props.overview}
+						show={props.overview}
+					/> */}
+				</Col>
+				<Col xs={12} lg={4}>
+					<AccountCard
+						color={"primary"}
+						title={t("netWorth")}
+						value={props.overview.deposits.total + props.overview.wallet.total - props.overview.debts.total}
+						type={"netWorth"}
+						show={true}
+						loading={props.loading}
+					/>
 
-					<Row>
-						<Col>
-							<RowTitle className={"h4"}>{t("platforms")}</RowTitle>
-						</Col>
-					</Row>
-					<Row className={"custom-row"}>
-						{props.transformedBalance.length > 0 ? (
-							props.transformedBalance.map((b, index) => {
-								return (
-									<Col key={index} span={12} md={4}>
-										<OverviewCard
-											clickHandler={showPlatform.bind(this, b.metadata.name)}
-											className={"gutter-b"}
-											title={b.metadata.name}
-											value={b.total.toFixed(4)}
-											image={b.metadata.logo.href}
-										/>
-									</Col>
-								);
-							})
-						) : (
-							<Col xs={12}>
-								<Card className="d-flex flex-column align-items-center justify-content-center py-8 px-4">
-									<SVG
-										src={require("../../assets/images/global/layout-block.svg").default}
-										width={64}
-										height={64}
-									/>
-									<h5 className="text-primary font-weight-bolder mb-3 mt-3">
-										{t("errors.noPlatform")}
-									</h5>
-									<span className="text-dark-50">{t("errors.noPlatformDesc")}</span>
-								</Card>
-							</Col>
-						)}
-					</Row>
-					<Route path={"/dashboard/asset/:asset"} component={AssetModal} />
-					<Route path={"/dashboard/wallet"} component={WalletModal} />
-				</>
-			)}
+					<AccountCard
+						color={"secondary"}
+						title={t("totalAssets")}
+						value={props.overview.deposits.total + props.overview.wallet.total}
+						type={"wallet"}
+						show={true}
+						loading={props.loading}
+					/>
+
+					{/*
+					<AccountCard
+						color={"primary"}
+						title={props.overview.wallet.title}
+						value={props.overview.wallet.total}
+						type={props.overview.wallet.slug}
+						show={true}
+						loading={props.loading}
+						onShowMore={() => onSelectCard(props.overview.wallet.slug)}
+						assets={props.overview.wallet}
+					>
+						<WalletTable
+							balances={props.overview.wallet.balances.slice(0, 5)}
+							size={"sm"}
+							onClickToken={onClickToken}
+						/>
+					</AccountCard>
+					*/}
+
+					<AccountCard
+						color={"primary"}
+						title={props.overview.deposits.title}
+						value={props.overview.deposits.total}
+						type={props.overview.deposits.slug}
+						show={true}
+						loading={props.loading}
+						onShowMore={() => onSelectCard(props.overview.deposits.slug)}
+						assets={props.overview.deposits}
+					>
+						<AssetTable size={"sm"} balances={props.overview.deposits.balances.slice(0, 5)} />
+					</AccountCard>
+
+					<AccountCard
+						color={"secondary"}
+						title={props.overview.debts.title}
+						value={props.overview.debts.total}
+						type={props.overview.debts.slug}
+						show={true}
+						loading={props.loading}
+						onShowMore={() => onSelectCard(props.overview.debts.slug)}
+						assets={props.overview.debts}
+					>
+						<AssetTable size={"sm"} balances={props.overview.debts.balances.slice(0, 5)} />
+					</AccountCard>
+				</Col>
+			</Row>
+
+			<Styled.RowTitle className={"h4"}>{t("platforms")}</Styled.RowTitle>
+			<Platforms balance={props.transformedBalance} onSelectPlatform={onSelectPlatform} loading={props.loading} />
+
+			<Route path={"/dashboard/assets"} component={WalletModal} />
+			<Route path={"/dashboard/account/:asset"} component={AssetModal} />
 		</Page>
 	);
 };

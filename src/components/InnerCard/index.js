@@ -7,9 +7,10 @@ import CurrencyText from "../CurrencyText";
 import ArrowRightIcon from "../Icons/ArrowRight";
 
 const Container = styled.div`
-	padding-right: 20px;
+	padding-right: 1.5rem;
 	height: 100%;
 `;
+
 const Wrapper = styled.div`
 	border: 1px solid ${({ theme }) => theme.bg1};
 	background-color: ${({ theme }) => theme.modalBG};
