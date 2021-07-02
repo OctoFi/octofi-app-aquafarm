@@ -4276,6 +4276,13 @@
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.5.tgz#434711bdd49eb5ee69d90c1d67c354a9a8ecb18b"
   integrity sha512-/JHkVHtx/REVG0VVToGRGH2+23hsYLHdyG+GrvoUGlGAd0ErauXDyvHtRI/7H7mzLm+tBCKA7pfcpkQ1lf58iQ==
 
+"@types/react-bootstrap-table-next@^4.0.14":
+  version "4.0.14"
+  resolved "https://registry.yarnpkg.com/@types/react-bootstrap-table-next/-/react-bootstrap-table-next-4.0.14.tgz#e2fa2c8ba1a50c8c6cf4a7f5c55a17b19b8e0c46"
+  integrity sha512-Sdv+fFSeUZenEQU1bdlGfN1exKmrl/EJ49GL5d9i130xmvPjYRnEIb9NQLZE/WyJmkLs38oZUEb81efBhJuRlg==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-dom@^16.9.7":
   version "16.9.10"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.10.tgz#4485b0bec3d41f856181b717f45fd7831101156f"

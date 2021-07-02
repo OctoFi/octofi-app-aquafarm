@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { BigNumber } from "@ethersproject/bignumber";
 import { useSelector, useDispatch } from "react-redux";
-import SVG from "react-inlinesvg";
 import { Button, Row, Col } from "react-bootstrap";
 import CurrencyInputPanel from "../CurrencyInputPanel";
 import { useActiveWeb3React } from "../../hooks";
@@ -43,6 +42,10 @@ import { PoolPriceBar } from "../PoolPriceBar";
 import { Field } from "../../state/mint/actions";
 import { useWalletModalToggle } from "../../state/application/hooks";
 import { useTranslation } from "react-i18next";
+import { SwitchCol } from "../Uniswap/styles";
+import { ArrowWrapper } from "../swap/styleds";
+import { Plus } from "react-feather";
+import useTheme from "../../hooks/useTheme";
 
 export const Dots = styled.span`
 	&::after {
@@ -65,16 +68,6 @@ export const Dots = styled.span`
 	}
 `;
 
-export const AccountState = styled.div<{ type?: string }>`
-	color: ${({ theme, type }) => (type === "success" ? theme.success : theme.danger)};
-	display: flex;
-	align-items: center;
-	justify-content: ${({ type }) => (type === "success" ? "flex-start" : "center")};
-	padding: ${({ type }) => (type === "success" ? "14px 20px" : "24px 20px")};
-	border-radius: 18px;
-	margin-bottom: 48px;
-`;
-
 export const PriceTopbar = styled.span`
 	color: ${({ theme }) => theme.text3};
 	font-weight: 500;
@@ -84,28 +77,6 @@ export const PriceTopbar = styled.span`
 
 	@media (min-width: 1199px) {
 		padding: 15px 15px 10px;
-	}
-`;
-
-export const AccountStateContent = styled.div`
-	margin-left: 20px;
-`;
-
-export const AccountStateTitle = styled.h3`
-	color: currentColor;
-	font-size: 1rem;
-	font-weight: 500;
-	margin-bottom: 0.5rem;
-`;
-
-export const AccountStateDesc = styled.span`
-	color: rgba(74, 200, 170, 0.5);
-	font-size: 0.875rem;
-	font-weight: 500;
-
-	& strong {
-		color: ${({ theme }) => theme.success};
-		font-weight: 500;
 	}
 `;
 
@@ -151,6 +122,7 @@ export default function UniswapLiquidityModal({
 	const { account, chainId, library } = useActiveWeb3React();
 	const toggleWalletModal = useWalletModalToggle();
 	const { t } = useTranslation();
+	const theme = useTheme();
 
 	const currencyA = useCurrency(currencyIdA || "ETH");
 	const currencyB = useCurrency(currencyIdB);
@@ -407,106 +379,74 @@ export default function UniswapLiquidityModal({
 			>
 				<Modal.Body style={{ padding: !showConfirm ? "30px" : "0" }}>
 					{!account ? (
-						<Row>
-							<Col xs={12}>
-								<AccountState type={"danger"} className={"bg-light-danger"}>
-									<SVG
-										src={require("../../assets/images/account/wallet.svg").default}
-										width={36}
-										height={36}
-									/>
-									<AccountStateContent>
-										<AccountStateTitle className={"mb-0"}>
-											{t("wallet.notConnected")}
-										</AccountStateTitle>
-									</AccountStateContent>
-								</AccountState>
-							</Col>
-							<Col
-								xs={12}
-								className={"d-flex align-items-center justify-content-center"}
-								style={{ padding: "80px 0 88px" }}
-							>
-								<GradientButton className={"btn-lg"} onClick={toggleWalletModal}>
-									{t("wallet.connect")}
-								</GradientButton>
-							</Col>
-						</Row>
+						<div
+							className={"d-flex align-items-center justify-content-center"}
+							style={{ padding: "80px 0 88px" }}
+						>
+							<GradientButton className={"btn-lg"} onClick={toggleWalletModal}>
+								{t("wallet.connect")}
+							</GradientButton>
+						</div>
 					) : !showConfirm ? (
-						<Row>
-							<Col xs={12}>
-								<AccountState type={"success"} className={"bg-light-success d-none d-xl-flex"}>
-									<SVG
-										src={require("../../assets/images/account/wallet.svg").default}
-										width={36}
-										height={36}
-									/>
-									<AccountStateContent>
-										<AccountStateTitle>{t("wallet.connected")}</AccountStateTitle>
-										<AccountStateDesc>
-											{t("wallet.connectedTo")} <strong>{account}</strong>
-										</AccountStateDesc>
-									</AccountStateContent>
-								</AccountState>
-							</Col>
-							<ResponsiveCol xs={12} isFirst={true}>
-								<CurrencyInputPanel
-									value={formattedAmounts[Field.CURRENCY_A]}
-									onUserInput={onFieldAInput}
-									onMax={() => {
-										onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? "");
-									}}
-									label={t("token")}
-									onCurrencySelect={handleCurrencyASelect}
-									showMaxButton={!atMaxAmounts[Field.CURRENCY_A]}
-									currency={currencies[Field.CURRENCY_A]}
-									id="add-liquidity-input-tokena"
-									showCommonBases
-								/>
-							</ResponsiveCol>
+						<div>
+							<CurrencyInputPanel
+								value={formattedAmounts[Field.CURRENCY_A]}
+								onUserInput={onFieldAInput}
+								onMax={() => {
+									onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? "");
+								}}
+								label={t("token")}
+								onCurrencySelect={handleCurrencyASelect}
+								showMaxButton={!atMaxAmounts[Field.CURRENCY_A]}
+								currency={currencies[Field.CURRENCY_A]}
+								id="add-liquidity-input-tokena"
+								showCommonBases
+							/>
 
-							<Col xs={12}>
-								<CurrencyInputPanel
-									value={formattedAmounts[Field.CURRENCY_B]}
-									onUserInput={onFieldBInput}
-									onCurrencySelect={handleCurrencyBSelect}
-									onMax={() => {
-										onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? "");
-									}}
-									label={t("token")}
-									showMaxButton={!atMaxAmounts[Field.CURRENCY_B]}
-									currency={currencies[Field.CURRENCY_B]}
-									id="add-liquidity-input-tokenb"
-									showCommonBases
-								/>
-							</Col>
+							<SwitchCol>
+								<ArrowWrapper clickable={false}>
+									<Plus size="16" color={theme.text2} />
+								</ArrowWrapper>
+							</SwitchCol>
+
+							<CurrencyInputPanel
+								value={formattedAmounts[Field.CURRENCY_B]}
+								onUserInput={onFieldBInput}
+								onCurrencySelect={handleCurrencyBSelect}
+								onMax={() => {
+									onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? "");
+								}}
+								label={t("token")}
+								showMaxButton={!atMaxAmounts[Field.CURRENCY_B]}
+								currency={currencies[Field.CURRENCY_B]}
+								id="add-liquidity-input-tokenb"
+								showCommonBases
+							/>
+
 							{currencies[Field.CURRENCY_A] &&
 								currencies[Field.CURRENCY_B] &&
 								pairState !== PairState.INVALID && (
-									<Col xs={12} className={"gutter-b"}>
-										<LightCard padding="0" borderRadius={"18px"} style={{ marginBottom: 20 }}>
-											<PriceTopbar>
-												{noLiquidity ? t("initialPricePoolShare") : t("pricePoolShare")}
-											</PriceTopbar>
-											<div>
-												<PoolPriceBar
-													currencies={currencies}
-													poolTokenPercentage={poolTokenPercentage}
-													noLiquidity={noLiquidity}
-													price={price}
-												/>
-											</div>
-										</LightCard>
-									</Col>
+									<LightCard padding="0" borderRadius={"18px"} className='my-4'>
+										<PriceTopbar>
+											{noLiquidity ? t("initialPricePoolShare") : t("pricePoolShare")}
+										</PriceTopbar>
+										<div>
+											<PoolPriceBar
+												currencies={currencies}
+												poolTokenPercentage={poolTokenPercentage}
+												noLiquidity={noLiquidity}
+												price={price}
+											/>
+										</div>
+									</LightCard>
 								)}
-							<Col xs={12} className={"gutter-b"}>
-								<LightCard padding={"0"} borderRadius={"18px"} style={{ marginBottom: 20 }}>
-									<PriceTopbar>{t("pools.selectGasSetting")}</PriceTopbar>
-									<GasPrice gasList={gasPrice} selected={selectedGasPrice} />
-								</LightCard>
-							</Col>
-							<Col
-								xs={12}
+
+							<LightCard padding={"0"} borderRadius={"18px"} className='my-4'>
+								<PriceTopbar>{t("pools.selectGasSetting")}</PriceTopbar>
+								<GasPrice gasList={gasPrice} selected={selectedGasPrice} />
+							</LightCard>
+
+							<div
 								style={{ paddingTop: 30 }}
 								className={
 									"d-flex flex-column flex-xl-row align-items-stretch align-items-xl-center justify-content-center"
@@ -597,8 +537,8 @@ export default function UniswapLiquidityModal({
 								>
 									<span className="font-weight-bold font-size-lg">{error ?? t("pools.supply")}</span>
 								</Button>
-							</Col>
-						</Row>
+							</div>
+						</div>
 					) : attemptingTxn ? (
 						<ConfirmationPendingContent onDismiss={handleDismissConfirmation} pendingText={pendingText} />
 					) : txHash ? (

@@ -1,171 +1,24 @@
-import { Tab, Row, Col, Nav } from "react-bootstrap";
-import styled from "styled-components";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import BootstrapTable from "react-bootstrap-table-next";
 import { withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { Tab, Row, Col } from "react-bootstrap";
+import BootstrapTable from "react-bootstrap-table-next";
+import SVG from "react-inlinesvg";
 
-import {
-	InputGroupFormControl as FormControl,
-	InputGroupPrepend,
-	InputGroup,
-	InputGroupText,
-} from "../../components/Form";
 import SearchIcon from "../../assets/images/search.svg";
-import Loading from "../../components/Loading";
-import CurrencyText from "../../components/CurrencyText";
-import { fetchAllCoins, fetchCoinMarketPrices, fetchMarketCoins } from "../../state/market/actions";
-import CurrencyLogo from "../../components/CurrencyLogo";
-import ArrowDown from "../../components/Icons/ArrowDown";
-import ResponsiveTable from "../../components/ResponsiveTable";
 import { sortedData } from "../../lib/helper";
 import MarketApi from "../../http/market";
-import SVG from "react-inlinesvg";
-import { useTranslation } from "react-i18next";
-import {useIsDarkMode} from "../../state/user/hooks";
-
-const LogoContainer = styled.div`
-	width: 32px;
-	height: 32px;
-	border-radius: 32px;
-
-	@media (max-width: 991px) {
-		width: 24px;
-		height: 24px;
-		border-radius: 24px;
-	}
-`;
-
-const Logo = styled.img`
-	width: 32px;
-	height: 32px;
-	border-radius: 32px;
-	background-color: ${({ theme }) => theme.text1};
-	border: 2px solid ${({ theme }) => theme.text1};
-
-	@media (max-width: 991px) {
-		width: 24px;
-		height: 24px;
-		border-radius: 24px;
-	}
-`;
-
-const CustomNav = styled(Nav)`
-	margin-left: -30px !important;
-	margin-right: -30px !important;
-	overflow: auto;
-
-	@media (min-width: 768px) {
-		margin-left: -10px !important;
-		margin-right: -10px !important;
-	}
-`;
-
-const CustomNavItem = styled(Nav.Item)`
-	flex-grow: initial !important;
-
-	padding: 0 10px 10px;
-
-	@media (max-width: 767px) {
-		padding: 0 5px 10px;
-	}
-
-	&:first-child {
-		@media (max-width: 767px) {
-			padding-left: 30px;
-		}
-	}
-	&:last-child {
-		@media (max-width: 767px) {
-			padding-right: 30px;
-		}
-	}
-`;
-const CustomNavLink = styled(Nav.Link)`
-	border-radius: 18px !important;
-	color: ${({ theme }) => theme.primary};
-	background-color: ${({ theme }) => theme.primaryLight};
-	white-space: nowrap;
-	padding: 14px 24px;
-	min-height: 56px;
-	font-weight: 500;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	@media (max-width: 767px) {
-		padding: 6px 15px;
-		font-size: 1rem;
-		min-height: 32px;
-		border-radius: 12px !important;
-	}
-
-	&:hover {
-		color: ${({ theme }) => theme.primary};
-	}
-
-	&.active {
-		color: ${({ theme }) => theme.text1};
-		background-color: ${({ theme }) => theme.primary};
-	}
-`;
-
-const HeaderCol = styled(Col)`
-	margin: -10px 0 20px;
-
-	@media (min-width: 768px) {
-		margin-bottom: 25px;
-	}
-`;
-
-const CustomInputGroup = styled(InputGroup)`
-	margin-bottom: 30px;
-`;
-
-const MarketLink = styled.a`
-	color: ${({ theme }) => theme.text1};
-	@media (max-width: 991px) {
-		flex-basis: 100px;
-	}
-`;
-
-const CustomTitle = styled.h4`
-	color: ${({ theme }) => theme.text1};
-	font-size: 1rem;
-
-	@media (max-width: 991px) {
-		font-size: 0.875rem;
-	}
-`;
-
-const SymbolText = styled.span`
-	font-weight: 500;
-	font-size: 0.75rem;
-	color: ${({ theme }) => theme.text1};
-
-	@media (max-width: 991px) {
-		font-size: 0.875rem;
-		font-weight: 400;
-	}
-`;
-
-const CellText = styled.span`
-	font-weight: 500;
-	font-size: 0.875rem;
-	color: ${({ theme }) => theme.text1};
-
-	&.font-size-base {
-		font-size: 1rem;
-	}
-
-	@media (max-width: 991px) {
-		font-weight: 700;
-
-		&.label {
-			font-weight: 500;
-		}
-	}
-`;
+import { fetchAllCoins, fetchCoinMarketPrices, fetchMarketCoins } from "../../state/market/actions";
+import { useIsDarkMode } from "../../state/user/hooks";
+import CurrencyLogo from "../CurrencyLogo";
+import CurrencyText from "../CurrencyText";
+import ArrowDown from "../Icons/ArrowDown";
+import { InputGroupFormControl as FormControl, InputGroupPrepend, InputGroupText } from "../Form";
+import Loading from "../Loading";
+import ResponsiveTable from "../ResponsiveTable";
+import * as Styled from "./styleds";
+import "./style.scss";
 
 const api = new MarketApi();
 
@@ -305,18 +158,22 @@ const MarketTokens = (props) => {
 				return (
 					<div key={rowIndex} className="d-flex align-items-center flex-row py-3">
 						{row.image ? (
-							<Logo src={row.image} alt={row.name} />
+							<Styled.Logo src={row.image} alt={row.name} />
 						) : (
-							<LogoContainer>
+							<Styled.LogoContainer>
 								<CurrencyLogo currency={row.currency} />
-							</LogoContainer>
+							</Styled.LogoContainer>
 						)}
 						<div className="d-flex flex-column justify-content-center ml-3 mr-auto">
-							<CustomTitle className={"font-weight-bolder mb-1"}>{row.name}</CustomTitle>
-							<SymbolText>{row.symbol.toUpperCase()}</SymbolText>
+							<Styled.CustomTitle className={"font-weight-bolder mb-1"}>{row.name}</Styled.CustomTitle>
+							<Styled.SymbolText>{row.symbol.toUpperCase()}</Styled.SymbolText>
 						</div>
 						{hasCoinFetch && (
-							<button className={`btn ${darkMode ? 'btn-light-primary' : 'btn-primary'} btn-sm ml-2 d-none d-lg-block`}>
+							<button
+								className={`btn ${
+									darkMode ? "btn-light-primary" : "btn-primary"
+								} btn-sm ml-2 d-none d-lg-block`}
+							>
 								Aggregations <ArrowDown size={18} fill={"currentColor"} />
 							</button>
 						)}
@@ -329,9 +186,9 @@ const MarketTokens = (props) => {
 			dataField: "current_price",
 			text: t("table.price"),
 			formatter: (cellContent, row) => (
-				<CellText>
+				<Styled.CellText>
 					<CurrencyText>{row.current_price}</CurrencyText>
-				</CellText>
+				</Styled.CellText>
 			),
 			sort: true,
 		},
@@ -401,9 +258,9 @@ const MarketTokens = (props) => {
 			dataField: "market_cap",
 			text: t("table.marketCap"),
 			formatter: (cellContent, row) => (
-				<CellText>
+				<Styled.CellText>
 					<CurrencyText>{row.market_cap || "-"}</CurrencyText>
-				</CellText>
+				</Styled.CellText>
 			),
 			sort: true,
 		},
@@ -446,14 +303,14 @@ const MarketTokens = (props) => {
 									className="d-flex flex-row justify-content-lg-center justify-content-start flex-grow-1 mb-3 mb-lg-0 flex-lg-column"
 									key={market}
 								>
-									<MarketLink
+									<Styled.MarketLink
 										className="mb-lg-1 mr-2 mr-lg-0 font-size-base"
 										href={coinPrices.links[market]}
 										target={"_blank"}
 										rel={"noopener noreferrer"}
 									>
 										{market} ↗
-									</MarketLink>
+									</Styled.MarketLink>
 									<span
 										className={`${
 											coinPrices.result[market] >= row.current_price
@@ -469,7 +326,7 @@ const MarketTokens = (props) => {
 						})
 					) : (
 						<div className="d-flex flex-column flex-lg-row align-items-center justify-content-center py-5">
-							<CellText>{t("errors.default")}</CellText>
+							<Styled.CellText>{t("errors.default")}</Styled.CellText>
 						</div>
 					)}
 				</div>
@@ -561,30 +418,30 @@ const MarketTokens = (props) => {
 	return (
 		<Tab.Container defaultActiveKey="featured">
 			<Row>
-				<HeaderCol
+				<Styled.HeaderCol
 					xs={12}
 					className={
 						"d-flex flex-column-reverse flex-lg-row align-items-stretch align-items-lg-start justify-content-start justify-content-lg-between"
 					}
 				>
-					<CustomNav fill variant="pills" className={"d-flex flex-row align-items-center flex-nowrap"}>
-						<CustomNavItem>
-							<CustomNavLink eventKey="featured">{t("featuredCoins")}</CustomNavLink>
-						</CustomNavItem>
-						<CustomNavItem>
-							<CustomNavLink eventKey="all">{t("allCoins")}</CustomNavLink>
-						</CustomNavItem>
-					</CustomNav>
+					<Styled.CustomNav fill variant="pills" className={"d-flex flex-row align-items-center flex-nowrap"}>
+						<Styled.CustomNavItem>
+							<Styled.CustomNavLink eventKey="featured">{t("featuredCoins")}</Styled.CustomNavLink>
+						</Styled.CustomNavItem>
+						<Styled.CustomNavItem>
+							<Styled.CustomNavLink eventKey="all">{t("allCoins")}</Styled.CustomNavLink>
+						</Styled.CustomNavItem>
+					</Styled.CustomNav>
 
-					<CustomInputGroup className={"w-auto mb-lg-0"} bg={"darker"}>
+					<Styled.CustomInputGroup className={"w-auto mb-lg-0"} bg={"darker"}>
 						<InputGroupPrepend>
 							<InputGroupText>
 								<SVG src={SearchIcon} />
 							</InputGroupText>
 						</InputGroupPrepend>
 						<FormControl id="PoolsSearch" placeholder={t("search")} onChange={searchHandler} />
-					</CustomInputGroup>
-				</HeaderCol>
+					</Styled.CustomInputGroup>
+				</Styled.HeaderCol>
 
 				<Col xs={12}>
 					<Tab.Content className={"bg-transparent"}>

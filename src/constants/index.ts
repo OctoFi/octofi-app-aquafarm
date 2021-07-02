@@ -500,7 +500,7 @@ export const exploreSections = {
 				price: row.current_price,
 				priceDiff: row.price_change_percentage_24h,
 				title: false,
-				src: "/#/coins/" + row.id,
+				src: "/coins/" + row.id,
 			};
 		},
 		seeMore: "/#/invest/tokens",
@@ -521,7 +521,7 @@ export const exploreSections = {
 				title: false,
 			};
 		},
-		seeMore: "/#/invest/tokenSets",
+		seeMore: "/#/invest/tokensets",
 	},
 	pools: {
 		title: "Pools",
@@ -555,7 +555,7 @@ export const exploreSections = {
 				price: row.market_data.current_price.usd,
 				priceDiff: row.market_data.price_change_percentage_24h,
 				title: false,
-				src: "/#/coins/" + row.id,
+				src: "/coins/" + row.id,
 			};
 		},
 		seeMore: false,
@@ -593,7 +593,7 @@ export const exploreSections = {
 				price: row?.current_price || "-",
 				priceDiff: row?.price_change_percentage_24h || "-",
 				title: false,
-				src: "/#/coins/" + row?.id,
+				src: "/coins/" + row?.id,
 			};
 		},
 		seeMore: false,
@@ -612,7 +612,7 @@ export const exploreSections = {
 				price: row?.current_price || "-",
 				priceDiff: row?.price_change_percentage_24h || "-",
 				title: false,
-				src: "/#/coins/" + row?.id,
+				src: "/coins/" + row?.id,
 			};
 		},
 		seeMore: false,

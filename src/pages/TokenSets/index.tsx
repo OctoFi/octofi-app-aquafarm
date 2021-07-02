@@ -7,13 +7,14 @@ import { ResponsiveCard } from "../../components/Card";
 import TokenSetTab from "./TokenSetTab";
 import { StyledNav, StyledNavItem, StyledNavLink } from "./styleds";
 
-const TokenSets = (props) => {
+const TokenSets = () => {
 	const { t } = useTranslation();
 	const [activeKey, setActiveKey] = useState("portfolios");
 
 	return (
 		<Page title={"Token Sets"} notNetworkSensitive={false}>
 			<ResponsiveCard>
+				{/* @ts-ignore */}
 				<Tab.Container defaultActiveKey={"portfolios"} onSelect={(k) => setActiveKey(k)}>
 					<StyledNav variant="pills">
 						<StyledNavItem>
