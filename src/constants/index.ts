@@ -855,21 +855,6 @@ export const ApprovalState = {
 	APPROVED: 3,
 };
 
-export const banners = [
-	{
-		image: require("../assets/images/banners/banner_1.png"),
-		url: "https://den.octo.fi",
-	},
-	{
-		image: require("../assets/images/banners/banner_2.png"),
-		url: "https://dyor.octo.fi",
-	},
-	{
-		image: require("../assets/images/banners/banner_3.png"),
-		url: "https://doc.octo.fi",
-	},
-];
-
 export enum StepKind {
 	WrapEth = "WrapEth",
 	ToggleTokenLock = "ToggleTokenLock",

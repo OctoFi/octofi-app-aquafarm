@@ -1,5 +1,17 @@
 // Global types (types not confined to one component) go here
 
+export type Banner = {
+    image: string;
+    url: string;
+}
+
+export type Feature = {
+    href: string;
+    iconName: string;
+    title: string;
+    desc: string;
+}
+
 export type FiatOffItem = {
     thumbnail: string;
     title: string;

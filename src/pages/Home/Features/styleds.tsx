@@ -1,44 +1,28 @@
-@import "../../../styles/abstracts/variables";
+import styled from "styled-components";
 
-.banners {
-	padding: 40px 0 25px;
+export const Features = styled.section`
+	padding: 20px 0 0;
 
 	@media (min-width: 576px) {
-		padding-top: 80px;
-		padding-bottom: 75px;
+		padding: 35px 0 0;
+	}
+`;
+
+export const Container = styled.div`
+	overflow: hidden;
+`;
+
+export const Inner = styled.div`
+	width: calc(100% + 20px);
+	margin-left: -10px;
+	padding-bottom: 24px;
+
+	.slick-slide {
+		height: 100%;
+		padding: 0 10px;
 	}
 
-	&__container {
-		width: 100%;
-		display: block;
-		overflow: hidden;
-		margin: 0 15px;
-	}
-
-	&__inner {
-		width: calc(100% + 53px);
-		margin-left: -27px;
-		padding-bottom: 24px;
-	}
-}
-
-.banner {
-	&__link {
-		display: block;
-		padding: 0 27px;
-		width: 100%;
-
-		&:focus {
-			outline: none;
-		}
-	}
-
-	&__image {
-		width: 100%;
-		display: block;
-	}
-
-	&__dots {
+	.features__dots {
 		list-style: none;
 		padding-top: 0;
 		padding-left: 0;
@@ -52,13 +36,13 @@
 			padding-top: 10px;
 		}
 
-		& li {
+		li {
 			button {
 				width: 5px !important;
 				height: 5px !important;
 				border-radius: 5px;
 				opacity: 0.5;
-				background-color: $primary;
+				background-color: ${({ theme }) => theme.primary};
 				transition: opacity 0.4s ease;
 				margin: 0 5px;
 				padding: 0;
@@ -79,4 +63,4 @@
 			}
 		}
 	}
-}
+`;

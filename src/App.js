@@ -14,6 +14,8 @@ import TransactionUpdater from "./state/transactions/updater";
 import UserUpdater from "./state/user/updater";
 import Routes from "./Routes";
 import "./global.scss";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Web3ReactManager from "./components/Web3ReactManager";
 import TransactionHandler from "./components/TransactionHandler";
 import { useIsDarkMode } from "./state/user/hooks";

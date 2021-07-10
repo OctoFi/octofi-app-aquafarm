@@ -3,9 +3,6 @@ import { connect } from "react-redux";
 import Slider from "react-slick";
 import { isMobile } from "react-device-detect";
 import { Button } from 'react-bootstrap';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./style.scss";
 
 import { fetchTokens } from "../../state/explore/actions";
 import SectionList from "../../components/SectionList";
@@ -13,6 +10,7 @@ import InnerCard from "../../components/InnerCard";
 import ExchangeIcon from "../../components/Icons/Exchange";
 import Loading from "../../components/Loading";
 import Page from "../../components/Page";
+import "./style.scss";
 import * as Styled from "./styleds";
 
 class Explore extends React.Component {

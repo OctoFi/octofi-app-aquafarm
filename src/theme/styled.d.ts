@@ -21,6 +21,7 @@ export interface Colors {
 	
 	// UI
 	borderColor: Color;
+	borderColor2: Color;
 	bodyBg: Color;
 	splashBG: Color;
 	backdrop: Color;

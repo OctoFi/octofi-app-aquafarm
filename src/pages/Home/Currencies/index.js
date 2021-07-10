@@ -1,85 +1,25 @@
-import { Col } from "react-bootstrap";
 import React, { useState, useEffect, useCallback, useMemo } from "react";
-import Table from "react-bootstrap-table-next";
-import Skeleton from "react-loading-skeleton";
-import styled from "styled-components";
-import { isMobile } from "react-device-detect";
-
-import "./currencies.scss";
-import SearchIcon from "../../../assets/images/search.svg";
-import CustomCard from "../../../components/CustomCard";
-import MarketApi from "../../../http/market";
-import SparklineChart from "../../../components/SparklineChart";
-import ResponsiveTable from "../../../components/ResponsiveTable";
 import { Link, withRouter } from "react-router-dom";
-import CurrencyText from "../../../components/CurrencyText";
 import { useTranslation } from "react-i18next";
+import { isMobile } from "react-device-detect";
+import SVG from "react-inlinesvg";
+import Skeleton from "react-loading-skeleton";
+import Table from "react-bootstrap-table-next";
+import { Button } from "react-bootstrap";
+
+import { CustomCard } from "../../../components/Card";
+import SearchIcon from "../../../assets/images/search.svg";
+import MarketApi from "../../../http/market";
+import CurrencyText from "../../../components/CurrencyText";
+import ResponsiveTable from "../../../components/ResponsiveTable";
+import SparklineChart from "../../../components/SparklineChart";
 import {
 	InputGroupFormControl as FormControl,
 	InputGroup,
 	InputGroupPrepend,
 	InputGroupText,
 } from "../../../components/Form";
-import SVG from "react-inlinesvg";
-
-const GotoMarketContainer = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 12px 24px;
-	margin-top: 1rem;
-
-	@media (min-width: 992px) {
-		margin-top: 0;
-	}
-`;
-
-const PoolsButton = styled.button`
-	border-radius: 12px;
-	background-color: ${({ theme }) => theme.bg1};
-	padding: 6px 20px;
-	max-height: 40px;
-	min-height: 40px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	white-space: nowrap;
-	font-size: 1rem;
-	font-family: inherit;
-	font-weight: 500;
-	border: none;
-	outline: none;
-	text-decoration: none;
-
-	&:hover,
-	&:focus,
-	&:active {
-		text-decoration: none;
-		outline: none;
-		box-shadow: none;
-	}
-`;
-
-const TradeButton = styled(PoolsButton)`
-	color: ${({ theme }) => theme.primary};
-	width: 100%;
-
-	&:hover {
-		color: ${({ theme }) => theme.bg1};
-		background-color: ${({ theme }) => theme.primary};
-	}
-`;
-
-const StyledLink = styled(Link)`
-	text-decoration: none;
-	&:hover,
-	&:focus,
-	&:active {
-		text-decoration: none;
-		outline: none;
-		box-shadow: none;
-	}
-`;
+import * as Styled from "./styleds";
 
 const marketApi = new MarketApi();
 
@@ -147,9 +87,9 @@ const Currencies = (props) => {
 				return (
 					<div className="d-flex coin align-items-center">
 						{row.hasOwnProperty("image") ? (
-							<div className="coin__icon">
+							<Styled.CoinIcon>
 								<img src={row?.image} alt={row?.name} />
-							</div>
+							</Styled.CoinIcon>
 						) : (
 							<Skeleton
 								width={isMobile ? 24 : 55}
@@ -158,16 +98,16 @@ const Currencies = (props) => {
 							/>
 						)}
 
-						<span className={"coin__symbol"}>
+						<Styled.CoinSymbol>
 							{row.hasOwnProperty("symbol") ? (
 								row?.symbol?.toUpperCase()
 							) : (
 								<Skeleton width={isMobile ? 30 : 80} />
 							)}
-						</span>
-						<span className={"coin__name"}>
+						</Styled.CoinSymbol>
+						<Styled.CoinName>
 							{row.hasOwnProperty("name") ? row?.name : <Skeleton width={isMobile ? 40 : 120} />}
-						</span>
+						</Styled.CoinName>
 					</div>
 				);
 			},
@@ -177,13 +117,13 @@ const Currencies = (props) => {
 			text: t("table.price"),
 			formatter: (cell, row) => {
 				return (
-					<span className={"coin__price"}>
+					<Styled.CoinPrice>
 						{row.hasOwnProperty("current_price") ? (
 							<CurrencyText>{row?.current_price}</CurrencyText>
 						) : (
 							<Skeleton width={isMobile ? 50 : 80} height={32} />
 						)}
-					</span>
+					</Styled.CoinPrice>
 				);
 			},
 		},
@@ -211,9 +151,12 @@ const Currencies = (props) => {
 			text: t("last7Days"),
 			formatter: (cell, row, index) => {
 				const data = row?.sparkline_in_7d?.price;
-			
+
 				return row.hasOwnProperty("sparkline_in_7d") ? (
-					<SparklineChart data={data} theme={row.price_change_percentage_7d_in_currency >= 0 ? "primary" : "secondary"} />
+					<SparklineChart
+						data={data}
+						theme={row.price_change_percentage_7d_in_currency >= 0 ? "primary" : "secondary"}
+					/>
 				) : (
 					<Skeleton width={120} height={40} />
 				);
@@ -232,9 +175,9 @@ const Currencies = (props) => {
 			formatter(cellContent, row) {
 				return (
 					<div className="d-flex flex-column align-items-stretch align-items-lg-center justify-content-center w-100">
-						<StyledLink to={`/market/${row?.id}`}>
-							<TradeButton>View More</TradeButton>
-						</StyledLink>
+						<Styled.StyledLink to={`/market/${row?.id}`}>
+							<Styled.TradeButton>View More</Styled.TradeButton>
+						</Styled.StyledLink>
 					</div>
 				);
 			},
@@ -249,19 +192,12 @@ const Currencies = (props) => {
 	};
 
 	return (
-		<section className="row currency section d-flex align-items-stretch">
-			<Col
-				xs={12}
-				className={
-					"d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center justify-content-between section__title"
-				}
-			>
+		<Styled.CurrencySection>
+			<div className="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center justify-content-between section__title">
 				<div className="d-flex align-items-start justify-content-between">
 					<h2 className="h2 mr-auto">{t("tokens.assets")}</h2>
 					<Link to={"/invest/tokens"} className={"d-flex d-lg-none"}>
-						<button className="btn btn-link p-0" style={{ fontWeight: 500 }}>
-							{t("tokens.allAssets")}
-						</button>
+						<Button variant="link">{t("tokens.allAssets")}</Button>
 					</Link>
 				</div>
 				<InputGroup className={"w-auto"}>
@@ -278,15 +214,16 @@ const Currencies = (props) => {
 						className={"form-control--currency"}
 					/>
 				</InputGroup>
-			</Col>
-			<Col xs={12}>
-				<CustomCard>
-					{coins.length > 0 ? (
-						<>
+			</div>
+
+			<CustomCard>
+				{coins.length > 0 ? (
+					<>
+						<Styled.CurrenciesTable className="d-none d-lg-block">
 							<Table
-								wrapperClasses="table-responsive d-none d-lg-block"
+								wrapperClasses="table-responsive"
 								bordered={false}
-								classes={`table currencies table-vertical-center overflow-hidden table-dark-border table-hover`}
+								classes={`table table-vertical-center overflow-hidden table-dark-border table-hover`}
 								bootstrap4
 								remote
 								keyField="id"
@@ -294,23 +231,25 @@ const Currencies = (props) => {
 								columns={columns}
 								data={coins}
 							/>
-							<ResponsiveTable breakpoint={"lg"} columns={mobileColumns} data={coins} />
-							<GotoMarketContainer>
-								<Link to={"/invest/tokens"}>
-									<button className="btn btn-link p-0" style={{ fontWeight: 500 }}>
-										{t("tokens.allAssets")}
-									</button>
-								</Link>
-							</GotoMarketContainer>
-						</>
-					) : (
-						<span className="py-5 font-size-sm font-weight-medium d-flex align-items-center justify-content-center">
-							{t("tokens.noToken")}
-						</span>
-					)}
-				</CustomCard>
-			</Col>
-		</section>
+						</Styled.CurrenciesTable>
+
+						<ResponsiveTable breakpoint={"lg"} columns={mobileColumns} data={coins} />
+
+						<Styled.GotoMarketContainer>
+							<Link to={"/invest/tokens"}>
+								<Button variant={"link"}>
+									{t("tokens.allAssets")}
+								</Button>
+							</Link>
+						</Styled.GotoMarketContainer>
+					</>
+				) : (
+					<div className="py-4 font-size-base font-weight-medium d-flex align-items-center justify-content-center">
+						{t("tokens.noToken")}
+					</div>
+				)}
+			</CustomCard>
+		</Styled.CurrencySection>
 	);
 };
 
