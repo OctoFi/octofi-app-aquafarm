@@ -9,17 +9,32 @@ export const routes = {
 		path: "/history",
 		state: "success",
 	},
-	fiat: {
-		title: "buy",
+	instantSwap: {
+		title: "exchange",
+		path: "/swap/all",
+		state: "success",
+	},
+	explore: {
+		title: "invest",
+		path: "/invest",
+		state: "success",
+	},
+	pools: {
+		title: "pools",
+		path: "/invest/pools",
+		state: "success",
+	},
+	more: {
+		title: "more",
 		routes: {
-			instantSwap: {
-				title: "swap",
-				path: "/swap/all",
+			governance: {
+				title: "governance",
+				path: "/governance",
 				state: "success",
 			},
-			swap: {
-				title: "uniswap",
-				path: "/swap/uni",
+			nft: {
+				title: "nft",
+				path: "/nft",
 				state: "success",
 			},
 			on: {
@@ -32,54 +47,19 @@ export const routes = {
 				path: "/offramp",
 				state: "success",
 			},
-		},
-	},
-	invest: {
-		title: "invest",
-		routes: {
-			explore: {
-				title: "explore",
-				path: "/invest",
-				state: "success",
-			},
-			pools: {
-				title: "pools",
-				path: "/invest/pools",
-				state: "success",
-			},
-			tokens: {
-				title: "tokens",
-				path: "/invest/tokens",
-				state: "success",
-			},
-			tokensets: {
-				title: "tokenSets",
-				path: "/invest/tokensets",
-				state: "success",
-			},
 			loans: {
 				title: "loans",
 				path: "/invest/loans",
 				state: "success",
 			},
-		},
-	},
-	more: {
-		title: "more",
-		routes: {
-			nft: {
-				title: "nft",
-				path: "/nft",
-				state: "success",
-			},
-			governance: {
-				title: "governance",
-				path: "/governance",
-				state: "success",
-			},
 			launchpad: {
 				title: "launchpad",
 				path: "/launchpad",
+				state: "success",
+			},
+			swap: {
+				title: "uniswap",
+				path: "/swap/uni",
 				state: "success",
 			},
 			cross: {

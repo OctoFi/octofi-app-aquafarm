@@ -36,6 +36,7 @@
         "spot": "Spot Trading",
         "marketMaker": "Market Making",
         "margin": "Margin Trading",
+        "exchange": "Exchange",
         "invest": "Invest",
         "pools": "Pools",
         "tokenSets": "TokenSets",

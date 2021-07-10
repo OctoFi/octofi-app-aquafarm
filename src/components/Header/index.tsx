@@ -124,7 +124,7 @@ const Header = () => {
 									const r = routes[key];
 									if (r.hasOwnProperty("path")) {
 										return (
-											<Styled.HeaderItem key={index} to={r.path} activeClassName={"active"}>
+											<Styled.HeaderItem key={index} to={r.path} activeClassName={"active"} exact>
 												{t(`menu.${r.title}`)}
 											</Styled.HeaderItem>
 										);
