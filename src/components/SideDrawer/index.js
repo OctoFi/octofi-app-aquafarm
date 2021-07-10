@@ -30,7 +30,7 @@ const SideDrawer = ({ open, onDismiss, ...props }) => {
 						if (r.hasOwnProperty("path")) {
 							return (
 								<Styled.LinkItem to={r.path} key={index}>
-									{r.title}
+									{t(`menu.${r.title}`)}
 								</Styled.LinkItem>
 							);
 						} else {

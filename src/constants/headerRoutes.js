@@ -1,18 +1,13 @@
 export const routes = {
-	account: {
-		title: "Account",
-		routes: {
-			dashboard: {
-				title: "dashboard",
-				path: "/dashboard",
-				state: "success",
-			},
-			history: {
-				title: "history",
-				path: "/history",
-				state: "success",
-			},
-		},
+	dashboard: {
+		title: "dashboard",
+		path: "/dashboard",
+		state: "success",
+	},
+	history: {
+		title: "history",
+		path: "/history",
+		state: "success",
 	},
 	fiat: {
 		title: "buy",
@@ -90,26 +85,6 @@ export const routes = {
 			cross: {
 				title: "cross",
 				path: "/cross/anyswap",
-				state: "success",
-			},
-		},
-	},
-	cross: {
-		title: "cross",
-		routes: {
-			anySwap: {
-				title: "anySwap",
-				path: "/cross/anyswap",
-				state: "success",
-			},
-			bridges: {
-				title: "bridges",
-				path: "/cross/bridges",
-				state: "success",
-			},
-			crossBalance: {
-				title: "crossBalance",
-				path: "/cross/balance",
 				state: "success",
 			},
 		},
