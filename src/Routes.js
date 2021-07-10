@@ -17,7 +17,6 @@ const Swap = lazy(() => import("./pages/Swap"));
 const InstantSwap = lazy(() => import("./pages/InstantSwap"));
 const Explore = lazy(() => import("./pages/Explore"));
 const MarketsExplore = lazy(() => import("./pages/MarketsExplore"));
-const TokenSetsExplore = lazy(() => import("./pages/TokenSetsExplore"));
 const CoinDetailsPage = lazy(() => import("./pages/CoinDetailsPage"));
 const Governance = lazy(() => import("./pages/Governance"));
 const CreateProposal = lazy(() => import("./pages/CreateProposal"));
@@ -75,7 +74,6 @@ const Routes = (props) => {
 					<Route path={"/invest/loans"} component={Borrow} />
 					<Route path={"/invest/tokens"} component={MarketsExplore} />
 					<Route path={"/invest/tokensets"} component={TokenSets} />
-					<Route path={"/invest/tokensets2"} exact component={TokenSetsExplore} />
 					<Route path={"/swap/uni"} component={Swap} />
 					<Route path={"/swap/all"} component={InstantSwap} />
 					<Route path={"/governance"} exact component={Governance} />

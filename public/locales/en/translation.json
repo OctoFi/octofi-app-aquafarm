@@ -217,6 +217,7 @@
     "tokensets": {
         "portfolios": "Portfolios",
         "rebalancingSets": "Rebalancing Sets",
+        "otherSets": "Other",
         "oneDay": "1 Day",
         "week": "1 Week",
         "month": "1 Month",
