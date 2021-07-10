@@ -70,7 +70,7 @@ const Margin = (props) => {
 	const selectedMarket = useSelector((state) => state.margin.selectedMarket);
 
 	return (
-		<Page title={false} size={"xl"} notNetworkSensitive={false}>
+		<Page title={false} size={"xl"} networkSensitive={true}>
 			<Providers>
 				<Row>
 					<Col>

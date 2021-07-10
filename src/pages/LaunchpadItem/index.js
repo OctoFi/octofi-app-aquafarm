@@ -687,7 +687,7 @@ const LaunchpadItem = (props) => {
 	};
 
 	return (
-		<Page title={false} notNetworkSensitive={false}>
+		<Page title={false} networkSensitive={true}>
 			<Row>
 				<Col xs={{ span: 12, offset: 0 }} md={{ span: 6, offset: 3 }}>
 					<SafetyAlert />

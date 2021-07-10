@@ -4,7 +4,7 @@ import OfframpList from "../../components/OfframpList";
 
 const FiatOff = (props) => {
 	return (
-		<Page title={"Gift Cards & More"} notNetworkSensitive={true}>
+		<Page title={"Gift Cards & More"} networkSensitive={false}>
 			<OfframpList items={fiatOffList} />
 		</Page>
 	);

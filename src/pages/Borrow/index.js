@@ -5,9 +5,9 @@ import BorrowCommon from "./Common";
 import "./style.scss";
 import ModalProvider from "./ModalProvider";
 
-const Borrow = (props) => {
+const Borrow = () => {
 	return (
-		<Page title={"Loans"} notNetworkSensitive={false}>
+		<Page title={"Loans"} networkSensitive={true}>
 			<GraphQlProvider>
 				<ModalProvider />
 				<GlobalOverall />

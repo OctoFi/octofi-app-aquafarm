@@ -40,7 +40,7 @@ const HomePage = () => {
 	}, [queryString, message]);
 
 	return (
-		<Page notNetworkSensitive={true}>
+		<Page networkSensitive={false}>
 			<Hero />
 			<Banners />
 			<Currencies />

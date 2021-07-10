@@ -4,7 +4,7 @@ import MarketTokens from "../../components/MarketTokens";
 
 const MarketsExplore = () => {
 	return (
-		<Page title={"Top Tokens"} notNetworkSensitive={true}>
+		<Page title={"Top Tokens"} networkSensitive={false}>
 			<ResponsiveCard>
 				<MarketTokens />
 			</ResponsiveCard>

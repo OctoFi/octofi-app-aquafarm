@@ -4,7 +4,7 @@ import TokenSetsTabs from "../../components/TokenSetsTabs";
 
 const TokenSets = () => {
 	return (
-		<Page title={"Token Sets"} notNetworkSensitive={false}>
+		<Page title={"Token Sets"} networkSensitive={true}>
 			<ResponsiveCard>
 				<TokenSetsTabs />
 			</ResponsiveCard>

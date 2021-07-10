@@ -28,7 +28,7 @@ const Markets = (props) => {
 	}, [marketsStats]);
 
 	return (
-		<Page notNetworkSensitive={false}>
+		<Page networkSensitive={true}>
 			<Provider>
 				<Row className={"custom-row d-flex align-items-stretch"}>
 					{[...Array(4)].map((item, index) => {

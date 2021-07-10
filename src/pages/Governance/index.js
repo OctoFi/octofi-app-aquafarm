@@ -49,7 +49,7 @@ const Governance = () => {
 	};
 
 	return (
-		<Page title={t("governance.title")} notNetworkSensitive={true}>
+		<Page title={t("governance.title")} networkSensitive={false}>
 			<div className="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-end justify-content-between mb-4">
 				<Styled.Title className="card-title">{t("governance.spaces")}</Styled.Title>
 				<InputGroup className={"w-auto"}>

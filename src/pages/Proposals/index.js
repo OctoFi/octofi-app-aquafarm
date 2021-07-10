@@ -158,7 +158,7 @@ const Proposals = (props) => {
 	};
 
 	return (
-		<Page title={t("governance.title")} notNetworkSensitive={true}>
+		<Page title={t("governance.title")} networkSensitive={false}>
 			<Row>
 				<Col xs={12}>
 					<ResponsiveCard>

@@ -230,7 +230,7 @@ const CreateProposals = (props) => {
 	);
 
 	return (
-		<Page title={t("governance.title")} notNetworkSensitive={false}>
+		<Page title={t("governance.title")} networkSensitive={true}>
 			<Row>
 				<Col xs={12}>
 					<ResponsiveCard>

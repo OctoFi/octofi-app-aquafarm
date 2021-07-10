@@ -81,7 +81,7 @@ class NFT extends Component {
 		const { t } = this.props;
 
 		return (
-			<Page notNetworkSensitive={false}>
+			<Page networkSensitive={true}>
 				<Row>
 					<Col xs={12} md={4}>
 						<StyledCard>

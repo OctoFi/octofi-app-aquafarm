@@ -87,7 +87,7 @@ class Explore extends React.Component {
 		});
 
 		return (
-			<Page title={"Invest"} notNetworkSensitive={true}>
+			<Page title={"Invest"} networkSensitive={false}>
 				<SectionList sections={sections} direction={"row"} />
 			</Page>
 		);

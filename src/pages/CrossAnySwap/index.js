@@ -1087,7 +1087,7 @@ const CrossAnySwap = props => {
 	console.log(recipientError);
 
 	return (
-		<Page notNetworkSensitive={true}>
+		<Page networkSensitive={false}>
 			<Row>
 				<Col xs={12} lg={{ span: 10, offset: 1 }} xl={{ span: 8, offset: 2 }}>
 					<Header>

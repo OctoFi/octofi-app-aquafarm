@@ -175,7 +175,7 @@ const Vote = (props) => {
 	}, [selectedProposal, selectedVote, account, address, api, id, library, spaces]);
 
 	return (
-		<Page title={t("governance.title")} notNetworkSensitive={false}>
+		<Page title={t("governance.title")} networkSensitive={true}>
 			{governanceLoading && !selectedProposal ? (
 				<Card>
 					<div className="d-flex align-items-center justify-content-center py-5 w-100">

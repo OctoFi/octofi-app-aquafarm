@@ -48,7 +48,7 @@ class Pools extends Component {
 	};
 	render() {
 		return (
-			<Page title={"Pools"} notNetworkSensitive={false}>
+			<Page title={"Pools"} networkSensitive={true}>
 				<PoolsCard
 					investHandler={this.investButtonClick}
 					addLiquidityHandler={this.addLiquidityDialog}

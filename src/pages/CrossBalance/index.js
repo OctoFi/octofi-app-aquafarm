@@ -401,7 +401,7 @@ const CrossBalance = props => {
 
 	const data = getMyAccount();
 	return (
-		<Page notNetworkSensitive={true}>
+		<Page networkSensitive={false}>
 			<Row>
 				<Col xs={12}>
 					<Header>
