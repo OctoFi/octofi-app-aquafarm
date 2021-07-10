@@ -1,99 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import styled from "styled-components";
 import BootstrapTable from "react-bootstrap-table-next";
 
-import ResponsiveTable from "../../components/ResponsiveTable";
+import ResponsiveTable from "../ResponsiveTable";
 import TokenSetsApi from "../../http/tokenSet";
-import Img from "../../components/UI/Img";
-import CurrencyText from "../../components/CurrencyText";
-import ArrowUp from "../../components/Icons/ArrowUp";
-import ArrowDown from "../../components/Icons/ArrowDown";
-import Loading from "../../components/Loading";
+import Img from "../UI/Img";
+import CurrencyText from "../CurrencyText";
+import ArrowUp from "../Icons/ArrowUp";
+import ArrowDown from "../Icons/ArrowDown";
+import Loading from "../Loading";
+import * as Styled from "./styleds";
 
 const api = new TokenSetsApi();
-
-const TokenSetsTableWrap = styled.div`
-	.table {
-		position: relative;
-		width: 100%;
-		border-collapse: collapse;
-		color: white;
-
-		th,
-		td {
-			border: 0;
-			border-bottom: 1px solid ${({ theme }) => theme.borderColor};
-			color: ${({ theme }) => theme.text1};
-		}
-
-		th {
-			font-weight: 500;
-			font-size: 0.875rem;
-
-			&:focus {
-				outline: none;
-			}
-		}
-
-		td {
-			cursor: pointer;
-			padding: 1rem 0.75rem;
-			vertical-align: middle;
-		}
-
-		tr:last-child td {
-			border-bottom-width: 0;
-		}
-	}
-`;
-
-const Title = styled.span`
-	font-size: 1.125rem;
-	font-weight: bold;
-	margin-left: 20px;
-	line-height: 1.35;
-	display: block;
-
-	@media (max-width: 991px) {
-		margin-left: 0;
-		margin-right: 12px;
-		font-size: 0.875rem;
-	}
-`;
-
-const LogoContainer = styled.div`
-	max-width: 40px;
-	max-height: 40px;
-	min-width: 40px;
-	min-height: 40px;
-	height: 40px;
-	width: 40px;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-
-	& img {
-		width: 40px;
-		height: auto;
-	}
-`;
-
-const CellText = styled.span`
-	font-size: 0.875rem;
-	font-weight: 500;
-	line-height: 1;
-
-	@media (max-width: 991px) {
-		font-size: 0.75rem;
-	}
-`;
-
-const CellBoldText = styled(CellText)`
-	font-weight: 700;
-`;
 
 const TokenSetTab = (props) => {
 	const [sets, setSets] = useState([]);
@@ -144,10 +62,10 @@ const TokenSetTab = (props) => {
 			formatter: (cellContent, row) => {
 				return (
 					<div className="d-flex align-items-center flex-row-reverse flex-lg-row">
-						<LogoContainer>
+						<Styled.LogoContainer>
 							<Img src={row.image} alt={row.name} />
-						</LogoContainer>
-						<Title>{row.name}</Title>
+						</Styled.LogoContainer>
+						<Styled.Title>{row.name}</Styled.Title>
 					</div>
 				);
 			},
@@ -157,9 +75,9 @@ const TokenSetTab = (props) => {
 			text: t("table.marketCap"),
 			formatter: (cellContent, row) => {
 				return (
-					<CellText>
+					<Styled.CellText>
 						<CurrencyText>{row.market_cap}</CurrencyText>
-					</CellText>
+					</Styled.CellText>
 				);
 			},
 		},
@@ -168,9 +86,9 @@ const TokenSetTab = (props) => {
 			text: t("table.price"),
 			formatter: (cellContent, row) => {
 				return (
-					<CellBoldText>
+					<Styled.CellBoldText>
 						<CurrencyText>{row.price_usd}</CurrencyText>
-					</CellBoldText>
+					</Styled.CellBoldText>
 				);
 			},
 		},
@@ -181,7 +99,7 @@ const TokenSetTab = (props) => {
 				const h = historical[index] || {};
 
 				return (
-					<CellText
+					<Styled.CellText
 						className={`label px-3 px-lg-2 label-inline label-lg ${
 							h?.market_data?.price_change_percentage_24h >= 0
 								? "label-light-success"
@@ -198,7 +116,7 @@ const TokenSetTab = (props) => {
 						{(h.market_data?.price_change_percentage_24h &&
 							h?.market_data?.price_change_percentage_24h.toFixed(2) + "%") ||
 							"-"}
-					</CellText>
+					</Styled.CellText>
 				);
 			},
 			formatExtraData: {
@@ -212,7 +130,7 @@ const TokenSetTab = (props) => {
 				const h = historical[index] || {};
 
 				return (
-					<CellText
+					<Styled.CellText
 						className={`label px-3 px-lg-2 label-inline label-lg ${
 							h?.market_data?.price_change_percentage_7d >= 0
 								? "label-light-success"
@@ -229,7 +147,7 @@ const TokenSetTab = (props) => {
 						{(h.market_data?.price_change_percentage_7d &&
 							h?.market_data?.price_change_percentage_7d.toFixed(2) + "%") ||
 							"-"}
-					</CellText>
+					</Styled.CellText>
 				);
 			},
 			formatExtraData: {
@@ -243,7 +161,7 @@ const TokenSetTab = (props) => {
 				const h = historical[index] || {};
 
 				return (
-					<CellText
+					<Styled.CellText
 						className={`label px-3 px-lg-2 label-inline label-lg ${
 							h?.market_data?.price_change_percentage_30d >= 0
 								? "label-light-success"
@@ -260,7 +178,7 @@ const TokenSetTab = (props) => {
 						{(h.market_data?.price_change_percentage_30d &&
 							h?.market_data?.price_change_percentage_30d.toFixed(2) + "%") ||
 							"-"}
-					</CellText>
+					</Styled.CellText>
 				);
 			},
 			formatExtraData: {
@@ -274,7 +192,7 @@ const TokenSetTab = (props) => {
 				const h = historical[index] || {};
 
 				return (
-					<CellText
+					<Styled.CellText
 						className={`label px-3 px-lg-2 label-inline label-lg ${
 							h?.market_data?.price_change_percentage_200d >= 0
 								? "label-light-success"
@@ -291,7 +209,7 @@ const TokenSetTab = (props) => {
 						{(h.market_data?.price_change_percentage_200d &&
 							h?.market_data?.price_change_percentage_200d.toFixed(2) + "%") ||
 							"-"}
-					</CellText>
+					</Styled.CellText>
 				);
 			},
 			formatExtraData: {
@@ -305,7 +223,7 @@ const TokenSetTab = (props) => {
 				const h = historical[index] || {};
 
 				return (
-					<CellText
+					<Styled.CellText
 						className={`label px-3 px-lg-2 label-inline label-lg ${
 							h?.market_data?.price_change_percentage_1y >= 0
 								? "label-light-success"
@@ -322,7 +240,7 @@ const TokenSetTab = (props) => {
 						{(h.market_data?.price_change_percentage_1y &&
 							h?.market_data?.price_change_percentage_1y.toFixed(2) + "%") ||
 							"-"}
-					</CellText>
+					</Styled.CellText>
 				);
 			},
 			formatExtraData: {
@@ -350,7 +268,7 @@ const TokenSetTab = (props) => {
 
 	return (
 		<>
-			<TokenSetsTableWrap>
+			<Styled.TokenSetsTableWrap>
 				<BootstrapTable
 					wrapperClasses="table-responsive d-none d-lg-block"
 					bordered={false}
@@ -362,7 +280,7 @@ const TokenSetTab = (props) => {
 					columns={columns}
 					rowEvents={rowEvents}
 				></BootstrapTable>
-			</TokenSetsTableWrap>
+			</Styled.TokenSetsTableWrap>
 			<ResponsiveTable breakpoint={"lg"} columns={columns} data={sets} direction={"rtl"} />
 		</>
 	);
