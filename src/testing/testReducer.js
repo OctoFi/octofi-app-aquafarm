@@ -1,3 +1,3 @@
-export const reducer = (state, action) => {
-	return state;
-};
+export const reducer = jest.fn((state, action) => {
+	return { ...state };
+});

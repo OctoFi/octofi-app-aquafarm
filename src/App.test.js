@@ -1,7 +1,6 @@
 import { render } from "./testing/customRender";
 import App from "./App";
 
-jest.mock("./state/lists/updater", () => jest.fn());
 jest.mock("./theme", () => ({
 	FixedGlobalStyle: () => "FixedGlobalStyle",
 	ThemedGlobalStyle: () => "ThemedGlobalStyle",
