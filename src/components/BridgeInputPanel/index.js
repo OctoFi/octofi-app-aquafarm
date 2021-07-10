@@ -1,6 +1,6 @@
 import React, {useState, useCallback} from "react";
 import styled from "styled-components";
-import CurrencySearchModal from "../BrdigeCurrencySelectModal";
+import CurrencySearchModal from "../BridgeCurrencySelectModal";
 import { RowBetween } from "../Row";
 import { Input as DefaultNumericalInput } from "../NumericalInput";
 import { ReactComponent as DropDown } from "../../assets/images/cross/dropdown.svg";
