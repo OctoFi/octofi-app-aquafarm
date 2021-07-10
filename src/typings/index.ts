@@ -29,3 +29,9 @@ export type SnapshotSpaceProps = {
     symbol: string;
     network: string;
 };
+
+export type SocialLink = {
+    name: string;
+    image: string;
+    url: string;
+};

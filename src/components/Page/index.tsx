@@ -33,8 +33,8 @@ const Page = ({
 					{title && <Title>{title}</Title>}
 					{networkSensitive ? !chainId || chainId === 1 ? children : <WrongNetwork /> : children}
 				</div>
-				<Footer />
 			</PageContainer>
+			<Footer />
 		</div>
 	);
 };
