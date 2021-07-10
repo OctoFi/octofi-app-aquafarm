@@ -1,26 +1,33 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import BootstrapTable from "react-bootstrap-table-next";
 
 import { fetchTokens } from "../../state/explore/actions";
-import { ResponsiveCard } from "../../components/Card";
-import CurrencyLogo from "../../components/CurrencyLogo";
-import CurrencyText from "../../components/CurrencyText";
-import Loading from "../../components/Loading";
-import Page from "../../components/Page";
-import ResponsiveTable from "../../components/ResponsiveTable";
+import CurrencyLogo from "../CurrencyLogo";
+import CurrencyText from "../CurrencyText";
+import Loading from "../Loading";
+import ResponsiveTable from "../ResponsiveTable";
 import * as Styled from "./styleds";
-import "./style.scss";
 
-const TokenSetsExplore = () => {
+const TokenSetsExploreTable = () => {
 	const dispatch = useDispatch();
 	const [data, setData] = useState({ data: [], loading: true, title: "" });
+	// @ts-ignore
 	const exploreSets = useSelector((state) => state.explore);
+
+	useEffect(() => {
+		if (exploreSets.tokenSets.data.length === 0) {
+			dispatch(fetchTokens());
+		}
+
+		setData(exploreSets.tokenSets);
+	}, [exploreSets, dispatch]);
 
 	const columns = [
 		{
 			dataField: "id",
 			text: "ID",
+			// @ts-ignore
 			formatter: (cellContent, row, rowIndex) => (
 				<Styled.CellText className="font-weight-bold">{rowIndex + 1}</Styled.CellText>
 			),
@@ -29,6 +36,7 @@ const TokenSetsExplore = () => {
 		{
 			dataField: "name",
 			text: "NAME",
+			// @ts-ignore
 			formatter: (cellContent, row, rowIndex) => (
 				<div
 					key={rowIndex}
@@ -56,6 +64,7 @@ const TokenSetsExplore = () => {
 		{
 			dataField: "price_usd",
 			text: "CURRENT PRICE",
+			// @ts-ignore
 			formatter: (cellContent, row) => (
 				<Styled.CellText className={`label label-inline label-lg label-light-success`}>
 					<CurrencyText>{row.price_usd}</CurrencyText>
@@ -65,10 +74,16 @@ const TokenSetsExplore = () => {
 		{
 			dataField: "components",
 			text: "ASSETS",
+			// @ts-ignore
 			formatter: (cellContent, row) => (
 				<div className="d-flex align-items-center">
-					{row.components.map((c) => {
-						return <Styled.CellText className={`mr-lg-4 ml-2 font-size-base`}>{c.symbol}</Styled.CellText>;
+					{/* @ts-ignore */}
+					{row.components.map((c, index) => {
+						return (
+							<Styled.CellText key={`cell-${index}`} className={`mr-lg-4 ml-2 font-size-base`}>
+								{c.symbol}
+							</Styled.CellText>
+						);
 					})}
 				</div>
 			),
@@ -76,6 +91,7 @@ const TokenSetsExplore = () => {
 		{
 			dataField: "natural_units",
 			text: "NATURAL UNITS",
+			// @ts-ignore
 			formatter: (cellContent, row) => (
 				<Styled.CellText className="font-weight-bold">{row.natural_unit}</Styled.CellText>
 			),
@@ -83,6 +99,7 @@ const TokenSetsExplore = () => {
 		{
 			dataField: "unit_shares",
 			text: "UNIT SHARES",
+			// @ts-ignore
 			formatter: (cellContent, row) => (
 				<Styled.CellText className="font-weight-bold">{row.unit_shares}</Styled.CellText>
 			),
@@ -90,6 +107,7 @@ const TokenSetsExplore = () => {
 		{
 			dataField: "market_cap",
 			text: "MARKET CAP",
+			// @ts-ignore
 			formatter: (cellContent, row) => (
 				<Styled.CellText>
 					<CurrencyText>{row.market_cap}</CurrencyText>
@@ -98,48 +116,39 @@ const TokenSetsExplore = () => {
 		},
 	];
 
-	useEffect(() => {
-		if (exploreSets.tokenSets.data.length === 0) {
-			dispatch(fetchTokens());
-		}
-
-		setData(exploreSets.tokenSets);
-	}, [exploreSets, dispatch]);
+	if (data.loading) {
+		return (
+			<div className="d-flex align-items-center justify-content-center py-5">
+				<Loading color={"primary"} width={40} height={40} active />
+			</div>
+		);
+	}
 
 	return (
-		<Page title={"Token Sets"} notNetworkSensitive={true}>
-			<ResponsiveCard>
-				<Styled.CardTitle>{data.title}</Styled.CardTitle>
-				{data.loading ? (
-					<div className="d-flex align-items-center justify-content-center py-5">
-						<Loading color={"primary"} width={40} height={40} active />
-					</div>
-				) : (
-					<>
-						<BootstrapTable
-							wrapperClasses="table-responsive d-none d-lg-block"
-							bordered={false}
-							classes="table table-head-custom table-borderless table-vertical-center overflow-hidden table-hover explore__table"
-							bootstrap4
-							remote
-							keyField="id"
-							columns={columns}
-							data={data.data.slice(0, 100)}
-						></BootstrapTable>
+		<>
+			<Styled.ExploreTable>
+				<BootstrapTable
+					wrapperClasses="table-responsive d-none d-lg-block"
+					bordered={false}
+					classes="table table-head-custom table-borderless table-vertical-center overflow-hidden table-hover"
+					bootstrap4
+					remote
+					keyField="id"
+					columns={columns}
+					data={data.data.slice(0, 100)}
+				></BootstrapTable>
+			</Styled.ExploreTable>
 
-						<ResponsiveTable
-							centered
-							size={"lg"}
-							breakpoint={"lg"}
-							columns={columns}
-							data={data.data.slice(0, 100)}
-							direction={"rtl"}
-						/>
-					</>
-				)}
-			</ResponsiveCard>
-		</Page>
+			<ResponsiveTable
+				centered
+				size={"lg"}
+				breakpoint={"lg"}
+				columns={columns}
+				data={data.data.slice(0, 100)}
+				direction={"rtl"}
+			/>
+		</>
 	);
 };
 
-export default TokenSetsExplore;
+export default TokenSetsExploreTable;

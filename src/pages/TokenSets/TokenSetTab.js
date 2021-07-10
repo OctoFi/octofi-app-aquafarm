@@ -111,14 +111,14 @@ const TokenSetTab = (props) => {
 				const res = await api.fetchPortfolios();
 				data = res.data.portfolios;
 				let ids = data.map((row) => row.address);
-				const historicalRes = await api.getTokenSetsHitorical(ids);
+				const historicalRes = await api.getTokenSetsHistorical(ids);
 
 				setSetsHistorical(historicalRes);
 			} else {
 				const res = await api.fetchAllSets();
 				data = res.data.rebalancing_sets;
 				let ids = data.map((row) => row.address);
-				const historicalRes = await api.getTokenSetsHitorical(ids);
+				const historicalRes = await api.getTokenSetsHistorical(ids);
 
 				setSetsHistorical(historicalRes);
 			}

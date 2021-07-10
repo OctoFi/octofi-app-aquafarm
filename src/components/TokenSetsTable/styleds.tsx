@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Col, Nav } from "react-bootstrap";
-import { InputGroup } from "../../components/Form";
+import { InputGroup } from "../Form";
 
 export const CardTitle = styled.h2`
 	font-size: 1rem;
@@ -158,5 +158,75 @@ export const MarketLink = styled.a`
 	color: ${({ theme }) => theme.text1};
 	@media (max-width: 991px) {
 		flex-basis: 100px;
+	}
+`;
+
+export const ExploreTable = styled.div`
+	.table {
+		border-collapse: separate;
+		border-spacing: 0 0;
+		margin-bottom: 0 !important;
+
+		thead th {
+			background-color: rgba(#202020, 0.1);
+			color: #202020;
+			font-size: 0.875rem;
+			font-weight: 500;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			padding: 1.25rem 0.75rem;
+			min-height: 56px;
+
+			.dark-mode & {
+				background-color: rgba(white, 0.1);
+				color: white;
+			}
+
+			&:focus {
+				outline: none;
+			}
+
+			&:first-child {
+				border-top-left-radius: 18px;
+				border-bottom-left-radius: 18px;
+			}
+
+			&:last-child {
+				border-top-right-radius: 18px;
+				border-bottom-right-radius: 18px;
+			}
+		}
+
+		th,
+		td {
+			vertical-align: middle !important;
+
+			&:first-child {
+				padding: 1.25rem 1.375rem;
+			}
+
+			&:last-child {
+				padding: 1.25rem 0.5rem;
+			}
+		}
+
+		td {
+			cursor: pointer;
+			color: #202020;
+
+			.dark-mode & {
+				color: white;
+			}
+		}
+
+		tr:not(:last-child) {
+			td {
+				border-bottom: 1px solid rgba(#202020, 0.5) !important;
+
+				.dark-mode & {
+					border-color: rgba(white, 0.5) !important;
+				}
+			}
+		}
 	}
 `;
