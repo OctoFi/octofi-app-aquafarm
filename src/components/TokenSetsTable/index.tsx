@@ -11,7 +11,8 @@ import * as Styled from "./styleds";
 
 const TokenSetsExploreTable = () => {
 	const dispatch = useDispatch();
-	const [data, setData] = useState({ data: [], loading: true, title: "" });
+	const [data, setData] = useState<Array<any>>([]);
+	const [loading, setLoading] = useState<boolean>(true);
 	// @ts-ignore
 	const exploreSets = useSelector((state) => state.explore);
 
@@ -21,6 +22,7 @@ const TokenSetsExploreTable = () => {
 		}
 
 		setData(exploreSets.tokenSets);
+		setLoading(false);
 	}, [exploreSets, dispatch]);
 
 	const columns = [
@@ -116,12 +118,16 @@ const TokenSetsExploreTable = () => {
 		},
 	];
 
-	if (data.loading) {
+	if (loading) {
 		return (
 			<div className="d-flex align-items-center justify-content-center py-5">
 				<Loading color={"primary"} width={40} height={40} active />
 			</div>
 		);
+	}
+
+	if (data.length === 0) {
+		return <h2>No data to display</h2>;
 	}
 
 	return (
@@ -135,7 +141,7 @@ const TokenSetsExploreTable = () => {
 					remote
 					keyField="id"
 					columns={columns}
-					data={data.data.slice(0, 100)}
+					data={data.slice(0, 100)}
 				></BootstrapTable>
 			</Styled.ExploreTable>
 
@@ -144,7 +150,7 @@ const TokenSetsExploreTable = () => {
 				size={"lg"}
 				breakpoint={"lg"}
 				columns={columns}
-				data={data.data.slice(0, 100)}
+				data={data.slice(0, 100)}
 				direction={"rtl"}
 			/>
 		</>

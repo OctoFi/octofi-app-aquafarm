@@ -266,6 +266,12 @@ const TokenSetTab = (props) => {
 		);
 	}
 
+	if(sets.length === 0) {
+		return (
+			<h2>No Token Sets</h2>
+		)
+	}
+
 	return (
 		<>
 			<Styled.TokenSetsTableWrap>
