@@ -63,19 +63,20 @@ const Routes = (props) => {
 							</Page>
 						</Route>
 					) : ()} */}
-					<Route path={"/"} component={HomePage} exact />
-					<Route path={"/cross"} component={CrossRouteHandler} />
-					<Route path={"/platforms/:platform"} component={Platform} />
+					<Route path={"/"} exact component={HomePage} />
+					<Route path={"/dashboard"} component={Dashboard} />
+					<Route path={"/history"} exact component={History} />
+					<Route path={"/swap/all"} component={InstantSwap} />
+					<Route path={"/swap/uni"} component={Swap} />
 					<Route path={"/onramp"} component={FiatOn} />
 					<Route path={"/offramp"} component={FiatOff} />
 					<Route path={"/invest"} exact component={Explore} />
 					<Route path={"/invest/pools"} component={Pools} />
-					<Route path={"/invest/nft"} exact component={NFT} />
-					<Route path={"/invest/loans"} component={Borrow} />
 					<Route path={"/invest/tokens"} component={MarketsExplore} />
 					<Route path={"/invest/tokensets"} component={TokenSets} />
-					<Route path={"/swap/uni"} component={Swap} />
-					<Route path={"/swap/all"} component={InstantSwap} />
+					<Route path={"/invest/loans"} component={Borrow} />
+					<Route path={"/platforms/:platform"} component={Platform} />
+					<Route path={"/nft"} exact component={NFT} />
 					<Route path={"/governance"} exact component={Governance} />
 					<Route path={"/governance/:space/create"} exact component={CreateProposal} />
 					<Route path={"/governance/:space"} exact component={Proposals} />
@@ -85,8 +86,7 @@ const Routes = (props) => {
 					<Route path={"/launchpad/:address"} exact component={LaunchpadItem} />
 					<Route path={"/market/:id"} exact component={CoinDetailsPage} />
 					<Route path={"/coins/:id"} exact component={CoinDetailsPage} />
-					<Route path={"/history"} exact component={History} />
-					<Route path={"/dashboard"} component={Dashboard} />
+					<Route path={"/cross"} component={CrossRouteHandler} />
 					<Redirect to={"/?error=1"} />
 				</Switch>
 			</Suspense>

@@ -1,4 +1,19 @@
 export const routes = {
+	account: {
+		title: "Account",
+		routes: {
+			dashboard: {
+				title: "dashboard",
+				path: "/dashboard",
+				state: "success",
+			},
+			history: {
+				title: "history",
+				path: "/history",
+				state: "success",
+			},
+		},
+	},
 	fiat: {
 		title: "buy",
 		routes: {
@@ -12,11 +27,6 @@ export const routes = {
 				path: "/swap/uni",
 				state: "success",
 			},
-			cross: {
-				title: "cross",
-				path: "/cross/anyswap",
-				state: "success",
-			},
 			on: {
 				title: "crypto",
 				path: "/onramp",
@@ -25,26 +35,6 @@ export const routes = {
 			off: {
 				title: "giftCards",
 				path: "/offramp",
-				state: "success",
-			},
-		},
-	},
-	cross: {
-		title: "cross",
-		routes: {
-			bridges: {
-				title: "bridges",
-				path: "/cross/bridges",
-				state: "success",
-			},
-			anySwap: {
-				title: "anySwap",
-				path: "/cross/anyswap",
-				state: "success",
-			},
-			crossBalance: {
-				title: "crossBalance",
-				path: "/cross/balance",
 				state: "success",
 			},
 		},
@@ -62,21 +52,31 @@ export const routes = {
 				path: "/invest/pools",
 				state: "success",
 			},
+			tokens: {
+				title: "tokens",
+				path: "/invest/tokens",
+				state: "success",
+			},
+			tokensets: {
+				title: "tokenSets",
+				path: "/invest/tokensets",
+				state: "success",
+			},
 			loans: {
 				title: "loans",
 				path: "/invest/loans",
 				state: "success",
 			},
-			nft: {
-				title: "nft",
-				path: "/invest/nft",
-				state: "success",
-			},
 		},
 	},
-	tools: {
-		title: "tools",
+	more: {
+		title: "more",
 		routes: {
+			nft: {
+				title: "nft",
+				path: "/nft",
+				state: "success",
+			},
 			governance: {
 				title: "governance",
 				path: "/governance",
@@ -87,19 +87,29 @@ export const routes = {
 				path: "/launchpad",
 				state: "success",
 			},
-		},
-	},
-	account: {
-		title: "Account",
-		routes: {
-			dashboard: {
-				title: "dashboard",
-				path: "/dashboard",
+			cross: {
+				title: "cross",
+				path: "/cross/anyswap",
 				state: "success",
 			},
-			history: {
-				title: "history",
-				path: "/history",
+		},
+	},
+	cross: {
+		title: "cross",
+		routes: {
+			anySwap: {
+				title: "anySwap",
+				path: "/cross/anyswap",
+				state: "success",
+			},
+			bridges: {
+				title: "bridges",
+				path: "/cross/bridges",
+				state: "success",
+			},
+			crossBalance: {
+				title: "crossBalance",
+				path: "/cross/balance",
 				state: "success",
 			},
 		},
