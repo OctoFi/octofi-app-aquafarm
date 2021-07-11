@@ -65,7 +65,7 @@ const Dashboard = (props) => {
 	};
 
 	return (
-		<Page title={false} networkSensitive={false}>
+		<Page title={undefined} networkSensitive={false}>
 			<Row className="mb-3">
 				<Col xs={12} lg={8} className="mb-3 mb-lg-0">
 					{/* TODO: replace with a Portfolio Balance Chart */}

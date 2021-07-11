@@ -1,5 +1,6 @@
 import { PropsWithChildren, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import Skeleton from "react-loading-skeleton";
 import SVG from "react-inlinesvg";
 import { Button } from "react-bootstrap";
 import { ThemeContext } from "styled-components";
@@ -53,10 +54,6 @@ function AccountCard({
 	const showCardBody = children && assets?.balances?.length > 0;
 	const showCardAction = assets?.balances?.length > 5;
 
-	if (loading) {
-		return <Loading width={55} height={55} active color={"primary"} />;
-	}
-
 	if (!show) {
 		return null;
 	}
@@ -71,7 +68,7 @@ function AccountCard({
 				<Styled.CardHeaderContent>
 					<Styled.Title>{title}</Styled.Title>
 					<Styled.Value>
-						<CurrencyText>{value}</CurrencyText>
+						{loading ? <Skeleton width={120} /> : <CurrencyText>{value}</CurrencyText>}
 					</Styled.Value>
 				</Styled.CardHeaderContent>
 			</Styled.CardHeader>
