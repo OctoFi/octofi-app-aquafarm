@@ -1,12 +1,7 @@
-import styled, { ThemeContext } from "styled-components";
-import { useContext } from "react";
-import SVG from "react-inlinesvg";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import ArrowDown from "../../assets/images/global/arrow-down.svg";
-import { useTranslation } from "react-i18next";
-
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
 	position: relative;
 
 	&:hover .header-dropdown {
@@ -16,7 +11,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const Item = styled.div`
+export const Item = styled.div`
 	text-decoration: none !important;
 	color: ${({ theme }) => theme.text1};
 	font-weight: 500;
@@ -48,14 +43,14 @@ const Item = styled.div`
 	}
 `;
 
-const ItemInner = styled.span`
+export const ItemInner = styled.span<{ active?: boolean }>`
 	display: flex;
 	padding-right: 0.75rem;
 	color: ${({ theme, active }) => (active ? theme.primary : theme.text1)};
 	white-space: nowrap;
 `;
 
-const DropDown = styled.div`
+export const DropDown = styled.div`
 	position: absolute;
 	top: 100%;
 	left: 1.625rem;
@@ -73,7 +68,7 @@ const DropDown = styled.div`
 	z-index: 99999;
 `;
 
-const DropDownItem = styled(Link)`
+export const DropDownItem = styled(Link)<{ state: any }>`
 	display: flex;
 	align-items: center;
 	position: relative;
@@ -107,27 +102,3 @@ const DropDownItem = styled(Link)`
 		background-color: ${({ theme, state }) => (state ? theme[state] : theme.primary)};
 	}
 `;
-
-const HeaderDropdown = ({ items, title, ...props }) => {
-	const theme = useContext(ThemeContext);
-	const { t } = useTranslation();
-	return (
-		<Wrapper>
-			<Item>
-				<ItemInner>{t(`menu.${title}`)}</ItemInner>
-				<SVG src={ArrowDown} style={{ color: theme.text3 }} />
-			</Item>
-			<DropDown className={"header-dropdown"}>
-				{Object.values(items).map((item, index) => {
-					return (
-						<DropDownItem to={item.path} key={`${title}-${index}`} state={item.state}>
-							{t(`menu.${item.title}`)}
-						</DropDownItem>
-					);
-				})}
-			</DropDown>
-		</Wrapper>
-	);
-};
-
-export default HeaderDropdown;

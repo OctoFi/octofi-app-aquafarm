@@ -7,7 +7,7 @@ import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import { useModalOpen, useToggleSettingsMenu } from "../../state/application/hooks";
 import { ApplicationModal } from "../../state/application/actions";
 import { AutoColumn } from "../Column";
-import CurrencyDropdown from "../HeaderDropdown/CurrencyDropdown";
+import CurrencyDropdown from "../CurrencyDropdown";
 import ThemeToggler from "../ThemeToggler";
 import * as Styled from "./styleds";
 

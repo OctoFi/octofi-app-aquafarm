@@ -1,9 +1,7 @@
 import { useCallback, useContext, useRef, useState } from "react";
-import SVG from "react-inlinesvg";
 import { useTranslation } from "react-i18next";
 import { ThemeContext } from "styled-components";
-
-import ArrowDown from "../../../assets/images/global/arrow-down.svg";
+import { ChevronDown } from "react-feather";
 import * as Styled from "./styleds";
 
 const SideDrawerItem = ({ items, title, ...props }) => {
@@ -38,7 +36,7 @@ const SideDrawerItem = ({ items, title, ...props }) => {
 					<Styled.Title>{t(`menu.${title}`)}</Styled.Title>
 				)}
 				<Styled.IconContainer open={open}>
-					<SVG src={ArrowDown} style={{ color: theme.primary }} />
+					<ChevronDown size={16} color={theme.primary} />
 				</Styled.IconContainer>
 			</Styled.Header>
 			<Styled.Collapse height={height}>

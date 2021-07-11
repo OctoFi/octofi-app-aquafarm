@@ -12,12 +12,6 @@ export const Container = styled.div<{ right: number; scrolled: boolean }>`
 	box-shadow: ${({ scrolled }) => (scrolled ? "-1px 11px 43px rgba(0, 0, 0, 0.12)" : "0 0 0 rgba(0, 0, 0, 0)")};
 	z-index: 800;
 
-	.navbar,
-	.header__inner {
-		min-height: ${({ scrolled }) => (scrolled ? "80px" : "96px")};
-		transition: 0.3s ease all;
-	}
-
 	@media (max-width: 1199px) {
 		z-index: 1090;
 
@@ -32,7 +26,7 @@ export const WalletLink = styled.div`
 	color: ${({ theme }) => theme.text1};
 	background-color: ${({ theme }) => theme.bg5};
 	border-radius: 12px;
-	padding: 8px 16px;
+	padding: 0.5rem 1rem;
 	font-size: 1rem;
 	font-weight: 500;
 	cursor: pointer;
@@ -129,8 +123,8 @@ export const HeaderItem = styled(NavLink)`
 		content: "";
 		position: absolute;
 		bottom: 0.625rem;
-		left: 1.625rem;
-		right: 1.625rem;
+		left: 1.25rem;
+		right: 1.25rem;
 		height: 1px;
 		background-color: ${({ theme }) => theme.primary} !important;
 		transform: scaleX(0);

@@ -1,21 +1,16 @@
 import styled from "styled-components";
-import { Button as BootstrapButton } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import Img from "../UI/Img";
 
-export const Wrapper = styled.div`
+export const CurrencyWrapper = styled.div`
+    padding: 0;
     position: relative;
-    padding: 14px 0;
 
     &:hover .header-dropdown {
         opacity: 1;
         visibility: visible;
         transform: rotateX(0deg) scale(1);
     }
-`;
-
-export const CurrencyWrapper = styled(Wrapper)`
-    padding: 0;
 `;
 
 export const Item = styled.div`
@@ -30,9 +25,9 @@ export const DropDown = styled.div`
     background-color: ${({ theme }) => theme.modalBG};
     border-radius: 0.75rem;
     box-shadow: -1px 11px 43px rgba(0, 0, 0, 0.12);
-    padding: 20px;
     width: auto;
-    min-width: 260px;
+    min-width: 250px;
+    padding: 10px;
 
     opacity: 0;
     visibility: hidden;
@@ -43,7 +38,7 @@ export const DropDown = styled.div`
     z-index: 99999;
 `;
 
-export const DropDownItem = styled(Link)`
+export const DropDownItem = styled(Button)`
 	display: flex;
 	align-items: center;
 	position: relative;
@@ -52,14 +47,11 @@ export const DropDownItem = styled(Link)`
 	white-space: nowrap;
 	color: ${({ theme }) => theme.text1};
 
-	&:not(:last-child) {
-		margin-bottom: 20px;
-	}
-
 	&:hover,
 	&:focus,
-	&:active {
-		color: ${({ theme }) => theme.text2};
+	&:active ,
+    &.active {
+		color: ${({ theme }) => theme.primary};
 		box-shadow: none;
 		outline: none;
 		text-decoration: none;
@@ -67,39 +59,24 @@ export const DropDownItem = styled(Link)`
 `;
 
 export const Title = styled.span`
-    font-weight: 500;
-    font-size: 0.75rem;
-    color: ${({ theme }) => theme.text3};
-    margin-bottom: 8px;
-    display: block;
-`;
-
-export const Title2 = styled.span`
 	font-weight: 500;
 	font-size: 1rem;
-	color: ${({ theme }) => theme.text2};
 `;
 
-export const IconButton = styled(BootstrapButton)`
-    color: ${({ theme }) => theme.primary};
-    margin-right: 20px;
-`;
+export const IconButton = styled(Button)`
+    color: ${({ theme }) => theme.text1};
 
-export const SeeAllButton = styled(Link)`
-    text-decoration: none;
-    padding-top: 12px;
-    font-weight: 500;
-    font-size: 0.75rem;
-    color: ${({ theme }) => theme.primary};
-    display: block;
-    text-align: center;
+    &:hover,
+    &:focus {
+        color: ${({ theme }) => theme.text1};
+        text-decoration: none;
+    }
 `;
 
 export const CurrencyLogo = styled(Img)`
-	width: 24px;
+	border-radius: 50%;
 	height: 24px;
-	margin-right: 20px;
-	border-radius: 24px;
-	border: 1px solid #a890fe;
 	min-width: 24px;
+	width: 24px;
+	margin-right: 0.5rem;
 `;
