@@ -129,7 +129,7 @@ const Header = () => {
 											</Styled.HeaderItem>
 										);
 									} else {
-										return <HeaderDropdown title={r.title} items={r.routes} />;
+										return <HeaderDropdown title={r.title} items={r.routes} key={index} />;
 									}
 								})}
 							</Nav>
