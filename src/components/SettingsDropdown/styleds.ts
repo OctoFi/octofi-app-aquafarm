@@ -1,18 +1,4 @@
 import styled from "styled-components";
-import { Settings } from "react-feather";
-
-export const StyledMenuIcon = styled(Settings)`
-	height: 20px;
-	width: 20px;
-
-	> * {
-		stroke: ${({ theme }) => theme.text2};
-	}
-
-	:hover {
-		opacity: 0.7;
-	}
-`;
 
 export const StyledMenu = styled.div`
 	margin-left: 0.5rem;

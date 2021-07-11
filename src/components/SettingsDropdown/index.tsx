@@ -1,14 +1,15 @@
 import { useContext, useRef } from "react";
 import { ThemeContext } from "styled-components";
 import { Text } from "rebass";
+import { Settings } from "react-feather";
 
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import { useModalOpen, useToggleSettingsMenu } from "../../state/application/hooks";
 import { ApplicationModal } from "../../state/application/actions";
-import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import { AutoColumn } from "../Column";
-import ThemeToggler from "../ThemeToggler";
-import { StyledMenuIcon, StyledMenu, MenuFlyout, StyledMenuButton, ThemeContainer, ItemWrap } from "./styles";
 import CurrencyDropdown from "../HeaderDropdown/CurrencyDropdown";
+import ThemeToggler from "../ThemeToggler";
+import * as Styled from "./styleds";
 
 const SettingsDropdown = () => {
 	const node = useRef();
@@ -20,26 +21,27 @@ const SettingsDropdown = () => {
 	useOnClickOutside(node, open ? toggle : undefined);
 
 	return (
-		<StyledMenu ref={node}>
-			<StyledMenuButton onClick={toggle} id="open-settings-dialog-button">
-				<StyledMenuIcon />
-			</StyledMenuButton>
+		// @ts-ignore
+		<Styled.StyledMenu ref={node}>
+			<Styled.StyledMenuButton onClick={toggle}>
+				<Settings size={20} color={theme.text2} />
+			</Styled.StyledMenuButton>
 			{open && (
-				<MenuFlyout>
+				<Styled.MenuFlyout>
 					<AutoColumn gap="md" style={{ padding: "1rem" }}>
 						<Text fontWeight={600} fontSize={14} color={theme.text1 + "80"}>
 							Settings
 						</Text>
-						<ItemWrap>
-							<ThemeContainer>
+						<Styled.ItemWrap>
+							<Styled.ThemeContainer>
 								<ThemeToggler />
-							</ThemeContainer>
+							</Styled.ThemeContainer>
 							<CurrencyDropdown />
-						</ItemWrap>
+						</Styled.ItemWrap>
 					</AutoColumn>
-				</MenuFlyout>
+				</Styled.MenuFlyout>
 			)}
-		</StyledMenu>
+		</Styled.StyledMenu>
 	);
 };
 
