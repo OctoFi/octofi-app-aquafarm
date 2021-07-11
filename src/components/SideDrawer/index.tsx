@@ -1,13 +1,21 @@
-import SVG from "react-inlinesvg";
 import { useTranslation } from "react-i18next";
+import { X } from "react-feather";
+import { Button } from "react-bootstrap";
 
+import useTheme from "../../hooks/useTheme";
 import { routes } from "../../constants/headerRoutes";
 import Logo from "../Logo";
-import SideDrawerItem from "./Item";
+import SideDrawerItem from "./SideDrawerItem";
 import * as Styled from "./styleds";
 
-const SideDrawer = ({ open, onDismiss, ...props }) => {
+export type SideDrawerProps = {
+	open: boolean;
+	onDismiss: () => void;
+};
+
+const SideDrawer = ({ open, onDismiss }: SideDrawerProps) => {
 	const { t } = useTranslation();
+	const theme = useTheme();
 
 	return (
 		<>
@@ -15,17 +23,15 @@ const SideDrawer = ({ open, onDismiss, ...props }) => {
 			<Styled.Wrapper open={open}>
 				<Styled.Content>
 					<Styled.Header>
-						<Styled.CloseButton onClick={onDismiss}>
-							<SVG src={require("../../assets/images/close.svg").default} />
-						</Styled.CloseButton>
-
-						<span className={"font-size-sm"}>{t("menu.menu")}</span>
-					</Styled.Header>
-					<Styled.LogoContainer>
 						<Logo />
-					</Styled.LogoContainer>
+
+						<Button onClick={onDismiss} variant={"link"} className="p-1">
+							<X size={20} color={theme.text1} />
+						</Button>
+					</Styled.Header>
 
 					{Object.keys(routes).map((key, index) => {
+						// @ts-ignore
 						const r = routes[key];
 						if (r.hasOwnProperty("path")) {
 							return (

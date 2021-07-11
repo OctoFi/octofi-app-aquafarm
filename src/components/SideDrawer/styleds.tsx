@@ -20,7 +20,7 @@ export const Wrapper = styled.div<{ open: boolean }>`
 	top: 0;
 	bottom: 0;
 	overflow: auto;
-	width: 240px;
+	width: 260px;
 	background-color: ${({ theme }) => theme.modalBG};
 	transition: 0.5s ease all;
 	transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
@@ -30,47 +30,22 @@ export const Wrapper = styled.div<{ open: boolean }>`
 export const Content = styled.div`
 	display: flex;
 	flex-direction: column;
-	padding-bottom: 4rem;
 `;
 
 export const Header = styled.div`
-	padding: 40px 30px;
+	padding: 1.5rem 1rem;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-`;
-
-export const CloseButton = styled.button`
-	border: none;
-	background-color: transparent;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	&:hover,
-	&:focus,
-	&:active {
-		outline: none;
-		text-decoration: none;
-		box-shadow: none;
-	}
-`;
-
-export const LogoContainer = styled.div`
-	padding: 0.875rem 1.875rem 1.5rem;
-	display: flex;
-	align-items: center;
-	border-bottom: 1px solid ${({ theme }) => theme.text3};
+	border-bottom: 1px solid ${({ theme }) => theme.borderColor2};
 `;
 
 export const LinkItem = styled(Link)`
-	padding: 20px 24px 20px 30px;
+	padding: 1.5rem 1.25rem;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: ${({ theme }) => theme.modalBG};
-	height: 64px;
-	border-bottom: 1px solid ${({ theme }) => theme.text3};
+	border-bottom: 1px solid ${({ theme }) => theme.borderColor};
 	color: ${({ theme }) => theme.text1};
 	font-size: 0.875rem;
 	font-weight: 400;

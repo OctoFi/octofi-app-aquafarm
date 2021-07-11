@@ -4,7 +4,13 @@ import { ThemeContext } from "styled-components";
 import { ChevronDown } from "react-feather";
 import * as Styled from "./styleds";
 
-const SideDrawerItem = ({ items, title, ...props }) => {
+export type SideDrawerItemProps = {
+	items: Array<any>;
+	title: string;
+	icon?: any;
+};
+
+const SideDrawerItem = ({ items, title, icon }: SideDrawerItemProps) => {
 	const theme = useContext(ThemeContext);
 	const body = useRef(null);
 	const [open, setOpen] = useState(false);
@@ -17,6 +23,7 @@ const SideDrawerItem = ({ items, title, ...props }) => {
 			setHeight(0);
 		} else {
 			if (body.current) {
+				// @ts-ignore
 				const { height } = body.current.getBoundingClientRect();
 				setOpen((open) => !open);
 				setHeight(height || 0);
@@ -27,9 +34,9 @@ const SideDrawerItem = ({ items, title, ...props }) => {
 	return (
 		<Styled.Wrapper>
 			<Styled.Header onClick={toggleOpen}>
-				{props.icon ? (
+				{icon ? (
 					<Styled.TitleContainer>
-						<Styled.Icon>{props.icon}</Styled.Icon>
+						<Styled.Icon>{icon}</Styled.Icon>
 						<Styled.Title>{t(`menu.${title}`)}</Styled.Title>
 					</Styled.TitleContainer>
 				) : (
