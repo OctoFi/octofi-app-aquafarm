@@ -1,29 +1,28 @@
-import SVG from "react-inlinesvg";
 import { withRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import BellIcon from "../../assets/images/bell.svg";
+import { Bell } from "react-feather";
 import PendingTransactionsList from "../TransactionsList/PendingTransactionsList";
 import ConfirmedTransactionsList from "../TransactionsList/ConfirmedTransactionsList";
-import { Wrapper, Item, DropDown, IconButton, Title, SeeAllButton } from "./styles";
+import * as Styled from "./styles";
 
 const NotificationDropdown = () => {
 	const { t } = useTranslation();
 
 	return (
-		<Wrapper>
-			<Item>
-				<IconButton variant={"link"} className={"py-0 px-0"}>
-					<SVG src={BellIcon} />
-				</IconButton>
-			</Item>
-			<DropDown className={"header-dropdown"}>
-				<Title>{t("pendingTransactions")}</Title>
+		<Styled.Wrapper>
+			<Styled.Item>
+				<Styled.IconButton variant={"link"} className={"py-0 px-0"}>
+					<Bell size={22} />
+				</Styled.IconButton>
+			</Styled.Item>
+			<Styled.DropDown className={"header-dropdown"}>
+				<Styled.Title>{t("pendingTransactions")}</Styled.Title>
 				<PendingTransactionsList />
-				<Title>{t("confirmedTransactions")}</Title>
+				<Styled.Title>{t("confirmedTransactions")}</Styled.Title>
 				<ConfirmedTransactionsList />
-				<SeeAllButton to={"/history"}>{t("seeAllTransactions")}</SeeAllButton>
-			</DropDown>
-		</Wrapper>
+				<Styled.SeeAllButton to={"/history"}>{t("seeAllTransactions")}</Styled.SeeAllButton>
+			</Styled.DropDown>
+		</Styled.Wrapper>
 	);
 };
 
