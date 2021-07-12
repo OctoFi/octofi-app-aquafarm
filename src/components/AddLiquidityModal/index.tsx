@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import SVG from "react-inlinesvg";
 import { Button, Row, Col } from "react-bootstrap";
 import CurrencyInputPanel from "../CurrencyInputPanel";
 import { useActiveWeb3React } from "../../hooks";

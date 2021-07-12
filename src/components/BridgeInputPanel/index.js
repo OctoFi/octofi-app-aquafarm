@@ -2,14 +2,11 @@ import React, {useState, useCallback} from "react";
 import styled from "styled-components";
 import CurrencySearchModal from "../BridgeCurrencySelectModal";
 import { RowBetween } from "../Row";
-import { Input as DefaultNumericalInput } from "../NumericalInput";
 import { ReactComponent as DropDown } from "../../assets/images/cross/dropdown.svg";
 
 import { useActiveWeb3React } from "../../hooks";
 import { useTranslation } from "react-i18next";
-import {useTokenContract} from "../../hooks/useContract";
-import {useAllTokenDetails, useTokenDetails} from "../../contexts/Tokens";
-import {useAddressBalance} from "../../contexts/Balances";
+import {useAllTokenDetails } from "../../contexts/Tokens";
 import TokenLogo from "../CrossTokenLogo";
 
 const InputRow = styled.div`
@@ -316,10 +313,6 @@ export default function BridgeInputPanel({
 
 
 	let allTokens = useAllTokenDetails()
-
-	const userTokenBalance = useAddressBalance(account, selectedTokenAddress)
-
-	const [valueRange, setValueRange] = useState('')
 
 	const handleDismissSearch = useCallback(() => {
 		setModalIsOpen(false);

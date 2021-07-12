@@ -12,7 +12,6 @@ import NetWorthIcon from "../../assets/images/account/networth.svg";
 import WalletIcon from "../../assets/images/account/wallet.svg";
 import ArrowRightIcon from "../../assets/images/global/arrow-right.svg";
 import CurrencyText from "../CurrencyText";
-import Loading from "../Loading";
 import * as Styled from "./styleds";
 
 const icons: any = {

@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import SVG from "react-inlinesvg";
 import { ETHER } from "@uniswap/sdk";
 import { Button, Row, Col } from "react-bootstrap";
 import { useActiveWeb3React } from "../../hooks";
