@@ -99,7 +99,7 @@ const Header = () => {
 			<SideDrawer open={sidedrawer} onDismiss={dismissHandler} />
 			{/* @ts-ignore */}
 			<Styled.Container scrolled={scrolled} right={scrollbarWidth} hasCallback={callback.action !== undefined}>
-				<div className="container-fluid">
+				<div className="container-xl">
 					<Styled.HeadNavbar className={"px-0"} expand={"lg"} scrolled={scrolled}>
 						<div className="back-button d-lg-none">
 							<Styled.BackButton onClick={callback.action} hasCallback={callback.action !== undefined}>
