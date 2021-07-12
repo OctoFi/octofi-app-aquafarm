@@ -14,7 +14,7 @@ export const routes = {
 		path: "/swap/all",
 		state: "success",
 	},
-	explore: {
+	invest: {
 		title: "invest",
 		path: "/invest",
 		state: "success",
@@ -59,7 +59,7 @@ export const routes = {
 			},
 			swap: {
 				title: "uniswap",
-				path: "/swap/uni",
+				path: "/uniswap",
 				state: "success",
 			},
 			cross: {

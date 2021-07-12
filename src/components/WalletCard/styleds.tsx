@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Nav } from "react-bootstrap";
+import { Button, Nav } from "react-bootstrap";
 import { InputGroup } from "../Form";
 
 export const CustomNavItem = styled(Nav.Item)`
@@ -79,7 +79,7 @@ export const CustomText = styled.span`
 	}
 `;
 
-export const PoolsButton = styled.button`
+export const PoolsButton = styled(Button)`
 	border-radius: 12px;
 	background-color: ${({ theme }) => theme.bg1};
 	padding: 6px 20px;
@@ -106,7 +106,7 @@ export const PoolsButton = styled.button`
 `;
 
 export const TradeButton = styled(PoolsButton)<{ variant: string }>`
-	color: ${({ theme, variant }) => (variant ? variant : theme.primary)};
+	color: ${({ theme, variant }) => (variant ? variant : theme.primary)} !important;
 	margin-left: 8px;
 
 	@media (max-width: 991px) {
@@ -115,7 +115,7 @@ export const TradeButton = styled(PoolsButton)<{ variant: string }>`
 	}
 
 	&:not(:disabled):hover {
-		color: ${({ theme }) => theme.bg1};
+		color: ${({ theme }) => theme.bg1} !important;
 		background-color: ${({ theme, variant }) => (variant ? variant : theme.primary)};
 	}
 

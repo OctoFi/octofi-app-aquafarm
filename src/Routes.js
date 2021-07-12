@@ -67,7 +67,7 @@ const Routes = (props) => {
 					<Route path={"/dashboard"} component={Dashboard} />
 					<Route path={"/history"} exact component={History} />
 					<Route path={"/swap/all"} component={InstantSwap} />
-					<Route path={"/swap/uni"} component={Swap} />
+					<Route path={"/uniswap"} component={Swap} />
 					<Route path={"/onramp"} component={FiatOn} />
 					<Route path={"/offramp"} component={FiatOff} />
 					<Route path={"/invest"} exact component={Explore} />

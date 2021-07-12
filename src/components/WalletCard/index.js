@@ -1,38 +1,31 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Tab, Nav } from "react-bootstrap";
-import Skeleton from "react-loading-skeleton";
-
-import { ResponsiveCard } from "../Card";
-import SearchIcon from "../../assets/images/search.svg";
 import React, { useEffect, useMemo, useState } from "react";
-import { WalletPageTable } from "./WalletPageTable";
-import CurrencyLogo from "../CurrencyLogo";
-import CurrencyText from "../CurrencyText";
-import { useActiveWeb3React } from "../../hooks";
-import NftTab from "./NftTab";
-import Loading from "../Loading";
-import Web3 from "web3";
-import { Web3Wrapper } from "@0x/web3-wrapper";
-import { getContractWrappers } from "../../utils/spot/contractWrapper";
-import { ERC20TokenContract } from "@0x/contract-wrappers";
-import { UNLIMITED_ALLOWANCE_IN_BASE_UNITS } from "../../constants";
-import UnlockModal from "./UnlockModal";
-import toast from "react-hot-toast";
-import { useMemoTokenBalances } from "../../state/balances/hooks";
-import { fetchBalances, fetchTransformedBalances } from "../../state/balances/actions";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import SVG from "react-inlinesvg";
-import { InputGroupText, InputGroupPrepend, InputGroupFormControl as FormControl } from "../Form";
-import {
-	CustomNavItem,
-	CustomInputGroup,
-	CustomNavLink,
-	LogoContainer,
-	Title,
-	CustomText,
-	TradeButton,
-} from "./styleds";
+import { Tab, Nav } from "react-bootstrap";
+import Skeleton from "react-loading-skeleton";
+import toast from "react-hot-toast";
+import Web3 from "web3";
+import { Web3Wrapper } from "@0x/web3-wrapper";
+import { ERC20TokenContract } from "@0x/contract-wrappers";
+
+import SearchIcon from "../../assets/images/search.svg";
+import { UNLIMITED_ALLOWANCE_IN_BASE_UNITS } from "../../constants";
+import { useActiveWeb3React } from "../../hooks";
 import useTheme from "../../hooks/useTheme";
+import { getContractWrappers } from "../../utils/spot/contractWrapper";
+import { useMemoTokenBalances } from "../../state/balances/hooks";
+import { fetchBalances, fetchTransformedBalances } from "../../state/balances/actions";
+
+import { ResponsiveCard } from "../Card";
+import CurrencyLogo from "../CurrencyLogo";
+import CurrencyText from "../CurrencyText";
+import Loading from "../Loading";
+import { InputGroupText, InputGroupPrepend, InputGroupFormControl as FormControl } from "../Form";
+import NftTab from "./NftTab";
+import { WalletPageTable } from "./WalletPageTable";
+import UnlockModal from "./UnlockModal";
+import * as Styled from "./styleds";
 
 let web3;
 let web3Wrapper;
@@ -122,14 +115,16 @@ const WalletCard = (props) => {
 				const isLoading = row.loading || false;
 				return (
 					<div className="d-flex align-items-center flex-row-reverse flex-lg-row">
-						<LogoContainer>
+						<Styled.LogoContainer>
 							{isLoading ? (
 								<Skeleton width={"100%"} height={"100%"} circle />
 							) : (
 								<CurrencyLogo currency={row.metadata} />
 							)}
-						</LogoContainer>
-						<Title>{isLoading ? <Skeleton width={48} height={24} /> : row.metadata.symbol}</Title>
+						</Styled.LogoContainer>
+						<Styled.Title>
+							{isLoading ? <Skeleton width={48} height={24} /> : row.metadata.symbol}
+						</Styled.Title>
 					</div>
 				);
 			},
@@ -144,9 +139,9 @@ const WalletCard = (props) => {
 						{isLoading ? (
 							<Skeleton width={80} height={24} />
 						) : (
-							<CustomText size={props.size || "md"}>
+							<Styled.CustomText size={props.size || "md"}>
 								{row.balance ? row.balance.toSignificant(6) : 0}
-							</CustomText>
+							</Styled.CustomText>
 						)}
 					</div>
 				);
@@ -165,9 +160,9 @@ const WalletCard = (props) => {
 								<Skeleton width={80} height={24} />
 							</div>
 						) : (
-							<CustomText size={props.size || "md"}>
+							<Styled.CustomText size={props.size || "md"}>
 								<CurrencyText>{row.balanceUSD}</CurrencyText>
-							</CustomText>
+							</Styled.CustomText>
 						)}
 					</div>
 				);
@@ -187,44 +182,44 @@ const WalletCard = (props) => {
 							</div>
 						) : (
 							<>
-								<TradeButton
-									href={`/swap/uni?outputCurrency=${
+								<Styled.TradeButton
+									href={`/#/uniswap?outputCurrency=${
 										row.metadata.symbol === "ETH" ? "ETH" : row.metadata.address
 									}`}
 								>
 									{t("buttons.buy")}
-								</TradeButton>
+								</Styled.TradeButton>
 
-								<TradeButton
+								<Styled.TradeButton
 									variant={theme.warning}
 									onClick={unlockHandler.bind(this, row.metadata)}
 									disabled={row.metadata.symbol === "ETH"}
 								>
 									{t("buttons.unlock")}
-								</TradeButton>
+								</Styled.TradeButton>
 
-								<TradeButton
-									to={`/swap/uni?inputCurrency=${
+								<Styled.TradeButton
+									href={`/#/uniswap?inputCurrency=${
 										row.metadata.symbol === "ETH" ? "ETH" : row.metadata.address
 									}`}
 									variant={theme.secondary}
 								>
 									{t("buttons.sell")}
-								</TradeButton>
+								</Styled.TradeButton>
 
 								{/* {value <= 0.001 ? (
-									<TradeButton
-										href={`/swap/uni?inputCurrency=${
+									<Styled.TradeButton
+										href={`/#/uniswap?inputCurrency=${
 											row.metadata.symbol === "ETH" ? "ETH" : row.metadata.address
 										}&outputCurrency=0x7240aC91f01233BaAf8b064248E80feaA5912BA3`}
 										disabled
 										variant={theme.tertiary}>
 											{t("buttons.convertTo", { symbol: "OCTO" })}
-										</TradeButton>
+										</Styled.TradeButton>
 								) : (
-									<TradeButton variant={theme.tertiary} disabled={true}>
+									<Styled.TradeButton variant={theme.tertiary} disabled={true}>
 										{t("buttons.convertTo", { symbol: "OCTO" })}
-									</TradeButton>
+									</Styled.TradeButton>
 								)} */}
 							</>
 						)}
@@ -255,15 +250,15 @@ const WalletCard = (props) => {
 				<Tab.Container defaultActiveKey={"tokens"}>
 					<div className="d-flex flex-column-reverse flex-lg-row align-items-stretch align-items-lg-center justify-content-between mb-4">
 						<Nav fill variant="pills">
-							<CustomNavItem>
-								<CustomNavLink eventKey="tokens">{t("importList.tokens")}</CustomNavLink>
-							</CustomNavItem>
-							<CustomNavItem>
-								<CustomNavLink eventKey="nft">{t("NFT")}</CustomNavLink>
-							</CustomNavItem>
+							<Styled.CustomNavItem>
+								<Styled.CustomNavLink eventKey="tokens">{t("importList.tokens")}</Styled.CustomNavLink>
+							</Styled.CustomNavItem>
+							<Styled.CustomNavItem>
+								<Styled.CustomNavLink eventKey="nft">{t("NFT")}</Styled.CustomNavLink>
+							</Styled.CustomNavItem>
 						</Nav>
 
-						<CustomInputGroup className={"w-auto mb-lg-0"} bg={"darker"}>
+						<Styled.CustomInputGroup className={"w-auto mb-lg-0"} bg={"darker"}>
 							<InputGroupPrepend>
 								<InputGroupText>
 									<SVG src={SearchIcon} />
@@ -274,7 +269,7 @@ const WalletCard = (props) => {
 								placeholder={t("search")}
 								onChange={(e) => setQuery(e.target.value)}
 							/>
-						</CustomInputGroup>
+						</Styled.CustomInputGroup>
 					</div>
 					<Tab.Content className={"bg-transparent"}>
 						<Tab.Pane eventKey="tokens">
