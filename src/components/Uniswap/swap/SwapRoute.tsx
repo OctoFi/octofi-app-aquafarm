@@ -1,10 +1,10 @@
-import { Trade } from "@uniswap/sdk";
-import React, { Fragment, memo, useContext } from "react";
+import { Fragment, memo, useContext } from "react";
 import { ChevronRight } from "react-feather";
 import { Flex } from "rebass";
+import { Trade } from "@uniswap/sdk";
+import { TYPE } from "../../../theme";
+import CurrencyLogo from "../../CurrencyLogo";
 import styled, { ThemeContext } from "styled-components";
-import { TYPE } from "../../theme";
-import CurrencyLogo from "../CurrencyLogo";
 
 const LogoContainer = styled.div`
 	width: 24px;

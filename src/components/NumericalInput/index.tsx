@@ -30,13 +30,10 @@ const StyledInput = styled.input<{
 	border-bottom-left-radius: ${({ reverse }) => (reverse ? "1.125rem" : `0`)};
 	border-top-left-radius: ${({ reverse }) => (reverse ? "1.125rem" : `0`)};
 	padding-right: 0.625rem;
-	padding-left: ${({ noBorder, reverse }) => (reverse ? "1.375rem" : noBorder ? "0.625rem" : `1.5rem`)};
+	padding-left: 0.625rem;
+	// padding-left: ${({ noBorder, reverse }) => (reverse ? "1.375rem" : noBorder ? "0.625rem" : `1.5rem`)};
 	-webkit-appearance: textfield;
-	border-left: ${({ theme, noBorder }) => (noBorder ? "none" : `3px solid ${theme.modalBG}`)};
-
-	@media (min-width: 768px) {
-		padding-right: 4.5625rem;
-	}
+	// border-left: ${({ theme, noBorder }) => (noBorder ? "none" : `3px solid ${theme.modalBG}`)};
 
 	::-webkit-search-decoration {
 		-webkit-appearance: none;

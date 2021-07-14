@@ -1,16 +1,16 @@
-import { Trade, TradeType } from "@uniswap/sdk";
-import React, { useContext, useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { ArrowDown, AlertTriangle } from "react-feather";
 import { Text } from "rebass";
+import { Trade, TradeType } from "@uniswap/sdk";
 import { ThemeContext } from "styled-components";
-import { Field } from "../../state/swap/actions";
-import { TYPE } from "../../theme";
-import { ButtonPrimary } from "../Button";
-import { isAddress, shortenAddress } from "../../utils";
-import { computeSlippageAdjustedAmounts, computeTradePriceBreakdown, warningSeverity } from "../../utils/prices";
-import { AutoColumn } from "../Column";
-import CurrencyLogo from "../CurrencyLogo";
-import { RowBetween, RowFixed } from "../Row";
+import { Field } from "../../../state/swap/actions";
+import { TYPE } from "../../../theme";
+import { isAddress, shortenAddress } from "../../../utils";
+import { computeSlippageAdjustedAmounts, computeTradePriceBreakdown, warningSeverity } from "../../../utils/prices";
+import { ButtonPrimary } from "../../Button";
+import { AutoColumn } from "../../Column";
+import CurrencyLogo from "../../CurrencyLogo";
+import { RowBetween, RowFixed } from "../../Row";
 import { TruncatedText, SwapShowAcceptChanges } from "./styleds";
 
 export default function SwapModalHeader({
@@ -39,7 +39,7 @@ export default function SwapModalHeader({
 		<AutoColumn gap={"md"} style={{ marginTop: "20px" }}>
 			<RowBetween align="flex-end">
 				<RowFixed gap={"0px"}>
-					<CurrencyLogo currency={trade.inputAmount.currency} size={"24px"} style={{ marginRight: "12px" }} />
+					<CurrencyLogo currency={trade.inputAmount.currency} size={24} style={{ marginRight: "12px" }} />
 					<TruncatedText
 						fontSize={24}
 						fontWeight={500}
@@ -61,7 +61,7 @@ export default function SwapModalHeader({
 				<RowFixed gap={"0px"}>
 					<CurrencyLogo
 						currency={trade.outputAmount.currency}
-						size={"24px"}
+						size={24}
 						style={{ marginRight: "12px" }}
 					/>
 					<TruncatedText

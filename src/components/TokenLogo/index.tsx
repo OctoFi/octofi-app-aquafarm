@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import SVG from "react-inlinesvg";
 import { ImageProps } from "rebass";
 import styled from "styled-components";
-import QuestionMark from '../../assets/images/question-mark.svg';
+import QuestionMark from "../../assets/images/question-mark.svg";
 
 const BAD_SRCS: { [tokenAddress: string]: true } = {};
 

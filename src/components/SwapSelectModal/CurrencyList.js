@@ -4,6 +4,7 @@ import { Text } from "rebass";
 import styled from "styled-components";
 import Column from "../Column";
 import { RowBetween } from "../Row";
+import Img from "../UI/Img";
 
 export const MenuItem = styled(RowBetween)`
 	padding: 4px 20px;
@@ -19,7 +20,7 @@ export const MenuItem = styled(RowBetween)`
 	opacity: ${({ disabled, selected }) => (disabled || selected ? 0.5 : 1)};
 `;
 
-const Logo = styled.img`
+const Logo = styled(Img)`
 	border-radius: 50%;
 	margin-right: ${({ margin }) => (margin ? "8px" : 0)};
 	width: ${({ size }) => (size ? `${size}px` : "24px")};

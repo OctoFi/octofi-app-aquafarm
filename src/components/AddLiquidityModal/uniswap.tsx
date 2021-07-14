@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { BigNumber } from "@ethersproject/bignumber";
 import { useSelector, useDispatch } from "react-redux";
 import { Button, Row, Col } from "react-bootstrap";
@@ -43,7 +43,6 @@ import { Field } from "../../state/mint/actions";
 import { useWalletModalToggle } from "../../state/application/hooks";
 import { useTranslation } from "react-i18next";
 import { SwitchCol } from "../Uniswap/styles";
-import { ArrowWrapper } from "../swap/styleds";
 import { Plus } from "react-feather";
 import useTheme from "../../hooks/useTheme";
 
@@ -111,6 +110,21 @@ const HeaderCurrencyText = styled(Text)`
 	@media (max-width: 1199px) {
 		font-size: 1rem;
 	}
+`;
+
+export const ArrowWrapper = styled.div<{ clickable: boolean }>`
+	// padding: 2px 16px;
+	padding: 2px;
+
+	${({ clickable }) =>
+		clickable
+			? css`
+					:hover {
+						cursor: pointer;
+						opacity: 0.8;
+					}
+			  `
+			: null};
 `;
 
 export default function UniswapLiquidityModal({

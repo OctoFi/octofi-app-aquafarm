@@ -1,159 +1,47 @@
 import React from "react";
-import { Row, Col, Button, ProgressBar } from "react-bootstrap";
 import { connect } from "react-redux";
-import styled, { ThemeContext } from "styled-components";
-import _ from "lodash";
-import { Text } from "rebass";
 import { isMobile } from "react-device-detect";
 import QRCode from "react-qr-code";
-
-import { Modal } from "../../components/Modal/bootstrap";
+import _ from "lodash";
+import { ThemeContext } from "styled-components";
+import { Row, Col, ProgressBar, Button } from "react-bootstrap";
+import { toast } from "react-hot-toast";
+import { withTranslation } from "react-i18next";
+import { ArrowDown, Download, Plus, Minus } from "react-feather";
+import { ChainId } from "@uniswap/sdk";
+import moment from "moment";
+import Web3 from "web3";
+import BigNumber from "bignumber.js";
+import { assert } from "@0x/assert";
+import { AbiDecoder, intervalUtils } from "@0x/utils";
 import { ResponsiveCard } from "../../components/Card";
-import withWeb3Account from "../../components/hoc/withWeb3Account";
+
 import {
 	BTC,
 	CHANGE_NOW_FLOW,
-	DEXesImages,
-	DEXesName,
 	PARASWAP_REFERRER_ACCOUNT,
 	SIMPLE_SWAP_FIXED,
 	supportedDEXes,
 	ZERO,
 } from "../../constants";
-import InstantSwapApi from "../../http/instantSwap";
-import SwapInputPanel from "../../components/SwapInputPanel";
-import { walletTokens as tokens } from "../../constants/spot-config/mainnet/config.json";
-import { toAbsoluteUrl } from "../../lib/helper";
 import ERC20_ABI from "../../constants/abis/erc20.json";
-import { getContract } from "../../utils";
-import Page from "../../components/Page";
-import Web3 from "web3";
-import { RowBetween } from "../../components/Row";
-import { CloseIcon, LinkStyledButton } from "../../theme";
-import { toast } from "react-hot-toast";
-import BigNumber from "bignumber.js";
-import { assert } from "@0x/assert";
-import { AbiDecoder, intervalUtils } from "@0x/utils";
-import { withTranslation } from "react-i18next";
-import { ArrowWrapper } from "../../components/swap/styleds";
-import { ArrowDown } from "react-feather";
-import AddressInputPanel from "../../components/AddressInputPanel";
+import { walletTokens as tokens } from "../../constants/spot-config/mainnet/config.json";
+import InstantSwapApi from "../../http/instantSwap";
 import { addTransaction } from "../../state/transactions/actions";
-import { ChainId } from "@uniswap/sdk";
-import moment from "moment";
-import CircleLoading from "../../components/CircleLoading";
+import { CloseIcon } from "../../theme";
+import { getContract } from "../../utils";
+
+import Page from "../../components/Page";
+import AddressInputPanel from "../../components/AddressInputPanel";
+import withWeb3Account from "../../components/hoc/withWeb3Account";
+import { Modal } from "../../components/Modal/bootstrap";
+import { RowBetween } from "../../components/Row";
+import RateList from "./RateList";
+import SwapInputPanel from "./SwapInputPanel";
+import RefreshRatesButton from "./RefreshRatesButton";
+import * as Styled from "./styleds";
 
 const HEX_REGEX = /^0x[0-9A-F]*$/i;
-
-const SwapButton = styled(Button)`
-	height: 56px;
-	min-width: 250px;
-	align-self: center;
-
-	@media (max-width: 767px) {
-		width: 100%;
-	}
-`;
-
-const StyledRow = styled(Row)`
-	margin-top: 20px;
-`;
-
-const CustomCard = styled(ResponsiveCard)`
-	margin-top: 20px;
-
-	& .card-body {
-		@media (min-width: 768px) {
-			padding: 42px 30px 32px;
-		}
-	}
-`;
-
-const RateText = styled(Text)`
-	color: ${({ theme }) => theme.text1};
-
-	@media (max-width: 767px) {
-		font-size: 12px;
-	}
-`;
-
-const Logo = styled.img`
-	width: ${({ size }) => (size ? `${size}px` : "24px")};
-	height: ${({ size }) => (size ? `${size}px` : "24px")};
-	border-radius: ${({ size }) => (size ? `${size}px` : "24px")};
-	background-color: ${({ theme }) => theme.text1};
-	border: 2px solid ${({ theme }) => theme.text1};
-	margin-right: 15px;
-`;
-
-const ProgressContainer = styled.div`
-	background: ${({ theme }) => theme.primaryLight};
-	border-radius: 18px;
-	padding: 26px 20px;
-	margin-top: 10px;
-
-	.progress {
-		height: 5px;
-		background-color: ${({ theme }) => theme.primaryLight};
-		border-radius: 15px;
-
-		&-bar {
-			border-radius: 15px;
-		}
-	}
-`;
-
-const PlatformCard = styled.div`
-	padding: 12px 20px;
-	border-radius: 18px;
-	background-color: ${({ selected, theme }) => (selected ? theme.bg2 : theme.primaryLight)};
-	margin-bottom: 10px;
-	min-height: 56px;
-	border: 1px solid ${({ theme, selected }) => (selected ? theme.primary : "transparent")};
-	transition: all ease 0.4s;
-	cursor: pointer;
-
-	&:hover {
-		background-color: ${({ theme }) => theme.bg2};
-		border-color: ${({ theme }) => theme.primary};
-	}
-
-	@media (max-width: 767px) {
-		padding: 8px 8px 8px 10px;
-	}
-`;
-
-const SwitchCol = styled(Col)`
-	margin-bottom: 1.25rem;
-`;
-
-const LoadingContainer = styled.div`
-	padding: 10px;
-	background-color: ${({ theme }) => theme.bg1};
-	border: 1px solid ${({ theme }) => theme.borderColor};
-	border-radius: 12px;
-	height: 40px;
-	width: 140px;
-	max-width: 140px;
-	min-height: 40px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-bottom: 1.25rem;
-	cursor: pointer;
-	transition: border-color 0.3s ease;
-
-	&:hover {
-		border-color: ${({ theme }) => theme.primary};
-	}
-`;
-
-const LoadingText = styled.span`
-	font-size: 0.75rem;
-	font-weight: 500;
-	color: ${({ theme }) => theme.text3};
-	margin-right: 0.75rem;
-`;
 
 const PATTERN = {
 	btc: /^[13][a-km-zA-HJ-NP-Z1-9]{25,80}$|^(bc1)[0-9A-Za-z]{25,80}$/,
@@ -1356,7 +1244,6 @@ class InstantSwap extends React.Component {
 
 				const { t } = this.props;
 				const { pair, rate, recipient } = this.state;
-				let result;
 
 				if (pair.destination.token.symbol.toUpperCase() === "BTC") {
 					if (recipient === null) {
@@ -1378,35 +1265,35 @@ class InstantSwap extends React.Component {
 
 				switch (rate.source) {
 					case "1inch": {
-						result = await this.oneInchBuyHandler(pair, rate);
+						await this.oneInchBuyHandler(pair, rate);
 						break;
 					}
 					case "paraswap": {
-						result = await this.paraSwapBuyHandler(pair, rate);
+						await this.paraSwapBuyHandler(pair, rate);
 						break;
 					}
 					case "dexag": {
-						result = await this.dexagBuyHandler(pair, rate);
+						await this.dexagBuyHandler(pair, rate);
 						break;
 					}
 					case "simpleSwap": {
-						result = await this.simpleSwapBuyHandler(pair, rate);
+						await this.simpleSwapBuyHandler(pair, rate);
 						break;
 					}
 					case "stealthex": {
-						result = await this.stealthexBuyHandler(pair, rate);
+						await this.stealthexBuyHandler(pair, rate);
 						break;
 					}
 					case "changeNow": {
-						result = await this.changeNowBuyHandler(pair, rate);
+						await this.changeNowBuyHandler(pair, rate);
 						break;
 					}
 					case "sideShift": {
-						result = await this.sideShiftBuyHandler(pair, rate);
+						await this.sideShiftBuyHandler(pair, rate);
 						break;
 					}
 					case "godex": {
-						result = await this.godexBuyHandler(pair, rate);
+						await this.godexBuyHandler(pair, rate);
 						break;
 					}
 					default: {
@@ -1480,7 +1367,7 @@ class InstantSwap extends React.Component {
 	updatePriceIntervally = (deposit, destination) => {
 		if (this.priceInterval) {
 			clearInterval(this.priceInterval);
-			this.priceInterval = null;
+			// this.priceInterval = null;
 		}
 		this.priceInterval = setInterval(() => {
 			this.getNewPrice(deposit, destination);
@@ -1497,6 +1384,24 @@ class InstantSwap extends React.Component {
 		this.updatePriceIntervally(deposit, destination);
 	};
 
+	onSwitchTokens = () => {
+		this.setState((prevState) => {
+			return {
+				pair: {
+					deposit: {
+						token: prevState.pair.destination.token,
+						value: prevState.pair.destination.value,
+					},
+					destination: {
+						token: prevState.pair.deposit.token,
+						value: prevState.pair.deposit.value,
+					},
+				},
+			};
+		});
+		this.forceRefreshPrices();
+	};
+
 	render() {
 		const {
 			pair,
@@ -1507,258 +1412,176 @@ class InstantSwap extends React.Component {
 			priceLoading,
 			loadingState,
 			buyState,
-			recipient,
+			// recipient,
 		} = this.state;
 		const { t } = this.props;
 		const theme = this.context;
 
 		return (
-			<Page>
-				<StyledRow>
-					<Col xs={12} md={{ offset: 3, span: 6 }}>
-						<CustomCard>
-							<Row>
-								{rates.length > 0 && (
-									<Col xs={12} className={"d-flex align-items-center justify-content-end"}>
-										<LoadingContainer onClick={this.forceRefreshPrices}>
-											<LoadingText>{t("instantSwap.refreshPrice")}</LoadingText>
-											<CircleLoading
-												fill={theme.primary}
-												pair={pair}
+			<Page title={"Exchange"} networkSensitive={false}>
+				<Row>
+					<Col xs={12} md={{ offset: 0, span: 6 }}>
+						<ResponsiveCard>
+							<SwapInputPanel
+								value={pair.deposit.value}
+								onUserInput={this.onUserInputHandler}
+								label={t("instantSwap.fromLabel")}
+								onSelect={this.onSelect}
+								selected={pair.deposit.token}
+								currencies={tokens}
+								type={"deposit"}
+								id={"deposit"}
+								onChangeBalance={this.onChangeBalance}
+								showMaxButton={false}
+							/>
+
+							<Styled.SwitchCol clickable onClick={this.onSwitchTokens}>
+								<ArrowDown size={16} color={theme.text2} />
+							</Styled.SwitchCol>
+
+							<SwapInputPanel
+								value={pair.destination.value}
+								onUserInput={this.onUserInputHandler}
+								label={t("instantSwap.toLabel")}
+								onSelect={this.onSelect}
+								selected={pair.destination.token}
+								currencies={tokens.concat(BTC)}
+								type={"destination"}
+								id={"destination"}
+							/>
+
+							{/* {recipient === null ? (
+								<div className="d-flex justify-content-end">
+									<Button
+										variant="link"
+										className="d-flex align-items-center"
+										onClick={() => this.onChangeRecipient("")}
+									>
+										<Plus size={16} className="mr-1" /> {t("addSend")} ({t("optional")})
+									</Button>
+								</div>
+							) : (
+								<>
+									<div className="d-flex justify-content-start">
+										<Styled.SwitchCol>
+											<Download size={18} color={theme.text2} />
+										</Styled.SwitchCol>
+									</div>
+
+									<div className="mb-4">
+										<AddressInputPanel value={recipient} onChange={this.onChangeRecipient} />
+									</div>
+
+									<div className="d-flex justify-content-end">
+										<Button
+											variant="link"
+											className="d-flex align-items-center"
+											onClick={() => this.onChangeRecipient(null)}
+										>
+											<Minus size={16} className="mr-1" /> {t("removeSend")}
+										</Button>
+									</div>
+								</>
+							)} */}
+
+							{!!rate && (
+								<div className="d-flex justify-content-between align-items-center my-4">
+									{/* <Styled.RateText fontWeight={400} fontSize={isMobile ? 12 : 14}>
+										Exchange Rate
+									</Styled.RateText> */}
+									<Styled.RateText fontWeight={isMobile ? 400 : 500} fontSize={isMobile ? 12 : 16}>
+										{pair.deposit.token && pair.destination.token
+											? `1 ${
+													pair.deposit.token.symbol || pair.deposit.token.code
+											  } ≈ ${rate.rate.toFixed(4)} ${
+													pair.destination.token.symbol || pair.destination.token.code
+											  }`
+											: null}
+									</Styled.RateText>
+
+									{rates.length > 0 && (
+										<div className={"d-flex align-items-center justify-content-end"}>
+											<RefreshRatesButton
 												loading={loading}
 												priceLoading={priceLoading}
+												onRefresh={this.forceRefreshPrices}
 											/>
-										</LoadingContainer>
-									</Col>
-								)}
-
-								<Col xs={12}>
-									<SwapInputPanel
-										value={pair.deposit.value}
-										onUserInput={this.onUserInputHandler}
-										label={t("instantSwap.fromLabel")}
-										onSelect={this.onSelect}
-										selected={pair.deposit.token}
-										currencies={tokens}
-										type={"deposit"}
-										id={"deposit"}
-										onChangeBalance={this.onChangeBalance}
-									/>
-								</Col>
-
-								<SwitchCol xs={12} className={"d-flex align-items-center justify-content-between"}>
-									<ArrowWrapper clickable style={{ padding: "2px 16px" }}>
-										<ArrowDown size="16" color={theme.text2} />
-									</ArrowWrapper>
-									{recipient === null && (
-										<LinkStyledButton
-											id="add-recipient-button"
-											onClick={() => this.onChangeRecipient("")}
-										>
-											+ {t("addSend")} ({t("optional")})
-										</LinkStyledButton>
-									)}
-								</SwitchCol>
-								<Col
-									xs={12}
-									className={"gutter-b"}
-									style={{ marginBottom: !rate && recipient === null ? "20px" : "0" }}
-								>
-									<SwapInputPanel
-										value={pair.destination.value}
-										onUserInput={this.onUserInputHandler}
-										label={t("instantSwap.toLabel") + " (" + t("estimated") + ")"}
-										onSelect={this.onSelect}
-										selected={pair.destination.token}
-										currencies={tokens.concat(BTC)}
-										type={"destination"}
-										id={"destination"}
-									/>
-								</Col>
-
-								{recipient !== null && (
-									<>
-										<SwitchCol
-											xs={12}
-											className={"d-flex align-items-center justify-content-between"}
-										>
-											<ArrowWrapper clickable style={{ padding: "2px 16px" }}>
-												<ArrowDown size="16" color={theme.text2} />
-											</ArrowWrapper>
-											<LinkStyledButton
-												id="add-recipient-button"
-												onClick={() => this.onChangeRecipient(null)}
-											>
-												- {t("removeSend")}
-											</LinkStyledButton>
-										</SwitchCol>
-										<Col xs={12}>
-											<AddressInputPanel
-												id="recipient"
-												value={recipient}
-												onChange={this.onChangeRecipient}
-											/>
-										</Col>
-									</>
-								)}
-								{!!rate && (
-									<Col
-										xs={12}
-										className={"d-flex justify-content-between align-items-center gutter-b"}
-										style={{ marginBottom: 60 }}
-									>
-										<RateText fontWeight={400} fontSize={isMobile ? 12 : 14}>
-											Exchange Rate
-										</RateText>
-										<RateText fontWeight={isMobile ? 400 : 500} fontSize={isMobile ? 12 : 16}>
-											{pair.deposit.token && pair.destination.token
-												? `1 ${
-														pair.deposit.token.symbol || pair.deposit.token.code
-												  } = ${rate.rate.toFixed(4)} ${
-														pair.destination.token.symbol || pair.destination.token.code
-												  }`
-												: null}
-										</RateText>
-									</Col>
-								)}
-
-								<Col
-									xs={12}
-									className={
-										"d-flex flex-column align-items-stretch align-items-md-center justify-content-center"
-									}
-								>
-									{loading ? (
-										<div
-											className={`d-flex flex-column align-items-stretch justify-content-center align-self-stretch`}
-										>
-											<RateText fontWeight={400} fontSize={isMobile ? 12 : 16}>
-												{t("instantSwap.exchangeSearch", {
-													loaded: loadingState.loaded,
-													all: loadingState.all,
-												})}
-											</RateText>
-											<ProgressContainer>
-												<ProgressBar
-													now={((loadingState.loaded / loadingState.all) * 100).toFixed(0)}
-													variant={
-														loadingState.loaded === loadingState.all ? "success" : "primary"
-													}
-													className={"align-self-stretch w-100 progress-xs"}
-												/>
-											</ProgressContainer>
 										</div>
-									) : (
-										<SwapButton
-											onClick={this.buyHandler}
-											className={"py-3"}
-											disabled={
-												this.props.web3.account &&
-												(!(
-													pair.deposit.token &&
-													pair.destination.token &&
-													pair.deposit.value &&
-													hasEnoughBalance &&
-													pair.destination.value &&
-													Number(pair.deposit.value) > 0 &&
-													rate
-												) ||
-													rate.platform === "godex")
-											}
-											variant={
+									)}
+								</div>
+							)}
+
+							<div className="d-flex flex-column align-items-stretch align-items-md-center justify-content-center mt-4">
+								{loading ? (
+									<div
+										className={`d-flex flex-column align-items-stretch justify-content-center align-self-stretch`}
+									>
+										<Styled.RateText fontWeight={400} fontSize={isMobile ? 12 : 16}>
+											{t("instantSwap.exchangeSearch", {
+												loaded: loadingState.loaded,
+												all: loadingState.all,
+											})}
+										</Styled.RateText>
+										<Styled.ProgressContainer>
+											<ProgressBar
+												className="align-self-stretch w-100 progress-xs"
+												now={((loadingState.loaded / loadingState.all) * 100).toFixed(0)}
+												variant={
+													loadingState.loaded === loadingState.all ? "success" : "primary"
+												}
+											/>
+										</Styled.ProgressContainer>
+									</div>
+								) : (
+									<Styled.SwapButton
+										onClick={this.buyHandler}
+										variant={"primary"}
+										disabled={
+											this.props.web3.account &&
+											(!(
 												pair.deposit.token &&
-												pair.destination.token &&
 												pair.deposit.value &&
+												pair.destination.token &&
 												pair.destination.value &&
 												hasEnoughBalance &&
 												Number(pair.deposit.value) > 0 &&
 												rate
-													? "primary"
-													: "outline-primary"
-											}
-										>
-											{!this.props.web3.account
-												? t("wallet.connect")
-												: !pair.deposit.token || !pair.destination.token
-												? t("exchange.selectPair")
-												: !hasEnoughBalance
-												? t("insufficientBalance")
-												: !pair.deposit.value || !pair.destination.value
-												? t("exchange.enterAmount")
-												: !rate && !loading
-												? t("errors.unavailablePair")
-												: rate.platform === "godex"
-												? t("errors.unavailablePair")
-												: Number(pair.deposit.value) > 0
-												? this.getBuyStates()[buyState]
-												: t("exchange.enterAmount")}
-										</SwapButton>
-									)}
-								</Col>
-								{rates.length > 0 && !loading && (
-									<Col xs={12} className={"d-flex flex-column"} style={{ marginTop: 36 }}>
-										{rates.map((item, index) => {
-											return (
-												<PlatformCard
-													selected={item?.platform === rate?.platform}
-													key={`show-all-${item.platform}`}
-													onClick={this.selectRate.bind(this, item)}
-													className={`d-flex align-items-center justify-content-between`}
-												>
-													<div className={"d-flex align-items-center"} style={{ flex: 1 }}>
-														<Logo
-															src={toAbsoluteUrl(
-																`/media/dex/${DEXesImages[item.platform]}`
-															)}
-															size={30}
-															alt={item.platform}
-														/>
-														<RateText
-															fontSize={isMobile ? 12 : 16}
-															fontWeight={isMobile ? 400 : 500}
-															style={{ flex: 1 }}
-														>
-															{DEXesName[item.platform]}
-														</RateText>
-													</div>
-
-													<div
-														className={
-															"d-flex flex-row align-items-center justify-content-end"
-														}
-														style={{ flex: 1 }}
-													>
-														<RateText
-															fontWeight={500}
-															fontSize={isMobile ? 12 : 14}
-															className={isMobile ? "mr-2" : "mr-3"}
-														>
-															{item?.rate?.toFixed(6)} {pair?.destination?.token?.symbol}/
-															{pair?.deposit?.token?.symbol}
-														</RateText>
-														{index === 0 ? (
-															<span className="label label-inline label-lg label-light-primary">
-																{t("best")}
-															</span>
-														) : (
-															<span
-																style={{
-																	display: "block",
-																	flexBasis: 55,
-																	minWidth: 55,
-																}}
-															/>
-														)}
-													</div>
-												</PlatformCard>
-											);
-										})}
-									</Col>
+											) ||
+												rate.platform === "godex")
+										}
+									>
+										{!this.props.web3.account
+											? t("wallet.connect")
+											: !pair.deposit.token || !pair.destination.token
+											? t("exchange.selectPair")
+											: !hasEnoughBalance
+											? t("insufficientBalance")
+											: !pair.deposit.value || !pair.destination.value
+											? t("exchange.enterAmount")
+											: !rate && !loading
+											? t("errors.unavailablePair")
+											: rate.platform === "godex"
+											? t("errors.unavailablePair")
+											: Number(pair.deposit.value) > 0
+											? this.getBuyStates()[buyState]
+											: t("exchange.enterAmount")}
+									</Styled.SwapButton>
 								)}
-							</Row>
-						</CustomCard>
+							</div>
+						</ResponsiveCard>
 					</Col>
-				</StyledRow>
+
+					<Col xs={12} md={6}>
+						<RateList
+							items={rates}
+							loading={loading}
+							onSelectRate={this.selectRate}
+							rate={rate}
+							pair={pair}
+						/>
+					</Col>
+				</Row>
+
 				<Modal
 					show={this.state.showQrModal}
 					centered

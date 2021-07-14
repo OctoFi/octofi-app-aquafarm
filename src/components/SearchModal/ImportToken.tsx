@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Token, Currency } from "@uniswap/sdk";
 import styled from "styled-components";
 import { TYPE, CloseIcon } from "../../theme";
@@ -10,7 +10,6 @@ import { ArrowLeft, AlertTriangle } from "react-feather";
 import { transparentize } from "polished";
 import useTheme from "../../hooks/useTheme";
 import { ButtonPrimary } from "../Button";
-import { SectionBreak } from "../swap/styleds";
 import { useAddUserToken } from "../../state/user/hooks";
 import { getEtherscanLink } from "../../utils";
 import { useActiveWeb3React } from "../../hooks";
@@ -36,8 +35,14 @@ const AddressText = styled(TYPE.Blue)`
 	font-size: 12px;
 
 	${({ theme }) => theme.mediaWidth.upToSmall`
-    font-size: 10px;
-`}
+		font-size: 10px;
+	`}
+`;
+
+const SectionBreak = styled.div`
+	height: 1px;
+	width: 100%;
+	background-color: ${({ theme }) => theme.bg1};
 `;
 
 interface ImportProps {
@@ -85,7 +90,7 @@ export function ImportToken({ tokens, onBack, onDismiss, handleCurrencySelect }:
 						>
 							<AutoColumn gap="10px">
 								<AutoRow align="center">
-									<CurrencyLogo currency={token} size={"24px"} />
+									<CurrencyLogo currency={token} size={24} />
 									<TYPE.Body ml="8px" mr="8px" fontWeight={500}>
 										{token.symbol}
 									</TYPE.Body>

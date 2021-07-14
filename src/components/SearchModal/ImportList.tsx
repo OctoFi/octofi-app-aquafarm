@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import styled from "styled-components";
 import { TYPE, CloseIcon } from "../../theme";
 import Card from "../Card";
@@ -8,7 +8,6 @@ import { ArrowLeft, AlertTriangle } from "react-feather";
 import useTheme from "../../hooks/useTheme";
 import { transparentize } from "polished";
 import { ButtonPrimary } from "../Button";
-import { SectionBreak } from "../swap/styleds";
 import { ExternalLink } from "../../theme";
 import ListLogo from "../ListLogo";
 import { PaddedColumn, Checkbox, TextDot } from "./styleds";
@@ -25,6 +24,12 @@ const Wrapper = styled.div`
 	position: relative;
 	width: 100%;
 	overflow: auto;
+`;
+
+const SectionBreak = styled.div`
+	height: 1px;
+	width: 100%;
+	background-color: ${({ theme }) => theme.bg1};
 `;
 
 interface ImportProps {

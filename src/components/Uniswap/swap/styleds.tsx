@@ -1,15 +1,14 @@
-import { transparentize } from "polished";
-import { AlertTriangle } from "react-feather";
 import styled, { css } from "styled-components";
 import { Text } from "rebass";
-import { AutoColumn } from "../Column";
+import { transparentize } from "polished";
+import { AlertTriangle } from "react-feather";
+import { AutoColumn } from "../../Column";
 
 export const Wrapper = styled.div`
 	position: relative;
 `;
 
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`
-	// padding: 2px 16px;
 	padding: 2px;
 
 	${({ clickable }) =>
@@ -43,12 +42,10 @@ export const ErrorText = styled(Text)<{ severity?: 0 | 1 | 2 | 3 | 4 }>`
 `;
 
 export const StyledBalanceMaxMini = styled.button`
-	height: 22px;
-	width: 22px;
 	background-color: ${({ theme }) => theme.bg1};
 	border: none;
 	border-radius: 50%;
-	padding: 0.2rem;
+	padding: 6px;
 	font-size: 0.875rem;
 	font-weight: 400;
 	margin-left: 0.4rem;
@@ -57,12 +54,9 @@ export const StyledBalanceMaxMini = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	float: right;
 
-	:hover {
-		background-color: ${({ theme }) => theme.bg1};
-	}
-	:focus {
+	&:hover,
+	&:focus {
 		background-color: ${({ theme }) => theme.bg1};
 		outline: none;
 	}

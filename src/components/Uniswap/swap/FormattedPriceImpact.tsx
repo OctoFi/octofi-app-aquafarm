@@ -1,9 +1,8 @@
 import { Percent } from "@uniswap/sdk";
-import React from "react";
-import { ONE_BIPS } from "../../constants";
-import { warningSeverity } from "../../utils/prices";
-import { ErrorText } from "./styleds";
+import { ONE_BIPS } from "../../../constants";
+import { warningSeverity } from "../../../utils/prices";
 import styled from "styled-components";
+import { ErrorText } from "./styleds";
 
 export const CustomErrorText = styled(ErrorText)`
 	font-size: 0.75rem;

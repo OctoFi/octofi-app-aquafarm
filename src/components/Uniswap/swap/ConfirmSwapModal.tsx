@@ -1,9 +1,9 @@
+import { useCallback, useMemo } from "react";
 import { currencyEquals, Trade } from "@uniswap/sdk";
-import React, { useCallback, useMemo } from "react";
 import TransactionConfirmationModal, {
 	ConfirmationModalContent,
 	TransactionErrorContent,
-} from "../TransactionConfirmationModal";
+} from "../../TransactionConfirmationModal";
 import SwapModalFooter from "./SwapModalFooter";
 import SwapModalHeader from "./SwapModalHeader";
 
