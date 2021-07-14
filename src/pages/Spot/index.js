@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import Page from "../../components/Page";
-import CheckBalance from "../../components/CheckBalance";
 import StyledCard, { ResponsiveCard } from "../../components/Card";
-import marketTokens from "../../constants/marketTokens.json";
 import MarketStats from "./components/MarketStats";
 import MarketDetails from "./components/MarketDetails";
 import Orderbook from "./components/Orderbook";
