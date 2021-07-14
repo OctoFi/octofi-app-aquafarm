@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Slider from "react-slick";
 import { isMobile } from "react-device-detect";
-import { Button } from 'react-bootstrap';
+import { Button } from "react-bootstrap";
 
 import { fetchTokens } from "../../state/explore/actions";
 import SectionList from "../../components/SectionList";
@@ -74,9 +74,10 @@ class Explore extends React.Component {
 									<ExchangeIcon size={isMobile ? 16 : 28} fill={"#1BC5BD"} />
 								</Styled.TypeIcon>
 							);
+
 							let dataItem = data.schema(row, imageComponent);
 							return (
-								<div className={"h-100"}>
+								<div className={"h-100"} key={index}>
 									<InnerCard key={index + data.title} {...dataItem} />
 								</div>
 							);
