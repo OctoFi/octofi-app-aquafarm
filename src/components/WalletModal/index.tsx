@@ -342,7 +342,7 @@ export default function WalletModal() {
 
 					<div>
 						<RecentTransactionsList />
-						<SeeAllButton to={"/account/history"}>{t("seeAllTransactions")}</SeeAllButton>
+						<SeeAllButton to={"/history"}>{t("seeAllTransactions")}</SeeAllButton>
 					</div>
 				</>
 			);
@@ -358,7 +358,7 @@ export default function WalletModal() {
 
 					<div>
 						<RecentTransactionsList />
-						<SeeAllButton to={"/account/history"}>{t("seeAllTransactions")}</SeeAllButton>
+						<SeeAllButton to={"/history"}>{t("seeAllTransactions")}</SeeAllButton>
 					</div>
 				</>
 			)

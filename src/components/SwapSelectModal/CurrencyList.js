@@ -4,6 +4,7 @@ import { Text } from "rebass";
 import styled from "styled-components";
 import Column from "../Column";
 import { RowBetween } from "../Row";
+import Img from "../UI/Img";
 
 export const MenuItem = styled(RowBetween)`
 	padding: 4px 20px;
@@ -14,24 +15,23 @@ export const MenuItem = styled(RowBetween)`
 	cursor: ${({ disabled }) => !disabled && "pointer"};
 	pointer-events: ${({ disabled }) => disabled && "none"};
 	:hover {
-		background-color: ${({ theme, disabled }) => !disabled && theme.bg2};
+		background-color: ${({ theme, disabled }) => !disabled && theme.bg1};
 	}
 	opacity: ${({ disabled, selected }) => (disabled || selected ? 0.5 : 1)};
 `;
 
-const Logo = styled.img`
+const Logo = styled(Img)`
+	border-radius: 50%;
+	margin-right: ${({ margin }) => (margin ? "8px" : 0)};
 	width: ${({ size }) => (size ? `${size}px` : "24px")};
 	height: ${({ size }) => (size ? `${size}px` : "24px")};
-	border-radius: ${({ size }) => (size ? `${size}px` : "24px")};
-	border: 2px solid ${({ theme }) => theme.text1};
-	background-color: ${({ theme }) => theme.text1};
-	margin-right: ${({ margin }) => (margin ? "8px" : 0)};
 
 	@media (max-width: 1199px) {
 		width: 24px;
 		height: 24px;
 	}
 `;
+
 const StyledBalanceText = styled(Text)`
 	white-space: nowrap;
 	overflow: hidden;
@@ -51,10 +51,6 @@ const StyledText = styled(Text)`
 	}
 `;
 
-function Symbol({ symbol }) {
-	return <StyledBalanceText>{symbol}</StyledBalanceText>;
-}
-
 function CurrencyRow({ currency, onSelect, isSelected, style }) {
 	return (
 		<MenuItem
@@ -63,7 +59,7 @@ function CurrencyRow({ currency, onSelect, isSelected, style }) {
 			onClick={() => (isSelected ? null : onSelect())}
 			disabled={isSelected}
 		>
-			<Logo src={currency.logoURI} size={24} alt={currency.symbol} />
+			<Logo src={currency.logoURI} alt={currency.symbol} size={24} />
 			<Column>
 				<StyledText title={currency.name} fontWeight={500}>
 					{currency.symbol}
@@ -71,7 +67,7 @@ function CurrencyRow({ currency, onSelect, isSelected, style }) {
 			</Column>
 
 			<Column style={{ justifySelf: "flex-end" }}>
-				<Symbol symbol={currency.name} />
+				<StyledBalanceText>{currency.name}</StyledBalanceText>
 			</Column>
 		</MenuItem>
 	);

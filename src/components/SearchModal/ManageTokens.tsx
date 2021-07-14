@@ -77,7 +77,7 @@ export default function ManageTokens({
 			userAddedTokens.map((token) => (
 				<RowBetween key={token.address} width="100%">
 					<RowFixed>
-						<CurrencyLogo currency={token} size={"20px"} />
+						<CurrencyLogo currency={token} size={20} />
 						<ExternalLink href={getEtherscanLink(chainId, token.address, "address")}>
 							<TYPE.Main ml={"10px"} fontWeight={600}>
 								{token.symbol}
@@ -112,7 +112,7 @@ export default function ManageTokens({
 						<TYPE.Error error={true}>Enter valid token address</TYPE.Error>
 					)}
 					{searchToken && (
-						<Card backgroundColor={theme.bg2} padding="10px 0">
+						<Card backgroundColor={theme.bg1} padding="10px 0">
 							<ImportRow
 								token={searchToken}
 								showImportView={() => setModalView(CurrencyModalView.importToken)}

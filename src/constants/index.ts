@@ -45,6 +45,8 @@ export const REMOVE_CONTRACTS = {
 export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 export const DEFAULT_DECIMALS = 18;
 
+export const ADDRESS_PATTERN = /^[13][a-km-zA-HJ-NP-Z1-9]{25,80}$|^(bc1)[0-9A-Za-z]{25,80}$|^(0x[a-fA-F0-9]{40})$|^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/;
+
 // a list of tokens by chain
 type ChainTokenList = {
 	readonly [chainId in ChainId]: Token[];
@@ -63,6 +65,7 @@ export const COMP = new Token(ChainId.MAINNET, "0xc00e94Cb662C3520282E6f57172140
 export const MKR = new Token(ChainId.MAINNET, "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2", 18, "MKR", "Maker");
 export const AMPL = new Token(ChainId.MAINNET, "0xD46bA6D942050d489DBd938a2C909A5d5039A161", 9, "AMPL", "Ampleforth");
 export const WBTC = new Token(ChainId.MAINNET, "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599", 18, "WBTC", "Wrapped BTC");
+export const OCTO = new Token(ChainId.MAINNET, "0x7240aC91f01233BaAf8b064248E80feaA5912BA3", 18, "OCTO", "Octo.fi");
 
 export const BalanceToken = new Token(
 	ChainId.MAINNET,
@@ -502,7 +505,7 @@ export const exploreSections = {
 				src: "/coins/" + row.id,
 			};
 		},
-		seeMore: "/tools/explore/tokens",
+		seeMore: "/#/invest/tokens",
 	},
 	tokenSets: {
 		title: "Token Sets",
@@ -520,7 +523,7 @@ export const exploreSections = {
 				title: false,
 			};
 		},
-		seeMore: "/tools/explore/tokenSets",
+		seeMore: "/#/invest/tokensets",
 	},
 	pools: {
 		title: "Pools",
@@ -538,7 +541,7 @@ export const exploreSections = {
 				title: "Total Liquidity",
 			};
 		},
-		seeMore: "/invest/pools",
+		seeMore: "/#/invest/pools",
 	},
 	trending: {
 		title: "Trending on Coingecko",
@@ -572,7 +575,7 @@ export const exploreSections = {
 				symbol: row?.symbol?.toUpperCase() || "-",
 				price: row?.volume_24h,
 				priceDiff: row.price_percentage_change_24h,
-				seeMore: "/tools/explore/derivatives",
+				seeMore: "/#/invest/derivatives",
 				title: "Volume (24h)",
 			};
 		},
@@ -853,21 +856,6 @@ export const ApprovalState = {
 	PENDING: 2,
 	APPROVED: 3,
 };
-
-export const banners = [
-	{
-		image: require("../assets/images/banners/banner_1.png"),
-		url: "https://den.octo.fi",
-	},
-	{
-		image: require("../assets/images/banners/banner_2.png"),
-		url: "https://dyor.octo.fi",
-	},
-	{
-		image: require("../assets/images/banners/banner_3.png"),
-		url: "https://doc.octo.fi",
-	},
-];
 
 export enum StepKind {
 	WrapEth = "WrapEth",

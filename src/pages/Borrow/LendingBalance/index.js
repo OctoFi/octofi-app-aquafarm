@@ -9,17 +9,17 @@ import withBalance from "../../../components/hoc/withBalance";
 import { useActiveWeb3React } from "../../../hooks";
 import { setAaveCurrency } from "../../../state/aave/actions";
 import { getKnownTokens, isWethToken } from "../../../utils/known_tokens";
-import { formatTokenSymbol, tokenAmountInUnits } from "../../../utils/spot/tokens";
+import { tokenAmountInUnits } from "../../../utils/spot/tokens";
 import { Protocol } from "../../../utils/aave/types";
 import { startLendingTokenSteps, startUnLendingTokenSteps } from "../../../state/spotUI/actions";
 import CurrencyLogo from "../../../components/CurrencyLogo";
-import Skeleton from "react-loading-skeleton";
-import { StyledLink, TradeButton } from "../../Wallet";
+import { StyledLink, TradeButton } from "../../../components/WalletCard/styleds";
 import BootstrapTable from "react-bootstrap-table-next";
 import ResponsiveTable from "../../../components/ResponsiveTable";
 import LendingModalContainer from "./LendingModalContainer";
 import { sortedData } from "../../../lib/helper";
 import { useTranslation } from "react-i18next";
+import useTheme from "../../../hooks/useTheme";
 
 const LogoContainer = styled.div`
 	width: 32px;
@@ -71,6 +71,7 @@ const CellText = styled.span`
 `;
 
 const LendingBalance = (props) => {
+	const theme = useTheme();
 	const [isEthState, setIsEthState] = useState(false);
 	const [isHideZeroBalance, setIsHideZeroBalance] = useState(false);
 	const [isStableCoin, setIsStableCoin] = useState(false);
@@ -284,7 +285,13 @@ const LendingBalance = (props) => {
 			dataField: "displayBalance",
 			text: t("borrow.balance"),
 			formatter: (cellContent, row, rowIndex) => {
-				return <CellText>{typeof row.displayBalance === 'number' ? `${row.displayBalance} ${row.tokenSymbol}` : row.displayBalance}</CellText>;
+				return (
+					<CellText>
+						{typeof row.displayBalance === "number"
+							? `${row.displayBalance} ${row.tokenSymbol}`
+							: row.displayBalance}
+					</CellText>
+				);
 			},
 			sort: true,
 		},
@@ -292,7 +299,13 @@ const LendingBalance = (props) => {
 			dataField: "displayDepositBalance",
 			text: t("borrow.depositBalance"),
 			formatter: (cellContent, row, rowIndex) => {
-				return <CellText>{typeof row.displayDepositBalance === 'number' ? `${row.displayDepositBalance} ${row.tokenSymbol}` : row.displayDepositBalance}</CellText>;
+				return (
+					<CellText>
+						{typeof row.displayDepositBalance === "number"
+							? `${row.displayDepositBalance} ${row.tokenSymbol}`
+							: row.displayDepositBalance}
+					</CellText>
+				);
 			},
 			sort: true,
 		},
@@ -326,7 +339,7 @@ const LendingBalance = (props) => {
 
 						<StyledLink>
 							<TradeButton
-								variant={"warning"}
+								variant={theme.warning}
 								onClick={openUnLendingModal.bind(this, tokenD, isEthToken, tokB, token)}
 								disabled={balance && balance.isEqualTo(0)}
 							>

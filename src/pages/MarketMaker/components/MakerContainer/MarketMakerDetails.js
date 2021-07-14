@@ -36,7 +36,7 @@ const Price = styled(Title)`
 
 const Content = styled.div`
 	border-radius: 18px;
-	background-color: ${({ theme }) => theme.bg3};
+	background-color: ${({ theme }) => theme.bg1};
 	padding: 20px;
 	display: flex;
 	flex-direction: column;

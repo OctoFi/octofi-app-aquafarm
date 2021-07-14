@@ -56,7 +56,7 @@ class TokenSetApi {
 		});
 	}
 
-	async getTokenSetsHitorical(ids) {
+	async getTokenSetsHistorical(ids) {
 		const promises = [];
 		for (let i in ids) {
 			promises.push(this.promisify(() => this.fetchHistoricalData(ids[i])));

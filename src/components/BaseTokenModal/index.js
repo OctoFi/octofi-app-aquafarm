@@ -48,7 +48,7 @@ export default function CurrencySelectModal({ isOpen, onDismiss, onCurrencySelec
 					<FormControl
 						size={"lg"}
 						style={{
-							backgroundColor: theme.bg2,
+							backgroundColor: theme.bg1,
 							color: theme.text1,
 						}}
 						type="text"

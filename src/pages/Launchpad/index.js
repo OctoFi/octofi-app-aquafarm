@@ -182,7 +182,7 @@ const Launchpad = props => {
     const presales = usePresales()
 
     return (
-        <Page title={false}>
+        <Page title={false} networkSensitive={true}>
             <Row>
                 <Col xs={{ span: 12, offset: 0 }} md={{ span: 6, offset: 3 }}>
                     <StyledCard>
@@ -192,7 +192,7 @@ const Launchpad = props => {
                             </Col>
                             <Col xs={12} className={'d-flex align-items-stretch flex-column mb-3'}>
                                 <div className="align-self-end mb-3">
-                                    <CreateNew to={'/invest/launchpad/new'}>{t("launchpad.createNew")}</CreateNew>
+                                    <CreateNew to={'/launchpad/new'}>{t("launchpad.createNew")}</CreateNew>
                                 </div>
                                 <InputGroup bg={"darker"}>
                                     <FormControl

@@ -1,15 +1,12 @@
 import React, {useState, useCallback} from "react";
 import styled from "styled-components";
-import CurrencySearchModal from "../BrdigeCurrencySelectModal";
+import CurrencySearchModal from "../BridgeCurrencySelectModal";
 import { RowBetween } from "../Row";
-import { Input as DefaultNumericalInput } from "../NumericalInput";
 import { ReactComponent as DropDown } from "../../assets/images/cross/dropdown.svg";
 
 import { useActiveWeb3React } from "../../hooks";
 import { useTranslation } from "react-i18next";
-import {useTokenContract} from "../../hooks/useContract";
-import {useAllTokenDetails, useTokenDetails} from "../../contexts/Tokens";
-import {useAddressBalance} from "../../contexts/Balances";
+import {useAllTokenDetails } from "../../contexts/Tokens";
 import TokenLogo from "../CrossTokenLogo";
 
 const InputRow = styled.div`
@@ -208,7 +205,7 @@ const StyledBalanceMax = styled.button`
 
 	:hover {
 		background-color: ${({ theme }) => theme.primary};
-		color: ${({ theme }) => theme.bg2};
+		color: ${({ theme }) => theme.bg1};
 	}
 
 	:focus {
@@ -224,7 +221,7 @@ const NumericalInput = styled.input`
   font-family: inherit;
   outline: none;
   flex: 1 1 auto;
-  background-color: ${({ theme }) => theme.bg3};
+  background-color: ${({ theme }) => theme.bg1};
   text-align: ${({ align }) => align && align};
   white-space: nowrap;
   overflow: hidden;
@@ -316,10 +313,6 @@ export default function BridgeInputPanel({
 
 
 	let allTokens = useAllTokenDetails()
-
-	const userTokenBalance = useAddressBalance(account, selectedTokenAddress)
-
-	const [valueRange, setValueRange] = useState('')
 
 	const handleDismissSearch = useCallback(() => {
 		setModalIsOpen(false);

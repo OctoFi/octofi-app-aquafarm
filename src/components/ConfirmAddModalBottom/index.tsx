@@ -1,5 +1,4 @@
 import { Currency, CurrencyAmount, Fraction, Percent } from "@uniswap/sdk";
-import React from "react";
 import Button from "../UI/Button";
 import { RowBetween, RowFixed } from "../Row";
 import CurrencyLogo from "../../components/CurrencyLogo";
@@ -43,7 +42,7 @@ export function ConfirmAddModalBottom({
 					<CurrencyLogo
 						currency={currencies[Field.CURRENCY_A]}
 						style={{ marginRight: "8px" }}
-						size={"24px"}
+						size={24}
 					/>
 					<Value>{parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)}</Value>
 				</RowFixed>
@@ -54,7 +53,7 @@ export function ConfirmAddModalBottom({
 					<CurrencyLogo
 						currency={currencies[Field.CURRENCY_B]}
 						style={{ marginRight: "8px" }}
-						size={"24px"}
+						size={24}
 					/>
 					<Value>{parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)}</Value>
 				</RowFixed>

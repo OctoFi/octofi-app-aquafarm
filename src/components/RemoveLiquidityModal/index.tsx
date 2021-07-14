@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import SVG from "react-inlinesvg";
 import { ETHER } from "@uniswap/sdk";
 import { Button, Row, Col } from "react-bootstrap";
 import { useActiveWeb3React } from "../../hooks";
@@ -43,13 +42,7 @@ import PoolInput from "../PoolInput";
 import { usePoolBalance } from "../../state/pools/hooks";
 import ERC20_ABI from "../../constants/abis/erc20.json";
 import { BigNumber } from "@ethersproject/bignumber";
-import {
-	AccountState,
-	AccountStateContent,
-	AccountStateDesc,
-	AccountStateTitle,
-	PriceTopbar,
-} from "../AddLiquidityModal/uniswap";
+import { PriceTopbar } from "../AddLiquidityModal/uniswap";
 import { useWalletModalToggle } from "../../state/application/hooks";
 import { LightCard } from "../StyledCards";
 import { PlatformTitle } from "../AddLiquidityModal";
@@ -379,7 +372,7 @@ export default function RemoveLiquidityModal({ history }: RouteComponentProps) {
 				<RowBetween>
 					<TYPE.Body>Ethereum Output</TYPE.Body>
 					<RowFixed>
-						<CurrencyLogo currency={ETHER} size={"24px"} />
+						<CurrencyLogo currency={ETHER} size={24} />
 					</RowFixed>
 				</RowBetween>
 				<Button
@@ -423,20 +416,6 @@ export default function RemoveLiquidityModal({ history }: RouteComponentProps) {
 				<Modal.Body style={{ padding: !showConfirm ? "30px" : "0" }}>
 					{!account ? (
 						<Row>
-							<Col xs={12}>
-								<AccountState type={"danger"} className={"bg-light-danger"}>
-									<SVG
-										src={require("../../assets/images/account/wallet.svg").default}
-										width={36}
-										height={36}
-									/>
-									<AccountStateContent>
-										<AccountStateTitle className={"mb-0"}>
-											{t("wallet.notConnected")}
-										</AccountStateTitle>
-									</AccountStateContent>
-								</AccountState>
-							</Col>
 							<Col
 								xs={12}
 								className={"d-flex align-items-center justify-content-center"}
@@ -449,21 +428,6 @@ export default function RemoveLiquidityModal({ history }: RouteComponentProps) {
 						</Row>
 					) : !showConfirm ? (
 						<Row>
-							<Col xs={12}>
-								<AccountState type={"success"} className={"bg-light-success d-none d-xl-flex"}>
-									<SVG
-										src={require("../../assets/images/account/wallet.svg").default}
-										width={36}
-										height={36}
-									/>
-									<AccountStateContent>
-										<AccountStateTitle>{t("wallet.connected")}</AccountStateTitle>
-										<AccountStateDesc>
-											{t("wallet.connectedTo")} <strong>{account}</strong>
-										</AccountStateDesc>
-									</AccountStateContent>
-								</AccountState>
-							</Col>
 							<Col xs={12} className={"gutter-b"}>
 								<PoolInput
 									value={amount}

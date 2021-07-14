@@ -1,85 +1,15 @@
-import styled from "styled-components";
-import { OpenSeaPort, Network } from "opensea-js";
 import { Component } from "react";
-import { Button } from "react-bootstrap";
+import { withTranslation } from "react-i18next";
+import { Row, Col, Button } from "react-bootstrap";
 import Web3 from "web3";
+import { OpenSeaPort, Network } from "opensea-js";
+import { OrderSide } from "opensea-js/lib/types";
 
 import Page from "../../components/Page";
-import Card, { ResponsiveCard } from "../../components/Card";
 import Collections from "../../components/Collections";
-import Orders from "./components/Orders";
-import { OrderSide } from "opensea-js/lib/types";
 import withWeb3Account from "../../components/hoc/withWeb3Account";
-import { withTranslation } from "react-i18next";
-
-const Row = styled.div`
-	margin-top: -30px;
-	margin-left: -10px;
-	margin-right: -10px;
-`;
-
-const StyledRow = styled(Row)`
-	margin-top: 40px;
-
-	@media (max-width: 767px) {
-		margin-top: 20px;
-	}
-`;
-
-const Col = styled.div`
-	padding: 0 10px 20px;
-`;
-
-const Sidebar = styled(Col)`
-	width: 340px;
-
-	@media (max-width: 991px) {
-		width: 100%;
-	}
-`;
-
-const Content = styled(Col)`
-	flex: 1;
-`;
-
-const StyledCard = styled(Card)`
-	.card-body {
-		padding: 0;
-	}
-`;
-
-const StyledResponsiveCard = styled(ResponsiveCard)`
-	.card-body {
-		padding: 0;
-
-		@media (max-width: 991px) {
-			padding: 0 10px;
-		}
-	}
-
-	@media (max-width: 767px) {
-		background-color: transparent;
-		border-top: 1px solid ${({ theme }) => theme.text3};
-	}
-`;
-
-const CardSection = styled.div`
-	padding: ${({ paddingTop, paddingBottom }) => `${paddingTop || "20px"} 20px ${paddingBottom || "20px"}`};
-	border-bottom: ${({ hasBorder, theme }) => (hasBorder ? `1px solid ${theme.text3}` : "none")};
-	display: flex;
-	flex-direction: column;
-`;
-
-const Title = styled.h4`
-	font-weight: bold;
-	font-size: 1.25rem;
-	color: ${({ theme }) => theme.text1};
-	margin: ${({ marginBottom }) => `0 0 ${marginBottom || "20px"}`};
-
-	@media (max-width: 991px) {
-		font-size: 1.125rem;
-	}
-`;
+import Orders from "./Orders";
+import * as Styled from "./styleds";
 
 const PAGE_SIZE = 24;
 
@@ -111,88 +41,82 @@ class NFT extends Component {
 		const { t } = this.props;
 
 		return (
-			<Page size={"lg"}>
-				<StyledRow className="d-flex flex-column align-items-stretch flex-lg-row align-items-lg-start">
-					<Sidebar>
-						<StyledCard>
-							<CardSection hasBorder>
-								<Title>{t("orderbookSide")}</Title>
-								<div className="d-flex align-items-center">
-									<Button
-										variant={sellSide ? "primary" : "light-primary"}
-										onClick={() => this.toggleSide(OrderSide.Sell)}
-										className={"w-50 mr-1"}
-									>
-										{t("auction")}
-									</Button>
-									<Button
-										variant={buySide ? "primary" : "light-primary"}
-										onClick={() => this.toggleSide(OrderSide.Buy)}
-										className={"w-50 ml-1"}
-									>
-										{t("bids")}
-									</Button>
-								</div>
-							</CardSection>
-							<CardSection hasBorder>
-								<Title>{t("accountFilter")}</Title>
-								<div className="d-flex align-items-center">
-									<Button
-										variant={onlyForMe ? "primary" : "light-primary"}
-										onClick={this.toggleForMe}
-										className={"w-50 mr-1"}
-									>
-										{t("forMe")}
-									</Button>
-									<Button
-										variant={onlyByMe ? "primary" : "light-primary"}
-										onClick={this.toggleByMe}
-										className={"w-50 ml-1"}
-									>
-										{t("byMe")}
-									</Button>
-								</div>
-							</CardSection>
-							<CardSection hasBorder>
-								<Title>{t("bundles")}</Title>
-								<div className="d-flex align-items-center">
-									<Button
-										variant={onlyBundles ? "primary" : "light-primary"}
-										onClick={this.toggleBundles}
-										className={"flex-grow-1"}
-										block
-									>
-										{t("onlyBundles")}
-									</Button>
-								</div>
-							</CardSection>
-							<CardSection>
-								<Title>{t("collections")}</Title>
-								<Collections
-									onChangeCollection={this.changeSelectedCollection}
-									selected={selectedCollection}
-								/>
-							</CardSection>
-						</StyledCard>
-					</Sidebar>
-					<Content>
-						<StyledResponsiveCard>
-							<CardSection>
-								<Orders
-									seaport={this.seaport}
-									web3={this.web3}
-									selectedCollection={selectedCollection}
-									fetchOrders={this.fetchOrders}
-									increasePage={this.increasePage}
-									setSort={this.setSort}
-									orders={orders}
-									hasMore={hasMore}
-									page={this.state.page}
-								/>
-							</CardSection>
-						</StyledResponsiveCard>
-					</Content>
-				</StyledRow>
+			<Page networkSensitive={true} fluid={true}>
+				<Row>
+					<Styled.FiltersCol xs={12} md={4}>
+						<Styled.CardSection>
+							<Styled.Title>{t("orderbookSide")}</Styled.Title>
+							<div className="d-flex align-items-center">
+								<Button
+									variant={sellSide ? "primary" : "light-primary"}
+									onClick={() => this.toggleSide(OrderSide.Sell)}
+									className={"w-50 mr-1"}
+								>
+									{t("auction")}
+								</Button>
+								<Button
+									variant={buySide ? "primary" : "light-primary"}
+									onClick={() => this.toggleSide(OrderSide.Buy)}
+									className={"w-50 ml-1"}
+								>
+									{t("bids")}
+								</Button>
+							</div>
+						</Styled.CardSection>
+						<Styled.CardSection>
+							<Styled.Title>{t("accountFilter")}</Styled.Title>
+							<div className="d-flex align-items-center">
+								<Button
+									variant={onlyForMe ? "primary" : "light-primary"}
+									onClick={this.toggleForMe}
+									className={"w-50 mr-1"}
+								>
+									{t("forMe")}
+								</Button>
+								<Button
+									variant={onlyByMe ? "primary" : "light-primary"}
+									onClick={this.toggleByMe}
+									className={"w-50 ml-1"}
+								>
+									{t("byMe")}
+								</Button>
+							</div>
+						</Styled.CardSection>
+						<Styled.CardSection>
+							<Styled.Title>{t("bundles")}</Styled.Title>
+							<div className="d-flex align-items-center">
+								<Button
+									variant={onlyBundles ? "primary" : "light-primary"}
+									onClick={this.toggleBundles}
+									className={"flex-grow-1"}
+									block
+								>
+									{t("onlyBundles")}
+								</Button>
+							</div>
+						</Styled.CardSection>
+						<Styled.CardSection>
+							<Styled.Title>{t("collections")}</Styled.Title>
+							<Collections
+								onChangeCollection={this.changeSelectedCollection}
+								selected={selectedCollection}
+							/>
+						</Styled.CardSection>
+					</Styled.FiltersCol>
+					<Col xs={12} sm={true}>
+						<Orders
+							seaport={this.seaport}
+							web3={this.web3}
+							selectedCollection={selectedCollection}
+							fetchOrders={this.fetchOrders}
+							increasePage={this.increasePage}
+							setSort={this.setSort}
+							orders={orders}
+							hasMore={hasMore}
+							page={this.state.page}
+						/>
+					</Col>
+				</Row>
 			</Page>
 		);
 	}
@@ -330,7 +254,6 @@ class NFT extends Component {
 		if (this.seaport) {
 			const { page, selectedCollection, onlyByMe, onlyForMe, side, onlyBundles } = this.state;
 			const { account } = this.props.web3;
-			const { t } = this.props;
 			if (page === 1) {
 				this.setState({
 					orders: [],
@@ -365,9 +288,7 @@ class NFT extends Component {
 						};
 					});
 				}
-			} catch (e) {
-
-			}
+			} catch (e) {}
 		}
 	};
 }

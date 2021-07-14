@@ -23,7 +23,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
 	height: 56px;
 	font-size: 0.875rem;
 	font-weight: 500;
-	background-color: ${({ theme }) => theme.bg3};
+	background-color: ${({ theme }) => theme.bg1};
 	color: ${({ theme }) => theme.text1};
 	border-bottom-left-radius: 18px;
 	border-top-left-radius: 18px;
@@ -133,7 +133,7 @@ const StyledBalanceMax = styled.button`
 
 	:hover {
 		background-color: ${({ theme }) => theme.primary};
-		color: ${({ theme }) => theme.bg2};
+		color: ${({ theme }) => theme.bg1};
 	}
 
 	:focus {

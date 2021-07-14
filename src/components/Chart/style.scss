@@ -1,31 +1,29 @@
 @import "../../styles/abstracts/variables";
 
-.chart {
-	&__label {
+.chart__label {
+	color: $light-title;
+	fill: $light-title;
+
+	.dark-mode & {
+		color: $title;
+		fill: $title;
+	}
+}
+
+.chart__tooltip {
+	&-title {
 		color: $light-title;
-		fill: $light-title;
+		font-size: 0.75rem;
 
 		.dark-mode & {
 			color: $title;
-			fill: $title;
 		}
 	}
 
-	&__tooltip {
-		&-title {
-			color: $light-title;
-			font-size: 0.75rem;
-
-			.dark-mode & {
-				color: $title;
-			}
-		}
-
-		&-value {
-			color: $secondary;
-			font-weight: 700;
-			font-size: 0.75rem;
-		}
+	&-value {
+		color: $secondary;
+		font-weight: 700;
+		font-size: 0.75rem;
 	}
 }
 

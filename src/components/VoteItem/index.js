@@ -53,7 +53,7 @@ const Wrapper = styled.tr`
 		}
 
 		&:hover {
-			background-color: ${({ theme }) => theme.bg2};
+			background-color: ${({ theme }) => theme.bg1};
 			border-color: ${({ theme }) => theme.text3};
 		}
 	}
