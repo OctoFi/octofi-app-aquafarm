@@ -1,24 +1,19 @@
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import Modal from "../Modal";
-import Column from "../Column";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import AutoSizer from "react-virtualized-auto-sizer";
-import CurrencyList from "./CurrencyList";
-import styled, { ThemeContext } from "styled-components";
+import SVG from "react-inlinesvg";
 import SearchIcon from "../../assets/images/search.svg";
 import { InputGroupFormControl as FormControl, InputGroup, InputGroupPrepend, InputGroupText } from "../Form";
-import SVG from "react-inlinesvg";
-
-const StyledColumn = styled(Column)`
-	padding: 0;
-`;
+import Modal from "../Modal";
+import Column from "../Column";
+import CurrencyList from "./CurrencyList";
+import styled from "styled-components";
 
 const HeaderContainer = styled.div`
 	padding: 30px 30px 20px;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	border-bottom: 1px solid ${({ theme }) => theme.borderColor2};
 `;
 
 export default function SwapSelectModal({ isOpen, onDismiss, onCurrencySelect, selectedCurrency, currencies, type }) {
-	const theme = useContext(ThemeContext);
 	const [searchQuery, setSearchQuery] = useState("");
 	const fixedList = useRef();
 	const inputRef = useRef();
@@ -60,9 +55,9 @@ export default function SwapSelectModal({ isOpen, onDismiss, onCurrencySelect, s
 
 	return (
 		<Modal isOpen={isOpen} onDismiss={onDismiss} maxHeight={80} minHeight={80} maxWidth={420}>
-			<StyledColumn style={{ width: "100%", flex: "1 1", minHeight: "100px" }}>
+			<Column className="p-0" style={{ width: "100%", flex: "1 1", minHeight: "100px" }}>
 				<HeaderContainer>
-					<InputGroup className={"w-auto"} bg={"darker"}>
+					<InputGroup className="w-auto" bg="darker">
 						<InputGroupPrepend>
 							<InputGroupText>
 								<SVG src={SearchIcon} />
@@ -91,7 +86,7 @@ export default function SwapSelectModal({ isOpen, onDismiss, onCurrencySelect, s
 						)}
 					</AutoSizer>
 				</div>
-			</StyledColumn>
+			</Column>
 		</Modal>
 	);
 }

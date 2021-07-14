@@ -939,7 +939,6 @@ const NewLaunchpad = props => {
                                                 id={'referral-address'}
                                                 onChange={setReferralAddress}
                                                 value={referralAddress}
-                                                withoutMargin={true}
                                                 placeholder={'Referral Address'}
                                             />
                                         </Col>

@@ -14,7 +14,7 @@ class Pools extends Component {
 	investButtonClick = () => {
 		emitter.emit("open-modal", {
 			action: () => {
-				this.props.history.push(`/invest/pools`);
+				this.props.history.push("/invest/pools");
 				emitter.emit("close-modal");
 			},
 		});

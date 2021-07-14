@@ -1,5 +1,5 @@
+import { KeyboardEvent, RefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Currency, ETHER, Token } from "@uniswap/sdk";
-import React, { KeyboardEvent, RefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { FixedSizeList } from "react-window";
 import { Text } from "rebass";
 import { useActiveWeb3React } from "../../hooks";

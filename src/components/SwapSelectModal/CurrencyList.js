@@ -20,18 +20,17 @@ export const MenuItem = styled(RowBetween)`
 `;
 
 const Logo = styled.img`
+	border-radius: 50%;
+	margin-right: ${({ margin }) => (margin ? "8px" : 0)};
 	width: ${({ size }) => (size ? `${size}px` : "24px")};
 	height: ${({ size }) => (size ? `${size}px` : "24px")};
-	border-radius: ${({ size }) => (size ? `${size}px` : "24px")};
-	border: 2px solid ${({ theme }) => theme.text1};
-	background-color: ${({ theme }) => theme.text1};
-	margin-right: ${({ margin }) => (margin ? "8px" : 0)};
 
 	@media (max-width: 1199px) {
 		width: 24px;
 		height: 24px;
 	}
 `;
+
 const StyledBalanceText = styled(Text)`
 	white-space: nowrap;
 	overflow: hidden;
@@ -51,10 +50,6 @@ const StyledText = styled(Text)`
 	}
 `;
 
-function Symbol({ symbol }) {
-	return <StyledBalanceText>{symbol}</StyledBalanceText>;
-}
-
 function CurrencyRow({ currency, onSelect, isSelected, style }) {
 	return (
 		<MenuItem
@@ -71,7 +66,7 @@ function CurrencyRow({ currency, onSelect, isSelected, style }) {
 			</Column>
 
 			<Column style={{ justifySelf: "flex-end" }}>
-				<Symbol symbol={currency.name} />
+				<StyledBalanceText>{currency.name}</StyledBalanceText>
 			</Column>
 		</MenuItem>
 	);
