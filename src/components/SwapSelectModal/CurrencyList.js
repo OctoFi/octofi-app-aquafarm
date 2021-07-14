@@ -58,7 +58,7 @@ function CurrencyRow({ currency, onSelect, isSelected, style }) {
 			onClick={() => (isSelected ? null : onSelect())}
 			disabled={isSelected}
 		>
-			<Logo src={currency.logoURI} size={24} alt={currency.symbol} />
+			<Logo src={currency.logoURI} alt={currency.symbol} size={24} />
 			<Column>
 				<StyledText title={currency.name} fontWeight={500}>
 					{currency.symbol}

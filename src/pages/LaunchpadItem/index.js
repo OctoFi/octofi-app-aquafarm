@@ -848,7 +848,7 @@ const LaunchpadItem = (props) => {
 																		<TokenWrapper>
 																			<CurrencyLogo
 																				currency={BalanceToken}
-																				size={"24px"}
+																				size={24}
 																				style={{ marginRight: 16 }}
 																			/>
 																			<StyledTokenName className={"mt-0"}>

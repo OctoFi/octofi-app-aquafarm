@@ -249,7 +249,7 @@ const Collapse = (props) => {
 												: ETHER;
 										return (
 											<Styled.BodyToken key={`${token}-${index}`}>
-												<CurrencyLogo currency={currency} size={"34px"} />
+												<CurrencyLogo currency={currency} size={36} />
 												<div
 													className="d-flex justify-content-center flex-column"
 													style={{ marginLeft: 30 }}
@@ -291,7 +291,7 @@ const Collapse = (props) => {
 												: ETHER;
 										return (
 											<Styled.BodyToken key={`${token}-${index}`}>
-												<CurrencyLogo currency={currency} size={"34px"} />
+												<CurrencyLogo currency={currency} size={36} />
 												<div
 													className="d-flex justify-content-center flex-column"
 													style={{ marginLeft: 30 }}

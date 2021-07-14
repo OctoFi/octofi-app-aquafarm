@@ -200,7 +200,7 @@ export default class BorrowInputPanel extends React.Component {
 					<InputRow style={hideInput ? { padding: "0", borderRadius: "0.42rem" } : {}} selected={disable}>
 						<CurrencySelect selected={!!selected} className="open-currency-select-button">
 							<Aligner>
-								{token && <CurrencyLogo currency={currency} size={"24px"} />}
+								{token && <CurrencyLogo currency={currency} size={24} />}
 								<StyledTokenName className="token-symbol-container" active={Boolean(selected)}>
 									{(selected && selected?.length > 20
 										? (

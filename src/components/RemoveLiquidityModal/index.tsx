@@ -372,7 +372,7 @@ export default function RemoveLiquidityModal({ history }: RouteComponentProps) {
 				<RowBetween>
 					<TYPE.Body>Ethereum Output</TYPE.Body>
 					<RowFixed>
-						<CurrencyLogo currency={ETHER} size={"24px"} />
+						<CurrencyLogo currency={ETHER} size={24} />
 					</RowFixed>
 				</RowBetween>
 				<Button

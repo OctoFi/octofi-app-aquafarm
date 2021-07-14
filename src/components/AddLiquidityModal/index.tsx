@@ -294,7 +294,7 @@ export default function AddLiquidityModal({ history }: RouteComponentProps) {
 				<RowBetween>
 					<TYPE.Body>{currencies[Field.CURRENCY_A]?.symbol} Input</TYPE.Body>
 					<RowFixed>
-						<CurrencyLogo currency={currencies[Field.CURRENCY_A]} size={"24px"} />
+						<CurrencyLogo currency={currencies[Field.CURRENCY_A]} size={24} />
 					</RowFixed>
 				</RowBetween>
 				<RowBetween>

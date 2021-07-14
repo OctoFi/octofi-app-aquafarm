@@ -77,7 +77,7 @@ export default function ManageTokens({
 			userAddedTokens.map((token) => (
 				<RowBetween key={token.address} width="100%">
 					<RowFixed>
-						<CurrencyLogo currency={token} size={"20px"} />
+						<CurrencyLogo currency={token} size={20} />
 						<ExternalLink href={getEtherscanLink(chainId, token.address, "address")}>
 							<TYPE.Main ml={"10px"} fontWeight={600}>
 								{token.symbol}

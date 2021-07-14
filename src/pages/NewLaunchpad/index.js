@@ -677,7 +677,7 @@ const NewLaunchpad = props => {
                                         </Col>
                                         <Col xs={12}>
                                             <TokenWrapper>
-                                                <CurrencyLogo currency={selectedToken} size={'24px'} style={{ marginRight: 16 }}/>
+                                                <CurrencyLogo currency={selectedToken} size={24} style={{ marginRight: 16 }}/>
                                                 <StyledTokenName>{selectedToken?.symbol} / {selectedToken?.name}</StyledTokenName>
                                                 <StyledTokenAddress>{shortenAddress(selectedToken?.address)}</StyledTokenAddress>
                                             </TokenWrapper>
@@ -688,7 +688,7 @@ const NewLaunchpad = props => {
 
                                         <Col xs={12}>
                                             <TokenWrapper>
-                                                <CurrencyLogo currency={selectedToken} size={'24px'} style={{ marginRight: 16 }}/>
+                                                <CurrencyLogo currency={selectedToken} size={24} style={{ marginRight: 16 }}/>
                                                 <StyledTokenName>{selectedToken?.symbol} / {selectedToken?.name}</StyledTokenName>
                                                 <StyledTokenAddress>{shortenAddress(selectedToken?.address)}</StyledTokenAddress>
                                             </TokenWrapper>

@@ -55,7 +55,7 @@ export default function CommonBases({
 					}}
 					disable={selectedCurrency === ETHER}
 				>
-					<CurrencyLogo currency={ETHER} style={{ marginRight: 8 }} size={"24px"} />
+					<CurrencyLogo currency={ETHER} style={{ marginRight: 8 }} size={24} />
 					<Text fontWeight={500} fontSize={16}>
 						ETH
 					</Text>
@@ -68,7 +68,7 @@ export default function CommonBases({
 							disable={selected}
 							key={token.address}
 						>
-							<CurrencyLogo currency={token} style={{ marginRight: 12 }} size={"24px"} />
+							<CurrencyLogo currency={token} style={{ marginRight: 12 }} size={24} />
 							<Text fontWeight={500} fontSize={16}>
 								{token.symbol}
 							</Text>
