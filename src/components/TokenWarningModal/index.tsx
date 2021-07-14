@@ -13,7 +13,7 @@ import { AutoColumn } from "../Column";
 import { AlertTriangle } from "react-feather";
 
 const Wrapper = styled.div<{ error: boolean }>`
-	background: ${({ theme }) => transparentize(0.6, theme.bg2)};
+	background: ${({ theme }) => transparentize(0.6, theme.bg1)};
 	padding: 0.75rem;
 	border-radius: 0.42rem;
 `;
@@ -57,7 +57,7 @@ function TokenWarningCard({ token }: TokenWarningCardProps) {
 		<Wrapper error={duplicateNameOrSymbol}>
 			<AutoRow gap="6px">
 				<AutoColumn gap="24px">
-					<CurrencyLogo currency={token} size={"16px"} />
+					<CurrencyLogo currency={token} size={16} />
 					<div> </div>
 				</AutoColumn>
 				<AutoColumn gap="10px" justify="flex-start">

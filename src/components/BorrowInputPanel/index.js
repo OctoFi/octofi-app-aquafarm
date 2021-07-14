@@ -89,7 +89,7 @@ const CurrencySelect = styled.button`
 	height: 56px;
 	font-size: 0.875rem;
 	font-weight: 500;
-	background-color: ${({ theme }) => theme.bg3};
+	background-color: ${({ theme }) => theme.bg1};
 	color: ${({ theme }) => theme.text1};
 	border-bottom-left-radius: 18px;
 	border-top-left-radius: 18px;
@@ -200,7 +200,7 @@ export default class BorrowInputPanel extends React.Component {
 					<InputRow style={hideInput ? { padding: "0", borderRadius: "0.42rem" } : {}} selected={disable}>
 						<CurrencySelect selected={!!selected} className="open-currency-select-button">
 							<Aligner>
-								{token && <CurrencyLogo currency={currency} size={"24px"} />}
+								{token && <CurrencyLogo currency={currency} size={24} />}
 								<StyledTokenName className="token-symbol-container" active={Boolean(selected)}>
 									{(selected && selected?.length > 20
 										? (

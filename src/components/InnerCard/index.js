@@ -7,11 +7,12 @@ import CurrencyText from "../CurrencyText";
 import ArrowRightIcon from "../Icons/ArrowRight";
 
 const Container = styled.div`
-	padding-right: 20px;
+	padding-right: 1.5rem;
 	height: 100%;
 `;
+
 const Wrapper = styled.div`
-	border: 1px solid ${({ theme }) => theme.bg2};
+	border: 1px solid ${({ theme }) => theme.bg1};
 	background-color: ${({ theme }) => theme.modalBG};
 	box-shadow: 0 0 5px transparent;
 	padding: 1.25rem;
@@ -29,7 +30,7 @@ const Wrapper = styled.div`
 	}
 
 	&:hover {
-		background-color: ${({ theme }) => theme.bg2};
+		background-color: ${({ theme }) => theme.bg1};
 		border-color: ${({ theme }) => theme.primary};
 		box-shadow: ${({ theme }) => `0 5px 15px ${theme.primary}20`};
 	}
@@ -136,7 +137,7 @@ const PriceDiff = styled.span`
 
 const DetailsButton = styled.button`
 	border-radius: 12px;
-	background-color: ${({ theme }) => theme.bg2};
+	background-color: ${({ theme }) => theme.bg1};
 	padding: 6px 18px;
 	max-height: 40px;
 	min-height: 40px;
@@ -155,7 +156,7 @@ const DetailsButton = styled.button`
 	transition: 0.4s ease all;
 
 	&:hover {
-		color: ${({ theme }) => theme.bg2};
+		color: ${({ theme }) => theme.bg1};
 		background-color: ${({ theme }) => theme.primary};
 	}
 

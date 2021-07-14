@@ -47,7 +47,7 @@ const StyledList = styled.div`
 const StyledContentList = styled.div`
 	flex: 1;
 	border-radius: 18px;
-	background-color: ${({ theme }) => theme.bg2};
+	background-color: ${({ theme }) => theme.bg1};
 	overflow: auto;
 
 	/* width */

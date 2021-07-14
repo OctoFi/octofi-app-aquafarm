@@ -49,14 +49,14 @@ export const getBalances = (balances, wallet, ethRate) => {
 			deposits: {
 				balances: [],
 				total: 0,
-				title: "Deposits",
+				title: "Total Deposits",
 				slug: "deposits",
 				variant: "success",
 			},
 			debts: {
 				balances: [],
 				total: 0,
-				title: "Debts",
+				title: "Total Debts",
 				slug: "debts",
 				variant: "danger",
 			},

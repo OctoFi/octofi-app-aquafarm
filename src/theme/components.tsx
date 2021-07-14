@@ -186,22 +186,16 @@ export const StyledInternalLink = styled(Link)`
 `;
 
 const StyledLink = styled.a`
-	text-decoration: none;
-	cursor: pointer;
 	color: ${({ theme }) => theme.primary};
 	font-weight: 500;
+	text-decoration: none;
 
-	:hover {
-		text-decoration: underline;
-	}
-
-	:focus {
+	&:hover,
+	&:focus,
+	&:active {
+		color: ${({ theme }) => theme.primary};
 		outline: none;
 		text-decoration: underline;
-	}
-
-	:active {
-		text-decoration: none;
 	}
 `;
 

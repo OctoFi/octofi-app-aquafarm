@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import SVG from "react-inlinesvg";
 import { Button, Row, Col } from "react-bootstrap";
 import CurrencyInputPanel from "../CurrencyInputPanel";
 import { useActiveWeb3React } from "../../hooks";
@@ -40,7 +39,7 @@ import curvePipeABI from "../../constants/abis/curve.json";
 import balancerPipeABI from "../../constants/abis/balancer.json";
 import yVaultPipeABI from "../../constants/abis/yVault.json";
 import { clearSelectedPool } from "../../state/pools/actions";
-import { AccountState, AccountStateContent, AccountStateDesc, AccountStateTitle, PriceTopbar } from "./uniswap";
+import { PriceTopbar } from "./uniswap";
 import { useWalletModalToggle } from "../../state/application/hooks";
 import { LightCard } from "../StyledCards";
 import { useTranslation } from "react-i18next";
@@ -112,7 +111,7 @@ export const ResponsivePlatformTitle = styled(PlatformTitle)`
 	margin-left: 10px;
 `;
 
-export default function AddLiquidityModal ({ history }: RouteComponentProps) {
+export default function AddLiquidityModal({ history }: RouteComponentProps) {
 	const { account, chainId, library } = useActiveWeb3React();
 	const dispatch = useDispatch();
 	const { t } = useTranslation();
@@ -295,7 +294,7 @@ export default function AddLiquidityModal ({ history }: RouteComponentProps) {
 				<RowBetween>
 					<TYPE.Body>{currencies[Field.CURRENCY_A]?.symbol} Input</TYPE.Body>
 					<RowFixed>
-						<CurrencyLogo currency={currencies[Field.CURRENCY_A]} size={"24px"} />
+						<CurrencyLogo currency={currencies[Field.CURRENCY_A]} size={24} />
 					</RowFixed>
 				</RowBetween>
 				<RowBetween>
@@ -342,20 +341,6 @@ export default function AddLiquidityModal ({ history }: RouteComponentProps) {
 				<Modal.Body style={{ padding: !showConfirm ? "30px" : "0" }}>
 					{!account ? (
 						<Row>
-							<Col xs={12}>
-								<AccountState type={"danger"} className={"bg-light-danger"}>
-									<SVG
-										src={require("../../assets/images/account/wallet.svg").default}
-										width={36}
-										height={36}
-									/>
-									<AccountStateContent>
-										<AccountStateTitle className={"mb-0"}>
-											{t("wallet.notConnected")}
-										</AccountStateTitle>
-									</AccountStateContent>
-								</AccountState>
-							</Col>
 							<Col
 								xs={12}
 								className={"d-flex align-items-center justify-content-center"}
@@ -368,22 +353,7 @@ export default function AddLiquidityModal ({ history }: RouteComponentProps) {
 						</Row>
 					) : !showConfirm ? (
 						<Row>
-							<Col xs={12}>
-								<AccountState type={"success"} className={"bg-light-success d-none d-xl-flex"}>
-									<SVG
-										src={require("../../assets/images/account/wallet.svg").default}
-										width={36}
-										height={36}
-									/>
-									<AccountStateContent>
-										<AccountStateTitle>{t("wallet.connected")}</AccountStateTitle>
-										<AccountStateDesc>
-											{t("wallet.connectedTo")} <strong>{account}</strong>
-										</AccountStateDesc>
-									</AccountStateContent>
-								</AccountState>
-							</Col>
-							<Col xs={12} className={"gutter-b"}>
+							<Col xs={12} className={"mb-3"}>
 								<CurrencyInputPanel
 									value={formattedAmounts[Field.CURRENCY_A]}
 									onUserInput={onFieldAInput}
@@ -398,8 +368,8 @@ export default function AddLiquidityModal ({ history }: RouteComponentProps) {
 									showCommonBases
 								/>
 							</Col>
-							<Col xs={12} className={"gutter-b"}>
-								<LightCard padding={"0"} borderRadius={"18px"} style={{ marginBottom: 20 }}>
+							<Col xs={12} className={"mb-3"}>
+								<LightCard padding={"0"} borderRadius={"18px"}>
 									<PriceTopbar>{t("pools.selectedPool")}</PriceTopbar>
 
 									<PlatformRow className={"px-4 pb-3"}>
@@ -409,8 +379,8 @@ export default function AddLiquidityModal ({ history }: RouteComponentProps) {
 								</LightCard>
 							</Col>
 
-							<Col xs={12} className={"gutter-b"}>
-								<LightCard padding={"0"} borderRadius={"18px"} style={{ marginBottom: 20 }}>
+							<Col xs={12} className={"mb-4"}>
+								<LightCard padding={"0"} borderRadius={"18px"}>
 									<PriceTopbar>{t("pools.selectGasSetting")}</PriceTopbar>
 									<GasPrice gasList={gasPrice} selected={selectedGasPrice} />
 								</LightCard>
@@ -420,7 +390,6 @@ export default function AddLiquidityModal ({ history }: RouteComponentProps) {
 								className={
 									"d-flex flex-column flex-xl-row align-items-stretch align-items-xl-center justify-content-center"
 								}
-								style={{ paddingTop: 30 }}
 							>
 								{!account ? (
 									<Button

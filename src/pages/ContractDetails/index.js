@@ -103,13 +103,13 @@ const ContractDetails = (props) => {
 								</CustomTitle>
 								<div className="d-flex align-items-center justify-content">
 									<Link
-										to={`/swap/uni?outputCurrency=${selected.contract_address}`}
+										to={`/uniswap?outputCurrency=${selected.contract_address}`}
 										className="btn btn-outline-success mr-2"
 									>
 										Buy
 									</Link>
 									<Link
-										to={`/swap/uni?inputCurrency=${selected.contract_address}`}
+										to={`/uniswap?inputCurrency=${selected.contract_address}`}
 										className="btn btn-outline-danger"
 									>
 										Sell

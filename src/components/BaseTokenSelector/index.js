@@ -36,7 +36,7 @@ const CurrencySelect = styled.button`
 	height: 56px;
 	font-size: 0.875rem;
 	font-weight: 500;
-	background-color: ${({ theme }) => theme.bg3};
+	background-color: ${({ theme }) => theme.bg1};
 	color: ${({ theme }) => theme.text1};
 	border-radius: 18px;
 	box-shadow: none;
@@ -181,7 +181,7 @@ export default function BaseTokenSelector({
 									margin={true}
 								/>
 							) : currency ? (
-								<CurrencyLogo currency={currency} size={"24px"} />
+								<CurrencyLogo currency={currency} size={24} />
 							) : null}
 							{pair ? (
 								<StyledTokenName className="pair-name-container">

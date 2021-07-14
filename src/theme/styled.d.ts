@@ -21,6 +21,7 @@ export interface Colors {
 	
 	// UI
 	borderColor: Color;
+	borderColor2: Color;
 	bodyBg: Color;
 	splashBG: Color;
 	backdrop: Color;
@@ -64,6 +65,7 @@ declare module "styled-components" {
 			upToSmall: ThemedCssFunction<DefaultTheme>;
 			upToMedium: ThemedCssFunction<DefaultTheme>;
 			upToLarge: ThemedCssFunction<DefaultTheme>;
+			upToExtraLarge: ThemedCssFunction<DefaultTheme>;
 		};
 
 		// css snippets

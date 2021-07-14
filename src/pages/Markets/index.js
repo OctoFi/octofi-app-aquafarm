@@ -7,16 +7,7 @@ import MarketOverview from "../../components/MarketOverview";
 import MarketCard from "./MarketCard";
 import Provider from "./Provider";
 import { ServerState } from "../../constants";
-import styled from "styled-components";
 import { useMemo } from "react";
-
-const StyledRow = styled(Row)`
-	margin-top: 86px;
-
-	@media (max-width: 767px) {
-		margin-top: 40px;
-	}
-`;
 
 const Markets = (props) => {
 	const { markets, marketsStats, marketsStatsState } = props;
@@ -37,9 +28,9 @@ const Markets = (props) => {
 	}, [marketsStats]);
 
 	return (
-		<Page morePadding>
+		<Page networkSensitive={true}>
 			<Provider>
-				<StyledRow className={"custom-row d-flex align-items-stretch"}>
+				<Row className={"custom-row d-flex align-items-stretch"}>
 					{[...Array(4)].map((item, index) => {
 						const row = marketsStats[index] || {};
 
@@ -59,7 +50,7 @@ const Markets = (props) => {
 							</Col>
 						);
 					})}
-				</StyledRow>
+				</Row>
 				<Row>
 					<Col>
 						<MarketCard

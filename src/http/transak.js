@@ -19,6 +19,9 @@ export default class TransakApi {
 			case "price": {
 				return this.fetchConversionPrice(payload);
 			}
+			default: {
+				return this.fetchCryptoCurrencies();
+			}
 		}
 	}
 

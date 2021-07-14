@@ -51,14 +51,6 @@ const ListItem = styled(Item)`
 	margin-bottom: 6px;
 `;
 
-const StyledRow = styled(Row)`
-	margin-top: 40px;
-
-	@media (max-width: 767px) {
-		margin-top: 20px;
-	}
-`;
-
 const CustomNav = styled(Nav)`
 	margin-bottom: 12px;
 	min-width: 100%;
@@ -360,6 +352,13 @@ const Logo = styled(Img)`
 	border-radius: 320px;
 `;
 
+const CircleBarPosition = styled.div`
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+`
+
 export const lockDurationMap = {
 	2678400: "1 Month",
 	2592000: "1 Month",
@@ -443,7 +442,7 @@ const LaunchpadItem = (props) => {
 
 	useEffect(() => {
 		if (presale?.hasOwnProperty("error")) {
-			props.history.push("/invest/launchpad");
+			props.history.push("/launchpad");
 		}
 	}, [presale]);
 
@@ -695,8 +694,8 @@ const LaunchpadItem = (props) => {
 	};
 
 	return (
-		<Page title={false}>
-			<StyledRow>
+		<Page title={false} networkSensitive={true}>
+			<Row>
 				<Col xs={{ span: 12, offset: 0 }} md={{ span: 6, offset: 3 }}>
 					<SafetyAlert />
 				</Col>
@@ -704,7 +703,7 @@ const LaunchpadItem = (props) => {
 					<Card>
 						<Row>
 							<Col xs={12} className={"d-flex align-items-center justify-content-between mb-3"}>
-								<IconButton to={"/invest/launchpad"}>
+								<IconButton to={"/launchpad"}>
 									<ArrowLeft color={theme.text1} width={24} height={24} />
 								</IconButton>
 								<span
@@ -762,31 +761,37 @@ const LaunchpadItem = (props) => {
 							<Col xs={12} className={"d-flex align-items-center justify-content-around mt-4 mb-3"}>
 								<DetailsWrapper>
 									<DetailsContainer>
-										<CircleBar
-											fill={theme.primary}
-											width={40}
-											height={40}
-											percent={Number(liquidityPercent)}
-										/>
+										<CircleBarPosition>
+											<CircleBar
+												fill={theme.primary}
+												width={40}
+												height={40}
+												percent={Number(liquidityPercent)}
+											/>
+										</CircleBarPosition>
 									</DetailsContainer>
 									<DetailsTitle>{liquidityPercent ? `${liquidityPercent}%` : "-"}</DetailsTitle>
 									<DetailsLabel>Lock {lockDurationMap?.[lockDuration] || "-"}</DetailsLabel>
 								</DetailsWrapper>
 								<DetailsWrapper>
 									<DetailsContainer>
+									<CircleBarPosition>
 										<CircleBar fill={theme.primary} width={40} height={40} percent={100} />
+									</CircleBarPosition>
 									</DetailsContainer>
 									<DetailsTitle>{presale?.status?.buyersCount?.toString() || "-"}</DetailsTitle>
 									<DetailsLabel>Participants</DetailsLabel>
 								</DetailsWrapper>
 								<DetailsWrapper>
 									<DetailsContainer>
+									<CircleBarPosition>
 										<CircleBar
 											fill={theme.primary}
 											width={40}
 											height={40}
 											percent={filledPercent}
 										/>
+									</CircleBarPosition>
 									</DetailsContainer>
 									<DetailsTitle>
 										{filledPercent && !isNaN(filledPercent) ? `${filledPercent}%` : "-"}
@@ -843,7 +848,7 @@ const LaunchpadItem = (props) => {
 																		<TokenWrapper>
 																			<CurrencyLogo
 																				currency={BalanceToken}
-																				size={"24px"}
+																				size={24}
 																				style={{ marginRight: 16 }}
 																			/>
 																			<StyledTokenName className={"mt-0"}>
@@ -1281,7 +1286,7 @@ const LaunchpadItem = (props) => {
 						</Row>
 					</Card>
 				</Col>
-			</StyledRow>
+			</Row>
 		</Page>
 	);
 };

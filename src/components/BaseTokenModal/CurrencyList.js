@@ -15,7 +15,7 @@ export const MenuItem = styled(RowBetween)`
 	cursor: ${({ disabled }) => !disabled && "pointer"};
 	pointer-events: ${({ disabled }) => disabled && "none"};
 	:hover {
-		background-color: ${({ theme, disabled }) => !disabled && theme.bg2};
+		background-color: ${({ theme, disabled }) => !disabled && theme.bg1};
 	}
 	opacity: ${({ disabled, selected }) => (disabled || selected ? 0.5 : 1)};
 `;
@@ -39,7 +39,7 @@ function CurrencyRow({ currency, onSelect, isSelected, style }) {
 			onClick={() => (isSelected ? null : onSelect())}
 			disabled={isSelected}
 		>
-			<CurrencyLogo currency={currency} size={"24px"} />
+			<CurrencyLogo currency={currency} size={24} />
 			<Column>
 				<Text title={currency.name} fontWeight={500}>
 					{currency.symbol === "WETH" ? "Ethereum" : currency.name}

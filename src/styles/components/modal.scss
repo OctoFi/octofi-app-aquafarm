@@ -1,14 +1,12 @@
 .modal-body,
 .modal-header {
-	padding-left: 86px;
-	padding-right: 86px;
+	padding: 1.25rem 2rem;
 }
 
 .modal-header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	min-height: 85px;
 
 	.close {
 		margin-left: 0;
@@ -41,6 +39,7 @@
 
 .custom-modal {
 	max-width: 674px;
+
 	.modal-content {
 		max-width: 674px;
 	}

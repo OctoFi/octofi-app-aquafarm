@@ -1,65 +1,50 @@
 export const routes = {
-	fiat: {
-		title: "buy",
+	dashboard: {
+		title: "dashboard",
+		path: "/dashboard",
+		state: "success",
+	},
+	history: {
+		title: "history",
+		path: "/history",
+		state: "success",
+	},
+	instantSwap: {
+		title: "exchange",
+		path: "/exchange",
+		state: "success",
+	},
+	invest: {
+		title: "invest",
+		path: "/invest",
+		state: "success",
+	},
+	pools: {
+		title: "pools",
+		path: "/invest/pools",
+		state: "success",
+	},
+	more: {
+		title: "more",
 		routes: {
-			instantSwap: {
-				title: "swap",
-				path: "/swap/all",
+			governance: {
+				title: "governance",
+				path: "/governance",
 				state: "success",
 			},
-			swap: {
-				title: "uniswap",
-				path: "/swap/uni",
-				state: "success",
-			},
-			cross: {
-				title: "cross",
-				path: "/cross/anyswap",
+			nft: {
+				title: "nft",
+				path: "/nft",
 				state: "success",
 			},
 			on: {
 				title: "crypto",
-				path: "/fiat/on",
+				path: "/onramp",
 				state: "success",
 			},
 			off: {
 				title: "giftCards",
-				path: "/fiat/off-cards",
-				state: "success",
-			},
-		},
-	},
-	cross: {
-		title: "cross",
-		routes: {
-			bridges: {
-				title: "bridges",
-				path: "/cross/bridges",
-				state: "success",
-			},
-			anySwap: {
-				title: "anySwap",
-				path: "/cross/anyswap",
-				state: "success",
-			},
-			crossBalance: {
-				title: "crossBalance",
-				path: "/cross/balance",
-				state: "success",
-			},
-		},
-	},
-	invest: {
-		title: "invest",
-		routes: {
-			pools: {
-				title: "pools",
-				path: "/invest/pools",
-				state: "success",
-			},
-			tokenSets: {
-				title: "tokenSets",
-				path: "/invest/tokensets",
+				path: "/offramp",
 				state: "success",
 			},
 			loans: {
@@ -67,56 +52,21 @@ export const routes = {
 				path: "/invest/loans",
 				state: "success",
 			},
-			nft: {
-				title: "nft",
-				path: "/invest/nft",
-				state: "success",
-			},
 			launchpad: {
 				title: "launchpad",
-				path: "/invest/launchpad",
-				state: "success",
-			}
-		},
-	},
-	tools: {
-		title: "tools",
-		routes: {
-			governance: {
-				title: "governance",
-				path: "/tools/governance",
+				path: "/launchpad",
 				state: "success",
 			},
-			rankings: {
-				title: "rankings",
-				path: "/tools/explore/tokens",
+			swap: {
+				title: "uniswap",
+				path: "/uniswap",
 				state: "success",
 			},
-			explore: {
-				title: "explore",
-				path: "/tools/explore",
+			cross: {
+				title: "cross",
+				path: "/cross/anyswap",
 				state: "success",
 			},
 		},
 	},
-	account: {
-		title: "Account",
-		routes: {
-			dashboard: {
-				title: "dashboard",
-				path: "/dashboard",
-				state: "success",
-			},
-			wallet: {
-				title: "wallet",
-				path: "/account/wallet",
-				state: "success",
-			},
-			history: {
-				title: "history",
-				path: "/account/history",
-				state: "success",
-			},
-		}
-	}
 };

@@ -1,6 +1,6 @@
 {
 	"name": "octofi-app-aquafarm",
-	"version": "4.2.1",
+	"version": "4.3.0",
 	"private": true,
 	"homepage": "https://app.octo.fi",
 	"dependencies": {
@@ -40,6 +40,8 @@
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
 		"@transak/transak-sdk": "^1.0.28",
+		"@types/aos": "^3.0.4",
+		"@types/dompurify": "^2.2.2",
 		"@types/jest": "^25.2.1",
 		"@types/lodash.flatmap": "^4.5.6",
 		"@types/luxon": "^1.24.4",
@@ -47,12 +49,16 @@
 		"@types/node": "^13.13.5",
 		"@types/qs": "^6.9.2",
 		"@types/react": "^16.9.34",
+		"@types/react-bootstrap-table-next": "^4.0.14",
+		"@types/react-csv": "^1.1.2",
 		"@types/react-dom": "^16.9.7",
 		"@types/react-redux": "^7.1.8",
 		"@types/react-router-dom": "^5.0.0",
+		"@types/react-slick": "^0.23.5",
 		"@types/react-virtualized-auto-sizer": "^1.0.0",
 		"@types/react-window": "^1.8.2",
 		"@types/rebass": "^4.0.5",
+		"@types/remarkable": "^2.0.2",
 		"@types/styled-components": "^5.1.0",
 		"@types/testing-library__cypress": "^5.0.5",
 		"@types/wcag-contrast": "^3.0.0",
@@ -242,5 +248,9 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"jest": {
+		"resetMocks": false,
+		"resetModules": false
 	}
 }
