@@ -21,7 +21,7 @@ const TokenSetsExploreTable = () => {
 			dispatch(fetchTokens());
 		}
 
-		setData(exploreSets.tokenSets);
+		setData(exploreSets.tokenSets.data);
 		setLoading(false);
 	}, [exploreSets, dispatch]);
 
