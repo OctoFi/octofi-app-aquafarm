@@ -352,6 +352,13 @@ const Logo = styled(Img)`
 	border-radius: 320px;
 `;
 
+const CircleBarPosition = styled.div`
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+`
+
 export const lockDurationMap = {
 	2678400: "1 Month",
 	2592000: "1 Month",
@@ -754,31 +761,37 @@ const LaunchpadItem = (props) => {
 							<Col xs={12} className={"d-flex align-items-center justify-content-around mt-4 mb-3"}>
 								<DetailsWrapper>
 									<DetailsContainer>
-										<CircleBar
-											fill={theme.primary}
-											width={40}
-											height={40}
-											percent={Number(liquidityPercent)}
-										/>
+										<CircleBarPosition>
+											<CircleBar
+												fill={theme.primary}
+												width={40}
+												height={40}
+												percent={Number(liquidityPercent)}
+											/>
+										</CircleBarPosition>
 									</DetailsContainer>
 									<DetailsTitle>{liquidityPercent ? `${liquidityPercent}%` : "-"}</DetailsTitle>
 									<DetailsLabel>Lock {lockDurationMap?.[lockDuration] || "-"}</DetailsLabel>
 								</DetailsWrapper>
 								<DetailsWrapper>
 									<DetailsContainer>
+									<CircleBarPosition>
 										<CircleBar fill={theme.primary} width={40} height={40} percent={100} />
+									</CircleBarPosition>
 									</DetailsContainer>
 									<DetailsTitle>{presale?.status?.buyersCount?.toString() || "-"}</DetailsTitle>
 									<DetailsLabel>Participants</DetailsLabel>
 								</DetailsWrapper>
 								<DetailsWrapper>
 									<DetailsContainer>
+									<CircleBarPosition>
 										<CircleBar
 											fill={theme.primary}
 											width={40}
 											height={40}
 											percent={filledPercent}
 										/>
+									</CircleBarPosition>
 									</DetailsContainer>
 									<DetailsTitle>
 										{filledPercent && !isNaN(filledPercent) ? `${filledPercent}%` : "-"}
