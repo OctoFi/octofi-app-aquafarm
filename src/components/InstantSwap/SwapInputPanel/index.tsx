@@ -4,11 +4,9 @@ import { ChevronDown } from "react-feather";
 import { ETHER, Token } from "@uniswap/sdk";
 import { useActiveWeb3React } from "../../../hooks";
 import { useCurrencyBalance } from "../../../state/wallet/hooks";
-import { Input as NumericalInput } from "../../../components/NumericalInput";
-import { RowBetween } from "../../../components/Row";
-import SwapSelectModal from "../../../components/SwapSelectModal";
+import { Input as NumericalInput } from "../../NumericalInput";
+import SwapSelectModal from "../../SwapSelectModal";
 import * as Styled from "./styleds";
-import CurrencyLogo from "../../../components/CurrencyLogo";
 import { Button } from "react-bootstrap";
 
 export type SwapInputPanelProps = {
@@ -78,7 +76,6 @@ const SwapInputPanel = ({
 						<Styled.Aligner>
 							{selected ? (
 								<>
-									{/* <CurrencyLogo currency={selected} size={24} /> */}
 									<Styled.Logo src={selected.logoURI} alt={selected.symbol} />
 
 									<Styled.TextWrap>

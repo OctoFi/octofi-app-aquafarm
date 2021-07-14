@@ -127,6 +127,7 @@
         "buyButton": "Buy Crypto Asset"
     },
     "exchange": {
+        "title": "Exchange",
         "selectCrypto": "Select your Crypto",
         "selectFiat": "Select your Currency",
         "selectPair": "Select a pair",

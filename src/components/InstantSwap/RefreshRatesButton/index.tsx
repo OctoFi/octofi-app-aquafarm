@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import useTheme from "../../../hooks/useTheme";
-import CircleLoading from "../../../components/CircleLoading";
+import CircleLoading from "../../CircleLoading";
 import * as Styled from "./styleds";
 
 export type RefreshRatesButtonProps = {

@@ -11,7 +11,7 @@ export const routes = {
 	},
 	instantSwap: {
 		title: "exchange",
-		path: "/swap/all",
+		path: "/exchange",
 		state: "success",
 	},
 	invest: {

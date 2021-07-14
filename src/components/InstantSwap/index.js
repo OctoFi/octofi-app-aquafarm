@@ -14,7 +14,7 @@ import Web3 from "web3";
 import BigNumber from "bignumber.js";
 import { assert } from "@0x/assert";
 import { AbiDecoder, intervalUtils } from "@0x/utils";
-import { ResponsiveCard } from "../../components/Card";
+import { ResponsiveCard } from "../Card";
 
 import {
 	BTC,
@@ -31,11 +31,10 @@ import { addTransaction } from "../../state/transactions/actions";
 import { CloseIcon } from "../../theme";
 import { getContract } from "../../utils";
 
-import Page from "../../components/Page";
-import AddressInputPanel from "../../components/AddressInputPanel";
-import withWeb3Account from "../../components/hoc/withWeb3Account";
-import { Modal } from "../../components/Modal/bootstrap";
-import { RowBetween } from "../../components/Row";
+import AddressInputPanel from "../AddressInputPanel";
+import withWeb3Account from "../hoc/withWeb3Account";
+import { Modal } from "../Modal/bootstrap";
+import { RowBetween } from "../Row";
 import RateList from "./RateList";
 import SwapInputPanel from "./SwapInputPanel";
 import RefreshRatesButton from "./RefreshRatesButton";
@@ -1384,24 +1383,6 @@ class InstantSwap extends React.Component {
 		this.updatePriceIntervally(deposit, destination);
 	};
 
-	onSwitchTokens = () => {
-		this.setState((prevState) => {
-			return {
-				pair: {
-					deposit: {
-						token: prevState.pair.destination.token,
-						value: prevState.pair.destination.value,
-					},
-					destination: {
-						token: prevState.pair.deposit.token,
-						value: prevState.pair.deposit.value,
-					},
-				},
-			};
-		});
-		this.forceRefreshPrices();
-	};
-
 	render() {
 		const {
 			pair,
@@ -1418,7 +1399,7 @@ class InstantSwap extends React.Component {
 		const theme = this.context;
 
 		return (
-			<Page title={"Exchange"} networkSensitive={false}>
+			<>
 				<Row>
 					<Col xs={12} md={{ offset: 0, span: 6 }}>
 						<ResponsiveCard>
@@ -1435,7 +1416,7 @@ class InstantSwap extends React.Component {
 								showMaxButton={false}
 							/>
 
-							<Styled.SwitchCol clickable onClick={this.onSwitchTokens}>
+							<Styled.SwitchCol clickable onClick={this.onSwapTokens}>
 								<ArrowDown size={16} color={theme.text2} />
 							</Styled.SwitchCol>
 
@@ -1721,7 +1702,7 @@ class InstantSwap extends React.Component {
 						) : null}
 					</Modal.Body>
 				</Modal>
-			</Page>
+			</>
 		);
 	}
 }
