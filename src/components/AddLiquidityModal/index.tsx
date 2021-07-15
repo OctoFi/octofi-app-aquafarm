@@ -7,7 +7,7 @@ import { maxAmountSpend } from "../../utils/maxAmountSpend";
 import PlatformLogo from "../PlatformLogo";
 import styled from "styled-components";
 import { getGasPrice } from "../../state/currency/actions";
-import GasPrice from "../GasPrice";
+import GasPricesContainer from "../GasPrices";
 
 import { Modal } from "../Modal/bootstrap";
 import { TransactionResponse } from "@ethersproject/providers";
@@ -329,133 +329,123 @@ export default function AddLiquidityModal({ history }: RouteComponentProps) {
 	}, [onFieldAInput, txHash]);
 
 	return (
-		<>
-			<Modal
-				show={true}
-				onHide={hideModal}
-				size={"lg"}
-				dialogClassName={"custom-modal"}
-				backdropClassName={"backdrop"}
-				centered={true}
-			>
-				<Modal.Body style={{ padding: !showConfirm ? "30px" : "0" }}>
-					{!account ? (
-						<Row>
-							<Col
-								xs={12}
-								className={"d-flex align-items-center justify-content-center"}
-								style={{ padding: "80px 0 88px" }}
-							>
-								<GradientButton className={"btn-lg"} onClick={toggleWalletModal}>
+		<Modal show={true} onHide={hideModal} backdropClassName={"backdrop"} centered={true} size="md">
+			<Modal.Body style={{ padding: !showConfirm ? "30px" : "0" }}>
+				{!account ? (
+					<Row>
+						<Col
+							xs={12}
+							className="d-flex align-items-center justify-content-center"
+							style={{ padding: "80px 0 88px" }}
+						>
+							<GradientButton className={"btn-lg"} onClick={toggleWalletModal}>
+								{t("wallet.connect")}
+							</GradientButton>
+						</Col>
+					</Row>
+				) : !showConfirm ? (
+					<Row>
+						<Col xs={12} className={"mb-3"}>
+							<CurrencyInputPanel
+								value={formattedAmounts[Field.CURRENCY_A]}
+								onUserInput={onFieldAInput}
+								onMax={() => {
+									onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? "");
+								}}
+								disableCurrencySelect={true}
+								showMaxButton={!atMaxAmounts[Field.CURRENCY_A]}
+								currency={currencyA}
+								label={t("token")}
+								id="add-liquidity-input-tokena"
+								showCommonBases
+							/>
+						</Col>
+						<Col xs={12} className="mb-3">
+							<LightCard padding={"0"} borderRadius={"18px"}>
+								<PriceTopbar>{t("pools.selectedPool")}</PriceTopbar>
+
+								<PlatformRow className={"px-4 pb-3"}>
+									<PlatformLogo size={32} platform={type} name={pool?.poolName} />
+									<PlatformTitle>{pool?.poolName}</PlatformTitle>
+								</PlatformRow>
+							</LightCard>
+						</Col>
+
+						<Col xs={12} className="mb-4">
+							<LightCard>
+								<PriceTopbar>{t("pools.selectGasSetting")}</PriceTopbar>
+								<GasPricesContainer />
+							</LightCard>
+						</Col>
+
+						<Col
+							xs={12}
+							className="d-flex flex-column flex-xl-row align-items-stretch align-items-xl-center justify-content-center"
+						>
+							{!account ? (
+								<Button
+									style={{ minWidth: 250 }}
+									variant={"outline-primary"}
+									disabled
+									className="py-3 font-size-lg font-weight-bolder"
+								>
 									{t("wallet.connect")}
-								</GradientButton>
-							</Col>
-						</Row>
-					) : !showConfirm ? (
-						<Row>
-							<Col xs={12} className={"mb-3"}>
-								<CurrencyInputPanel
-									value={formattedAmounts[Field.CURRENCY_A]}
-									onUserInput={onFieldAInput}
-									onMax={() => {
-										onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? "");
+								</Button>
+							) : (
+								<Button
+									style={{ minWidth: 250 }}
+									onClick={() => {
+										setShowConfirm(true);
 									}}
-									disableCurrencySelect={true}
-									showMaxButton={!atMaxAmounts[Field.CURRENCY_A]}
-									currency={currencyA}
-									label={t("token")}
-									id="add-liquidity-input-tokena"
-									showCommonBases
-								/>
-							</Col>
-							<Col xs={12} className={"mb-3"}>
-								<LightCard padding={"0"} borderRadius={"18px"}>
-									<PriceTopbar>{t("pools.selectedPool")}</PriceTopbar>
-
-									<PlatformRow className={"px-4 pb-3"}>
-										<PlatformLogo size={32} platform={type} name={pool?.poolName} />
-										<PlatformTitle>{pool?.poolName}</PlatformTitle>
-									</PlatformRow>
-								</LightCard>
-							</Col>
-
-							<Col xs={12} className={"mb-4"}>
-								<LightCard padding={"0"} borderRadius={"18px"}>
-									<PriceTopbar>{t("pools.selectGasSetting")}</PriceTopbar>
-									<GasPrice gasList={gasPrice} selected={selectedGasPrice} />
-								</LightCard>
-							</Col>
-							<Col
-								xs={12}
-								className={
-									"d-flex flex-column flex-xl-row align-items-stretch align-items-xl-center justify-content-center"
-								}
-							>
-								{!account ? (
-									<Button
-										style={{ minWidth: 250 }}
-										variant={"outline-primary"}
-										disabled
-										className={"py-3 font-size-lg font-weight-bolder"}
-									>
-										{t("wallet.connect")}
-									</Button>
-								) : (
-									<Button
-										style={{ minWidth: 250 }}
-										onClick={() => {
-											setShowConfirm(true);
-										}}
-										disabled={
-											!parsedAmounts[Field.CURRENCY_A] ||
-											Number(maxAmounts[Field.CURRENCY_A]?.toSignificant(6)) <
-												Number(parsedAmounts[Field.CURRENCY_A]?.toSignificant(6))
-										}
-										variant={
-											!parsedAmounts[Field.CURRENCY_A] ||
-											Number(maxAmounts[Field.CURRENCY_A]?.toSignificant(6)) <
-												Number(parsedAmounts[Field.CURRENCY_A]?.toSignificant(6))
-												? "outline-primary"
-												: "primary"
-										}
-										className={`${
-											!!parsedAmounts[Field.CURRENCY_A] ||
-											Number(maxAmounts[Field.CURRENCY_A]?.toSignificant(6)) >=
-												Number(parsedAmounts[Field.CURRENCY_A]?.toSignificant(6))
-												? "outline-primary"
-												: ""
-										} py-3`}
-									>
-										<span className="font-weight-bold font-size-lg">
-											{!parsedAmounts[Field.CURRENCY_A]
-												? "Please Enter Amount"
-												: Number(maxAmounts[Field.CURRENCY_A]?.toSignificant(6)) <
-												  Number(parsedAmounts[Field.CURRENCY_A]?.toSignificant(6))
-												? t("insufficientBalance")
-												: t("pools.supply")}
-										</span>
-									</Button>
-								)}
-							</Col>
-						</Row>
-					) : attemptingTxn ? (
-						<ConfirmationPendingContent onDismiss={handleDismissConfirmation} pendingText={pendingText} />
-					) : txHash ? (
-						<TransactionSubmittedContent
-							chainId={chainId}
-							hash={txHash}
-							onDismiss={handleDismissConfirmation}
-						/>
-					) : (
-						<ConfirmationModalContent
-							title={noLiquidity ? t("pools.creatingPool") : t("pools.willReceive")}
-							onDismiss={handleDismissConfirmation}
-							topContent={modalHeader}
-							bottomContent={modalBottom}
-						/>
-					)}
-				</Modal.Body>
-			</Modal>
-		</>
+									disabled={
+										!parsedAmounts[Field.CURRENCY_A] ||
+										Number(maxAmounts[Field.CURRENCY_A]?.toSignificant(6)) <
+											Number(parsedAmounts[Field.CURRENCY_A]?.toSignificant(6))
+									}
+									variant={
+										!parsedAmounts[Field.CURRENCY_A] ||
+										Number(maxAmounts[Field.CURRENCY_A]?.toSignificant(6)) <
+											Number(parsedAmounts[Field.CURRENCY_A]?.toSignificant(6))
+											? "outline-primary"
+											: "primary"
+									}
+									className={`${
+										!!parsedAmounts[Field.CURRENCY_A] ||
+										Number(maxAmounts[Field.CURRENCY_A]?.toSignificant(6)) >=
+											Number(parsedAmounts[Field.CURRENCY_A]?.toSignificant(6))
+											? "outline-primary"
+											: ""
+									} py-3`}
+								>
+									<span className="font-weight-bold font-size-lg">
+										{!parsedAmounts[Field.CURRENCY_A]
+											? "Please Enter Amount"
+											: Number(maxAmounts[Field.CURRENCY_A]?.toSignificant(6)) <
+											  Number(parsedAmounts[Field.CURRENCY_A]?.toSignificant(6))
+											? t("insufficientBalance")
+											: t("pools.supply")}
+									</span>
+								</Button>
+							)}
+						</Col>
+					</Row>
+				) : attemptingTxn ? (
+					<ConfirmationPendingContent onDismiss={handleDismissConfirmation} pendingText={pendingText} />
+				) : txHash ? (
+					<TransactionSubmittedContent
+						chainId={chainId}
+						hash={txHash}
+						onDismiss={handleDismissConfirmation}
+					/>
+				) : (
+					<ConfirmationModalContent
+						title={noLiquidity ? t("pools.creatingPool") : t("pools.willReceive")}
+						onDismiss={handleDismissConfirmation}
+						topContent={modalHeader}
+						bottomContent={modalBottom}
+					/>
+				)}
+			</Modal.Body>
+		</Modal>
 	);
 }

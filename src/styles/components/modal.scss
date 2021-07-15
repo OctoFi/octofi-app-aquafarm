@@ -1,6 +1,6 @@
 .modal-body,
 .modal-header {
-	padding: 1.25rem 2rem;
+	padding: 1.5rem 2rem;
 }
 
 .modal-header {
@@ -13,7 +13,7 @@
 	}
 
 	.dark-mode & {
-		border-bottom-color:rgba(255, 255, 255, 0.1);
+		border-bottom-color:rgba(255, 255, 255, 0.15);
 	}
 }
 
@@ -23,10 +23,7 @@
 }
 
 .modal-content {
-	border-radius: 18px;
-	background-color: $modal-bg;
-	border: none;
-	box-shadow: -1px 11px 43px rgba(0, 0, 0, 0.12);
+	border-radius: 12px;
 }
 
 .modal-backdrop {
@@ -37,45 +34,28 @@
 	}
 }
 
-.custom-modal {
-	max-width: 674px;
-
-	.modal-content {
-		max-width: 674px;
-	}
-
-	.modal-body,
-	.modal-header {
-		padding: 30px;
-	}
-}
-
 @media (max-width: 991px) {
 	.modal-dialog {
 		margin: 0;
 	}
+
 	.modal-content {
 		border-radius: 0;
 		box-shadow: none;
 		position: fixed;
-		top: 80px;
+		top: 96px;
 		left: 0;
 		right: 0;
 		bottom: 0;
 		overflow: auto;
 
 		.modal-header {
-			padding: 26px 30px 20px;
 			border: none;
 			min-height: initial;
 
 			.close {
 				display: none;
 			}
-		}
-
-		.modal-body {
-			padding: 0 30px;
 		}
 	}
 }

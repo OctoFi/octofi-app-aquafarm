@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, useMemo } from "react";
+import { useCallback, useEffect, useState, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ETHER } from "@uniswap/sdk";
 import { Button, Row, Col } from "react-bootstrap";
@@ -6,7 +6,7 @@ import { useActiveWeb3React } from "../../hooks";
 import PlatformLogo from "../PlatformLogo";
 import styled from "styled-components";
 import { getGasPrice } from "../../state/currency/actions";
-import GasPrice from "../GasPrice";
+import GasPricesContainer from "../GasPrices";
 import { usePoolApproveCallback } from "../../state/pools/hooks";
 import { ApprovalState } from "../../constants";
 import GradientButton from "../UI/Button";
@@ -257,8 +257,8 @@ export default function RemoveLiquidityModal({ history }: RouteComponentProps) {
 		const selectedTokenAddress =
 			!token?.symbol || (token?.symbol && token?.symbol.toUpperCase() === "ETH")
 				? "0x0000000000000000000000000000000000000000"
-				// @ts-ignore
-				: token?.address;
+				: // @ts-ignore
+				  token?.address;
 
 		setButtonState(BUTTON_STATES.create_tx);
 
@@ -404,138 +404,56 @@ export default function RemoveLiquidityModal({ history }: RouteComponentProps) {
 	}, []);
 
 	return (
-		<>
-			<Modal
-				show={true}
-				onHide={hideModal}
-				dialogClassName={"custom-modal"}
-				backdropClassName={"backdrop"}
-				size={"lg"}
-				centered={true}
-			>
-				<Modal.Body style={{ padding: !showConfirm ? "30px" : "0" }}>
-					{!account ? (
-						<Row>
-							<Col
-								xs={12}
-								className={"d-flex align-items-center justify-content-center"}
-								style={{ padding: "80px 0 88px" }}
-							>
-								<GradientButton className={"btn-lg"} onClick={toggleWalletModal}>
-									{t("wallet.connect")}
-								</GradientButton>
-							</Col>
-						</Row>
-					) : !showConfirm ? (
-						<Row>
-							<Col xs={12} className={"gutter-b"}>
-								<PoolInput
-									value={amount}
-									onUserInput={onFieldAInput}
-									onMax={() => {
-										onFieldAInput(selectedCurrencyBalance ?? "");
-									}}
-									type={type}
-									disableCurrencySelect={true}
-									showMaxButton={true}
-									pool={pool}
-									label={t("pools.selectedPool")}
-									id="pool-input"
-								/>
-							</Col>
-							<Col xs={12} className={"d-none d-xl-flex"}>
-								<LightCard padding={"0"} borderRadius={"18px"} style={{ marginBottom: 20 }}>
-									<PriceTopbar>
-										{t("pools.willReceive")} ({t("only")} ETH {t("or")} ERC-20)
-									</PriceTopbar>
+		<Modal show={true} onHide={hideModal} backdropClassName={"backdrop"} size="md" centered={true}>
+			<Modal.Body style={{ padding: !showConfirm ? "30px" : "0" }}>
+				{!account ? (
+					<Row>
+						<Col
+							xs={12}
+							className={"d-flex align-items-center justify-content-center"}
+							style={{ padding: "80px 0 88px" }}
+						>
+							<GradientButton className={"btn-lg"} onClick={toggleWalletModal}>
+								{t("wallet.connect")}
+							</GradientButton>
+						</Col>
+					</Row>
+				) : !showConfirm ? (
+					<Row>
+						<Col xs={12} className={"gutter-b"}>
+							<PoolInput
+								value={amount}
+								onUserInput={onFieldAInput}
+								onMax={() => {
+									onFieldAInput(selectedCurrencyBalance ?? "");
+								}}
+								type={type}
+								disableCurrencySelect={true}
+								showMaxButton={true}
+								pool={pool}
+								label={t("pools.selectedPool")}
+								id="pool-input"
+							/>
+						</Col>
+						<Col xs={12} className={"d-none d-xl-flex"}>
+							<LightCard padding={"0"} borderRadius={"18px"} style={{ marginBottom: 20 }}>
+								<PriceTopbar>
+									{t("pools.willReceive")} ({t("only")} ETH {t("or")} ERC-20)
+								</PriceTopbar>
 
-									<PlatformControl>
-										<Row>
-											{type === "Uniswap" && (
-												<Col xs={12}>
-													<Check
-														type={"radio"}
-														id={`withdraw-pair`}
-														className={"d-flex align-items-center py-2 ml-2"}
-														custom
-													>
-														<Check.Input
-															type={"radio"}
-															name={"withdraw"}
-															checked={selectedOption === "pair"}
-															onChange={() => setSelectedOption("pair")}
-														/>
-														<Check.Label
-															className={"d-flex flex-column pl-2 wallet-modal__label"}
-														>
-															<div
-																className={"font-weight-bold"}
-																style={{ marginTop: ".375rem" }}
-															>
-																{t("pools.inDepositedTokens")}
-															</div>
-														</Check.Label>
-													</Check>
-													<Check
-														type={"radio"}
-														id={`withdraw-token`}
-														className={"d-flex align-items-center py-2 ml-2"}
-														custom
-													>
-														<Check.Input
-															type={"radio"}
-															name={"withdraw"}
-															checked={selectedOption === "custom"}
-															onChange={() => setSelectedOption("custom")}
-														/>
-														<Check.Label
-															className={"d-flex flex-column pl-2 wallet-modal__label"}
-														>
-															<div
-																className={"font-weight-bold"}
-																style={{ marginTop: ".375rem" }}
-															>
-																{t("pools.inCustomToken")}
-															</div>
-														</Check.Label>
-													</Check>
-												</Col>
-											)}
-											{(type !== "Uniswap" ||
-												(type === "Uniswap" && selectedOption === "custom")) && (
-												<Col xs={12} style={{ marginTop: 20 }}>
-													<TokenSelector
-														currency={token}
-														onCurrencySelect={selectCurrencyHandler}
-														showMaxButton={true}
-														otherCurrency={null}
-														showCommonBases={true}
-														id={"withdraw-token"}
-														label={t("output")}
-													/>
-												</Col>
-											)}
-										</Row>
-									</PlatformControl>
-								</LightCard>
-							</Col>
-
-							<Col xs={12} className={"d-flex d-xl-none flex-column"}>
-								<div className={"d-flex flex-column"}>
-									<PlatformLabel>{t("pools.willReceive")}</PlatformLabel>
-
-									<PlatformControl>
+								<PlatformControl>
+									<Row>
 										{type === "Uniswap" && (
-											<div>
+											<Col xs={12}>
 												<Check
 													type={"radio"}
-													id={`withdraw-pair-mobile`}
+													id={`withdraw-pair`}
 													className={"d-flex align-items-center py-2 ml-2"}
 													custom
 												>
 													<Check.Input
 														type={"radio"}
-														name={"withdraw-mobile"}
+														name={"withdraw"}
 														checked={selectedOption === "pair"}
 														onChange={() => setSelectedOption("pair")}
 													/>
@@ -552,13 +470,13 @@ export default function RemoveLiquidityModal({ history }: RouteComponentProps) {
 												</Check>
 												<Check
 													type={"radio"}
-													id={`withdraw-token-mobile`}
+													id={`withdraw-token`}
 													className={"d-flex align-items-center py-2 ml-2"}
 													custom
 												>
 													<Check.Input
 														type={"radio"}
-														name={"withdraw-mobile"}
+														name={"withdraw"}
 														checked={selectedOption === "custom"}
 														onChange={() => setSelectedOption("custom")}
 													/>
@@ -573,116 +491,184 @@ export default function RemoveLiquidityModal({ history }: RouteComponentProps) {
 														</div>
 													</Check.Label>
 												</Check>
-											</div>
+											</Col>
 										)}
 										{(type !== "Uniswap" ||
 											(type === "Uniswap" && selectedOption === "custom")) && (
-											<div style={{ marginTop: 20 }}>
+											<Col xs={12} style={{ marginTop: 20 }}>
 												<TokenSelector
 													currency={token}
 													onCurrencySelect={selectCurrencyHandler}
 													showMaxButton={true}
 													otherCurrency={null}
 													showCommonBases={true}
-													id={"withdraw-token-mobile"}
+													id={"withdraw-token"}
 													label={t("output")}
 												/>
-											</div>
+											</Col>
 										)}
-									</PlatformControl>
-								</div>
-							</Col>
+									</Row>
+								</PlatformControl>
+							</LightCard>
+						</Col>
 
-							<Col xs={12} className={"gutter-b"}>
-								<LightCard padding={"0"} borderRadius={"18px"} style={{ marginBottom: 20 }}>
-									<PriceTopbar>{t("pools.selectGasSetting")}</PriceTopbar>
-									<GasPrice gasList={gasPrice} selected={selectedGasPrice} />
-								</LightCard>
-							</Col>
-							<Col
-								xs={12}
-								className={
-									"d-flex flex-column align-items-stretch align-items-xl-center justify-content-center"
-								}
-								style={{ paddingTop: 30 }}
-							>
-								{!account ? (
-									<Button
-										style={{ minWidth: 250 }}
-										variant={"outline-primary"}
-										disabled
-										className={"py-3 font-size-lg font-weight-bolder"}
-									>
-										Connect to your wallet
-									</Button>
-								) : (
-									<Button
-										onClick={() => {
-											if (
-												approve === ApprovalState.NOT_APPROVED ||
-												approve === ApprovalState.UNKNOWN
-											) {
-												getApprove();
-											} else if (approve === ApprovalState.PENDING) {
-												return;
-											} else {
-												setShowConfirm(true);
-											}
-										}}
-										style={{ minWidth: 250 }}
-										disabled={
-											!amount ||
-											Number(selectedCurrencyBalance) < Number(amount) ||
-											approve === ApprovalState.PENDING ||
-											Number(amount) === 0
+						<Col xs={12} className={"d-flex d-xl-none flex-column"}>
+							<div className={"d-flex flex-column"}>
+								<PlatformLabel>{t("pools.willReceive")}</PlatformLabel>
+
+								<PlatformControl>
+									{type === "Uniswap" && (
+										<div>
+											<Check
+												type={"radio"}
+												id={`withdraw-pair-mobile`}
+												className={"d-flex align-items-center py-2 ml-2"}
+												custom
+											>
+												<Check.Input
+													type={"radio"}
+													name={"withdraw-mobile"}
+													checked={selectedOption === "pair"}
+													onChange={() => setSelectedOption("pair")}
+												/>
+												<Check.Label className={"d-flex flex-column pl-2 wallet-modal__label"}>
+													<div
+														className={"font-weight-bold"}
+														style={{ marginTop: ".375rem" }}
+													>
+														{t("pools.inDepositedTokens")}
+													</div>
+												</Check.Label>
+											</Check>
+											<Check
+												type={"radio"}
+												id={`withdraw-token-mobile`}
+												className={"d-flex align-items-center py-2 ml-2"}
+												custom
+											>
+												<Check.Input
+													type={"radio"}
+													name={"withdraw-mobile"}
+													checked={selectedOption === "custom"}
+													onChange={() => setSelectedOption("custom")}
+												/>
+												<Check.Label className={"d-flex flex-column pl-2 wallet-modal__label"}>
+													<div
+														className={"font-weight-bold"}
+														style={{ marginTop: ".375rem" }}
+													>
+														{t("pools.inCustomToken")}
+													</div>
+												</Check.Label>
+											</Check>
+										</div>
+									)}
+									{(type !== "Uniswap" || (type === "Uniswap" && selectedOption === "custom")) && (
+										<div style={{ marginTop: 20 }}>
+											<TokenSelector
+												currency={token}
+												onCurrencySelect={selectCurrencyHandler}
+												showMaxButton={true}
+												otherCurrency={null}
+												showCommonBases={true}
+												id={"withdraw-token-mobile"}
+												label={t("output")}
+											/>
+										</div>
+									)}
+								</PlatformControl>
+							</div>
+						</Col>
+
+						<Col xs={12} className={"gutter-b"}>
+							<LightCard style={{ marginBottom: 20 }}>
+								<PriceTopbar>{t("pools.selectGasSetting")}</PriceTopbar>
+								<GasPricesContainer />
+							</LightCard>
+						</Col>
+						<Col
+							xs={12}
+							className={
+								"d-flex flex-column align-items-stretch align-items-xl-center justify-content-center"
+							}
+							style={{ paddingTop: 30 }}
+						>
+							{!account ? (
+								<Button
+									style={{ minWidth: 250 }}
+									variant={"outline-primary"}
+									disabled
+									className={"py-3 font-size-lg font-weight-bolder"}
+								>
+									Connect to your wallet
+								</Button>
+							) : (
+								<Button
+									onClick={() => {
+										if (
+											approve === ApprovalState.NOT_APPROVED ||
+											approve === ApprovalState.UNKNOWN
+										) {
+											getApprove();
+										} else if (approve === ApprovalState.PENDING) {
+											return;
+										} else {
+											setShowConfirm(true);
 										}
-										variant={
-											!amount || Number(selectedCurrencyBalance) < Number(amount)
-												? "outline-primary"
-												: "primary"
-										}
-										className={`${
-											!!amount ||
-											Number(selectedCurrencyBalance) >= Number(amount) ||
-											Number(amount) === 0
-												? "outline-primary"
-												: ""
-										} py-3`}
-									>
-										<span className="font-weight-bold font-size-lg">
-											{!amount || Number(amount) === 0
-												? t("exchange.enterAmount")
-												: Number(selectedCurrencyBalance) < Number(amount)
-												? t("insufficientBalance")
-												: approve === ApprovalState.NOT_APPROVED ||
-												  approve === ApprovalState.UNKNOWN
-												? t("approve")
-												: approve === ApprovalState.PENDING
-												? t("pending")
-												: t("pools.withdraw")}
-										</span>
-									</Button>
-								)}
-							</Col>
-						</Row>
-					) : attemptingTxn ? (
-						<ConfirmationPendingContent onDismiss={handleDismissConfirmation} pendingText={pendingText} />
-					) : txHash ? (
-						<TransactionSubmittedContent
-							chainId={chainId}
-							hash={txHash}
-							onDismiss={handleDismissConfirmation}
-						/>
-					) : (
-						<ConfirmationModalContent
-							title={t("pools.willPay")}
-							onDismiss={handleDismissConfirmation}
-							topContent={modalHeader}
-							bottomContent={modalBottom}
-						/>
-					)}
-				</Modal.Body>
-			</Modal>
-		</>
+									}}
+									style={{ minWidth: 250 }}
+									disabled={
+										!amount ||
+										Number(selectedCurrencyBalance) < Number(amount) ||
+										approve === ApprovalState.PENDING ||
+										Number(amount) === 0
+									}
+									variant={
+										!amount || Number(selectedCurrencyBalance) < Number(amount)
+											? "outline-primary"
+											: "primary"
+									}
+									className={`${
+										!!amount ||
+										Number(selectedCurrencyBalance) >= Number(amount) ||
+										Number(amount) === 0
+											? "outline-primary"
+											: ""
+									} py-3`}
+								>
+									<span className="font-weight-bold font-size-lg">
+										{!amount || Number(amount) === 0
+											? t("exchange.enterAmount")
+											: Number(selectedCurrencyBalance) < Number(amount)
+											? t("insufficientBalance")
+											: approve === ApprovalState.NOT_APPROVED ||
+											  approve === ApprovalState.UNKNOWN
+											? t("approve")
+											: approve === ApprovalState.PENDING
+											? t("pending")
+											: t("pools.withdraw")}
+									</span>
+								</Button>
+							)}
+						</Col>
+					</Row>
+				) : attemptingTxn ? (
+					<ConfirmationPendingContent onDismiss={handleDismissConfirmation} pendingText={pendingText} />
+				) : txHash ? (
+					<TransactionSubmittedContent
+						chainId={chainId}
+						hash={txHash}
+						onDismiss={handleDismissConfirmation}
+					/>
+				) : (
+					<ConfirmationModalContent
+						title={t("pools.willPay")}
+						onDismiss={handleDismissConfirmation}
+						topContent={modalHeader}
+						bottomContent={modalBottom}
+					/>
+				)}
+			</Modal.Body>
+		</Modal>
 	);
 }

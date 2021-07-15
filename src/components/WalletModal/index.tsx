@@ -32,8 +32,6 @@ import {
 	LedgerContentWrapper,
 	UpperSection,
 	OptionGrid,
-	ModalBody,
-	ModalHeader,
 	SectionHeader,
 	SectionTitle,
 	SectionNumber,
@@ -499,7 +497,7 @@ export default function WalletModal() {
 			size={"md"}
 			centered
 		>
-			<ModalHeader closeButton>
+			<Modal.Header closeButton>
 				{walletView === WALLET_VIEWS.LEDGER_PATH && (
 					<button
 						className={"btn btn-light-primary mr-4 d-none d-xl-block"}
@@ -533,8 +531,8 @@ export default function WalletModal() {
 						Change
 					</Button>
 				)}
-			</ModalHeader>
-			<ModalBody>
+			</Modal.Header>
+			<Modal.Body>
 				{
 					// @ts-ignore
 					chainId && chainId !== config?.chainID && (
@@ -546,7 +544,7 @@ export default function WalletModal() {
 					)
 				}
 				<Wrapper>{getModalContent()}</Wrapper>
-			</ModalBody>
+			</Modal.Body>
 		</Modal>
 	);
 }

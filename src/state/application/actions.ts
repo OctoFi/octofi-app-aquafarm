@@ -26,6 +26,7 @@ export enum ApplicationModal {
 	CLAIM_POPUP,
 	MENU,
 	UNISWAPSETTINGS,
+	GASSETTINGS
 }
 
 export const updateBlockNumber = createAction<{ chainId: number; blockNumber: number }>(

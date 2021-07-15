@@ -59,6 +59,10 @@ export function useToggleUniswapSettingsMenu(): () => void {
 	return useToggleModal(ApplicationModal.UNISWAPSETTINGS);
 }
 
+export function useTogglegGasSettingsMenu(): () => void {
+	return useToggleModal(ApplicationModal.GASSETTINGS);
+}
+
 export function useShowClaimPopup(): boolean {
 	return useModalOpen(ApplicationModal.CLAIM_POPUP);
 }

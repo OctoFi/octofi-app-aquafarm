@@ -10,6 +10,7 @@ import { useWalletModalToggle } from "../../state/application/hooks";
 import { shortenAddress } from "../../utils";
 import HeaderDropdown from "../HeaderDropdown";
 import Logo from "../Logo";
+import GasPricesDropdown from "../GasPricesDropdown";
 import SettingsDropdown from "../SettingsDropdown";
 import SideDrawer from "../SideDrawer";
 import * as Styled from "./styleds";
@@ -134,12 +135,13 @@ const Header = () => {
 								})}
 							</Nav>
 							<div className={"d-flex align-items-stretch align-items-lg-center flex-column flex-lg-row"}>
+								<GasPricesDropdown />
 								{!account ? (
-									<Button variant={"primary"} onClick={toggleConnectModal}>
+									<Button variant={"primary"} onClick={toggleConnectModal} className=" mx-2">
 										{t("menu.connect")}
 									</Button>
 								) : (
-									<div className={"d-flex align-items-center justify-content-center pt-3 pt-lg-0"}>
+									<div className="d-flex align-items-center justify-content-center pt-3 pt-lg-0 mx-2">
 										<Styled.WalletLink onClick={toggleConnectModal}>
 											{account && shortenAddress(account)}
 										</Styled.WalletLink>
