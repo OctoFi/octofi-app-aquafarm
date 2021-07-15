@@ -7,7 +7,7 @@ import { maxAmountSpend } from "../../utils/maxAmountSpend";
 import PlatformLogo from "../PlatformLogo";
 import styled from "styled-components";
 import { getGasPrice } from "../../state/currency/actions";
-import GasPrices from "../GasPrices";
+import GasPricesContainer from "../GasPrices";
 
 import { Modal } from "../Modal/bootstrap";
 import { TransactionResponse } from "@ethersproject/providers";
@@ -374,7 +374,7 @@ export default function AddLiquidityModal({ history }: RouteComponentProps) {
 						<Col xs={12} className="mb-4">
 							<LightCard>
 								<PriceTopbar>{t("pools.selectGasSetting")}</PriceTopbar>
-								<GasPrices prices={gasPrice} selected={selectedGasPrice} />
+								<GasPricesContainer />
 							</LightCard>
 						</Col>
 

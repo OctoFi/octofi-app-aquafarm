@@ -1,44 +1,22 @@
-import { useDispatch } from "react-redux";
-import { changeGasPrice } from "../../state/currency/actions";
-import * as Styled from "./styleds";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppState } from "../../state";
+import { changeGasPrice, getGasPrice } from "../../state/currency/actions";
+import GasPrices from "./GasPrices";
 
-export type GasPricesProps = {
-	prices: Array<any>;
-	selected?: string;
-};
-
-const GasPrices = ({ prices, selected }: GasPricesProps) => {
+const GasPricesContainer = () => {
+	const { gasPrice, selectedGasPrice } = useSelector((state: AppState) => state.currency);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getGasPrice());
+	}, [dispatch]);
+
 	const onSelectPrice = (gas: string) => {
 		dispatch(changeGasPrice(gas));
 	};
 
-	return (
-		<Styled.GasRow>
-			{prices.map((item) => {
-				const [gas, value] = item;
-
-				return (
-					<Styled.GasOption key={gas}>
-						<Styled.GasInput
-							type="radio"
-							id={`gas-price-${gas}`}
-							name="gasPrice"
-							value={gas}
-							onChange={() => onSelectPrice(gas)}
-							checked={selected === gas}
-							className="sr-only"
-						/>
-						<Styled.GasLabel htmlFor={`gas-price-${gas}`}>
-							<Styled.GasName>{gas}</Styled.GasName>
-							<Styled.GasValue>{Number.parseInt(value)}</Styled.GasValue>
-							<Styled.GasUnits>Gwei</Styled.GasUnits>
-						</Styled.GasLabel>
-					</Styled.GasOption>
-				);
-			})}
-		</Styled.GasRow>
-	);
+	return <GasPrices prices={gasPrice} selected={selectedGasPrice} onSelectPrice={onSelectPrice} />;
 };
 
-export default GasPrices;
+export default GasPricesContainer;

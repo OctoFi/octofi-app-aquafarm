@@ -1,4 +1,4 @@
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import styled from "styled-components";
 
 export const GasRow = styled(Form)`
@@ -42,7 +42,3 @@ export const GasValue = styled.span`
 	font-size: 1.25rem;
 	font-weight: 600;
 `;
-
-export const GasName = styled.span``;
-
-export const GasUnits = styled.span``;

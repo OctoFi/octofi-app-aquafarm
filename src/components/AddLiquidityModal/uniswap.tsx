@@ -7,7 +7,7 @@ import { useActiveWeb3React } from "../../hooks";
 import { maxAmountSpend } from "../../utils/maxAmountSpend";
 import styled from "styled-components";
 import { getGasPrice } from "../../state/currency/actions";
-import GasPrices from "../GasPrices";
+import GasPricesContainer from "../GasPrices";
 
 import { TransactionResponse } from "@ethersproject/providers";
 import { Currency, ETHER, TokenAmount } from "@uniswap/sdk";
@@ -437,7 +437,7 @@ export default function UniswapLiquidityModal({
 
 						<LightCard className="my-3">
 							<PriceTopbar>{t("pools.selectGasSetting")}</PriceTopbar>
-							<GasPrices prices={gasPrice} selected={selectedGasPrice} />
+							<GasPricesContainer />
 						</LightCard>
 
 						{(approvalA === ApprovalState.NOT_APPROVED ||

@@ -6,7 +6,7 @@ import { useActiveWeb3React } from "../../hooks";
 import PlatformLogo from "../PlatformLogo";
 import styled from "styled-components";
 import { getGasPrice } from "../../state/currency/actions";
-import GasPrices from "../GasPrices";
+import GasPricesContainer from "../GasPrices";
 import { usePoolApproveCallback } from "../../state/pools/hooks";
 import { ApprovalState } from "../../constants";
 import GradientButton from "../UI/Button";
@@ -583,7 +583,7 @@ export default function RemoveLiquidityModal({ history }: RouteComponentProps) {
 						<Col xs={12} className={"gutter-b"}>
 							<LightCard style={{ marginBottom: 20 }}>
 								<PriceTopbar>{t("pools.selectGasSetting")}</PriceTopbar>
-								<GasPrices prices={gasPrice} selected={selectedGasPrice} />
+								<GasPricesContainer />
 							</LightCard>
 						</Col>
 						<Col
