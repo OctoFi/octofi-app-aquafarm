@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { useActiveWeb3React } from "../../hooks";
 import { useAllTokens } from "../../hooks/Tokens";
 import { ExternalLink, TYPE } from "../../theme";
-import { getEtherscanLink, shortenAddress } from "../../utils";
+import { getExplorerLink, shortenAddress } from "../../utils";
 import CurrencyLogo from "../CurrencyLogo";
 import { AutoRow } from "../Row";
 import { AutoColumn } from "../Column";
@@ -69,10 +69,10 @@ function TokenWarningCard({ token }: TokenWarningCardProps) {
 					{chainId && (
 						<ExternalLink
 							style={{ fontWeight: 400 }}
-							href={getEtherscanLink(chainId, token.address, "token")}
+							href={getExplorerLink(chainId, token.address, "token")}
 						>
 							<TYPE.Blue title={token.address}>
-								{shortenAddress(token.address)} (View on Etherscan)
+								{shortenAddress(token.address)} (View on explorer)
 							</TYPE.Blue>
 						</ExternalLink>
 					)}

@@ -12,7 +12,7 @@ import { AutoColumn, ColumnCenter } from "../Column";
 import Loading from "../Loading";
 import Button from "../UI/Button";
 
-import { getEtherscanLink } from "../../utils";
+import { getExplorerLink } from "../../utils";
 import { useActiveWeb3React } from "../../hooks";
 import useTheme from "../../hooks/useTheme";
 import { useTranslation } from "react-i18next";
@@ -100,9 +100,9 @@ export function TransactionSubmittedContent({
 						{t("txnSubmitted")}
 					</Text>
 					{chainId && hash && (
-						<ExternalLink href={getEtherscanLink(chainId, hash, "transaction")}>
+						<ExternalLink href={getExplorerLink(chainId, hash, "transaction")}>
 							<Text fontWeight={500} fontSize={14} color={theme.primary}>
-								{t("viewOnEtherscan")}
+								{t("viewOnExplorer")}
 							</Text>
 						</ExternalLink>
 					)}

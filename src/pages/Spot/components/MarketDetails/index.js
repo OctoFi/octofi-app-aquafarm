@@ -4,12 +4,7 @@ import styled from "styled-components";
 
 import { USE_RELAYER_MARKET_UPDATES } from "../../../../constants";
 import { changeMarket } from "../../../../state/spot/actions";
-import {
-	formatTokenName,
-	formatTokenSymbol,
-	getEtherscanLinkForToken,
-	tokenAmountInUnits,
-} from "../../../../utils/spot/tokens";
+import { formatTokenSymbol, tokenAmountInUnits } from "../../../../utils/spot/tokens";
 import {
 	getCurrentMarketLastPrice,
 	getCurrentMarketTodayClosedOrders,
@@ -18,7 +13,6 @@ import {
 	getCurrentMarketTodayQuoteVolume,
 } from "../../../../state/selectors";
 import StyledCard from "../../../../components/Card";
-import { useActiveWeb3React } from "../../../../hooks";
 import Loading from "../../../../components/Loading";
 import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";

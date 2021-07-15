@@ -11,7 +11,7 @@ import { transparentize } from "polished";
 import useTheme from "../../hooks/useTheme";
 import { ButtonPrimary } from "../Button";
 import { useAddUserToken } from "../../state/user/hooks";
-import { getEtherscanLink } from "../../utils";
+import { getExplorerLink } from "../../utils";
 import { useActiveWeb3React } from "../../hooks";
 import { ExternalLink } from "../../theme";
 import { useCombinedInactiveList } from "../../state/lists/hooks";
@@ -97,7 +97,7 @@ export function ImportToken({ tokens, onBack, onDismiss, handleCurrencySelect }:
 									<TYPE.DarkGray fontWeight={300}>{token.name}</TYPE.DarkGray>
 								</AutoRow>
 								{chainId && (
-									<ExternalLink href={getEtherscanLink(chainId, token.address, "address")}>
+									<ExternalLink href={getExplorerLink(chainId, token.address, "address")}>
 										<AddressText>{token.address}</AddressText>
 									</ExternalLink>
 								)}
