@@ -1,7 +1,7 @@
 import { Row, Col, Tab, Nav, Button, ListGroup } from "react-bootstrap";
 import styled from "styled-components";
 import React, { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, Lock, Users, Info } from "react-feather";
+import { ArrowLeft, Lock, Users, Info, Copy, ExternalLink as ExternalLinkIcon } from "react-feather";
 import SVG from "react-inlinesvg";
 
 import Page from "../../components/Page";
@@ -14,7 +14,7 @@ import CircleBar from "../../components/CircleBar";
 import CurrencyInputPanel from "../../components/CurrencyInputPanel";
 import { Link, useParams } from "react-router-dom";
 import { useAccountBuy, usePresale } from "../../hooks/usePresale";
-import { calculateGasMargin, getContract, getEtherscanLink, shortenAddress } from "../../utils";
+import { calculateGasMargin, getContract, getExplorerLink, shortenAddress } from "../../utils";
 import { ERC20_ABI } from "../../constants/abis/erc20";
 import { useActiveWeb3React } from "../../hooks";
 import BigNumber from "bignumber.js";
@@ -357,7 +357,7 @@ const CircleBarPosition = styled.div`
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-`
+`;
 
 export const lockDurationMap = {
 	2678400: "1 Month",
@@ -735,25 +735,17 @@ const LaunchpadItem = (props) => {
 									<div className="d-flex align-items-center mt-2 flex-wrap">
 										<ExternalLink
 											className={"mr-2"}
-											href={getEtherscanLink(chainId, selectedToken?.address, "token")}
+											href={getExplorerLink(chainId, selectedToken?.address, "token")}
 										>
-											<LinkText>Etherscan</LinkText>
-											<SVG
-												src={require("../../assets/images/account/external-link.svg").default}
-												width={16}
-												height={16}
-											/>
+											<LinkText>Explorer</LinkText>
+											<ExternalLinkIcon size={16} />
 										</ExternalLink>
 										<ExternalLink
 											className={"mr-2"}
 											onClick={copyToClipboard.bind(this, selectedToken?.address)}
 										>
 											<LinkText>{shortenAddress(selectedToken?.address || "")}</LinkText>
-											<SVG
-												src={require("../../assets/images/account/copy.svg").default}
-												width={16}
-												height={16}
-											/>
+											<Copy size={16} />
 										</ExternalLink>
 									</div>
 								</div>
@@ -775,23 +767,23 @@ const LaunchpadItem = (props) => {
 								</DetailsWrapper>
 								<DetailsWrapper>
 									<DetailsContainer>
-									<CircleBarPosition>
-										<CircleBar fill={theme.primary} width={40} height={40} percent={100} />
-									</CircleBarPosition>
+										<CircleBarPosition>
+											<CircleBar fill={theme.primary} width={40} height={40} percent={100} />
+										</CircleBarPosition>
 									</DetailsContainer>
 									<DetailsTitle>{presale?.status?.buyersCount?.toString() || "-"}</DetailsTitle>
 									<DetailsLabel>Participants</DetailsLabel>
 								</DetailsWrapper>
 								<DetailsWrapper>
 									<DetailsContainer>
-									<CircleBarPosition>
-										<CircleBar
-											fill={theme.primary}
-											width={40}
-											height={40}
-											percent={filledPercent}
-										/>
-									</CircleBarPosition>
+										<CircleBarPosition>
+											<CircleBar
+												fill={theme.primary}
+												width={40}
+												height={40}
+												percent={filledPercent}
+											/>
+										</CircleBarPosition>
 									</DetailsContainer>
 									<DetailsTitle>
 										{filledPercent && !isNaN(filledPercent) ? `${filledPercent}%` : "-"}

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { BigNumber } from "@0x/utils";
 import { isWeth } from "../known_tokens";
-import { ETHERSCAN_URL } from "./transactionLink";
+import { EXPLORER_URL } from "./transactionLink";
 import { NETWORK_ID } from "../../constants";
 import { assetDataUtils } from "@0x/order-utils";
 import { getContractWrappers } from "./contractWrapper";
@@ -71,9 +71,9 @@ export const tokenSymbolToDisplayString = (symbol) => {
 	return isWeth(symbol) ? "wETH" : symbol.toUpperCase();
 };
 
-export const getEtherscanLinkForToken = (token) => {
-	return `${ETHERSCAN_URL[NETWORK_ID]}token/${token.address}`;
+export const getExplorerLinkForToken = (token) => {
+	return `${EXPLORER_URL[NETWORK_ID]}token/${token.address}`;
 };
-export const getEtherscanLinkForTokenAndAddress = (token, ethAccount) => {
-	return `${ETHERSCAN_URL[NETWORK_ID]}token/${token.address}?a=${ethAccount}`;
+export const getExplorerLinkForTokenAndAddress = (token, ethAccount) => {
+	return `${EXPLORER_URL[NETWORK_ID]}token/${token.address}?a=${ethAccount}`;
 };

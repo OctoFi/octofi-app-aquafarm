@@ -4,7 +4,7 @@ import { ADDRESS_PATTERN } from "../../constants";
 import useENS from "../../hooks/useENS";
 import { useActiveWeb3React } from "../../hooks";
 import { ExternalLink } from "../../theme";
-import { getEtherscanLink } from "../../utils";
+import { getExplorerLink } from "../../utils";
 import { AutoColumn } from "../Column";
 import * as Styled from "./styleds";
 
@@ -63,12 +63,12 @@ const AddressInputPanel = ({
 					{address && chainId && (
 						<div className="d-flex justify-content-end align-items-center">
 							<ExternalLink
-								href={getEtherscanLink(chainId, name ?? address, "address")}
+								href={getExplorerLink(chainId, name ?? address, "address")}
 								style={{ fontSize: "14px" }}
 								className="d-flex align-items-center"
 							>
 								<ExternalIcon size={16} className="mr-1" />
-								View on Etherscan
+								View on explorer
 							</ExternalLink>
 						</div>
 					)}

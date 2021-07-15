@@ -1,9 +1,10 @@
 import { useCallback, useEffect } from "react";
 import toast from "react-hot-toast";
 
-import { getEtherscanLink } from "../../utils";
+import { getExplorerLink } from "../../utils";
 import { useActiveWeb3React } from "../../hooks";
 import { useActivePopups, useRemovePopup } from "../../state/application/hooks";
+import { ExternalLink } from "react-feather";
 
 const TransactionHandler = (props) => {
 	const { chainId } = useActiveWeb3React();
@@ -23,12 +24,12 @@ const TransactionHandler = (props) => {
 				<div className="d-flex flex-column">
 					<span className={"d-block mb-3"}>{e?.txn?.summary}</span>
 					<a
-						href={getEtherscanLink(chainId, e?.txn?.hash, "transaction")}
+						href={getExplorerLink(chainId, e?.txn?.hash, "transaction")}
 						className={`btn btn-sm btn-light-${e?.txn?.success ? "primary" : "danger"} cursor-pointer`}
 						target={"_blank"}
 						rel={"noreferrer noopener"}
 					>
-						View on Etherscan 🡕
+						View on explorer <ExternalLink size={16} />
 					</a>
 				</div>
 			);

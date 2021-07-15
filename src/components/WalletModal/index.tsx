@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { AbstractConnector } from "@web3-react/abstract-connector";
 import { UnsupportedChainIdError, useWeb3React } from "@web3-react/core";
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
-import { Row, Col, Form } from "react-bootstrap";
+import { Row, Col, Form, Button } from "react-bootstrap";
 import { isMobile } from "react-device-detect";
 import { injected } from "../../connectors";
 import usePrevious from "../../hooks/usePrevious";
@@ -14,19 +14,33 @@ import LedgerPaths from "../../constants/ledgerPaths";
 import { NetworkContextName } from "../../constants";
 
 import { Modal } from "../Modal/bootstrap";
-import Button from "../UI/Button";
+import UIButton from "../UI/Button";
 import Option from "./Option";
 import useENSName from "../../hooks/useENSName";
 import { isTransactionRecent, useAllTransactions } from "../../state/transactions/hooks";
 import { TransactionDetails } from "../../state/transactions/reducer";
-import LedgerAccount from './LedgerAccounts';
+import LedgerAccount from "./LedgerAccounts";
 import "./style.scss";
 import getNetConfig from "../../config";
 import { chainList } from "../../config/coinbase/nodeConfig";
 import NetworkOption from "./NetworkOption";
 import { useTranslation } from "react-i18next";
 import RecentTransactionsList from "../TransactionsList/RecentTransactionsList";
-import { Wrapper, ContentWrapper, LedgerContentWrapper, UpperSection, OptionGrid, ModalBody, ModalHeader, SectionHeader, SectionTitle, SectionNumber, AlertContainer, AlertText, SeeAllButton } from './styles';
+import {
+	Wrapper,
+	ContentWrapper,
+	LedgerContentWrapper,
+	UpperSection,
+	OptionGrid,
+	ModalBody,
+	ModalHeader,
+	SectionHeader,
+	SectionTitle,
+	SectionNumber,
+	AlertContainer,
+	AlertText,
+	SeeAllButton,
+} from "./styles";
 
 const { Check } = Form;
 
@@ -36,7 +50,7 @@ const WALLET_VIEWS = {
 	ACCOUNT: "account",
 	PENDING: "pending",
 	LEDGER_PATH: "ledger_select_path",
-	LEDGER_ACCOUNT: "ledger_select_account"
+	LEDGER_ACCOUNT: "ledger_select_account",
 };
 
 // we want the latest one to come first, so return negative if a is after b
@@ -76,7 +90,7 @@ export default function WalletModal() {
 	const [isLedger, setIsLedger] = useState<boolean>(false);
 
 	// @ts-ignore
-	const [selectedNetwork, setSelectedNetwork] = useState<string>(config.symbol)
+	const [selectedNetwork, setSelectedNetwork] = useState<string>(config.symbol);
 
 	const [pendingError, setPendingError] = useState<boolean>();
 
@@ -102,7 +116,7 @@ export default function WalletModal() {
 
 	useEffect(() => {
 		setChainChanged(true);
-	}, [chainId])
+	}, [chainId]);
 
 	// close modal when a connection is successful
 	const activePrevious = usePrevious(active);
@@ -133,32 +147,31 @@ export default function WalletModal() {
 	const updateSelectedNetwork = (item: any) => {
 		// @ts-ignore
 		if (item.symbol === config?.symbol || !item.isSwitch) {
-			return
+			return;
 		}
 		setSelectedNetwork(item?.symbol);
-		localStorage.setItem(config.ENV_NODE_CONFIG, item.label)
-		config = getNetConfig()
+		localStorage.setItem(config.ENV_NODE_CONFIG, item.label);
+		config = getNetConfig();
 
-		if(item?.chainID !== 1 && window.ethereum) {
+		if (item?.chainID !== 1 && window.ethereum) {
 			const networkDetails = {
 				chainId: `0x${item?.chainID?.toString(16)}`,
 				chainName: `${item.name} Mainnet`,
 				nativeCurrency: {
 					name: item.name,
 					symbol: item.symbol,
-					decimals: 18
+					decimals: 18,
 				},
-				rpcUrls: [item.rpc]
-			}
+				rpcUrls: [item.rpc],
+			};
 
 			// @ts-ignore
 			window?.ethereum?.request({
-				method: 'wallet_addEthereumChain',
-				params: [networkDetails]
-			})
-
+				method: "wallet_addEthereumChain",
+				params: [networkDetails],
+			});
 		}
-	}
+	};
 
 	const tryActivation = async (connector: AbstractConnector | undefined, ledgerConnect = false) => {
 		setIsLedger(ledgerConnect);
@@ -178,17 +191,19 @@ export default function WalletModal() {
 		}
 
 		connector &&
-			activate(connector, undefined, true).then(res => {
-				// if(ledgerConnect) {
+			activate(connector, undefined, true)
+				.then((res) => {
+					// if(ledgerConnect) {
 					setWalletView(WALLET_VIEWS.LEDGER_ACCOUNT);
-				// }
-			}).catch((error) => {
-				if (error instanceof UnsupportedChainIdError) {
-					activate(connector); // a little janky...can't use setError because the connector isn't set
-				} else {
-					setPendingError(true);
-				}
-			});
+					// }
+				})
+				.catch((error) => {
+					if (error instanceof UnsupportedChainIdError) {
+						activate(connector); // a little janky...can't use setError because the connector isn't set
+					} else {
+						setPendingError(true);
+					}
+				});
 	};
 
 	// get wallets user can switch too, depending on device/browser
@@ -277,7 +292,7 @@ export default function WalletModal() {
 								: !option.href && tryActivation(option.connector);
 						}}
 						key={key}
-						name={key }
+						name={key}
 						error={pendingError}
 						selected={selected}
 						active={option.connector === connector}
@@ -300,19 +315,18 @@ export default function WalletModal() {
 		// @ts-ignore
 		let configEnv = config?.env;
 
-
 		return curChainList.map((item: any, index: any) => {
 			return (
 				<NetworkOption
-					key={'network-' + item?.symbol}
+					key={"network-" + item?.symbol}
 					onClick={() => updateSelectedNetwork(item)}
 					header={item.name}
 					active={selectedNetwork === item?.symbol && item?.type === configEnv}
-					id={'network-' + item?.symbol}
+					id={"network-" + item?.symbol}
 					type={item?.symbol}
 				/>
-			)
-		})
+			);
+		});
 	}
 
 	function getModalContent() {
@@ -332,22 +346,16 @@ export default function WalletModal() {
 		if (account && walletView === WALLET_VIEWS.ACCOUNT) {
 			return (
 				<>
-					<AccountDetails
-						toggleWalletModal={toggleWalletModal}
-						pendingTransactions={pendingTransactions}
-						confirmedTransactions={confirmedTransactions}
-						ENSName={ENSName}
-						openOptions={() => setWalletView(WALLET_VIEWS.OPTIONS)}
-					/>
+					<AccountDetails ENSName={ENSName} onOpenOptions={() => setWalletView(WALLET_VIEWS.OPTIONS)} />
 
-					<div>
+					{/* <div>
 						<RecentTransactionsList />
 						<SeeAllButton to={"/history"}>{t("seeAllTransactions")}</SeeAllButton>
-					</div>
+					</div> */}
 				</>
 			);
 		}
-		if(walletView === WALLET_VIEWS.LEDGER_ACCOUNT) {
+		if (walletView === WALLET_VIEWS.LEDGER_ACCOUNT) {
 			return (
 				<>
 					<LedgerAccount
@@ -361,7 +369,7 @@ export default function WalletModal() {
 						<SeeAllButton to={"/history"}>{t("seeAllTransactions")}</SeeAllButton>
 					</div>
 				</>
-			)
+			);
 		}
 		if (walletView === WALLET_VIEWS.LEDGER_PATH) {
 			return (
@@ -370,7 +378,7 @@ export default function WalletModal() {
 						<Row className={"row-paddingless"}>
 							{LedgerPaths.map((item, index) => {
 								return (
-									<Col xs={12} lg={4} md={6} key={`hd-path-${index}`}>
+									<Col xs={12} md={6} key={`hd-path-${index}`}>
 										<Check
 											type={"radio"}
 											id={`hd-path-${index}`}
@@ -392,10 +400,10 @@ export default function WalletModal() {
 								);
 							})}
 
-							<Col xs={12} lg={4} md={6} key={`hd-path-custom`}>
+							<Col xs={12} md={6} key="hd-path-custom">
 								<Check
 									type={"radio"}
-									id={`hd-path-custom`}
+									id="hd-path-custom"
 									className={"d-flex align-items-center mb-3 pt-3 pt-xl-0"}
 									custom
 								>
@@ -422,11 +430,11 @@ export default function WalletModal() {
 							)}
 
 							<Col xs={12} className={"d-flex flex-column flex-lg-row-reverse mt-5 mt-xl-4"}>
-								<Button className={"ml-2"} onClick={handleConnectLedger}>
+								<UIButton className={"ml-2"} onClick={handleConnectLedger}>
 									Connect to Wallet
-								</Button>
-								<button
-									className={"btn btn-link"}
+								</UIButton>
+								<Button
+									variant="link"
 									onClick={() => {
 										setPendingError(false);
 										setWalletView(WALLET_VIEWS.ACCOUNT);
@@ -434,13 +442,14 @@ export default function WalletModal() {
 									}}
 								>
 									Cancel
-								</button>
+								</Button>
 							</Col>
 						</Row>
 					</LedgerContentWrapper>
 				</UpperSection>
 			);
 		}
+
 		return (
 			<UpperSection>
 				<SectionHeader>
@@ -452,10 +461,10 @@ export default function WalletModal() {
 						{getNetworks()}
 
 						<NetworkOption
-							key={'network-optimism'}
+							key={"network-optimism"}
 							header={"Optimism (Soon)"}
 							active={false}
-							id={'network-optimism'}
+							id={"network-optimism"}
 							type={"Optimism"}
 							disabled={true}
 						/>
@@ -481,13 +490,13 @@ export default function WalletModal() {
 				toggleWalletModal();
 
 				console.log(chainChanged, usedChain, chainId);
-				if(chainChanged && usedChain !== chainId) {
+				if (chainChanged && usedChain !== chainId) {
 					window.location.reload();
 				}
 			}}
 			dialogClassName={walletView !== WALLET_VIEWS.LEDGER_PATH ? "wallet-modal" : "wallet-modal--ledger"}
 			backdropClassName={"backdrop"}
-			size={"lg"}
+			size={"md"}
 			centered
 		>
 			<ModalHeader closeButton>
@@ -513,20 +522,23 @@ export default function WalletModal() {
 						: "Connect to Wallet"}
 				</Modal.Title>
 				{account && walletView === WALLET_VIEWS.ACCOUNT && (
-					<button
-						className={"btn btn-outline-primary ml-auto mr-2 d-none d-xl-block"}
+					<Button
+						variant="outline-primary"
+						size="sm"
+						className={"ml-auto mr-2 d-none d-xl-block"}
 						onClick={() => {
 							setWalletView(WALLET_VIEWS.OPTIONS);
 						}}
 					>
 						Change
-					</button>
+					</Button>
 				)}
 			</ModalHeader>
 			<ModalBody>
-				{ // @ts-ignore
+				{
+					// @ts-ignore
 					chainId && chainId !== config?.chainID && (
-						<SectionHeader className={'flex-column align-items-stretch'}>
+						<SectionHeader className={"flex-column align-items-stretch"}>
 							<AlertContainer>
 								<AlertText>Please connect to the appropriate network.</AlertText>
 							</AlertContainer>

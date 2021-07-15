@@ -41,7 +41,7 @@ import HardwareTip from "../../components/HardwareTips";
 import WarningTip from "../../components/WarningTip";
 import TokenLogo from "../../components/CrossTokenLogo";
 import { useTranslation } from "react-i18next";
-import Copy from "../../components/AccountDetails/Copy";
+import CopyHelper from "../../components/AccountDetails/Copy";
 import { Modal as BSModal } from "../../components/Modal/bootstrap";
 import WalletConnectData from "../../components/WalletConnectData";
 
@@ -1857,7 +1857,7 @@ const CrossBridge = (props) => {
 				<a href={hashCurObj.url} rel="noopener noreferrer" target="_blank" className="link">
 					{hashCurObj.hash}
 				</a>
-				<Copy toCopy={hashCurObj.hash} />
+				<CopyHelper toCopy={hashCurObj.hash} />
 			</MintListVal>
 		);
 		let outHash = (
@@ -1865,7 +1865,7 @@ const CrossBridge = (props) => {
 				<a href={hashOutObj.url} rel="noopener noreferrer" target="_blank" className="link">
 					{hashOutObj.hash}
 				</a>
-				<Copy toCopy={hashOutObj.hash} />
+				<CopyHelper toCopy={hashOutObj.hash} />
 			</MintListVal>
 		);
 		let outStatus = (
@@ -1888,7 +1888,7 @@ const CrossBridge = (props) => {
 				<MintListLabel>{bridgeType === "redeem" ? t("from") : t("to")}:</MintListLabel>
 				<MintListVal>
 					{mintDtil.from ? mintDtil.from : account}
-					<Copy toCopy={mintDtil.from ? mintDtil.from : account} />
+					<CopyHelper toCopy={mintDtil.from ? mintDtil.from : account} />
 				</MintListVal>
 			</MintList>
 		);
@@ -1897,7 +1897,7 @@ const CrossBridge = (props) => {
 				<MintListLabel>{bridgeType === "redeem" ? t("to") : t("from")}:</MintListLabel>
 				<MintListVal>
 					{mintDtil.to}
-					<Copy toCopy={mintDtil.to} />
+					<CopyHelper toCopy={mintDtil.to} />
 				</MintListVal>
 			</MintList>
 		);
@@ -2218,7 +2218,7 @@ const CrossBridge = (props) => {
 									</MintListLabel>
 									<MintListVal>
 										{registerAddress ? registerAddress : ""}
-										<Copy toCopy={registerAddress} />
+										<CopyHelper toCopy={registerAddress} />
 									</MintListVal>
 								</MintList>
 								<MintListCenter>
