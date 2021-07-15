@@ -37,7 +37,7 @@ import { recordTxns } from "../../utils/record";
 import { getWeb3BaseInfo, getWeb3ConTract } from "../../utils/web3/txns";
 import { getHashStatus, getWithdrawHashStatus, HDsendERC20Txns, MMsendERC20Txns } from "../../utils/web3/BridgeWeb3";
 import { shortenAddress } from "../../utils";
-import HardwareTip from "../../components/HardwareTips";
+import HardwareTips from "../../components/HardwareTips";
 import WarningTip from "../../components/WarningTip";
 import TokenLogo from "../../components/CrossTokenLogo";
 import { useTranslation } from "react-i18next";
@@ -2180,7 +2180,7 @@ const CrossBridge = (props) => {
 						</TabHeader>
 					</Header>
 
-					<HardwareTip
+					<HardwareTips
 						HardwareTipOpen={isHardwareTip}
 						closeHardwareTip={() => {
 							setIsHardwareTip(false);

@@ -26,7 +26,7 @@ import { getWeb3BaseInfo, getWeb3ConTract } from "../../utils/web3/txns";
 import { recordTxns } from "../../utils/record";
 import { isAddress } from "../../utils";
 import { useWalletModalToggle } from "../../state/application/hooks";
-import HardwareTip from "../../components/HardwareTips";
+import HardwareTips from "../../components/HardwareTips";
 import { Modal as BSModal } from "../../components/Modal/bootstrap";
 import WarningTip from "../../components/WarningTip";
 import { toast } from "react-hot-toast";
@@ -1235,7 +1235,7 @@ const CrossAnySwap = (props) => {
 							</TabButton>
 						</TabHeader>
 					</Header>
-					<HardwareTip
+					<HardwareTips
 						HardwareTipOpen={isHardwareTip}
 						closeHardwareTip={() => {
 							setIsHardwareTip(false);
