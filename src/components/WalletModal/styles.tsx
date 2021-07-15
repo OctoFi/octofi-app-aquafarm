@@ -47,15 +47,6 @@ export const OptionGrid = styled.div`
 	grid-template-columns: 1fr 1fr 1fr;
 `;
 
-export const ModalBody = styled(Modal.Body)`
-	padding: 20px 36px;
-`;
-
-export const ModalHeader = styled(Modal.Header)`
-	padding-left: 36px;
-	padding-right: 36px;
-`;
-
 export const SectionHeader = styled.div`
 	display: flex;
 	align-items: center;

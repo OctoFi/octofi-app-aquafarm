@@ -5,7 +5,7 @@ import { CardProps, Text } from "rebass";
 
 const StyledCard = styled(Box)<{ padding?: string; border?: string; borderRadius?: string }>`
 	width: 100%;
-	border-radius: 16px;
+	border-radius: 18px;
 	padding: 1.25rem;
 	padding: ${({ padding }) => padding};
 	border: ${({ border }) => border};
@@ -15,7 +15,7 @@ const StyledCard = styled(Box)<{ padding?: string; border?: string; borderRadius
 export default StyledCard;
 
 export const LightCard = styled(StyledCard)`
-	border: 1px solid ${({ theme }) => theme.text3};
+	border: 1px solid ${({ theme }) => theme.borderColor2};
 	background-color: ${({ theme }) => theme.modalBG};
 `;
 

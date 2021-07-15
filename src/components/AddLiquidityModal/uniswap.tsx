@@ -7,7 +7,7 @@ import { useActiveWeb3React } from "../../hooks";
 import { maxAmountSpend } from "../../utils/maxAmountSpend";
 import styled from "styled-components";
 import { getGasPrice } from "../../state/currency/actions";
-import GasPrice from "../GasPrice";
+import GasPrices from "../GasPrices";
 
 import { TransactionResponse } from "@ethersproject/providers";
 import { Currency, ETHER, TokenAmount } from "@uniswap/sdk";
@@ -21,7 +21,6 @@ import {
 	TransactionSubmittedContent,
 } from "../TransactionConfirmationModal";
 import DoubleCurrencyLogo from "../../components/DoubleLogo";
-import GradientButton from "../UI/Button";
 
 import { Modal } from "../Modal/bootstrap";
 import { ROUTER_ADDRESS } from "../../constants";
@@ -67,22 +66,11 @@ export const Dots = styled.span`
 	}
 `;
 
-export const PriceTopbar = styled.span`
+export const PriceTopbar = styled.h4`
 	color: ${({ theme }) => theme.text3};
+	font-size: 0.875rem;
 	font-weight: 500;
-	font-size: 1.25rem;
-	padding: 20px 20px 10px;
-	display: block;
-
-	@media (min-width: 1199px) {
-		padding: 15px 15px 10px;
-	}
-`;
-
-export const ResponsiveCol = styled(Col)<{ isFirst?: boolean }>`
-	@media (max-width: 1199px) {
-		margin-bottom: ${({ isFirst }) => (isFirst ? "8px" : "0")};
-	}
+	margin-bottom: 1rem;
 `;
 
 export const ConfirmationText = styled(Text)`
@@ -113,18 +101,16 @@ const HeaderCurrencyText = styled(Text)`
 `;
 
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`
-	// padding: 2px 16px;
 	padding: 2px;
 
 	${({ clickable }) =>
-		clickable
-			? css`
-					:hover {
-						cursor: pointer;
-						opacity: 0.8;
-					}
-			  `
-			: null};
+		clickable &&
+		css`
+			&:hover {
+				cursor: pointer;
+				opacity: 0.8;
+			}
+		`};
 `;
 
 export default function UniswapLiquidityModal({
@@ -382,195 +368,171 @@ export default function UniswapLiquidityModal({
 	}, [onFieldAInput, txHash]);
 
 	return (
-		<>
-			<Modal
-				show={true}
-				onHide={() => history.push("/invest/pools")}
-				dialogClassName={"custom-modal"}
-				backdropClassName={"backdrop"}
-				size={"lg"}
-				centered={true}
-			>
-				<Modal.Body style={{ padding: !showConfirm ? "30px" : "0" }}>
-					{!account ? (
-						<div
-							className={"d-flex align-items-center justify-content-center"}
-							style={{ padding: "80px 0 88px" }}
-						>
-							<GradientButton className={"btn-lg"} onClick={toggleWalletModal}>
-								{t("wallet.connect")}
-							</GradientButton>
-						</div>
-					) : !showConfirm ? (
-						<div>
-							<CurrencyInputPanel
-								value={formattedAmounts[Field.CURRENCY_A]}
-								onUserInput={onFieldAInput}
-								onMax={() => {
-									onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? "");
-								}}
-								label={t("token")}
-								onCurrencySelect={handleCurrencyASelect}
-								showMaxButton={!atMaxAmounts[Field.CURRENCY_A]}
-								currency={currencies[Field.CURRENCY_A]}
-								id="add-liquidity-input-tokena"
-								showCommonBases
-							/>
+		<Modal
+			show={true}
+			onHide={() => history.push("/invest/pools")}
+			backdropClassName={"backdrop"}
+			size="md"
+			centered={true}
+		>
+			<Modal.Body>
+				{!account ? (
+					<div className="d-flex align-items-center justify-content-center py-5">
+						<Button variant="primary" size="lg" className="py-3" onClick={toggleWalletModal}>
+							{t("wallet.connect")}
+						</Button>
+					</div>
+				) : !showConfirm ? (
+					<div>
+						<CurrencyInputPanel
+							value={formattedAmounts[Field.CURRENCY_A]}
+							onUserInput={onFieldAInput}
+							onMax={() => {
+								onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? "");
+							}}
+							label={t("token")}
+							onCurrencySelect={handleCurrencyASelect}
+							showMaxButton={!atMaxAmounts[Field.CURRENCY_A]}
+							currency={currencies[Field.CURRENCY_A]}
+							id="add-liquidity-input-tokena"
+							showCommonBases
+						/>
 
-							<SwitchCol>
-								<ArrowWrapper clickable={false}>
-									<Plus size="16" color={theme.text2} />
-								</ArrowWrapper>
-							</SwitchCol>
+						<SwitchCol>
+							<ArrowWrapper clickable={false}>
+								<Plus size="16" color={theme.text2} />
+							</ArrowWrapper>
+						</SwitchCol>
 
-							<CurrencyInputPanel
-								value={formattedAmounts[Field.CURRENCY_B]}
-								onUserInput={onFieldBInput}
-								onCurrencySelect={handleCurrencyBSelect}
-								onMax={() => {
-									onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? "");
-								}}
-								label={t("token")}
-								showMaxButton={!atMaxAmounts[Field.CURRENCY_B]}
-								currency={currencies[Field.CURRENCY_B]}
-								id="add-liquidity-input-tokenb"
-								showCommonBases
-							/>
+						<CurrencyInputPanel
+							value={formattedAmounts[Field.CURRENCY_B]}
+							onUserInput={onFieldBInput}
+							onCurrencySelect={handleCurrencyBSelect}
+							onMax={() => {
+								onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? "");
+							}}
+							label={t("token")}
+							showMaxButton={!atMaxAmounts[Field.CURRENCY_B]}
+							currency={currencies[Field.CURRENCY_B]}
+							id="add-liquidity-input-tokenb"
+							showCommonBases
+						/>
 
-							{currencies[Field.CURRENCY_A] &&
-								currencies[Field.CURRENCY_B] &&
-								pairState !== PairState.INVALID && (
-									<LightCard padding="0" borderRadius={"18px"} className='my-4'>
-										<PriceTopbar>
-											{noLiquidity ? t("initialPricePoolShare") : t("pricePoolShare")}
-										</PriceTopbar>
-										<div>
-											<PoolPriceBar
-												currencies={currencies}
-												poolTokenPercentage={poolTokenPercentage}
-												noLiquidity={noLiquidity}
-												price={price}
-											/>
-										</div>
-									</LightCard>
-								)}
+						{currencies[Field.CURRENCY_A] &&
+							currencies[Field.CURRENCY_B] &&
+							pairState !== PairState.INVALID && (
+								<LightCard className="my-3">
+									<PriceTopbar>
+										{noLiquidity ? t("initialPricePoolShare") : t("pricePoolShare")}
+									</PriceTopbar>
 
-							<LightCard padding={"0"} borderRadius={"18px"} className='my-4'>
-								<PriceTopbar>{t("pools.selectGasSetting")}</PriceTopbar>
-								<GasPrice gasList={gasPrice} selected={selectedGasPrice} />
-							</LightCard>
+									<PoolPriceBar
+										currencies={currencies}
+										poolTokenPercentage={poolTokenPercentage}
+										noLiquidity={noLiquidity}
+										price={price}
+									/>
+								</LightCard>
+							)}
 
-							<div
-								style={{ paddingTop: 30 }}
-								className={
-									"d-flex flex-column flex-xl-row align-items-stretch align-items-xl-center justify-content-center"
-								}
-							>
-								{!account && (
-									<Button
-										style={{ minWidth: 250 }}
-										variant={"dark"}
-										disabled
-										className={"py-3 font-size-lg font-weight-bolder"}
-									>
-										{t("wallet.connect")}
-									</Button>
-								)}
-								{(approvalA === ApprovalState.NOT_APPROVED ||
-									approvalA === ApprovalState.PENDING ||
-									approvalB === ApprovalState.NOT_APPROVED ||
-									approvalB === ApprovalState.PENDING) &&
-									isValid &&
-									account && (
-										<Row className={"custom-row"}>
-											{approvalA !== ApprovalState.APPROVED && (
-												<Col xs={12} md={approvalB !== ApprovalState.APPROVED ? 6 : 12}>
-													<Button
-														style={{ minWidth: 250 }}
-														className={"w-100 py-3 mb-3"}
-														variant={"secondary-light"}
-														onClick={approveACallback}
-														disabled={approvalA === ApprovalState.PENDING}
-													>
-														{approvalA === ApprovalState.PENDING ? (
-															<Dots>
-																{t("approving")} {currencies[Field.CURRENCY_A]?.symbol}
-															</Dots>
-														) : (
-															t("approve") + " " + currencies[Field.CURRENCY_A]?.symbol
-														)}
-													</Button>
-												</Col>
-											)}
-											{approvalB !== ApprovalState.APPROVED && (
-												<Col xs={12} md={approvalA !== ApprovalState.APPROVED ? 6 : 12}>
-													<Button
-														style={{ minWidth: 250 }}
-														className={"w-100 py-3 mb-3"}
-														variant={"secondary-light"}
-														onClick={approveBCallback}
-														disabled={approvalB === ApprovalState.PENDING}
-													>
-														{approvalB === ApprovalState.PENDING ? (
-															<Dots>
-																{t("approving")} {currencies[Field.CURRENCY_B]?.symbol}
-															</Dots>
-														) : (
-															t("approve") + " " + currencies[Field.CURRENCY_B]?.symbol
-														)}
-													</Button>
-												</Col>
-											)}
-										</Row>
+						<LightCard className="my-3">
+							<PriceTopbar>{t("pools.selectGasSetting")}</PriceTopbar>
+							<GasPrices prices={gasPrice} selected={selectedGasPrice} />
+						</LightCard>
+
+						{(approvalA === ApprovalState.NOT_APPROVED ||
+							approvalA === ApprovalState.PENDING ||
+							approvalB === ApprovalState.NOT_APPROVED ||
+							approvalB === ApprovalState.PENDING) &&
+							isValid &&
+							account && (
+								<Row>
+									{approvalA !== ApprovalState.APPROVED && (
+										<Col
+											xs={12}
+											md={approvalB !== ApprovalState.APPROVED ? 6 : 12}
+											className="mb-3"
+										>
+											<Button
+												className={"w-100 py-3"}
+												variant={"secondary-light"}
+												onClick={approveACallback}
+												disabled={approvalA === ApprovalState.PENDING}
+											>
+												{approvalA === ApprovalState.PENDING ? (
+													<Dots>
+														{t("approving")} {currencies[Field.CURRENCY_A]?.symbol}
+													</Dots>
+												) : (
+													t("approve") + " " + currencies[Field.CURRENCY_A]?.symbol
+												)}
+											</Button>
+										</Col>
 									)}
-								<Button
-									onClick={() => {
-										setAttemptingTxn(false);
-										setShowConfirm(true);
-									}}
-									style={{ minWidth: 250 }}
-									disabled={
-										!isValid ||
-										approvalA !== ApprovalState.APPROVED ||
-										approvalB !== ApprovalState.APPROVED
-									}
-									variant={
-										!isValid &&
-										!!parsedAmounts[Field.CURRENCY_A] &&
-										!!parsedAmounts[Field.CURRENCY_B]
-											? "outline-primary"
-											: "primary"
-									}
-									className={`${
-										!isValid &&
-										!!parsedAmounts[Field.CURRENCY_A] &&
-										!!parsedAmounts[Field.CURRENCY_B]
-											? "outline-primary"
-											: ""
-									} py-3`}
-								>
-									<span className="font-weight-bold font-size-lg">{error ?? t("pools.supply")}</span>
-								</Button>
-							</div>
+									{approvalB !== ApprovalState.APPROVED && (
+										<Col
+											xs={12}
+											md={approvalA !== ApprovalState.APPROVED ? 6 : 12}
+											className="mb-3"
+										>
+											<Button
+												className={"w-100 py-3"}
+												variant={"secondary-light"}
+												onClick={approveBCallback}
+												disabled={approvalB === ApprovalState.PENDING}
+											>
+												{approvalB === ApprovalState.PENDING ? (
+													<Dots>
+														{t("approving")} {currencies[Field.CURRENCY_B]?.symbol}
+													</Dots>
+												) : (
+													t("approve") + " " + currencies[Field.CURRENCY_B]?.symbol
+												)}
+											</Button>
+										</Col>
+									)}
+								</Row>
+							)}
+
+						<div>
+							<Button
+								onClick={() => {
+									setAttemptingTxn(false);
+									setShowConfirm(true);
+								}}
+								disabled={
+									!isValid ||
+									approvalA !== ApprovalState.APPROVED ||
+									approvalB !== ApprovalState.APPROVED
+								}
+								variant={
+									!isValid && !!parsedAmounts[Field.CURRENCY_A] && !!parsedAmounts[Field.CURRENCY_B]
+										? "outline-primary"
+										: "primary"
+								}
+								className="py-3 w-100"
+							>
+								<span className="font-weight-bold">{error ?? t("pools.supply")}</span>
+							</Button>
 						</div>
-					) : attemptingTxn ? (
-						<ConfirmationPendingContent onDismiss={handleDismissConfirmation} pendingText={pendingText} />
-					) : txHash ? (
-						<TransactionSubmittedContent
-							chainId={chainId}
-							hash={txHash}
-							onDismiss={handleDismissConfirmation}
-						/>
-					) : (
-						<ConfirmationModalContent
-							title={noLiquidity ? t("pools.creatingPool") : t("pools.willReceive")}
-							onDismiss={handleDismissConfirmation}
-							topContent={modalHeader}
-							bottomContent={modalBottom}
-						/>
-					)}
-				</Modal.Body>
-			</Modal>
-		</>
+					</div>
+				) : attemptingTxn ? (
+					<ConfirmationPendingContent onDismiss={handleDismissConfirmation} pendingText={pendingText} />
+				) : txHash ? (
+					<TransactionSubmittedContent
+						chainId={chainId}
+						hash={txHash}
+						onDismiss={handleDismissConfirmation}
+					/>
+				) : (
+					<ConfirmationModalContent
+						title={noLiquidity ? t("pools.creatingPool") : t("pools.willReceive")}
+						onDismiss={handleDismissConfirmation}
+						topContent={modalHeader}
+						bottomContent={modalBottom}
+					/>
+				)}
+			</Modal.Body>
+		</Modal>
 	);
 }
