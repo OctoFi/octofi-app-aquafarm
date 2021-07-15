@@ -1,56 +1,49 @@
-import React from "react";
-import styled from "styled-components";
+import { PropsWithChildren } from "react";
+import { CheckCircle, Copy } from "react-feather";
 import useCopyClipboard from "../../hooks/useCopyClipboard";
-
+import useTheme from "../../hooks/useTheme";
 import { LinkStyledButton } from "../../theme";
-import { CheckCircle } from "react-feather";
-import SVG from "react-inlinesvg";
+import styled from "styled-components";
 
-const CopyIcon = styled(LinkStyledButton)`
-	color: ${({ theme }) => theme.text3};
-	flex-shrink: 0;
-	display: flex;
-	text-decoration: none;
-	font-size: 0.825rem;
-	align-items: center;
-	:hover,
-	:active,
-	:focus {
-		text-decoration: none;
-		color: ${({ theme }) => theme.text3};
-	}
-
-	@media (max-width: 1199px) {
-		padding: 0;
-	}
-`;
-const TransactionStatusText = styled.span<{ hasMargin?: boolean }>`
-	font-size: 1rem;
+const CopyButton = styled(LinkStyledButton)<{ color?: string }>`
 	${({ theme }) => theme.flexRowNoWrap};
 	align-items: center;
-	padding-left: ${({ hasMargin }) => (hasMargin ? "10px" : "0")};
+	gap: 0.5rem;
+	color: ${({ theme, color }) => color || theme.text3};
+	text-decoration: none;
+	font-size: 1rem;
+	line-height: 1.5;
+	padding: 0;
 
-	@media (min-width: 1200px) {
-		margin-left: 0.25rem;
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: underline;
+		color: ${({ theme, color }) => color || theme.text3};
 	}
 `;
 
-export default function CopyHelper(props: { toCopy: string; children?: React.ReactNode }) {
-	const [isCopied, setCopied] = useCopyClipboard();
+export type CopyHelperProps = {
+	toCopy: string;
+};
+
+export default function CopyHelper({ toCopy, children }: PropsWithChildren<CopyHelperProps>) {
+	const [isCopied, setCopied] = useCopyClipboard(1000);
+	const theme = useTheme();
 
 	return (
-		<CopyIcon onClick={() => setCopied(props.toCopy)}>
+		<CopyButton onClick={() => setCopied(toCopy)} color={isCopied ? theme.success : theme.text3}>
 			{isCopied ? (
-				<TransactionStatusText>
-					<CheckCircle size={"24"} />
-					<TransactionStatusText hasMargin>Copied</TransactionStatusText>
-				</TransactionStatusText>
+				<>
+					<CheckCircle size={20} />
+					<span>Copied</span>
+				</>
 			) : (
-				<TransactionStatusText>
-					<SVG src={require("../../assets/images/account/copy.svg").default} />
-				</TransactionStatusText>
+				<>
+					<Copy size={20} />
+					{children}
+				</>
 			)}
-			{isCopied ? "" : props.children}
-		</CopyIcon>
+		</CopyButton>
 	);
 }

@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Modal } from "../Modal/bootstrap";
 
 export const Wrapper = styled.div`
@@ -44,23 +44,11 @@ export const UpperSection = styled.div`
 
 export const OptionGrid = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	
-	@media (max-width: 991px) {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-	}
-	
-	@media (max-width: 576px) {
-		grid-template-columns: 1fr 1fr 1fr;
-	}
-	
-	@media (max-width: 320px) {
-		grid-template-columns: 1fr 1fr;
-	}
+	grid-template-columns: 1fr 1fr 1fr;
 `;
 
 export const ModalBody = styled(Modal.Body)`
-  padding: 20px 36px;
+	padding: 20px 36px;
 `;
 
 export const ModalHeader = styled(Modal.Header)`
@@ -97,36 +85,36 @@ export const SectionNumber = styled.div`
 `;
 
 export const AlertContainer = styled.div`
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 56px;
-  padding: 4px 4px 4px 16px;
-  background-color: ${({ theme }) => theme.dangerLight};
+	border-radius: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 56px;
+	padding: 4px 4px 4px 16px;
+	background-color: ${({ theme }) => theme.dangerLight};
 `;
 
 export const AlertText = styled.span`
-  font-weight: 500;
-  font-size: 1rem;
-  color: ${({ theme }) => theme.danger};
-  line-height: 21px;
-  padding-right: 1rem;
+	font-weight: 500;
+	font-size: 1rem;
+	color: ${({ theme }) => theme.danger};
+	line-height: 21px;
+	padding-right: 1rem;
 `;
 
 export const Title = styled.span`
-    font-weight: 500;
-    font-size: 0.75rem;
-    color: ${({ theme }) => theme.text3};
-    margin-bottom: 8px;
-    display: block;
+	font-weight: 500;
+	font-size: 0.75rem;
+	color: ${({ theme }) => theme.text3};
+	margin-bottom: 8px;
+	display: block;
 `;
 
 export const SeeAllButton = styled(Link)`
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.75rem;
-    color: ${({ theme }) => theme.primary};
-    display: block;
-    text-align: center;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 0.75rem;
+	color: ${({ theme }) => theme.primary};
+	display: block;
+	text-align: center;
 `;
