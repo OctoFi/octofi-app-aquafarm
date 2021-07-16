@@ -36,7 +36,7 @@ const Footer = styled.div`
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	background-color: ${({ theme }) => theme.bg1};
-	border-top: 1px solid ${({ theme }) => theme.bg2};
+	border-top: 1px solid ${({ theme }) => theme.bg1};
 `;
 
 interface CurrencySearchProps {

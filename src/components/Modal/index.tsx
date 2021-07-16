@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 import { animated, useTransition, useSpring } from "react-spring";
 import { DialogOverlay, DialogContent } from "@reach/dialog";
@@ -103,22 +103,6 @@ export default function Modal({
 		enter: { opacity: 1 },
 		leave: { opacity: 0 },
 	});
-
-	const _getScrollbarWidth = () => {
-		const scrollDiv = document.createElement("div");
-		scrollDiv.className = "modal-scrollbar-measure";
-		document.body.appendChild(scrollDiv);
-		const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
-		document.body.removeChild(scrollDiv);
-		return scrollbarWidth;
-	};
-
-	useEffect(() => {
-		if (isOpen) {
-			const PaddingWidth = _getScrollbarWidth();
-			document.body.style.paddingRight = `${PaddingWidth}px`;
-		}
-	}, [isOpen]);
 
 	const [, set] = useSpring(() => ({ y: 0, config: { mass: 1, tension: 210, friction: 20 } }));
 	const bind = useGesture({

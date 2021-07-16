@@ -15,7 +15,7 @@ export const Item = styled.div`
 	text-decoration: none !important;
 	color: ${({ theme }) => theme.text1};
 	font-weight: 500;
-	font-size: 1rem;
+	font-size: 0.875rem;
 	padding: 1rem 1.625rem;
 	position: relative;
 	display: flex;

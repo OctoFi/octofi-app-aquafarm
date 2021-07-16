@@ -23,7 +23,9 @@ const GasPricesDropdown = () => {
 
 	useEffect(() => {
 		let result = gasPrice.filter((item) => selectedGasPrice === item[0]);
-		setGasValue(Math.round(result[0][1]));
+		if (result[0]) {
+			setGasValue(Math.round(result[0][1]));
+		}
 	}, [selectedGasPrice, gasPrice]);
 
 	useOnClickOutside(node, open ? toggle : undefined);

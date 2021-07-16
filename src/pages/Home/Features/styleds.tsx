@@ -38,20 +38,14 @@ export const Inner = styled.div`
 
 		li {
 			button {
-				width: 5px !important;
-				height: 5px !important;
-				border-radius: 5px;
+				width: 10px !important;
+				height: 10px !important;
+				border-radius: 50%;
 				opacity: 0.5;
 				background-color: ${({ theme }) => theme.primary};
 				transition: opacity 0.4s ease;
 				margin: 0 5px;
 				padding: 0;
-
-				@media (min-width: 576px) {
-					width: 10px !important;
-					height: 10px !important;
-					border-radius: 10px;
-				}
 
 				&::before {
 					display: none;
