@@ -31,6 +31,7 @@ export interface Colors {
 	danger: Color;
 	dangerLight: Color;
 	success: Color;
+	scrollbar: Color;
 
 	// Primaries
 	primary: Color;

@@ -13,19 +13,6 @@ export const CustomCard = styled(Card)`
 	border: 1px solid ${({ theme }) => theme.text4};
 `;
 
-export const RCard = styled(CustomCard)`
-	@media (max-width: 767px) {
-		margin-left: -30px;
-		margin-right: -30px;
-		border-radius: 0;
-
-		.card-body {
-			padding-left: 30px;
-			padding-right: 30px;
-		}
-	}
-`;
-
 export const CustomHeader = styled(Header)`
 	border-bottom-color: ${({ theme }) => theme.text3};
 	background-color: transparent;
@@ -67,7 +54,7 @@ const Comp = (props) => {
 };
 export const ResponsiveCard = (props) => {
 	return (
-		<RCard {...props}>
+		<CustomCard {...props}>
 			{props.header && (
 				<CustomHeader table={props.table}>
 					{props.title && <CustomTitle>{props.title}</CustomTitle>}
@@ -75,7 +62,7 @@ export const ResponsiveCard = (props) => {
 				</CustomHeader>
 			)}
 			<CustomBody table={props.table}>{props.children || props.body}</CustomBody>
-		</RCard>
+		</CustomCard>
 	);
 };
 

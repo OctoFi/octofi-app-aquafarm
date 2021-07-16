@@ -66,8 +66,9 @@ const HeaderRow = styled.div`
 		margin-bottom: 34px;
 	}
 `;
+
 const TitleRow = styled.div`
-	top: 96px;
+	top: 80px;
 	left: 20px;
 	right: 20px;
 	position: absolute;

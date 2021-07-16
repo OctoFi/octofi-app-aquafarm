@@ -48,7 +48,7 @@ export function colors(darkMode?: boolean): Colors {
 
 		// Backgrounds
 		bg1: darkMode ? "#232429" : white,
-		bg2: darkMode ? "#232429" : white,
+		bg2: darkMode ? "#3F3F46" : "#A1A1AA",
 		bg3: darkMode ? "#3d4046" : white,
 		bg4: darkMode ? "#232429" : "#d4daf2",
 		bg5: darkMode ? `rgba(255, 255, 255, 0.1) ` : `rgba(0, 0, 0, 0.05)`,
@@ -69,6 +69,7 @@ export function colors(darkMode?: boolean): Colors {
 		danger: "#EB6B6B",
 		dangerLight: "rgba(235, 107, 107, 0.15)",
 		success: "#34D399",
+		scrollbar: darkMode ? "#3F3F46" : "#A1A1AA",
 
 		// Primaries
 		primary: "#0891B2",

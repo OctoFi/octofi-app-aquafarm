@@ -1,35 +1,33 @@
 import styled from "styled-components";
-import { NavLink } from 'react-router-dom';
-import { Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import { Button, Navbar } from "react-bootstrap";
 
-export const Container = styled.div<{ right: number; scrolled: boolean }>`
-	transition: all ease 0.4s;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: ${({ right }) => (right ? `${right}px` : "0")};
-	background-color: ${({ theme, scrolled }) => (scrolled ? theme.modalBG : "transparent")};
-	box-shadow: ${({ scrolled }) => (scrolled ? "-1px 11px 43px rgba(0, 0, 0, 0.12)" : "0 0 0 rgba(0, 0, 0, 0)")};
+export const Container = styled.div`
+	border-bottom: 1px solid ${({ theme }) => theme.borderColor};
 	z-index: 800;
+	padding-right: 0.625rem;
+
+	@media (min-width: 768px) {
+		padding-right: 0.875rem;
+	}
 
 	@media (max-width: 1199px) {
 		z-index: 1090;
 
 		body.modal-open & {
 			background-color: ${({ theme }) => theme.modalBG};
-			box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 		}
 	}
 `;
 
 export const WalletLink = styled.div`
-	color: ${({ theme }) => theme.text1};
 	background-color: ${({ theme }) => theme.bg5};
 	border-radius: 12px;
-	padding: 0.5rem 1rem;
+	color: ${({ theme }) => theme.text1};
+	cursor: pointer;
 	font-size: 1rem;
 	font-weight: 500;
-	cursor: pointer;
+	padding: 0.5rem 1rem;
 `;
 
 export const NavbarBrand = styled(Navbar.Brand)<{ hasCallback: boolean }>`
@@ -72,7 +70,7 @@ export const BackButton = styled.button<{ hasCallback: boolean }>`
 
 	&:hover {
 		background-color: ${({ theme }) => theme.primary};
-		color: ${({ theme }) => theme.bg2};
+		color: ${({ theme }) => theme.bg1};
 	}
 
 	&:hover,
@@ -84,19 +82,24 @@ export const BackButton = styled.button<{ hasCallback: boolean }>`
 	}
 `;
 
-export const MenuIcon = styled.div`
+export const MenuButton = styled(Button)`
 	color: ${({ theme }) => theme.text1};
+	padding-right: 0;
+
+	&:hover,
+	&:focus {
+		color: ${({ theme }) => theme.text2};
+	}
 `;
 
-export const HeadNavbar = styled(Navbar)<{ scrolled?: boolean }>`
-	min-height: ${({ scrolled }) => (scrolled ? "80px" : "96px")};
+export const HeadNavbar = styled(Navbar)`
 	background-color: transparent;
-	padding-top: 0;
-	padding-bottom: 0;
+	min-height: 80px;
+	padding: 0;
 `;
 
-export const HeaderInner = styled.div<{ scrolled?: boolean }>`
-	min-height: ${({ scrolled }) => (scrolled ? "80px" : "96px")};
+export const HeaderInner = styled.div`
+	min-height: 80px;
 	transition: 0.3s ease all;
 	display: flex;
 	align-items: center;
@@ -111,7 +114,7 @@ export const HeaderItem = styled(NavLink)`
 	color: ${({ theme }) => theme.text1} !important;
 	text-decoration: none !important;
 	font-weight: 500;
-	font-size: 1rem;
+	font-size: 0.875rem;
 	padding: 1rem 1.625rem;
 	position: relative;
 
@@ -122,11 +125,11 @@ export const HeaderItem = styled(NavLink)`
 	&::before {
 		content: "";
 		position: absolute;
-		bottom: 0.625rem;
+		bottom: 0.5rem;
 		left: 1.25rem;
 		right: 1.25rem;
-		height: 1px;
-		background-color: ${({ theme }) => theme.primary} !important;
+		height: 2px;
+		background-color: ${({ theme }) => theme.primary};
 		transform: scaleX(0);
 		transform-origin: left center;
 		transition: 0.4s ease all;

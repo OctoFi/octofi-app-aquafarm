@@ -4,7 +4,7 @@ import * as Styled from "./styleds";
 
 const Footer = () => {
 	return (
-		<Styled.Footer className="d-flex flex-column align-items-center justify-content-center">
+		<Styled.Footer className="d-none d-lg-flex flex-column align-items-center justify-content-center">
 			<Socials />
 			<Styled.CopyRight className="mt-3">
 				<Trans i18nKey={"app.copyright"} values={{ company: "OctoFi" }}>

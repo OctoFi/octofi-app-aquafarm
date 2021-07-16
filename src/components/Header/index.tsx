@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import SVG from "react-inlinesvg";
 import { Navbar, Button, Nav } from "react-bootstrap";
+import { Menu } from "react-feather";
 
 import { routes } from "../../constants/headerRoutes";
 import { useActiveWeb3React } from "../../hooks";
@@ -19,21 +20,10 @@ const Header = () => {
 	const { account } = useActiveWeb3React();
 	const toggleConnectModal = useWalletModalToggle();
 	const [sidedrawer, setSidedrawer] = useState(false);
-	const [scrolled, setScrolled] = useState(false);
-	const [scrollbarWidth, setScrollbarWidth] = useState(0);
 	const { t } = useTranslation();
 	const [callback, setCallback] = useState({
 		action: undefined,
 	});
-
-	const _getScrollbarWidth = () => {
-		const scrollDiv = document.createElement("div");
-		scrollDiv.className = "modal-scrollbar-measure";
-		document.body.appendChild(scrollDiv);
-		const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
-		document.body.removeChild(scrollDiv);
-		return scrollbarWidth;
-	};
 
 	const dismissHandler = () => {
 		setSidedrawer(false);
@@ -62,62 +52,33 @@ const Header = () => {
 		};
 	}, []);
 
-	useEffect(() => {
-		// @ts-ignore
-		const handleUserScroll = (e) => {
-			const scroll = e.target.scrollTop;
-
-			if (scroll > 50) {
-				setScrolled(true);
-			} else {
-				setScrolled(false);
-			}
-		};
-
-		document.body.addEventListener("scroll", handleUserScroll);
-
-		return () => {
-			document.body.removeEventListener("scroll", handleUserScroll);
-		};
-	}, []);
-
-	useEffect(() => {
-		const handleResize = () => {
-			const PaddingWidth = _getScrollbarWidth();
-			setScrollbarWidth(PaddingWidth);
-		};
-
-		window.addEventListener("resize", handleResize);
-		handleResize();
-
-		return () => {
-			window.removeEventListener("resize", handleResize);
-		};
-	}, []);
-
 	return (
 		<>
 			<SideDrawer open={sidedrawer} onDismiss={dismissHandler} />
 			{/* @ts-ignore */}
-			<Styled.Container scrolled={scrolled} right={scrollbarWidth} hasCallback={callback.action !== undefined}>
-				<div className="container-xl">
-					<Styled.HeadNavbar className={"px-0"} expand={"lg"} scrolled={scrolled}>
+			<Styled.Container hasCallback={callback.action !== undefined}>
+				<div className="container-lg">
+					<Styled.HeadNavbar expand={"lg"}>
 						<div className="back-button d-lg-none">
 							<Styled.BackButton onClick={callback.action} hasCallback={callback.action !== undefined}>
 								<SVG src={require("../../assets/images/global/arrow-left.svg").default} />
 							</Styled.BackButton>
 						</div>
-						<Styled.HeaderInner scrolled={scrolled}>
+
+						<Styled.HeaderInner>
 							<Styled.NavbarBrand hasCallback={callback.action !== undefined}>
 								<Logo hideOnMobile />
 							</Styled.NavbarBrand>
-							<Styled.MenuIcon className={"d-flex d-lg-none"}>
-								<SVG
-									src={require("../../assets/images/menu.svg").default}
-									onClick={() => setSidedrawer(true)}
-								/>
-							</Styled.MenuIcon>
+							<Styled.MenuButton
+								variant="link"
+								onClick={() => setSidedrawer(true)}
+								className="d-flex d-lg-none"
+							>
+								{/* src={require("../../assets/images/menu.svg").default} */}
+								<Menu size={24} />
+							</Styled.MenuButton>
 						</Styled.HeaderInner>
+
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="mx-auto align-items-center">
 								{Object.keys(routes).map((key, index) => {
@@ -134,20 +95,21 @@ const Header = () => {
 									}
 								})}
 							</Nav>
-							<div className={"d-flex align-items-stretch align-items-lg-center flex-column flex-lg-row"}>
+
+							<div className="d-flex align-items-stretch align-items-lg-center flex-column flex-lg-row ml-2">
 								<GasPricesDropdown />
+								<div className="ml-1 mr-3">
+									<SettingsDropdown />
+								</div>
 								{!account ? (
-									<Button variant={"primary"} onClick={toggleConnectModal} className=" mx-2">
+									<Button variant={"primary"} onClick={toggleConnectModal}>
 										{t("menu.connect")}
 									</Button>
 								) : (
-									<div className="d-flex align-items-center justify-content-center pt-3 pt-lg-0 mx-2">
-										<Styled.WalletLink onClick={toggleConnectModal}>
-											{account && shortenAddress(account)}
-										</Styled.WalletLink>
-									</div>
+									<Styled.WalletLink onClick={toggleConnectModal}>
+										{account && shortenAddress(account)}
+									</Styled.WalletLink>
 								)}
-								<SettingsDropdown />
 							</div>
 						</Navbar.Collapse>
 					</Styled.HeadNavbar>
