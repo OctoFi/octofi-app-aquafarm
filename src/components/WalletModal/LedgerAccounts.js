@@ -37,7 +37,7 @@ const ContentWrapper = styled.div`
 
 const Select = styled(Form.Control)`
   background-color: ${({ theme }) => theme.bg1};
-  border-radius: 18px;
+  border-radius: 12px;
   border: 1px solid ${({ theme }) => theme.text3};
   overflow: hidden;
 

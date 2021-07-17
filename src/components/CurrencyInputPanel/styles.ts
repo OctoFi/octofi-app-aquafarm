@@ -6,7 +6,7 @@ export const InputPanel = styled.div<{ hideInput?: boolean; withoutMargin?: bool
 	position: relative;
 	z-index: 1;
 	// background: ${({ theme }) => theme.bg5};
-	// border-radius: 18px;
+	// border-radius: 12px;
 	// padding: 0.5rem;
 `;
 
@@ -18,8 +18,8 @@ export const InputRow = styled.div<{ selected: boolean }>`
 export const CurrencySelect = styled.button<{ selected?: boolean }>`
 	background-color: ${({ theme }) => theme.bg1};
 	color: ${({ theme }) => theme.text1};
-	border-bottom-left-radius: 18px;
-	border-top-left-radius: 18px;
+	border-bottom-left-radius: 12px;
+	border-top-left-radius: 12px;
 	border: 1px solid ${({ theme }) => theme.bg1};
 	box-shadow: none;
 	cursor: pointer;

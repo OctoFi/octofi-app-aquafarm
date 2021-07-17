@@ -13,7 +13,7 @@ const PopoverContainer = styled.div<{ show: boolean }>`
 	transition: visibility 150ms linear, opacity 150ms linear;
 
 	background: ${({ theme }) => theme.bg1};
-	border: 1px solid ${({ theme }) => theme.text4};
+	border: 1px solid ${({ theme }) => theme.borderColor2};
 	color: ${({ theme }) => theme.text1};
 	font-size: 0.875rem;
 	line-height: 1.125rem;

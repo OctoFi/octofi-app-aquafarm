@@ -39,7 +39,7 @@ export const BalanceCard = styled(Card)`
 
 export const StyledCard = styled(Card)`
 	@media (max-width: 991px) {
-		border: 1px solid ${({ theme }) => theme.text4};
+		border: 1px solid ${({ theme }) => theme.borderColor2};
 		margin-bottom: 0 !important;
 
 		.card-header,

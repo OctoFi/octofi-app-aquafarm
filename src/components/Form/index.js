@@ -7,7 +7,7 @@ export const InputGroupAppend = styled(Group.Append)``;
 
 export const InputGroupText = styled(Group.Text)`
 	background-color: ${({ theme }) => theme.modalBG} !important;
-	border-color: ${({ theme }) => theme.text4} !important;
+	border-color: ${({ theme }) => theme.borderColor2} !important;
 	color: ${({ theme }) => theme.text1};
   
   ${InputGroupPrepend} & {
@@ -22,7 +22,7 @@ export const InputGroupText = styled(Group.Text)`
 `;
 
 export const InputGroupFormControl = styled(Form.Control)`
-	border-color: ${({ theme }) => theme.text4} !important;
+	border-color: ${({ theme }) => theme.borderColor2} !important;
 	background-color: ${({ theme }) => theme.modalBG} !important;
 	color: ${({ theme }) => theme.text1} !important;
 

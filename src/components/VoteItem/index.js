@@ -37,16 +37,16 @@ const Wrapper = styled.tr`
 
 			&:first-child {
 				border-left: 1px solid ${({ theme }) => theme.text3};
-				border-top-left-radius: 18px;
-				border-bottom-left-radius: 18px;
+				border-top-left-radius: 12px;
+				border-bottom-left-radius: 12px;
 				padding-left: 30px;
 			}
 
 			&:last-child {
 				border-right: 1px solid ${({ theme }) => theme.text3};
-				border-top-right-radius: 18px;
+				border-top-right-radius: 12px;
 				padding-right: 30px;
-				border-bottom-right-radius: 18px;
+				border-bottom-right-radius: 12px;
 				max-width: 80px;
 				text-align: left;
 			}

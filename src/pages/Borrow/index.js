@@ -1,8 +1,7 @@
-import GraphQlProvider from "./Provider";
 import Page from "../../components/Page";
+import GraphQlProvider from "./Provider";
 import GlobalOverall from "./GlobalOverall";
 import BorrowCommon from "./Common";
-import "./style.scss";
 import ModalProvider from "./ModalProvider";
 
 const Borrow = () => {

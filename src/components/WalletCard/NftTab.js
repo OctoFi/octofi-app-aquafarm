@@ -5,7 +5,7 @@ import moment from "moment";
 
 import OpenSeaApi from "../../http/opensea";
 import { useActiveWeb3React } from "../../hooks";
-import { WalletPageTable } from "./WalletPageTable";
+import { WalletTable } from "./WalletTable";
 import Loading from "../Loading";
 import { CustomText, LogoContainer, Title, TradeButton } from "./styleds";
 
@@ -195,7 +195,7 @@ const NftTab = (props) => {
 
 	return (
 		<div className="d-flex flex-column align-items-stretch">
-			<WalletPageTable columns={columns} entities={filteredData} />
+			<WalletTable columns={columns} entities={filteredData} />
 			<div className="d-flex align-items-center justify-content-center" ref={loader}>
 				{hasMore ? (
 					<div className="py-5">

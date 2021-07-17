@@ -5,7 +5,7 @@ export const Wrap = styled.div`
 	color: ${({ theme }) => theme.text1};
 	display: flex;
 	align-items: center;
-	border-radius: 18px;
+	border-radius: 12px;
 	justify-content: center;
 	flex-direction: column;
 	padding: 2.5rem;

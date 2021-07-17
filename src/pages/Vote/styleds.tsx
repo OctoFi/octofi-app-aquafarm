@@ -111,12 +111,12 @@ export const ResultProgress = styled.div`
 	height: 5px;
 	border: none;
 	width: 100%;
-	border-radius: 20px;
+	border-radius: 12px;
 `;
 
 export const ResultProgressBar = styled.div`
 	background-color: ${({ theme }) => theme.primary};
-	border-radius: 20px;
+	border-radius: 12px;
 `;
 
 export const CustomTable = styled(Table)`
@@ -145,10 +145,10 @@ export const CustomTable = styled(Table)`
 		border-bottom: 0;
 
 		&:first-child {
-			border-bottom-left-radius: 18px !important;
+			border-bottom-left-radius: 12px !important;
 		}
 		&:last-child {
-			border-bottom-right-radius: 18px !important;
+			border-bottom-right-radius: 12px !important;
 		}
 	}
 `;

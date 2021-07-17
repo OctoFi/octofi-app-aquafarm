@@ -12,7 +12,7 @@ export const NavItem = styled(Nav.Item)`
 
 export const NavLink = styled(Nav.Link)`
 	background-color: ${({ theme }) => theme.primaryLight};
-	border-radius: 18px !important;
+	border-radius: 12px !important;
 	color: ${({ theme }) => theme.primary};
 	font-weight: 500;
 	padding: 12px 24px;

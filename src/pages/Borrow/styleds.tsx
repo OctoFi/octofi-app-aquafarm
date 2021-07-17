@@ -1,21 +1,19 @@
-.market {
-	&__table {
+import styled from "styled-components";
+
+export const BorrowTableWrap = styled.div`
+	.table {
 		border-collapse: separate;
 		border-spacing: 0 0;
 
 		thead th {
-			background-color: rgba(#202020, 0.1);
-			color: #202020;
-			font-size: 0.875rem;
-			font-weight: 500;
+			background-color: ${({ theme }) => theme.borderColor2};
+			color: ${({ theme }) => theme.text1};
+			font-size: 0.75rem;
+			font-weight: 400;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			min-height: 56px;
-
-			.dark-mode & {
-				background-color: rgba(#fff, 0.1);
-				color: #fff;
-			}
+			padding: 1rem 1.5rem;
 
 			&:focus {
 				outline: none;
@@ -34,8 +32,7 @@
 
 		th,
 		td {
-			vertical-align: middle !important;
-			padding: 1rem !important;
+			vertical-align: middle;
 
 			&:last-child {
 				text-align: left;
@@ -43,7 +40,8 @@
 		}
 
 		td {
-			border-bottom: 1px solid rgba(white, 0.5) !important;
+			border-bottom: 1px solid ${({ theme }) => theme.borderColor2};
+			padding: 1.25rem 1.5rem;
 		}
 	}
-}
+`;

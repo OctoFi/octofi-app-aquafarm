@@ -28,7 +28,7 @@ const Container = styled.div`
 
 const TR = styled.div`
 	padding: 19px 20px;
-	border-radius: 18px;
+	border-radius: 12px;
 	margin-bottom: 15px;
 	max-height: 56px;
 	margin-right: 10px;

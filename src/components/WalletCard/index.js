@@ -23,7 +23,7 @@ import CurrencyText from "../CurrencyText";
 import Loading from "../Loading";
 import { InputGroupText, InputGroupPrepend, InputGroupFormControl as FormControl } from "../Form";
 import NftTab from "./NftTab";
-import { WalletPageTable } from "./WalletPageTable";
+import { WalletTable } from "./WalletTable";
 import UnlockModal from "./UnlockModal";
 import * as Styled from "./styleds";
 
@@ -278,7 +278,7 @@ const WalletCard = (props) => {
 									<Loading width={40} height={40} active id={`tokens-wallet`} />
 								</div>
 							) : (
-								<WalletPageTable columns={TokensColumns} entities={filteredTokensData} />
+								<WalletTable columns={TokensColumns} entities={filteredTokensData} />
 							)}
 						</Tab.Pane>
 						<Tab.Pane eventKey="nft">

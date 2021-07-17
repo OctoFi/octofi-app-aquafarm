@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledBox = styled.div`
-	border-radius: 18px;
+	border-radius: 12px;
 	background-color: ${({ theme }) => theme.bg1};
 	display: flex;
 	align-items: stretch;

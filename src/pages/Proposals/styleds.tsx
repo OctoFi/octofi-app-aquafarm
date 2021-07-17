@@ -100,7 +100,7 @@ export const NewButton = styled(Link)`
 	background-color: ${({ theme }) => theme.primaryLight};
 	height: 56px;
 	padding: 6px 20px;
-	border-radius: 18px;
+	border-radius: 12px;
 	color: ${({ theme }) => theme.primary};
 	display: flex;
 	align-items: center;
@@ -120,7 +120,7 @@ export const NewButton = styled(Link)`
 export const GradientButton = styled(Link)`
 	height: 56px;
 	padding: 6px 20px;
-	border-radius: 18px;
+	border-radius: 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -159,14 +159,14 @@ export const ProposalsTableWrap = styled.div`
 			}
 
 			&:first-child {
-				border-top-left-radius: 18px;
-				border-bottom-left-radius: 18px;
+				border-top-left-radius: 12px;
+				border-bottom-left-radius: 12px;
 				padding: 1.25rem 1.375rem;
 			}
 
 			&:last-child {
-				border-top-right-radius: 18px;
-				border-bottom-right-radius: 18px;
+				border-top-right-radius: 12px;
+				border-bottom-right-radius: 12px;
 				padding: 1.25rem 1.375rem 1.25rem 1.25rem;
 			}
 		}

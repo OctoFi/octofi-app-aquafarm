@@ -46,7 +46,7 @@ const StyledList = styled.div`
 
 const StyledContentList = styled.div`
 	flex: 1;
-	border-radius: 18px;
+	border-radius: 12px;
 	background-color: ${({ theme }) => theme.bg1};
 	overflow: auto;
 
@@ -193,7 +193,7 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
 });
 
 const FormControl = styled(Form.Control)`
-	border: 1px solid ${({ theme }) => theme.text4};
+	border: 1px solid ${({ theme }) => theme.borderColor2};
 	background-color: ${({ theme }) => theme.bg1};
 `;
 

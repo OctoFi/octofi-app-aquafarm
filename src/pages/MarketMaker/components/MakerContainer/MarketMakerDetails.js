@@ -35,7 +35,7 @@ const Price = styled(Title)`
 `;
 
 const Content = styled.div`
-	border-radius: 18px;
+	border-radius: 12px;
 	background-color: ${({ theme }) => theme.bg1};
 	padding: 20px;
 	display: flex;

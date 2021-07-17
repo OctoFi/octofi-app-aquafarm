@@ -70,7 +70,7 @@ const TokenWrapper = styled.div`
   background-color: ${({ theme }) => theme.bg1};
   padding: 0 1.125rem;
   height: 56px;
-  border-radius: 18px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   margin-bottom: 3rem;
@@ -123,7 +123,7 @@ const Description = styled.p`
 
 const DescriptionCard = styled.p`
   padding: 1rem;
-  border-radius: 18px;
+  border-radius: 12px;
   background-color: ${({ theme }) => theme.bg1};
 `
 
@@ -147,9 +147,9 @@ const InnerCard = styled.div`
   display: flex;
   align-items: center;
   padding: 0 .75rem;
-  border-radius: 18px;
+  border-radius: 12px;
   height: 56px;
-  border: 1px solid ${({ theme }) => theme.text4};
+  border: 1px solid ${({ theme }) => theme.borderColor2};
   font-size: .875rem;
   font-weight: 500;
   color: ${({ theme }) => theme.text1};
@@ -167,7 +167,7 @@ const InnerCardLabel = styled.span`
 const SelectFormControl = styled(FormControl)`
   display: flex;
   width: 100%;
-  border-radius: 18px;
+  border-radius: 12px;
   height: 56px;
   min-height: 56px;
   padding: 0 24px;
@@ -215,7 +215,7 @@ const ListItem = styled(Item)`
   margin-bottom: 6px;
   
   &:not(:last-child) {
-    border-bottom: 1px solid ${({ theme }) => theme.text4};
+    border-bottom: 1px solid ${({ theme }) => theme.borderColor2};
   }
   
 `
