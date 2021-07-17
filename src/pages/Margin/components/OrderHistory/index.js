@@ -51,7 +51,7 @@ const CardTitle = styled.h4`
 
 const Content = styled.div`
 	background-color: ${({ theme }) => theme.bg1};
-	border-radius: 18px;
+	border-radius: 12px;
 	display: flex;
 	flex-direction: column;
 	flex: 1;

@@ -34,6 +34,7 @@ import { Token } from "@uniswap/sdk";
 import { sortedData } from "../../../lib/helper";
 import { useTranslation } from "react-i18next";
 import useTheme from "../../../hooks/useTheme";
+import * as Styled from "../styleds";
 
 const LogoContainer = styled.div`
 	width: 32px;
@@ -252,7 +253,6 @@ const BorrowBalance = (props) => {
 		return sortedData(data, sort);
 	}, [aTokensData, sort]);
 
-
 	const closeBorrowModal = () => {
 		setIsModalBorrowOpenState(false);
 	};
@@ -346,7 +346,13 @@ const BorrowBalance = (props) => {
 			dataField: "displayAvailableForBorrowBalance",
 			text: t("borrow.available"),
 			formatter: (cellContent, row, rowIndex) => {
-				return <CellText>{typeof row.displayAvailableForBorrowBalance === 'number' ? `${row.displayAvailableForBorrowBalance} ${row.tokenSymbol}` : row.displayAvailableForBorrowBalance}</CellText>;
+				return (
+					<CellText>
+						{typeof row.displayAvailableForBorrowBalance === "number"
+							? `${row.displayAvailableForBorrowBalance} ${row.tokenSymbol}`
+							: row.displayAvailableForBorrowBalance}
+					</CellText>
+				);
 			},
 			sort: true,
 		},
@@ -354,7 +360,13 @@ const BorrowBalance = (props) => {
 			dataField: "displayBorrowedBalance",
 			text: t("borrow.borrowBalance"),
 			formatter: (cellContent, row, rowIndex) => {
-				return <CellText>{typeof row.displayBorrowedBalance === 'number' ? `${row.displayBorrowedBalance} ${row.tokenSymbol}` : row.displayBorrowedBalance}</CellText>;
+				return (
+					<CellText>
+						{typeof row.displayBorrowedBalance === "number"
+							? `${row.displayBorrowedBalance} ${row.tokenSymbol}`
+							: row.displayBorrowedBalance}
+					</CellText>
+				);
 			},
 			sort: true,
 		},
@@ -456,18 +468,20 @@ const BorrowBalance = (props) => {
 
 	return (
 		<div className="d-flex flex-column">
-			<BootstrapTable
-				wrapperClasses="table-responsive d-none d-lg-block"
-				bordered={false}
-				classes="table table-head-custom table-borderless table-vertical-center overflow-hidden borrow__table"
-				bootstrap4
-				remote
-				keyField="id"
-				data={tokensRow}
-				columns={columns}
-				onTableChange={onTableChange}
-			></BootstrapTable>
-			<ResponsiveTable breakpoint={"lg"} columns={columns} data={tokensRow} direction={"rtl"} />
+			<Styled.BorrowTableWrap>
+				<BootstrapTable
+					wrapperClasses="table-responsive d-none d-lg-block"
+					bordered={false}
+					classes="table table-head-custom table-borderless table-vertical-center overflow-hidden"
+					bootstrap4
+					remote
+					keyField="id"
+					data={tokensRow}
+					columns={columns}
+					onTableChange={onTableChange}
+				></BootstrapTable>
+			</Styled.BorrowTableWrap>
+			<ResponsiveTable breakpoint="lg" columns={columns} data={tokensRow} direction="rtl" />
 
 			{modals}
 		</div>

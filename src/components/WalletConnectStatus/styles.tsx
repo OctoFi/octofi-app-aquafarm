@@ -6,7 +6,7 @@ export const AccountState = styled.div<{ type?: string }>`
 	align-items: center;
 	justify-content: ${({ type }) => (type === "success" ? "flex-start" : "center")};
 	padding: ${({ type }) => (type === "success" ? "14px 20px" : "24px 20px")};
-	border-radius: 18px;
+	border-radius: 12px;
 `;
 
 export const AccountStateContent = styled.div`

@@ -14,7 +14,7 @@ const FancyButton = styled.button`
 	font-size: 1rem;
 	width: auto;
 	min-width: 3.5rem;
-	border: 1px solid ${({ theme }) => theme.text4};
+	border: 1px solid ${({ theme }) => theme.borderColor2};
 	outline: none;
 	background: ${({ theme }) => theme.bg1};
 	:hover {

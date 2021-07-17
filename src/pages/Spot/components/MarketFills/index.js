@@ -39,7 +39,7 @@ const TR = styled.div`
 	@media (max-width: 1400px) {
 		max-height: 56px;
 		padding: 18px 20px;
-		border-radius: 18px;
+		border-radius: 12px;
 		height: 56px;
 	}
 `;

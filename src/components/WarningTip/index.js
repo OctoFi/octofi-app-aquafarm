@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useBetaMessageManager } from "../../contexts/LocalStorage";
 
 const AlertContainer = styled.div`
-	border-radius: 18px;
+	border-radius: 12px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -36,7 +36,7 @@ const AlertText = styled.span`
 const AlertButton = styled(BS)`
 	min-height: 48px;
 	height: 48px;
-	border-radius: 18px;
+	border-radius: 12px;
 	font-weight: 500;
 	min-width: 105px;
 `;

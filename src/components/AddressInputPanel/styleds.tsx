@@ -14,7 +14,7 @@ export const InputContainer = styled.div`
 export const ContainerRow = styled.div<{ error?: boolean }>`
 	background-color: ${({ theme }) => theme.bg1};
 	border: 1px solid ${({ error, theme }) => (error ? theme.red1 : theme.bg1)};
-	border-radius: 18px;
+	border-radius: 12px;
 	display: flex;
 	justify-content: center;
 	align-items: center;

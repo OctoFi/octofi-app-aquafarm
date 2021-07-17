@@ -5,7 +5,7 @@ import { TYPE } from "../../theme";
 const Wrapper = styled.button<{ isActive?: boolean; activeElement?: boolean }>`
 	border-radius: 20px;
 	background: ${({ theme }) => theme.modalBG};
-	border: 1px solid ${({ theme }) => theme.text4};
+	border: 1px solid ${({ theme }) => theme.borderColor2};
 	display: flex;
 	width: fit-content;
 	cursor: pointer;

@@ -76,7 +76,7 @@ export const SectionNumber = styled.div`
 `;
 
 export const AlertContainer = styled.div`
-	border-radius: 18px;
+	border-radius: 12px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

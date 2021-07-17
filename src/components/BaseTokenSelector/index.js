@@ -38,7 +38,7 @@ const CurrencySelect = styled.button`
 	font-weight: 500;
 	background-color: ${({ theme }) => theme.bg1};
 	color: ${({ theme }) => theme.text1};
-	border-radius: 18px;
+	border-radius: 12px;
 	box-shadow: none;
 	outline: none;
 	cursor: pointer;

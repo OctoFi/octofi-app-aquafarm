@@ -5,7 +5,7 @@ export const Card = styled.div`
 	color: ${({ theme }) => theme.text1};
 	display: flex;
 	align-items: center;
-	border-radius: 18px;
+	border-radius: 12px;
 	margin-bottom: 1rem;
 	padding: 1.5rem;
 `;

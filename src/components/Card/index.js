@@ -9,8 +9,8 @@ export const CustomCard = styled(Card)`
 	margin-bottom: ${({ margin, marginBottom }) =>
 		marginBottom ? `${marginBottom}px` : margin ? `${margin}px` : "20px"};
 	margin-top: ${({ margin, marginTop }) => (marginTop ? `${marginTop}px` : margin ? `${margin}px` : "0")};
-	border-radius: 18px;
-	border: 1px solid ${({ theme }) => theme.text4};
+	border-radius: 12px;
+	border: 1px solid ${({ theme }) => theme.borderColor2};
 `;
 
 export const CustomHeader = styled(Header)`

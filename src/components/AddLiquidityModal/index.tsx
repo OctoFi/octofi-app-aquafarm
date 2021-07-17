@@ -361,7 +361,7 @@ export default function AddLiquidityModal({ history }: RouteComponentProps) {
 							/>
 						</Col>
 						<Col xs={12} className="mb-3">
-							<LightCard padding={"0"} borderRadius={"18px"}>
+							<LightCard padding={"0"} borderRadius={"12px"}>
 								<PriceTopbar>{t("pools.selectedPool")}</PriceTopbar>
 
 								<PlatformRow className={"px-4 pb-3"}>

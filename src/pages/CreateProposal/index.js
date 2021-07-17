@@ -54,7 +54,7 @@ const FormLabel = styled(Form.Label)`
 `;
 
 const FormControl = styled(Form.Control)`
-	border-radius: 18px;
+	border-radius: 12px;
 	background-color: ${({ theme }) => theme.bg1};
 	min-height: 56px;
 	padding: 18px 20px;

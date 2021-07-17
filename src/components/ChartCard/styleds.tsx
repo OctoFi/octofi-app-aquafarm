@@ -22,7 +22,7 @@ export const CustomTitle = styled.span`
 export const Wrapper = styled.div`
 	background-color: ${({ theme }) => theme.modalBG};
 	color: ${({ theme }) => theme.text1};
-	border-radius: 18px;
+	border-radius: 12px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

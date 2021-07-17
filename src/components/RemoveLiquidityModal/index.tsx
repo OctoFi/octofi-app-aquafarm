@@ -117,7 +117,7 @@ export const PlatformLabel = styled.span`
 `;
 
 export const PlatformControl = styled.div`
-	border-radius: 18px;
+	border-radius: 12px;
 	padding: 0 10px 15px;
 	min-height: 56px;
 	display: flex;
@@ -436,7 +436,7 @@ export default function RemoveLiquidityModal({ history }: RouteComponentProps) {
 							/>
 						</Col>
 						<Col xs={12} className={"d-none d-xl-flex"}>
-							<LightCard padding={"0"} borderRadius={"18px"} style={{ marginBottom: 20 }}>
+							<LightCard padding={"0"} borderRadius={"12px"} style={{ marginBottom: 20 }}>
 								<PriceTopbar>
 									{t("pools.willReceive")} ({t("only")} ETH {t("or")} ERC-20)
 								</PriceTopbar>

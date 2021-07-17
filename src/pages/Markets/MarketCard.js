@@ -73,7 +73,7 @@ const CustomInputGroup = styled(InputGroup)`
 `;
 
 const CustomNavLink = styled(Nav.Link)`
-	border-radius: 18px !important;
+	border-radius: 12px !important;
 	color: ${({ theme }) => theme.primary};
 	background-color: ${({ theme }) => theme.primaryLight};
 	white-space: nowrap;

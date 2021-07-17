@@ -31,7 +31,7 @@ import { addTransaction } from "../../state/transactions/actions";
 import { CloseIcon } from "../../theme";
 import { getContract } from "../../utils";
 
-import AddressInputPanel from "../AddressInputPanel";
+// import AddressInputPanel from "../AddressInputPanel";
 import withWeb3Account from "../hoc/withWeb3Account";
 import { Modal } from "../Modal/bootstrap";
 import { RowBetween } from "../Row";
@@ -733,6 +733,7 @@ class InstantSwap extends React.Component {
 						if (e.response.data.hasOwnProperty("errors")) {
 							e.response.data.errors.map((err) => {
 								toast.error(err.msg);
+								return err;
 							});
 						} else {
 							toast.error(t("errors.unavailablePair"));

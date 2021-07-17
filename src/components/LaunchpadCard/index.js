@@ -13,8 +13,8 @@ import Img from "../UI/Img";
 
 const Wrapper = styled(Link)`
 	width: 100%;
-	border-radius: 18px;
-	border: 1px solid ${({ theme }) => theme.text4};
+	border-radius: 12px;
+	border: 1px solid ${({ theme }) => theme.borderColor2};
 	background-color: ${({ theme }) => theme.bg1};
 	padding: 24px;
 	display: flex;

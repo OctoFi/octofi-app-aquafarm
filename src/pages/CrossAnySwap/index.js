@@ -54,7 +54,7 @@ const Modal = styled(BSModal)`
 const TabButton = styled(BS)`
 	min-height: 48px;
 	height: 48px;
-	border-radius: 18px;
+	border-radius: 12px;
 	font-weight: 500;
 	font-size: 1rem;
 	min-width: 127px;
@@ -83,7 +83,7 @@ const Button = styled(BS)`
 // const AlertButton = styled(BS)`
 //   min-height: 48px;
 //   height: 48px;
-//   border-radius: 18px;
+//   border-radius: 12px;
 //   font-weight: 500;
 //   min-width: 105px;
 // `
@@ -209,7 +209,7 @@ const SubmitButtonContainer = styled.div`
 `;
 
 // const AlertContainer = styled.div`
-//   border-radius: 18px;
+//   border-radius: 12px;
 //   display: flex;
 //   align-items: center;
 //   justify-content: space-between;

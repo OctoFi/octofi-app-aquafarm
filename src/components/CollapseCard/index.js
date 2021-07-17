@@ -4,7 +4,7 @@ import styled, { ThemeContext } from "styled-components";
 
 const Wrapper = styled.div`
 	background-color: ${({ theme }) => theme.modalBG};
-	border-radius: 18px;
+	border-radius: 12px;
 	margin-bottom: 15px;
 	overflow: hidden;
 	transition: all 0.6s ease;

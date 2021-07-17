@@ -33,7 +33,7 @@ const config = getConfig();
 const Button = styled(BS)`
 	min-height: 48px;
 	height: 48px;
-	border-radius: 18px;
+	border-radius: 12px;
 	font-weight: 500;
 	font-size: 1rem;
 	min-width: 105px;

@@ -42,12 +42,12 @@ import CurrencyLogo from "../../components/CurrencyLogo";
 const Item = ListGroup.Item;
 
 const ListItem = styled(Item)`
-	border: 1px solid ${({ theme }) => theme.text4} !important;
+	border: 1px solid ${({ theme }) => theme.borderColor2} !important;
 	background-color: transparent;
 	color: ${({ theme }) => theme.text1};
 	display: flex;
 	align-items: center;
-	border-radius: 18px !important;
+	border-radius: 12px !important;
 	margin-bottom: 6px;
 `;
 
@@ -323,7 +323,7 @@ const TokenWrapper = styled.div`
 	background-color: ${({ theme }) => theme.bg1};
 	padding: 0 1.125rem;
 	height: 56px;
-	border-radius: 18px;
+	border-radius: 12px;
 	display: flex;
 	align-items: center;
 `;

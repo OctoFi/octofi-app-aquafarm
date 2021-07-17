@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 	padding: 10px;
 	height: calc(100% - 20px);
 	margin-bottom: 20px;
-	border: 1px solid ${({ theme }) => theme.text4};
+	border: 1px solid ${({ theme }) => theme.borderColor2};
 
 	@media (max-width: 991px) {
 		padding: 20px;

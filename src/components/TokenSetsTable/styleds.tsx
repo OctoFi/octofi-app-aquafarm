@@ -114,7 +114,7 @@ export const CustomNavItem = styled(Nav.Item)`
 `;
 
 export const CustomNavLink = styled(Nav.Link)`
-	border-radius: 18px !important;
+	border-radius: 12px !important;
 	color: ${({ theme }) => theme.primary};
 	background-color: ${({ theme }) => theme.primaryLight};
 	white-space: nowrap;
@@ -187,13 +187,13 @@ export const ExploreTable = styled.div`
 			}
 
 			&:first-child {
-				border-top-left-radius: 18px;
-				border-bottom-left-radius: 18px;
+				border-top-left-radius: 12px;
+				border-bottom-left-radius: 12px;
 			}
 
 			&:last-child {
-				border-top-right-radius: 18px;
-				border-bottom-right-radius: 18px;
+				border-top-right-radius: 12px;
+				border-bottom-right-radius: 12px;
 			}
 		}
 

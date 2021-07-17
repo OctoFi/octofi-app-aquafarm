@@ -159,21 +159,21 @@ export const Arrow = styled.div`
 export const Separator = styled.div`
 	height: 0;
 	width: 100%;
-	border-bottom: 1px solid ${({ theme }) => theme.text4};
+	border-bottom: 1px solid ${({ theme }) => theme.borderColor2};
 `;
 
 export const VerticalSeparator = styled.div<{ margin: number }>`
 	width: 0;
 	margin: 0 ${({ margin }) => `${margin}rem`};
 	align-self: stretch;
-	border-right: 1px solid ${({ theme }) => theme.text4};
+	border-right: 1px solid ${({ theme }) => theme.borderColor2};
 	position: relative;
 
 	@media (max-width: 991px) {
 		width: 100%;
 		height: 0;
 		border-right: none;
-		border-bottom: 1px solid ${({ theme }) => theme.text4};
+		border-bottom: 1px solid ${({ theme }) => theme.borderColor2};
 		margin: ${({ margin }) => `${margin}rem`} 0;
 	}
 `;

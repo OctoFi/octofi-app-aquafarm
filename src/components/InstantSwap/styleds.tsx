@@ -22,7 +22,7 @@ export const RateText = styled(Text)`
 
 export const ProgressContainer = styled.div`
 	background: ${({ theme }) => theme.primaryLight};
-	border-radius: 18px;
+	border-radius: 12px;
 	padding: 26px 20px;
 	margin-top: 10px;
 

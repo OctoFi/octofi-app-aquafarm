@@ -13,7 +13,7 @@ export const MenuFlyout = styled.span`
 	min-width: 22rem;
 	background-color: ${({ theme }) => theme.bg1};
 	box-shadow: none;
-	border: 1px solid ${({ theme }) => theme.text4};
+	border: 1px solid ${({ theme }) => theme.borderColor2};
 	border-radius: 12px;
 	display: flex;
 	flex-direction: column;

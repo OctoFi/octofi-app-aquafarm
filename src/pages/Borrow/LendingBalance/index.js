@@ -20,6 +20,7 @@ import LendingModalContainer from "./LendingModalContainer";
 import { sortedData } from "../../../lib/helper";
 import { useTranslation } from "react-i18next";
 import useTheme from "../../../hooks/useTheme";
+import * as Styled from '../styleds';
 
 const LogoContainer = styled.div`
 	width: 32px;
@@ -359,17 +360,19 @@ const LendingBalance = (props) => {
 
 	return (
 		<div className="d-flex flex-column">
-			<BootstrapTable
-				wrapperClasses="table-responsive d-none d-lg-block"
-				bordered={false}
-				classes="table table-head-custom table-borderless table-vertical-center overflow-hidden borrow__table"
-				bootstrap4
-				remote
-				keyField="id"
-				data={tokensRow}
-				columns={columns}
-				onTableChange={onTableChange}
-			></BootstrapTable>
+			<Styled.BorrowTableWrap>
+				<BootstrapTable
+					wrapperClasses="table-responsive d-none d-lg-block"
+					bordered={false}
+					classes="table table-head-custom table-borderless table-vertical-center overflow-hidden"
+					bootstrap4
+					remote
+					keyField="id"
+					data={tokensRow}
+					columns={columns}
+					onTableChange={onTableChange}
+				></BootstrapTable>
+			</Styled.BorrowTableWrap>
 			<ResponsiveTable breakpoint={"lg"} columns={columns} data={tokensRow} direction={"rtl"} />
 
 			{isModalOpenState && aTokenDataState && (

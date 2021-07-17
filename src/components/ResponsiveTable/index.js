@@ -28,8 +28,8 @@ const HeaderValue = styled.span`
 `;
 
 const Row = styled.div`
-	border-radius: 18px;
-	border: ${({ withoutBorder, theme }) => (withoutBorder ? "none" : `1px solid ${theme.text4}`)};
+	border-radius: 12px;
+	border: ${({ withoutBorder, theme }) => (withoutBorder ? "none" : `1px solid ${theme.borderColor2}`)};
 	padding: ${({ withoutBorder }) => (withoutBorder ? "0" : "15px")};
 
 	&:not(:last-child) {

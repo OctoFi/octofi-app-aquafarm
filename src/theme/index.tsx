@@ -51,11 +51,11 @@ export function colors(darkMode?: boolean): Colors {
 		bg2: darkMode ? "#3F3F46" : "#A1A1AA",
 		bg3: darkMode ? "#3d4046" : white,
 		bg4: darkMode ? "#232429" : "#d4daf2",
-		bg5: darkMode ? `rgba(255, 255, 255, 0.1) ` : `rgba(0, 0, 0, 0.05)`,
+		bg5: darkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
 
 		// UI
-		borderColor: darkMode ? `rgba(255, 255, 255, 0.05) ` : `rgba(0, 0, 0, 0.05)`,
-		borderColor2: darkMode ? `rgba(255, 255, 255, 0.15) ` : `rgba(0, 0, 0, 0.15)`,
+		borderColor: darkMode ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.05)",
+		borderColor2: darkMode ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.15)",
 		bodyBg: darkMode
 			? "linear-gradient(201.32deg, #222429 -48.82%, #232429 51.35%)"
 			: "linear-gradient(201.32deg, #fff -48.82%, #fff 51.35%)",

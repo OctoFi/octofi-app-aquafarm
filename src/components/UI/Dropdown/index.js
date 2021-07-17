@@ -13,7 +13,7 @@ const Button = styled.button`
 	height: ${({ size }) => (size === "sm" ? "32px" : "56px")};
 	padding-left: ${({ size }) => (size === "sm" ? "16px" : "20px")};
 	padding-right: ${({ size }) => (size === "sm" ? "22px" : "24px")};
-	border-radius: ${({ size }) => (size === "sm" ? "12px" : "18px")};
+	border-radius: 12px;
 	background-color: ${({ variant, theme }) =>
 		variant === "secondary" ? theme.secondaryLight : theme.primaryLight};
 	transition: 0.4s ease all;

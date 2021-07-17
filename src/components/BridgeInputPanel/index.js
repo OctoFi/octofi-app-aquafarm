@@ -53,7 +53,7 @@ const CurrencySelect = styled.button`
 	font-weight: 500;
 	background-color: ${({ theme }) => theme.primaryLight};
 	color: ${({ theme }) => theme.primary};
-	border-radius: 18px;
+	border-radius: 12px;
 	box-shadow: none;
 	outline: none;
 	cursor: pointer;
@@ -227,7 +227,7 @@ const NumericalInput = styled.input`
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-appearance: textfield;
-  border-radius: 18px;
+  border-radius: 12px;
   height: 56px;
   font-size: 1rem;
   font-weight: 500;
