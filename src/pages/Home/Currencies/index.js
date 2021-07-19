@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { isMobile } from "react-device-detect";
@@ -11,7 +11,6 @@ import { CustomCard } from "../../../components/Card";
 import SearchIcon from "../../../assets/images/search.svg";
 import MarketApi from "../../../http/market";
 import CurrencyText from "../../../components/CurrencyText";
-import ResponsiveTable from "../../../components/ResponsiveTable";
 import SparklineChart from "../../../components/SparklineChart";
 import {
 	InputGroupFormControl as FormControl,
@@ -19,20 +18,19 @@ import {
 	InputGroupPrepend,
 	InputGroupText,
 } from "../../../components/Form";
+import CoinDisplay from "../../../components/CoinDisplay";
 import * as Styled from "./styleds";
+// import NumberDisplay from "../../../components/NumberDisplay";
 
 const marketApi = new MarketApi();
 
 let typingInterval;
 
 const Currencies = (props) => {
+	const defaultCoins = process.env.REACT_APP_FEATURED_COINS?.split(",") || [];
 	const [coins, setCoins] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]);
 	const [query, setQuery] = useState("");
 	const { t } = useTranslation();
-
-	const defaultCoins = useMemo(() => {
-		return process.env.REACT_APP_HOME_TOP10?.split(",") || [];
-	}, []);
 
 	const getSearchedCoins = useCallback(async (query) => {
 		try {
@@ -79,111 +77,90 @@ const Currencies = (props) => {
 		}
 	}, [query]);
 
-	const columns = [
-		{
-			dataField: "name",
-			text: t("name"),
-			formatter: (cell, row) => {
-				return (
-					<div className="d-flex coin align-items-center">
-						{row.hasOwnProperty("image") ? (
-							<Styled.CoinIcon>
-								<img src={row?.image} alt={row?.name} />
-							</Styled.CoinIcon>
-						) : (
-							<Skeleton
-								width={isMobile ? 24 : 55}
-								height={isMobile ? 24 : 55}
-								className={isMobile ? "mr-2" : "mr-4"}
-							/>
-						)}
+	const columnRank = {
+		dataField: "id",
+		text: "#",
+		formatter: (cellContent, row, rowIndex) => {
+			return row?.market_cap_rank;
+		},
+		sort: false,
+	};
 
-						<Styled.CoinSymbol>
-							{row.hasOwnProperty("symbol") ? (
-								row?.symbol?.toUpperCase()
-							) : (
-								<Skeleton width={isMobile ? 30 : 80} />
-							)}
-						</Styled.CoinSymbol>
-						<Styled.CoinName>
-							{row.hasOwnProperty("name") ? row?.name : <Skeleton width={isMobile ? 40 : 120} />}
-						</Styled.CoinName>
-					</div>
-				);
-			},
+	const columnName = {
+		dataField: "name",
+		text: t("name"),
+		formatter: (cell, row) => {
+			return <CoinDisplay name={row?.name} symbol={row?.symbol} image={row?.image} />;
 		},
-		{
-			dataField: "price",
-			text: t("table.price"),
-			formatter: (cell, row) => {
-				return (
-					<Styled.CoinPrice>
-						{row.hasOwnProperty("current_price") ? (
-							<CurrencyText>{row?.current_price}</CurrencyText>
-						) : (
-							<Skeleton width={isMobile ? 50 : 80} height={32} />
-						)}
-					</Styled.CoinPrice>
-				);
-			},
-		},
-		{
-			dataField: "price_change",
-			text: t("table.24_price"),
-			formatter: (cell, row) => {
-				const data = row?.price_change_percentage_24h?.toFixed(4);
-				return row.hasOwnProperty("current_price") ? (
-					<span
-						className={`label label-inline ${isMobile ? "label-sm" : "label-lg"} label-light-${
-							data > 0 ? "success" : "danger"
-						}`}
-					>
-						{data > 0 ? "+" : ""}
-						{data ? `${data}%` : ""}
-					</span>
-				) : (
-					<Skeleton width={80} height={32} />
-				);
-			},
-		},
-		{
-			dataField: "sparkline",
-			text: t("last7Days"),
-			formatter: (cell, row, index) => {
-				const data = row?.sparkline_in_7d?.price;
+	};
 
-				return row.hasOwnProperty("sparkline_in_7d") ? (
-					<SparklineChart
-						data={data}
-						theme={row.price_change_percentage_7d_in_currency >= 0 ? "primary" : "secondary"}
-					/>
-				) : (
-					<Skeleton width={120} height={40} />
-				);
-			},
-			style: {
-				width: 180,
-			},
+	const columnPrice = {
+		dataField: "price",
+		text: t("table.price"),
+		formatter: (cell, row) => {
+			return (
+				<Styled.CoinPrice>
+					{row.hasOwnProperty("current_price") ? (
+						<CurrencyText>{row?.current_price}</CurrencyText>
+					) : (
+						<Skeleton width={isMobile ? 50 : 80} height={32} />
+					)}
+				</Styled.CoinPrice>
+			);
 		},
-	];
+	};
 
-	const mobileColumns = [
-		...columns,
-		{
-			dataField: "actions",
-			text: t("table.actions"),
-			formatter(cellContent, row) {
-				return (
-					<div className="d-flex flex-column align-items-stretch align-items-lg-center justify-content-center w-100">
-						<Styled.StyledLink to={`/market/${row?.id}`}>
-							<Styled.TradeButton>View More</Styled.TradeButton>
-						</Styled.StyledLink>
-					</div>
-				);
-			},
-			isAction: true,
+	const column24hChange = {
+		dataField: "price_change",
+		text: t("table.24_price"),
+		formatter: (cell, row) => {
+			const data = row?.price_change_percentage_24h?.toFixed(2);
+			return row.hasOwnProperty("current_price") ? (
+				<span className={`${data > 0 ? "text-success" : "text-danger"}`}>
+					{data > 0 ? "+" : ""}
+					{data ? `${data}%` : ""}
+				</span>
+			) : (
+				<Skeleton width={80} height={32} />
+			);
 		},
-	];
+	};
+
+	// const columnMktCap = {
+	// 	dataField: "mkt_cap",
+	// 	text: t("table.marketCap"),
+	// 	formatter: (cell, row) => {
+	// 		const data = row?.market_cap;
+	// 		return row.hasOwnProperty("current_price") ? (
+	// 			<NumberDisplay value={data} currency={true} />
+	// 		) : (
+	// 			<Skeleton width={80} height={32} />
+	// 		);
+	// 	},
+	// };
+
+	const columnSparkline = {
+		dataField: "sparkline",
+		text: t("last7Days"),
+		formatter: (cell, row, index) => {
+			const data = row?.sparkline_in_7d?.price;
+
+			return row.hasOwnProperty("sparkline_in_7d") ? (
+				<SparklineChart
+					data={data}
+					theme={row.price_change_percentage_7d_in_currency >= 0 ? "primary" : "secondary"}
+				/>
+			) : (
+				<Skeleton width={120} height={40} />
+			);
+		},
+		style: {
+			width: 180,
+		},
+	};
+
+	const columns = [columnRank, columnName, columnPrice, column24hChange, columnSparkline];
+	const mobileColumns = [columnName, columnPrice, column24hChange];
 
 	const rowEvents = {
 		onClick: (e, row) => {
@@ -192,15 +169,15 @@ const Currencies = (props) => {
 	};
 
 	return (
-		<Styled.CurrencySection>
-			<div className="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center justify-content-between section__title">
+		<Styled.Wrapper>
+			<div className="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center justify-content-between mb-4">
 				<div className="d-flex align-items-start justify-content-between">
 					<h2 className="h2 mr-auto">{t("tokens.assets")}</h2>
 					<Link to={"/invest/tokens"} className={"d-flex d-lg-none"}>
 						<Button variant="link">{t("tokens.allAssets")}</Button>
 					</Link>
 				</div>
-				<InputGroup className={"w-auto"}>
+				<InputGroup className="w-auto">
 					<InputGroupPrepend>
 						<InputGroupText>
 							<SVG src={SearchIcon} />
@@ -219,27 +196,23 @@ const Currencies = (props) => {
 			<CustomCard>
 				{coins.length > 0 ? (
 					<>
-						<Styled.CurrenciesTable className="d-none d-lg-block">
+						<Styled.CurrenciesTable>
 							<Table
 								wrapperClasses="table-responsive"
 								bordered={false}
-								classes={`table table-vertical-center overflow-hidden table-dark-border table-hover`}
+								classes="table table-vertical-center overflow-hidden table-dark-border table-hover"
 								bootstrap4
 								remote
 								keyField="id"
 								rowEvents={rowEvents}
-								columns={columns}
+								columns={isMobile ? mobileColumns : columns}
 								data={coins}
 							/>
 						</Styled.CurrenciesTable>
 
-						<ResponsiveTable breakpoint={"lg"} columns={mobileColumns} data={coins} />
-
 						<Styled.GotoMarketContainer>
 							<Link to={"/invest/tokens"}>
-								<Button variant={"link"}>
-									{t("tokens.allAssets")}
-								</Button>
+								<Button variant={"link"}>{t("tokens.allAssets")}</Button>
 							</Link>
 						</Styled.GotoMarketContainer>
 					</>
@@ -249,7 +222,7 @@ const Currencies = (props) => {
 					</div>
 				)}
 			</CustomCard>
-		</Styled.CurrencySection>
+		</Styled.Wrapper>
 	);
 };
 

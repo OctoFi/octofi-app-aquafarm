@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { withRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { Tab, Row, Col } from "react-bootstrap";
+import { Tab, Nav } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 import SVG from "react-inlinesvg";
 
@@ -11,14 +11,12 @@ import { sortedData } from "../../lib/helper";
 import MarketApi from "../../http/market";
 import { fetchAllCoins, fetchCoinMarketPrices, fetchMarketCoins } from "../../state/market/actions";
 import { useIsDarkMode } from "../../state/user/hooks";
-import CurrencyLogo from "../CurrencyLogo";
 import CurrencyText from "../CurrencyText";
-import ArrowDown from "../Icons/ArrowDown";
 import { InputGroupFormControl as FormControl, InputGroupPrepend, InputGroupText } from "../Form";
 import Loading from "../Loading";
 import ResponsiveTable from "../ResponsiveTable";
+import CoinDisplay from "../CoinDisplay";
 import * as Styled from "./styleds";
-import "./style.scss";
 
 const api = new MarketApi();
 
@@ -139,7 +137,7 @@ const MarketTokens = (props) => {
 					});
 			} else {
 				clearTimeout(typingInterval);
-				typingInterval = setTimeout(() => getSearchedCoins(page), 400);
+				typingInterval = setTimeout(() => onSearchCoins(page), 400);
 			}
 		}
 	}, [page, dispatch]);
@@ -147,38 +145,17 @@ const MarketTokens = (props) => {
 	const columns = (hasPagination, hasCoinFetch = false) => [
 		{
 			dataField: "id",
-			text: "ID",
-			formatter: (cellContent, row, rowIndex) => rowIndex + 1,
+			text: "#",
+			formatter: (cellContent, row, rowIndex) => {
+				return row?.market_cap_rank;
+			},
 			sort: false,
 		},
 		{
 			dataField: "name",
 			text: t("tokens.assets"),
 			formatter: (cellContent, row, rowIndex) => {
-				return (
-					<div key={rowIndex} className="d-flex align-items-center flex-row py-3">
-						{row.image ? (
-							<Styled.Logo src={row.image} alt={row.name} />
-						) : (
-							<Styled.LogoContainer>
-								<CurrencyLogo currency={row.currency} />
-							</Styled.LogoContainer>
-						)}
-						<div className="d-flex flex-column justify-content-center ml-3 mr-auto">
-							<Styled.CustomTitle className={"font-weight-bolder mb-1"}>{row.name}</Styled.CustomTitle>
-							<Styled.SymbolText>{row.symbol.toUpperCase()}</Styled.SymbolText>
-						</div>
-						{hasCoinFetch && (
-							<button
-								className={`btn ${
-									darkMode ? "btn-light-primary" : "btn-primary"
-								} btn-sm ml-2 d-none d-lg-block`}
-							>
-								Aggregations <ArrowDown size={18} fill={"currentColor"} />
-							</button>
-						)}
-					</div>
-				);
+				return <CoinDisplay name={row?.name} symbol={row?.symbol} image={row?.image} key={rowIndex} />;
 			},
 			sort: true,
 		},
@@ -196,11 +173,7 @@ const MarketTokens = (props) => {
 			dataField: "price_change_percentage_24h",
 			text: t("table.24_price"),
 			formatter: (cellContent, row) => (
-				<span
-					className={`label px-3 px-lg-2 label-inline label-lg ${
-						row.price_change_percentage_24h >= 0 ? "label-light-success" : "label-light-danger"
-					} `}
-				>
+				<span className={row.price_change_percentage_24h >= 0 ? "text-success" : "text-danger"}>
 					{row.price_change_percentage_24h ? `${row.price_change_percentage_24h.toFixed(2)}%` : "-"}
 				</span>
 			),
@@ -210,11 +183,7 @@ const MarketTokens = (props) => {
 			dataField: "price_change_percentage_7d_in_currency",
 			text: t("tokensets.week"),
 			formatter: (cellContent, row) => (
-				<span
-					className={`label px-3 px-lg-2 label-inline label-lg ${
-						row.price_change_percentage_7d_in_currency >= 0 ? "label-light-success" : "label-light-danger"
-					} `}
-				>
+				<span className={row.price_change_percentage_7d_in_currency >= 0 ? "text-success" : "text-danger"}>
 					{row.price_change_percentage_7d_in_currency
 						? `${row.price_change_percentage_7d_in_currency.toFixed(2)}%`
 						: "-"}
@@ -226,11 +195,7 @@ const MarketTokens = (props) => {
 			dataField: "price_change_percentage_30d_in_currency",
 			text: t("tokensets.month"),
 			formatter: (cellContent, row) => (
-				<span
-					className={`label px-3 px-lg-2 label-inline label-lg ${
-						row.price_change_percentage_30d_in_currency >= 0 ? "label-light-success" : "label-light-danger"
-					} `}
-				>
+				<span className={row.price_change_percentage_30d_in_currency >= 0 ? "text-success" : "text-danger"}>
 					{row.price_change_percentage_30d_in_currency
 						? `${row.price_change_percentage_30d_in_currency.toFixed(2)}%`
 						: "-"}
@@ -242,11 +207,7 @@ const MarketTokens = (props) => {
 			dataField: "price_change_percentage_1y_in_currency",
 			text: t("tokensets.year"),
 			formatter: (cellContent, row) => (
-				<span
-					className={`label px-3 px-lg-2 label-inline label-lg ${
-						row.price_change_percentage_1y_in_currency >= 0 ? "label-light-success" : "label-light-danger"
-					} `}
-				>
+				<span className={row.price_change_percentage_1y_in_currency >= 0 ? "text-success" : "text-danger"}>
 					{row.price_change_percentage_1y_in_currency
 						? `${row.price_change_percentage_1y_in_currency.toFixed(2)}%`
 						: "-"}
@@ -265,6 +226,18 @@ const MarketTokens = (props) => {
 			sort: true,
 		},
 	];
+
+	/* {
+		{hasCoinFetch && (
+			<button
+				className={`btn ${
+					darkMode ? "btn-light-primary" : "btn-primary"
+				} btn-sm ml-2 d-none d-lg-block`}
+			>
+				Aggregations <ArrowDown size={18} fill={"currentColor"} />
+			</button>
+		)}
+	} */
 
 	const rowEvents = {
 		onClick: (e, row) => {
@@ -344,7 +317,7 @@ const MarketTokens = (props) => {
 		}
 	};
 
-	const getSearchedCoins = useCallback(async (settings) => {
+	const onSearchCoins = useCallback(async (settings) => {
 		try {
 			const coins = await api.get("search", {
 				locale: "en",
@@ -391,7 +364,7 @@ const MarketTokens = (props) => {
 		}
 	}, []);
 
-	const searchHandler = useCallback((e) => {
+	const onSearch = useCallback((e) => {
 		const value = e.target.value.toLowerCase();
 		setQuery(value);
 		setPage((p) => {
@@ -405,7 +378,7 @@ const MarketTokens = (props) => {
 		});
 	}, []);
 
-	const showMoreTokens = () => {
+	const onShowMore = () => {
 		setPage((p) => {
 			return {
 				...p,
@@ -417,98 +390,93 @@ const MarketTokens = (props) => {
 
 	return (
 		<Tab.Container defaultActiveKey="featured">
-			<Row>
-				<Styled.HeaderCol
-					xs={12}
-					className={
-						"d-flex flex-column-reverse flex-lg-row align-items-stretch align-items-lg-start justify-content-start justify-content-lg-between"
-					}
-				>
-					<Styled.CustomNav fill variant="pills" className={"d-flex flex-row align-items-center flex-nowrap"}>
-						<Styled.CustomNavItem>
-							<Styled.CustomNavLink eventKey="featured">{t("featuredCoins")}</Styled.CustomNavLink>
-						</Styled.CustomNavItem>
-						<Styled.CustomNavItem>
-							<Styled.CustomNavLink eventKey="all">{t("allCoins")}</Styled.CustomNavLink>
-						</Styled.CustomNavItem>
-					</Styled.CustomNav>
+			<Styled.Header className="d-flex flex-column-reverse flex-lg-row align-items-stretch align-items-lg-start justify-content-start justify-content-lg-between">
+				<Nav variant="pills">
+					<Styled.NavItem>
+						<Styled.NavLink eventKey="featured">{t("featuredCoins")}</Styled.NavLink>
+					</Styled.NavItem>
+					<Styled.NavItem>
+						<Styled.NavLink eventKey="all">{t("allCoins")}</Styled.NavLink>
+					</Styled.NavItem>
+				</Nav>
 
-					<Styled.CustomInputGroup className={"w-auto mb-lg-0"} bg={"darker"}>
-						<InputGroupPrepend>
-							<InputGroupText>
-								<SVG src={SearchIcon} />
-							</InputGroupText>
-						</InputGroupPrepend>
-						<FormControl id="PoolsSearch" placeholder={t("search")} onChange={searchHandler} />
-					</Styled.CustomInputGroup>
-				</Styled.HeaderCol>
+				<Styled.CustomInputGroup className={"w-auto mb-lg-0"} bg={"darker"}>
+					<InputGroupPrepend>
+						<InputGroupText>
+							<SVG src={SearchIcon} />
+						</InputGroupText>
+					</InputGroupPrepend>
+					<FormControl id="PoolsSearch" placeholder={t("search")} onChange={onSearch} />
+				</Styled.CustomInputGroup>
+			</Styled.Header>
 
-				<Col xs={12}>
-					<Tab.Content className={"bg-transparent"}>
-						<Tab.Pane eventKey="featured">
-							<BootstrapTable
-								wrapperClasses="table-responsive d-none d-lg-block"
-								bordered={false}
-								classes={`table table-head-custom table-borderless table-vertical-center overflow-hidden table-hover explore__table`}
-								bootstrap4
-								remote
-								keyField="id"
-								onTableChange={onChangeTable}
-								columns={columns(false, true)}
-								data={marketCoinsData}
-								rowEvents={rowEvents}
-								expandRow={expandRow}
-							/>
-							<ResponsiveTable
-								centered
-								size={"lg"}
-								breakpoint={"lg"}
-								columns={columns(false, true)}
-								data={marketCoinsData}
-								direction={"rtl"}
-							/>
-						</Tab.Pane>
-						<Tab.Pane eventKey="all">
-							<BootstrapTable
-								wrapperClasses="table-responsive d-none d-lg-block"
-								bordered={false}
-								classes={`table table-head-custom table-borderless table-vertical-center overflow-hidden table-hover explore__table`}
-								bootstrap4
-								remote
-								keyField="id"
-								columns={columns(true)}
-								data={allTokensData}
-								rowEvents={rowEvents}
-								onTableChange={onChangeTable}
-							/>
-							<ResponsiveTable
-								centered
-								size={"lg"}
-								breakpoint={"lg"}
-								columns={columns(true)}
-								data={allTokensData}
-								direction={"rtl"}
-							/>
+			<Tab.Content className="bg-transparent">
+				<Tab.Pane eventKey="featured">
+					<Styled.ExploreTableWrap>
+						<BootstrapTable
+							wrapperClasses="table-responsive d-none d-lg-block"
+							bordered={false}
+							classes="table table-head-custom table-borderless table-vertical-center overflow-hidden table-hover"
+							bootstrap4
+							remote
+							keyField="id"
+							onTableChange={onChangeTable}
+							columns={columns(false, true)}
+							data={marketCoinsData}
+							rowEvents={rowEvents}
+							expandRow={expandRow}
+						/>
+					</Styled.ExploreTableWrap>
+					<ResponsiveTable
+						centered
+						size={"lg"}
+						breakpoint={"lg"}
+						columns={columns(false, true)}
+						data={marketCoinsData}
+						direction={"rtl"}
+					/>
+				</Tab.Pane>
+				<Tab.Pane eventKey="all">
+					<Styled.ExploreTableWrap>
+						<BootstrapTable
+							wrapperClasses="table-responsive d-none d-lg-block"
+							bordered={false}
+							classes="table table-head-custom table-borderless table-vertical-center overflow-hidden table-hover explore__table"
+							bootstrap4
+							remote
+							keyField="id"
+							columns={columns(true)}
+							data={allTokensData}
+							rowEvents={rowEvents}
+							onTableChange={onChangeTable}
+						/>
+					</Styled.ExploreTableWrap>
+					<ResponsiveTable
+						centered
+						size={"lg"}
+						breakpoint={"lg"}
+						columns={columns(true)}
+						data={allTokensData}
+						direction={"rtl"}
+					/>
 
-							<div className="d-flex align-items-center justify-content-center" ref={loader}>
-								{page.hasMore || (allTokensData.length === 0 && page > 1) ? (
-									page.seeMore ? (
-										<div className="py-4">
-											<button className="btn btn-light-primary py-3" onClick={showMoreTokens}>
-												See More
-											</button>
-										</div>
-									) : (
-										<div className="py-5">
-											<Loading width={40} height={40} active id={`tokens-list`} />
-										</div>
-									)
-								) : null}
-							</div>
-						</Tab.Pane>
-					</Tab.Content>
-				</Col>
-			</Row>
+					<div className="d-flex align-items-center justify-content-center" ref={loader}>
+						{page.hasMore || (allTokensData.length === 0 && page > 1) ? (
+							page.seeMore ? (
+								<div className="py-4">
+									<button className="btn btn-light-primary py-3" onClick={onShowMore}>
+										See More
+									</button>
+								</div>
+							) : (
+								<div className="py-5">
+									<Loading width={40} height={40} active id={`tokens-list`} />
+								</div>
+							)
+						) : null}
+					</div>
+				</Tab.Pane>
+			</Tab.Content>
 		</Tab.Container>
 	);
 };

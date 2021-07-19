@@ -104,7 +104,7 @@ const SwapInputPanel = ({
 
 				{onUserInput && (
 					<Styled.InputContainer>
-						{account && currency && showMaxButton && label !== "To" && (
+						{account && currency && showMaxButton && (
 							<Button onClick={onUseMax} variant={"outline-primary"} size={"sm"}>
 								{t("max")}
 							</Button>

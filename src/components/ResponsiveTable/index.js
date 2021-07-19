@@ -12,6 +12,7 @@ const Header = styled.div`
 	padding: 20px 16px 15px;
 	border-bottom: 1px solid ${({ theme }) => theme.text3};
 `;
+
 const HeaderTitle = styled.span`
 	display: block;
 	margin-bottom: 1rem;
@@ -30,7 +31,7 @@ const HeaderValue = styled.span`
 const Row = styled.div`
 	border-radius: 12px;
 	border: ${({ withoutBorder, theme }) => (withoutBorder ? "none" : `1px solid ${theme.borderColor2}`)};
-	padding: ${({ withoutBorder }) => (withoutBorder ? "0" : "15px")};
+	padding: ${({ withoutBorder }) => (withoutBorder ? "0" : "1rem")};
 
 	&:not(:last-child) {
 		margin-bottom: 10px;
