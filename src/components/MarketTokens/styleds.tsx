@@ -1,109 +1,27 @@
 import styled from "styled-components";
-import { Col, Nav } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import { InputGroup } from "../../components/Form";
-
-export const Logo = styled.img`
-	width: 32px;
-	height: 32px;
-	border-radius: 32px;
-	background-color: ${({ theme }) => theme.text1};
-	border: 2px solid ${({ theme }) => theme.text1};
-
-	@media (max-width: 991px) {
-		width: 24px;
-		height: 24px;
-		border-radius: 24px;
-	}
-`;
-
-export const LogoContainer = styled.div`
-	width: 32px;
-	height: 32px;
-	border-radius: 32px;
-
-	@media (max-width: 991px) {
-		width: 24px;
-		height: 24px;
-		border-radius: 24px;
-	}
-`;
 
 export const CellText = styled.span`
 	font-weight: 500;
 	font-size: 0.875rem;
 	color: ${({ theme }) => theme.text1};
 
-	&.font-size-base {
-		font-size: 1rem;
-	}
-
 	@media (max-width: 991px) {
-		font-weight: 700;
-
-		&.label {
-			font-weight: 500;
-		}
+		font-weight: 600;
 	}
 `;
 
-export const SymbolText = styled.span`
-	font-weight: 500;
-	font-size: 1rem;
-	color: ${({ theme }) => theme.text1};
-
-	@media (max-width: 991px) {
-		font-size: 0.875rem;
-		font-weight: 400;
-	}
+export const NavItem = styled(Nav.Item)`
+	margin-left: 0.625rem;
 `;
 
-export const CustomTitle = styled.h4`
-	color: ${({ theme }) => theme.text1};
-	font-size: 1.25rem;
-
-	@media (max-width: 991px) {
-		font-size: 0.875rem;
-	}
-`;
-
-export const CustomNav = styled(Nav)`
-	margin-left: -30px !important;
-	margin-right: -30px !important;
-	overflow: auto;
-
-	@media (min-width: 768px) {
-		margin-left: -10px !important;
-		margin-right: -10px !important;
-	}
-`;
-
-export const CustomNavItem = styled(Nav.Item)`
-	flex-grow: initial !important;
-
-	padding: 0 10px 10px;
-
-	@media (max-width: 767px) {
-		padding: 0 5px 10px;
-	}
-
-	&:first-child {
-		@media (max-width: 767px) {
-			padding-left: 30px;
-		}
-	}
-	&:last-child {
-		@media (max-width: 767px) {
-			padding-right: 30px;
-		}
-	}
-`;
-
-export const CustomNavLink = styled(Nav.Link)`
+export const NavLink = styled(Nav.Link)`
+	background-color: ${({ theme }) => theme.primaryLight};
 	border-radius: 12px !important;
 	color: ${({ theme }) => theme.primary};
-	background-color: ${({ theme }) => theme.primaryLight};
 	white-space: nowrap;
-	padding: 14px 24px;
+	padding: 0.75rem 1.5rem;
 	min-height: 56px;
 	font-weight: 500;
 	display: flex;
@@ -111,10 +29,9 @@ export const CustomNavLink = styled(Nav.Link)`
 	justify-content: center;
 
 	@media (max-width: 767px) {
-		padding: 6px 15px;
+		padding: 0.5rem 1rem;
 		font-size: 1rem;
 		min-height: 32px;
-		border-radius: 12px !important;
 	}
 
 	&:hover {
@@ -127,21 +44,78 @@ export const CustomNavLink = styled(Nav.Link)`
 	}
 `;
 
-export const HeaderCol = styled(Col)`
-	margin: -10px 0 20px;
-
-	@media (min-width: 768px) {
-		margin-bottom: 25px;
-	}
+export const Header = styled.div`
+	margin-bottom: 1.5rem;
 `;
 
 export const CustomInputGroup = styled(InputGroup)`
-	margin-bottom: 30px;
+	margin-bottom: 1.5rem;
 `;
 
 export const MarketLink = styled.a`
 	color: ${({ theme }) => theme.text1};
+
 	@media (max-width: 991px) {
 		flex-basis: 100px;
+	}
+`;
+
+export const ExploreTableWrap = styled.div`
+	.table {
+		border-collapse: separate;
+		border-spacing: 0 0;
+		margin-bottom: 0 !important;
+
+		thead th {
+			background-color: ${({ theme }) => theme.bg5};
+			color: ${({ theme }) => theme.text1};
+			font-size: 0.875rem;
+			font-weight: 500;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			padding: 1.25rem 0.75rem;
+			min-height: 56px;
+
+			&:focus {
+				outline: none;
+			}
+
+			&:first-child {
+				border-top-left-radius: 12px;
+				border-bottom-left-radius: 12px;
+			}
+
+			&:last-child {
+				border-top-right-radius: 12px;
+				border-bottom-right-radius: 12px;
+				text-align: right;
+			}
+		}
+
+		th,
+		td {
+			vertical-align: middle !important;
+
+			&:first-child {
+				padding: 1.25rem 1.375rem;
+			}
+
+			&:last-child {
+				padding: 1.25rem 0.5rem;
+			}
+		}
+
+		td {
+			cursor: pointer;
+			color: ${({ theme }) => theme.text1};
+
+			&:last-child {
+				text-align: right;
+			}
+		}
+
+		tr:not(:last-child) td {
+			border-bottom: 1px solid ${({ theme }) => theme.borderColor};
+		}
 	}
 `;
