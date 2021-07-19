@@ -75,11 +75,13 @@
     },
     "table": {
         "actions": "Actions",
-        "24_price": "24h Change",
+        "1_price": "1h",
+        "24_price": "24h",
+        "7_day_price": "7d",
         "24_high": "24h High",
         "24_low": "24h Low",
         "24_volume": "24h Volume",
-        "marketCap": "Market Cap",
+        "marketCap": "Mkt Cap",
         "price": "Last Price"
     },
     "errors": {
