@@ -108,12 +108,6 @@ export default function CurrencyInputPanel({
 					</Styled.CurrencySelect>
 				</div>
 				<Styled.InputContainer>
-					{account && currency && showMaxButton && label !== "To" && (
-						<Button onClick={onMax} variant={"outline-primary"} size={"sm"}>
-							{t("max")}
-						</Button>
-					)}
-
 					<NumericalInput
 						value={value}
 						onUserInput={(val) => {
@@ -121,6 +115,11 @@ export default function CurrencyInputPanel({
 						}}
 					/>
 
+					{account && currency && showMaxButton && (
+						<Button onClick={onMax} variant={"outline-primary"} size={"sm"}>
+							{t("max")}
+						</Button>
+					)}
 					{account && (
 						<Styled.Balance showBalance={showMaxButton}>
 							{!!currency && selectedCurrencyBalance
