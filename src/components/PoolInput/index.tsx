@@ -225,7 +225,7 @@ export default function PoolInput({
 									onUserInput(val);
 								}}
 							/>
-							{account && pool && showMaxButton && label !== "To" && (
+							{account && pool && showMaxButton && (
 								<StyledBalanceMax onClick={onMax}>MAX</StyledBalanceMax>
 							)}
 						</InputContainer>

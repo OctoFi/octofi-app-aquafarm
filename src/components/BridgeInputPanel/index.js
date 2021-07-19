@@ -355,7 +355,7 @@ export default function BridgeInputPanel({
 									}
 								}}
 							/>
-							{account && currency && showMaxButton && label !== "To" && (
+							{account && currency && showMaxButton && (
 								<StyledBalanceMax onClick={onMax}>{t("max")}</StyledBalanceMax>
 							)}
 						</InputContainer>
