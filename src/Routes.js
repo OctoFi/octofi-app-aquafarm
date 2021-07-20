@@ -15,6 +15,7 @@ const Platform = lazy(() => import("./pages/Platform"));
 const Pools = lazy(() => import("./pages/Pools"));
 const Swap = lazy(() => import("./pages/Swap"));
 const Exchange = lazy(() => import("./pages/Exchange"));
+const Favorites = lazy(() => import("./pages/Favorites"));
 const Explore = lazy(() => import("./pages/Explore"));
 const MarketsExplore = lazy(() => import("./pages/MarketsExplore"));
 const CoinDetailsPage = lazy(() => import("./pages/CoinDetailsPage"));
@@ -67,6 +68,7 @@ const Routes = (props) => {
 					<Route path={"/dashboard"} component={Dashboard} />
 					<Route path={"/history"} exact component={History} />
 					<Route path={"/exchange"} component={Exchange} />
+					<Route path={"/favorites"} component={Favorites} />
 					<Route path={"/uniswap"} component={Swap} />
 					<Route path={"/onramp"} component={FiatOn} />
 					<Route path={"/offramp"} component={FiatOff} />
