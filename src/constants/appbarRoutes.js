@@ -2,7 +2,7 @@ export const routes = {
 	dashboard: {
 		title: "dashboard",
 		path: "/dashboard",
-		icon: "activity",
+		icon: "pie-chart",
 	},
 	history: {
 		title: "history",
@@ -13,15 +13,16 @@ export const routes = {
 		title: "exchange",
 		path: "/exchange",
 		icon: "maximize-2",
+		// icon: "repeat",
+	},
+	favorites: {
+		title: "favorites",
+		path: "/favorites",
+		icon: "star",
 	},
 	invest: {
 		title: "invest",
 		path: "/invest",
 		icon: "trending-up",
-	},
-	pools: {
-		title: "pools",
-		path: "/invest/pools",
-		icon: "pie-chart",
 	},
 };

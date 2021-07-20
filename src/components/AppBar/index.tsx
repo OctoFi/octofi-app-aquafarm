@@ -1,15 +1,16 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Activity, List, Maximize2, TrendingUp, PieChart } from "react-feather";
+import { PieChart, List, Maximize2, Repeat, Star, TrendingUp } from "react-feather";
 import { routes } from "../../constants/appbarRoutes";
 import * as Styled from "./styleds";
 
 const Icons = {
-	activity: Activity,
+	"pie-chart": PieChart,
 	list: List,
 	"maximize-2": Maximize2,
+	repeat: Repeat,
+	star: Star,
 	"trending-up": TrendingUp,
-	"pie-chart": PieChart,
 };
 
 const AppBar = () => {
@@ -23,7 +24,11 @@ const AppBar = () => {
 				if (typeof Icons[r.icon] !== "undefined") {
 					return (
 						<Styled.AppBarItem key={index} to={r.path} activeClassName={"active"} exact>
-							{React.createElement(Icons[r.icon])}
+							{r.icon === "maximize-2" ? (
+								<Styled.RotateIcon>{React.createElement(Icons[r.icon])}</Styled.RotateIcon>
+							) : (
+								React.createElement(Icons[r.icon])
+							)}
 							<span className="sr-only">{t(`menu.${r.title}`)}</span>
 						</Styled.AppBarItem>
 					);

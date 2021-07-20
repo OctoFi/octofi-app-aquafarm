@@ -31,3 +31,7 @@ export const AppBarItem = styled(NavLink)`
 		color: ${({ theme }) => theme.primary};
 	}
 `;
+
+export const RotateIcon = styled.span`
+	transform: rotate(-45deg);
+`;

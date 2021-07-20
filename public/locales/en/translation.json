@@ -280,6 +280,7 @@
     "accountOverview": "Account Overview",
     "dashboard": "Dashboard",
     "profile": "Profile",
+    "favorites": "Favorites",
     "blockNumber": "Block Number",
     "transactionHash": "Transaction Hash",
     "download": "Download {{ file }}",
