@@ -1,16 +1,22 @@
 import styled from "styled-components";
+import Img from "../../UI/Img";
 
 export const InputPanel = styled.div`
 	position: relative;
 	z-index: 1;
-	// border-radius: 12px;
-	// background: ${({ theme }) => theme.bg5};
-	// padding: 0.75rem;
 `;
 
 export const InputRow = styled.div<{ selected?: boolean }>`
-	${({ theme }) => theme.flexRowNoWrap};
-	align-items: center;
+	${({ theme }) => theme.flexColumnNoWrap};
+	background: ${({ theme }) => theme.bg1};
+	border-radius: 12px;
+	overflow: hidden;
+	// padding: 0.75rem;
+
+	@media (min-width: 768px) {
+		${({ theme }) => theme.flexRowNoWrap};
+		align-items: center;
+	}
 `;
 
 export const CurrencySelect = styled.button<{ selected?: boolean }>`
@@ -54,9 +60,10 @@ export const InputContainer = styled.div`
 export const Aligner = styled.div`
 	display: flex;
 	align-items: center;
+	gap: 12px;
 `;
 
-export const Logo = styled.img`
+export const Logo = styled(Img)`
 	border-radius: 50%;
 	margin-right: 0.5rem;
 	height: 24px;

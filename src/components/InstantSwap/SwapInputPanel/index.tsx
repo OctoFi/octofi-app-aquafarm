@@ -17,10 +17,11 @@ export type SwapInputPanelProps = {
 	id: string;
 	currencies: Array<any>;
 	type: string;
-	disableCurrencySelect: boolean;
+	disableCurrencySelect?: boolean;
 	onSelect: () => void;
 	onUserInput?: (X: any, Y: any, Z: any) => void;
 	onChangeBalance: (T: any) => void;
+	onUseMax?: (X: any, Y: any) => void;
 	showMaxButton?: boolean;
 };
 
@@ -36,25 +37,43 @@ const SwapInputPanel = ({
 	type,
 	disableCurrencySelect = false,
 	onChangeBalance = (balance) => balance,
+	onUseMax,
 	showMaxButton = false,
 }: SwapInputPanelProps) => {
-	let currency = undefined;
 	const { t } = useTranslation();
-	if (selected) {
-		currency = new Token(selected.chainId, selected.address, selected.decimals, selected.symbol, selected.name);
-	}
-	const [modalOpen, setModalOpen] = useState(false);
 	const { account } = useActiveWeb3React();
+	const [modalOpen, setModalOpen] = useState(false);
+	const [currency, setCurrency] = useState<Token | undefined>(undefined);
+	const [selectedTokenName, setSelectedTokenName] = useState("");
 	const selectedCurrencyBalance = useCurrencyBalance(
 		account ?? undefined,
 		selected && selected.symbol === "ETH" ? ETHER : currency
 	);
 
 	useEffect(() => {
+		if (selected) {
+			let token = new Token(
+				selected.chainId,
+				selected.address,
+				selected.decimals,
+				selected.symbol,
+				selected.name
+			);
+			setCurrency(token);
+			const name = formatTokenName(selected.symbol);
+			setSelectedTokenName(name);
+		}
+
 		onChangeBalance(selectedCurrencyBalance);
 	}, [selected]);
 
-	const handleDismissSearch = useCallback(() => {
+	const formatTokenName = (symbol: string) => {
+		return symbol && symbol.length > 16
+			? symbol.slice(0, 4) + "..." + symbol.slice(symbol.length - 5, symbol.length)
+			: symbol;
+	};
+
+	const onDismissSearch = useCallback(() => {
 		setModalOpen(false);
 	}, [setModalOpen]);
 
@@ -62,10 +81,6 @@ const SwapInputPanel = ({
 		if (!disableCurrencySelect) {
 			setModalOpen(true);
 		}
-	};
-
-	const onUseMax = () => {
-		alert("Use Max");
 	};
 
 	return (
@@ -80,17 +95,7 @@ const SwapInputPanel = ({
 
 									<Styled.TextWrap>
 										<Styled.Label>{label}</Styled.Label>
-
-										<Styled.TokenName>
-											{selected?.symbol && selected?.symbol.length > 16
-												? selected?.symbol.slice(0, 4) +
-												  "..." +
-												  selected?.symbol.slice(
-														selected?.symbol.length - 5,
-														selected?.symbol.length
-												  )
-												: selected?.symbol}
-										</Styled.TokenName>
+										<Styled.TokenName>{selectedTokenName}</Styled.TokenName>
 									</Styled.TextWrap>
 								</>
 							) : (
@@ -104,10 +109,18 @@ const SwapInputPanel = ({
 
 				{onUserInput && (
 					<Styled.InputContainer>
-						{account && currency && showMaxButton && (
-							<Button onClick={onUseMax} variant={"outline-primary"} size={"sm"}>
-								{t("max")}
-							</Button>
+						{account && currency && showMaxButton && onUseMax && (
+							<div className="pr-1">
+								<Button
+									onClick={() => {
+										onUseMax(type, selectedCurrencyBalance);
+									}}
+									variant={"outline-primary"}
+									size={"sm"}
+								>
+									{t("max")}
+								</Button>
+							</div>
 						)}
 
 						<NumericalInput
@@ -134,7 +147,7 @@ const SwapInputPanel = ({
 			{!disableCurrencySelect && onSelect && (
 				<SwapSelectModal
 					isOpen={modalOpen}
-					onDismiss={handleDismissSearch}
+					onDismiss={onDismissSearch}
 					onCurrencySelect={onSelect}
 					selectedCurrency={selected}
 					currencies={currencies}
