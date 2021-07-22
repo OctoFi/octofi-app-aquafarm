@@ -11,8 +11,16 @@ export const InputPanel = styled.div<{ hideInput?: boolean; withoutMargin?: bool
 `;
 
 export const InputRow = styled.div<{ selected: boolean }>`
-	${({ theme }) => theme.flexRowNoWrap};
-	align-items: center;
+	${({ theme }) => theme.flexColumnNoWrap};
+	background: ${({ theme }) => theme.bg1};
+	border-radius: 12px;
+	overflow: hidden;
+	// padding: 0.75rem;
+
+	@media (min-width: 768px) {
+		${({ theme }) => theme.flexRowNoWrap};
+		align-items: center;
+	}
 `;
 
 export const CurrencySelect = styled.button<{ selected?: boolean }>`
@@ -82,20 +90,3 @@ export const Balance = styled.span<{ showBalance?: boolean }>`
 	font-weight: 500;
 	font-size: 0.75rem;
 `;
-
-
-// export const LabelRow = styled.div`
-// 	color: ${({ theme }) => theme.text1};
-// 	font-size: 0.65rem;
-// 	line-height: 1rem;
-// `;
-
-// export const CustomDropDown = styled(DropDown) <{ selected: boolean }>`
-// 	margin: 0 0.25rem 0 0.5rem;
-// 	height: 35%;
-
-// 	path {
-// 		stroke: ${({ theme }) => theme.text1};
-// 		stroke-width: 1.5px;
-// 	}
-// `;
