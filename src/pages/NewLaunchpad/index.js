@@ -859,7 +859,7 @@ const NewLaunchpad = props => {
                                                     value={predictionAmount}
                                                     onChange={changePredictionAmount}
                                                 />
-                                                <Row className={'mt-5 custom-row'}>
+                                                <Row className={'mt-5'}>
                                                     <Col xs={12} md={6} lg={4} className={'d-flex flex-column'}>
                                                         <InnerCardLabel>OctoFi Fee</InnerCardLabel>
                                                         <InnerCard>{predictionParameters?.baseFee} {baseToken?.symbol}</InnerCard>
@@ -913,7 +913,7 @@ const NewLaunchpad = props => {
                                             </SelectFormControl>
                                         </Col>
                                         <Col xs={12} className={'mb-4 mt-2 d-flex flex-column'}>
-                                            <Row className={'custom-row'}>
+                                            <Row>
                                                 <Col xs={12} md={6}>
                                                     <Label>Start block</Label>
                                                     <CustomFormControl

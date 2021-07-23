@@ -479,7 +479,7 @@ const MakerContainer = (props) => {
 	return (
 		<Card>
 			<TopContainer>
-				<Row className={"custom-row"}>
+				<Row>
 					<Col xs={12}>
 						<Title>Your Order</Title>
 					</Col>

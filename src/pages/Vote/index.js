@@ -184,7 +184,7 @@ const Vote = (props) => {
 				</Card>
 			) : (
 				selectedProposal && (
-					<Row className={"custom-row"}>
+					<Row>
 						<Col className={"order-2 order-md-1"} xs={12} md={8}>
 							<Row>
 								<Col xs={12} className={"gutter-b"}>
