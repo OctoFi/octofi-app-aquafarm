@@ -48,13 +48,13 @@ export default class OneInchApi {
 		return this.instance.get("healthcheck");
 	}
 	getQuote(payload) {
-		return this.instance.get(`quote`, {
+		return this.instance.get("quote", {
 			params: payload,
 		});
 	}
 
 	getSwap(payload) {
-		return this.instance.get(`swap`, {
+		return this.instance.get("swap", {
 			params: {
 				...payload,
 				referrerAddress: ONE_INCH_REFERRER_ACCOUNT,
@@ -68,7 +68,7 @@ export default class OneInchApi {
 	}
 
 	getApprove(payload) {
-		return this.instance.get(`approve/calldata`, {
+		return this.instance.get("approve/calldata", {
 			params: payload,
 		});
 	}
