@@ -183,7 +183,7 @@ const WalletCard = (props) => {
 						) : (
 							<>
 								<Styled.TradeButton
-									href={`/#/uniswap?outputCurrency=${
+									href={`/#/exchange?outputCurrency=${
 										row.metadata.symbol === "ETH" ? "ETH" : row.metadata.address
 									}`}
 								>
@@ -199,7 +199,7 @@ const WalletCard = (props) => {
 								</Styled.TradeButton>
 
 								<Styled.TradeButton
-									href={`/#/uniswap?inputCurrency=${
+									href={`/#/exchange?inputCurrency=${
 										row.metadata.symbol === "ETH" ? "ETH" : row.metadata.address
 									}`}
 									variant={theme.secondary}
@@ -209,7 +209,7 @@ const WalletCard = (props) => {
 
 								{/* {value <= 0.001 ? (
 									<Styled.TradeButton
-										href={`/#/uniswap?inputCurrency=${
+										href={`/#/exchange?inputCurrency=${
 											row.metadata.symbol === "ETH" ? "ETH" : row.metadata.address
 										}&outputCurrency=0x7240aC91f01233BaAf8b064248E80feaA5912BA3`}
 										disabled

@@ -1396,7 +1396,7 @@ class InstantSwap extends React.Component {
 		return (
 			<>
 				<Row>
-					<Col xs={12} lg={6}>
+					<Col xs={12}>
 						<ResponsiveCard>
 							<SwapInputPanel
 								value={pair.deposit.value}
@@ -1529,7 +1529,7 @@ class InstantSwap extends React.Component {
 						</ResponsiveCard>
 					</Col>
 
-					<Col xs={12} lg={6}>
+					<Col xs={12} className="mt-4">
 						<RateList
 							items={rates}
 							loading={loading}

@@ -13,7 +13,6 @@ import HomePage from "./pages/Home";
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Platform = lazy(() => import("./pages/Platform"));
 const Pools = lazy(() => import("./pages/Pools"));
-const Swap = lazy(() => import("./pages/Swap"));
 const Exchange = lazy(() => import("./pages/Exchange"));
 const Favorites = lazy(() => import("./pages/Favorites"));
 const Explore = lazy(() => import("./pages/Explore"));
@@ -69,7 +68,6 @@ const Routes = (props) => {
 					<Route path={"/history"} exact component={History} />
 					<Route path={"/exchange"} component={Exchange} />
 					<Route path={"/favorites"} component={Favorites} />
-					<Route path={"/uniswap"} component={Swap} />
 					<Route path={"/onramp"} component={FiatOn} />
 					<Route path={"/offramp"} component={FiatOff} />
 					<Route path={"/invest"} exact component={Explore} />
