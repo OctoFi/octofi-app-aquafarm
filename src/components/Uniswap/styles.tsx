@@ -1,8 +1,4 @@
 import styled from "styled-components";
-import { ResponsiveCard } from "../Card";
-import { ClickableText } from "../ExternalLink";
-
-export const CustomCard = styled(ResponsiveCard)``;
 
 export const ApproveArrow = styled.div`
 	align-self: center;
@@ -11,10 +7,6 @@ export const ApproveArrow = styled.div`
 	@media (min-width: 991px) {
 		margin: 0 43px;
 	}
-`;
-
-export const StyledClickableText = styled(ClickableText)`
-	color: ${({ theme }) => theme.text1};
 `;
 
 export const SwitchCol = styled.div`

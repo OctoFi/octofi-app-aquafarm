@@ -4,6 +4,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import SVG from "react-inlinesvg";
 import { ArrowDown, ArrowUpRight } from "react-feather";
 import { useTranslation } from "react-i18next";
+import { Text } from "rebass";
 
 import ConfirmSwapModal from "./swap/ConfirmSwapModal";
 import CurrencyInputPanel from "../CurrencyInputPanel";
@@ -36,7 +37,8 @@ import SwapHeader from "../SwapHeader";
 import useTheme from "../../hooks/useTheme";
 import ArrowRightLongIcon from "../../assets/images/global/arrow-right-long.svg";
 import ArrowDownLongIcon from "../../assets/images/global/arrow-down-long.svg";
-import { CustomCard, ApproveArrow, StyledClickableText, SwitchCol } from "./styles";
+import { ResponsiveCard } from "../Card";
+import { ApproveArrow, SwitchCol } from "./styles";
 
 const Uniswap = (props: any) => {
 	const loadedUrlParams = useDefaultsFromURLSearch();
@@ -255,7 +257,7 @@ const Uniswap = (props: any) => {
 				onConfirm={handleConfirmTokenWarning}
 			/>
 
-			<CustomCard>
+			<ResponsiveCard>
 				<Wrapper>
 					<div>
 						<SwapHeader />
@@ -310,9 +312,9 @@ const Uniswap = (props: any) => {
 							<>
 								{Boolean(trade) && (
 									<div className="d-flex justify-content-between align-items-center p-3">
-										<StyledClickableText fontWeight={500} fontSize={14}>
+										<Text fontWeight={500} fontSize={14}>
 											{t("price")}
-										</StyledClickableText>
+										</Text>
 										<TradePrice
 											price={trade?.executionPrice}
 											showInverted={showInverted}
@@ -479,7 +481,7 @@ const Uniswap = (props: any) => {
 						onDismiss={handleConfirmDismiss}
 					/>
 				</Wrapper>
-			</CustomCard>
+			</ResponsiveCard>
 		</div>
 	);
 };
