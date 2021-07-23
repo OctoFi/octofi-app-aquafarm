@@ -57,11 +57,6 @@ export const routes = {
 				path: "/launchpad",
 				state: "success",
 			},
-			swap: {
-				title: "uniswap",
-				path: "/uniswap",
-				state: "success",
-			},
 			cross: {
 				title: "cross",
 				path: "/cross/anyswap",

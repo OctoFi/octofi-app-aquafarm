@@ -93,14 +93,14 @@ const CoinDetails = ({ id }: CoinDetailsProps) => {
 						</Styled.BuyHelper>
 						<div className="d-flex align-items-center justify-content">
 							<Styled.BuyLink
-								to={`/uniswap?outputCurrency=${selected.contract_address}`}
+								to={`/exchange?outputCurrency=${selected.contract_address}`}
 								className="mr-4"
 							>
 								<GradientButton className={""} style={{ minWidth: 125 }}>
 									Buy
 								</GradientButton>
 							</Styled.BuyLink>
-							<Styled.BuyLink to={`/uniswap?inputCurrency=${selected.contract_address}`}>
+							<Styled.BuyLink to={`/exchange?inputCurrency=${selected.contract_address}`}>
 								<GradientButton className={""} style={{ minWidth: 125 }}>
 									Sell
 								</GradientButton>
