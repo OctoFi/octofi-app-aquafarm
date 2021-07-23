@@ -1,24 +1,26 @@
 import { ParaSwap } from "paraswap";
 import DEXAG from "dexag-sdk";
 
-import OneInchApi from "./OneInch";
-import GodexApi from "./Godex";
+import ChangeNow from "./ChangeNow";
 import DexAgApi from "./dexAg";
+import GodexApi from "./Godex";
+import OneInchApi from "./OneInch";
+import SideShift from "./SideShift";
 import SimpleSwapApi from "./SimpleSwap";
 import StealthexApi from "./Stealthex";
-import ChangeNow from "./ChangeNow";
-import SideShift from "./SideShift";
 
-export default {
-	paraswap: new ParaSwap(),
-	oneInch: new OneInchApi(),
-	godex: new GodexApi(),
+const providers = {
+	changeNow: new ChangeNow(),
 	dexag: {
 		api: new DexAgApi(),
 		sdk: DEXAG.fromProvider(window.ethereum),
 	},
+	godex: new GodexApi(),
+	oneInch: new OneInchApi(),
+	paraswap: new ParaSwap(),
+	sideShift: new SideShift(),
 	simpleSwap: new SimpleSwapApi(),
 	stealthex: new StealthexApi(),
-	changeNow: new ChangeNow(),
-	sideShift: new SideShift(),
 };
+
+export default providers;

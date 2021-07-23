@@ -39,8 +39,8 @@ const WalletCard = (props) => {
 	const [done, setDone] = useState(false);
 	const overview = useSelector((state) => state.balances.overview);
 	const loading = useSelector((state) => state.balances.loading);
-	const { selected, currenciesRate } = useSelector((state) => state.currency);
 	const balances = useSelector((state) => state.balances.data);
+	const { selected, currenciesRate } = useSelector((state) => state.currency);
 	const { ETH } = useSelector((state) => state.currency.currenciesRate);
 	const dispatch = useDispatch();
 	const walletBalances = useMemoTokenBalances();
