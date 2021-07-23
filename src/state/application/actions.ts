@@ -25,7 +25,7 @@ export enum ApplicationModal {
 	ADDRESS_CLAIM,
 	CLAIM_POPUP,
 	MENU,
-	UNISWAPSETTINGS,
+	TRXSETTINGS,
 	GASSETTINGS
 }
 
