@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { ExternalLink as ExternalIcon } from "react-feather";
-import { ADDRESS_PATTERN } from "../../constants";
+import { PATTERN } from "../../constants";
 import useENS from "../../hooks/useENS";
 import { useActiveWeb3React } from "../../hooks";
 import { ExternalLink } from "../../theme";
@@ -37,7 +37,7 @@ const AddressInputPanel = ({
 		[onChange]
 	);
 
-	const error = Boolean(value?.length > 0 && !ADDRESS_PATTERN.test(value));
+	const error = Boolean(value?.length > 0 && !PATTERN.global.test(value));
 
 	return (
 		<Styled.InputPanel>
@@ -55,7 +55,7 @@ const AddressInputPanel = ({
 							spellCheck="false"
 							placeholder={placeholder}
 							error={error}
-							pattern={ADDRESS_PATTERN}
+							pattern={PATTERN.global}
 							onChange={handleInput}
 							value={value}
 						/>
