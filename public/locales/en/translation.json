@@ -156,7 +156,7 @@
         "orderSubmitted": "Your order submitted successfully!",
         "fromLabel": "Pay",
         "toLabel": "Receive",
-        "exchangeSearch": "Our tentacles are searching in {{ loaded }} of {{ all }} exchanges",
+        "exchangeSearch": "Our tentacles are searching {{ current }} of {{ total }} exchanges",
         "orderId": "Order ID",
         "address": "ADDRESS",
         "sendCrypto": "Send {{ amount }} {{ crypto }} to the address below",
