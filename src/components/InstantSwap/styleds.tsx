@@ -20,23 +20,6 @@ export const RateText = styled(Text)`
 	}
 `;
 
-export const ProgressContainer = styled.div`
-	background: ${({ theme }) => theme.primaryLight};
-	border-radius: 12px;
-	padding: 26px 20px;
-	margin-top: 10px;
-
-	.progress {
-		height: 5px;
-		background-color: ${({ theme }) => theme.primaryLight};
-		border-radius: 15px;
-	}
-
-	.progress-bar {
-		border-radius: 15px;
-	}
-`;
-
 export const SwitchCol = styled.div<{ clickable?: boolean }>`
 	background: ${({ theme }) => theme.bg1};
 	border: 4px solid ${({ theme }) => theme.modalBG};

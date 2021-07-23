@@ -4,7 +4,7 @@ import { isMobile } from "react-device-detect";
 import QRCode from "react-qr-code";
 import _ from "lodash";
 import { ThemeContext } from "styled-components";
-import { Row, Col, ProgressBar, Button } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import { toast } from "react-hot-toast";
 import { withTranslation } from "react-i18next";
 import { ArrowDown, Download, Plus, Minus } from "react-feather";
@@ -35,6 +35,7 @@ import { getContract } from "../../utils";
 import withWeb3Account from "../hoc/withWeb3Account";
 import { Modal } from "../Modal/bootstrap";
 import { RowBetween } from "../Row";
+import ProgressPriceCheck from "./ProgressPriceCheck";
 import RateList from "./RateList";
 import SwapInputPanel from "./SwapInputPanel";
 import RefreshRatesButton from "./RefreshRatesButton";
@@ -1495,25 +1496,7 @@ class InstantSwap extends React.Component {
 
 							<div className="d-flex flex-column align-items-stretch align-items-md-center justify-content-center mt-4">
 								{loading ? (
-									<div
-										className={`d-flex flex-column align-items-stretch justify-content-center align-self-stretch`}
-									>
-										<Styled.RateText fontWeight={400} fontSize={isMobile ? 12 : 16}>
-											{t("instantSwap.exchangeSearch", {
-												loaded: loadingState.loaded,
-												all: loadingState.all,
-											})}
-										</Styled.RateText>
-										<Styled.ProgressContainer>
-											<ProgressBar
-												className="align-self-stretch w-100 progress-xs"
-												now={((loadingState.loaded / loadingState.all) * 100).toFixed(0)}
-												variant={
-													loadingState.loaded === loadingState.all ? "success" : "primary"
-												}
-											/>
-										</Styled.ProgressContainer>
-									</div>
+									<ProgressPriceCheck current={loadingState.loaded} total={loadingState.all} />
 								) : (
 									<Styled.SwapButton
 										onClick={this.buyHandler}
