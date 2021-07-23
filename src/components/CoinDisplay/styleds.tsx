@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import Img from "../UI/Img";
 
-export const CoinIcon = styled.img`
+export const CoinIcon = styled(Img)`
 	margin-right: 1rem;
 	width: 1.5rem;
 	height: 1.5rem;

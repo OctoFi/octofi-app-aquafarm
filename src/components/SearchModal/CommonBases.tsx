@@ -18,7 +18,7 @@ const BaseWrapper = styled.div<{ disable?: boolean }>`
 	align-items: center;
 	color: ${({ theme, disable }) => (!disable ? theme.text2 : theme.text1)};
 
-	:hover {
+	&:hover {
 		cursor: ${({ disable }) => !disable && "pointer"};
 		background-color: ${({ theme, disable }) => !disable && theme.bg1};
 	}

@@ -31,7 +31,7 @@ export const Checkbox = styled.input`
 `;
 
 export const PaddedColumn = styled(AutoColumn)`
-	padding: 30px 30px 20px;
+	padding: 1.5rem;
 `;
 
 export const MenuItem = styled(RowBetween)`
@@ -59,16 +59,16 @@ export const SearchInput = styled.input`
 	outline: none;
 	border-radius: 20px;
 	color: ${({ theme }) => theme.text1};
-	border: 1px solid ${({ theme }) => theme.bg1};
+	border: 1px solid ${({ theme }) => theme.borderColor2};
 	-webkit-appearance: none;
+	transition: border 100ms;
+	font-size: 1rem;
 
-	font-size: 18px;
-
-	::placeholder {
+	&::placeholder {
 		color: ${({ theme }) => theme.text2};
 	}
-	transition: border 100ms;
-	:focus {
+
+	&:focus {
 		border: 1px solid ${({ theme }) => theme.primary};
 		outline: none;
 	}
@@ -76,11 +76,11 @@ export const SearchInput = styled.input`
 export const Separator = styled.div`
 	width: 100%;
 	height: 1px;
-	background-color: ${({ theme }) => theme.text3};
+	background-color: ${({ theme }) => theme.borderColor2};
 `;
 
 export const SeparatorDark = styled.div`
 	width: 100%;
 	height: 1px;
-	background-color: ${({ theme }) => theme.bg1};
+	background-color: ${({ theme }) => theme.borderColor};
 `;

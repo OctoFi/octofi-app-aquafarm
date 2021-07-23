@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 const SectionBreak = styled.div`
 	height: 1px;
 	width: 100%;
-	background-color: ${({ theme }) => theme.bg1};
+	background-color: ${({ theme }) => theme.borderColor};
 `;
 
 interface ImportProps {

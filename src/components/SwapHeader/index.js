@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ThemeContext } from "styled-components";
 import { Text } from "rebass";
 
-import { useModalOpen, useToggleUniswapSettingsMenu } from "../../state/application/hooks";
+import { useModalOpen, useToggleTrxSettingsMenu } from "../../state/application/hooks";
 import { ApplicationModal } from "../../state/application/actions";
 import { useUserSlippageTolerance, useUserTransactionTTL } from "../../state/user/hooks";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
@@ -14,8 +14,8 @@ import { Header, CardTitle, StyledMenuIcon, StyledMenu, MenuFlyout, StyledMenuBu
 const SwapHeader = () => {
 	const node = useRef();
 	const { t } = useTranslation();
-	const open = useModalOpen(ApplicationModal.UNISWAPSETTINGS);
-	const toggle = useToggleUniswapSettingsMenu();
+	const open = useModalOpen(ApplicationModal.TRXSETTINGS);
+	const toggle = useToggleTrxSettingsMenu();
 
 	const theme = useContext(ThemeContext);
 	const [userSlippageTolerance, setUserslippageTolerance] = useUserSlippageTolerance();

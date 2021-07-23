@@ -55,8 +55,8 @@ export function useToggleSettingsMenu(): () => void {
 	return useToggleModal(ApplicationModal.SETTINGS);
 }
 
-export function useToggleUniswapSettingsMenu(): () => void {
-	return useToggleModal(ApplicationModal.UNISWAPSETTINGS);
+export function useToggleTrxSettingsMenu(): () => void {
+	return useToggleModal(ApplicationModal.TRXSETTINGS);
 }
 
 export function useTogglegGasSettingsMenu(): () => void {

@@ -63,7 +63,6 @@ const FiatOnramp = () => {
 	const fetchPrices = async (value: any, type: string) => {
 		try {
 			setPriceLoading(true);
-			debugger;
 			const prices = await api.get("price", {
 				type: "BUY",
 				fiat: selectedFiat?.symbol,
@@ -197,7 +196,7 @@ const FiatOnramp = () => {
 				transak.close();
 			});
 			transak.on(transak.EVENTS.ORDER_COMPLETED, (orderData) => {
-				toast.success("Your Purchase was completed Successfully. You can see your assets in dashboard.");
+				toast.success("Your Purchase was completed Successfully! You can see your assets in dashboard.");
 				transak.close();
 			});
 			transak.on(transak.EVENTS.TRANSAK_ORDER_CANCELLED, (orderData) => {
