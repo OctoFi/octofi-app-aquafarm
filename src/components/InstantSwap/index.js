@@ -19,6 +19,8 @@ import { ResponsiveCard } from "../Card";
 import {
 	BTC,
 	CHANGE_NOW_FLOW,
+	HEX_REGEX,
+	PATTERN,
 	PARASWAP_REFERRER_ACCOUNT,
 	SIMPLE_SWAP_FIXED,
 	supportedDEXes,
@@ -40,15 +42,6 @@ import RateList from "./RateList";
 import SwapInputPanel from "./SwapInputPanel";
 import RefreshRatesButton from "./RefreshRatesButton";
 import * as Styled from "./styleds";
-
-const HEX_REGEX = /^0x[0-9A-F]*$/i;
-
-const PATTERN = {
-	btc: /^[13][a-km-zA-HJ-NP-Z1-9]{25,80}$|^(bc1)[0-9A-Za-z]{25,80}$/,
-	eth: /^(0x[a-fA-F0-9]{40})$/,
-	usdt: /^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/,
-	global: /^[13][a-km-zA-HJ-NP-Z1-9]{25,80}$|^(bc1)[0-9A-Za-z]{25,80}$|^(0x[a-fA-F0-9]{40})$|^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/,
-};
 
 class InstantSwap extends React.Component {
 	static contextType = ThemeContext;

@@ -45,7 +45,14 @@ export const REMOVE_CONTRACTS = {
 export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 export const DEFAULT_DECIMALS = 18;
 
-export const ADDRESS_PATTERN = /^[13][a-km-zA-HJ-NP-Z1-9]{25,80}$|^(bc1)[0-9A-Za-z]{25,80}$|^(0x[a-fA-F0-9]{40})$|^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/;
+export const HEX_REGEX = /^0x[0-9A-F]*$/i;
+
+export const PATTERN = {
+	btc: /^[13][a-km-zA-HJ-NP-Z1-9]{25,80}$|^(bc1)[0-9A-Za-z]{25,80}$/,
+	eth: /^(0x[a-fA-F0-9]{40})$/,
+	usdt: /^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/,
+	global: /^[13][a-km-zA-HJ-NP-Z1-9]{25,80}$|^(bc1)[0-9A-Za-z]{25,80}$|^(0x[a-fA-F0-9]{40})$|^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/,
+};
 
 // a list of tokens by chain
 type ChainTokenList = {
