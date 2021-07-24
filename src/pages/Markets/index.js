@@ -30,7 +30,7 @@ const Markets = (props) => {
 	return (
 		<Page networkSensitive={true}>
 			<Provider>
-				<Row className={"custom-row d-flex align-items-stretch"}>
+				<Row className={"d-flex align-items-stretch"}>
 					{[...Array(4)].map((item, index) => {
 						const row = marketsStats[index] || {};
 

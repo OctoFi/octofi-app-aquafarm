@@ -239,7 +239,7 @@ const CreateProposals = (props) => {
 						</Header>
 						<div>
 							<Form>
-								<FormRow className={"custom-row"}>
+								<FormRow>
 									<FormGroup as={Col} xs={12}>
 										<FormLabel>{t("governance.question")}</FormLabel>
 										<FormControl

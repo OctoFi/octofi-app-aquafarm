@@ -131,7 +131,7 @@ class PoolsCard extends Component {
 						<Button
 							style={{ minWidth: 127 }}
 							onClick={this.props.investHandler}
-							className={"mr-0 mr-lg-40"}
+							className={"mr-0 mr-lg-4"}
 						>
 							{t("invest")}
 						</Button>

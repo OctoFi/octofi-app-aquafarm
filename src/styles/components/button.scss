@@ -37,31 +37,3 @@
 		);
 	}
 }
-.btn.btn-primary {
-	color: white;
-}
-
-.btn.btn-circle {
-	width: 48px;
-	height: 48px;
-	border-radius: 48px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.btn.btn-link {
-	&:hover,
-	&:focus,
-	&:active {
-		outline: none;
-		box-shadow: none;
-	}
-}
-
-@media (max-width: 576px) {
-	.btn-lg {
-		font-size: 1rem;
-		font-weight: 400;
-	}
-}

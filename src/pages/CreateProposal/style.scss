@@ -1,16 +1,5 @@
 @import "../../styles/abstracts/variables";
 
-.row.form-custom-row {
-	margin-right: -25px;
-	margin-left: -25px;
-
-	> .col,
-	> [class*="col-"] {
-		padding-right: 25px;
-		padding-left: 25px;
-	}
-}
-
 .Calendar {
 	--cl-color-black: white;
 	--cl-color-primary: $primary;

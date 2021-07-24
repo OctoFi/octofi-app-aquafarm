@@ -51,7 +51,7 @@ export const ItemTrait = styled.div`
 `;
 
 export const CustomButton = styled(Button)`
-	border-radius: 10px;
+	border-radius: 12px;
 	height: 48px;
 	min-height: 48px;
 `;

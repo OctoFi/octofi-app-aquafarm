@@ -24,8 +24,8 @@ const AssetTable = ({ balances, size = "md", loading }: AssetTableProps) => {
 	}
 
 	return (
-		<div className={"table-responsive"}>
-			<table className={`table currency__table table-borderless mb-0 table-head-custom currency__table--${size}`}>
+		<Styled.AssetTableWrap className={"table-responsive"}>
+			<table className={`table table-borderless table-head-custom mb-0 asset-table asset-table--${size}`}>
 				<thead>
 					<tr>
 						<th>Assets</th>
@@ -117,7 +117,7 @@ const AssetTable = ({ balances, size = "md", loading }: AssetTableProps) => {
 					})}
 				</tbody>
 			</table>
-		</div>
+		</Styled.AssetTableWrap>
 	);
 };
 
