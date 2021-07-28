@@ -1,28 +1,31 @@
-export const routes = {
-	dashboard: {
+import { PieChart, List, Star, TrendingUp } from "react-feather";
+import SwapIcon from "../assets/images/icon/swap.svg";
+
+export const routes = [
+	{
 		title: "dashboard",
 		path: "/dashboard",
-		icon: "pie-chart",
+		icon: PieChart,
 	},
-	history: {
+	{
 		title: "history",
 		path: "/history",
-		icon: "list",
+		icon: List,
 	},
-	instantSwap: {
+	{
 		title: "exchange",
 		path: "/exchange",
-		icon: "maximize-2",
-		// icon: "repeat",
+		icon: null,
+		image: SwapIcon,
 	},
-	favorites: {
+	{
 		title: "favorites",
 		path: "/favorites",
-		icon: "star",
+		icon: Star,
 	},
-	invest: {
+	{
 		title: "invest",
 		path: "/invest",
-		icon: "trending-up",
+		icon: TrendingUp,
 	},
-};
+];

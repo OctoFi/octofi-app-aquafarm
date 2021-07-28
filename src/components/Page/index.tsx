@@ -1,4 +1,5 @@
 import { PropsWithChildren, useEffect } from "react";
+import { routes } from "../../constants/appbarRoutes";
 import { useActiveWeb3React } from "../../hooks";
 import AppBar from "../AppBar";
 import Header from "../Header";
@@ -33,7 +34,7 @@ const Page = ({ title, fluid = false, networkSensitive = false, children }: Prop
 			</PageContent>
 
 			<div className="d-block d-lg-none">
-				<AppBar />
+				<AppBar routes={routes} />
 			</div>
 		</PageWrap>
 	);
