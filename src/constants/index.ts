@@ -82,11 +82,6 @@ export const BalanceToken = new Token(
 	process.env.REACT_APP_BALANCE_CHECK_TOKEN_NAME
 );
 
-// TODO this is only approximate, it's actually based on blocks
-export const PROPOSAL_LENGTH_IN_DAYS = 7;
-
-export const GOVERNANCE_ADDRESS = "0x5e4be8Bc9637f0EAA1A755019e06A68ce081D58F";
-
 const UNI_ADDRESS = "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984";
 export const UNI: { [chainId in ChainId]: Token } = {
 	[ChainId.MAINNET]: new Token(ChainId.MAINNET, UNI_ADDRESS, 18, "UNI", "Uniswap"),
