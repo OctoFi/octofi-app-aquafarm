@@ -331,12 +331,6 @@ export const CHANGE_NOW_FLOW = process.env.REACT_APP_CHANGE_NOW_FLOW || 'standar
 
 export const SIDE_SHIFT_TYPE = process.env.REACT_APP_SIDE_SHIFT_TYPE || 'variable';
 
-export const presaleAddresses = {
-	'generator': process.env.REACT_APP_PRESALE_GENERATOR,
-	'factory': process.env.REACT_APP_PRESALE_FACTORY,
-	'settings': process.env.REACT_APP_PRESALE_SETTINGS
-}
-
 export const rates: {
 	[rateName: string]: {
 		image: any;

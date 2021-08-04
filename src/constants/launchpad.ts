@@ -10,3 +10,9 @@ export const LAUNCHPAD_WHITELIST_CONTRACTS =
         : process.env.REACT_APP_PRESALE_WHITELIST_CONTRACTS
             ?.split(',')
             ?.map(address => address?.toLowerCase());
+
+export const presaleAddresses = {
+    'generator': process.env.REACT_APP_PRESALE_GENERATOR,
+    'factory': process.env.REACT_APP_PRESALE_FACTORY,
+    'settings': process.env.REACT_APP_PRESALE_SETTINGS
+};
