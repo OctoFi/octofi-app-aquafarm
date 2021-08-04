@@ -1,7 +1,8 @@
 import axios from "axios";
+import { HUB_URL } from "../constants/governance";
 
 export default class Governance {
-	constructor(baseURL = `${process.env.REACT_APP_HUB_URL}/api/`) {
+	constructor(baseURL = `${HUB_URL}/api/`) {
 		this.baseURL = baseURL;
 
 		this.request = axios.create({

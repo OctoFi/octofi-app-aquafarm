@@ -6,6 +6,7 @@ import _ from "lodash";
 
 import SearchIcon from "../../assets/images/search.svg";
 import { fetchSpaces } from "../../state/governance/actions";
+import { GOVERNANCE_PINNED } from "../../constants/governance";
 import Page from "../../components/Page";
 import {
 	InputGroup,
@@ -28,7 +29,7 @@ const Governance = () => {
 	}, [dispatch]);
 
 	useEffect(() => {
-		const pinnedSpaces = process.env.REACT_APP_GOVERNANCE_PINNED.split(",").map((space) => space.trim());
+		const pinnedSpaces = GOVERNANCE_PINNED.split(",").map((space) => space.trim());
 		const list = Object.keys(spaces).map((key) => {
 			const space = spaces[key];
 			return {
