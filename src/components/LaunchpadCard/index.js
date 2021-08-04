@@ -8,7 +8,8 @@ import { useActiveWeb3React } from "../../hooks";
 import { getContract } from "../../utils";
 import { ERC20_ABI } from "../../constants/abis/erc20";
 import BigNumber from "bignumber.js";
-import { LAUNCHPAD_WETH_ADDRESS, LAUNCHPAD_WETH_TOKEN, ZERO } from "../../constants";
+import { ZERO } from "../../constants";
+import { LAUNCHPAD_WETH_ADDRESS, LAUNCHPAD_WETH_TOKEN } from "../../constants/launchpad";
 import Img from "../UI/Img";
 
 const Wrapper = styled(Link)`
@@ -27,8 +28,6 @@ const Wrapper = styled(Link)`
 	}
 
 	&:hover {
-		border-color: ${({ theme }) => theme.primary};
-    border-color: ${({ theme }) => theme.primary};  
 		border-color: ${({ theme }) => theme.primary};
 	}
 
