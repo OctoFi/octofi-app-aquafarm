@@ -18,13 +18,8 @@ import { calculateGasMargin, getContract, getExplorerLink, shortenAddress } from
 import { ERC20_ABI } from "../../constants/abis/erc20";
 import { useActiveWeb3React } from "../../hooks";
 import BigNumber from "bignumber.js";
-import {
-	BalanceToken,
-	LAUNCHPAD_WETH_ADDRESS,
-	LAUNCHPAD_WETH_TOKEN,
-	UNLIMITED_ALLOWANCE_IN_BASE_UNITS,
-	ZERO,
-} from "../../constants";
+import { BalanceToken, UNLIMITED_ALLOWANCE_IN_BASE_UNITS, ZERO } from "../../constants";
+import { LAUNCHPAD_WETH_ADDRESS, LAUNCHPAD_WETH_TOKEN } from "../../constants/launchpad";
 import copy from "copy-to-clipboard";
 import toast from "react-hot-toast";
 import { useWalletModalToggle } from "../../state/application/hooks";

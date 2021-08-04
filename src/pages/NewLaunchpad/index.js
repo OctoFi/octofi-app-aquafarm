@@ -14,13 +14,8 @@ import AddressInputPanel from "../../components/AddressInputPanel";
 import CurrencyLogo from "../../components/CurrencyLogo";
 import CurrencyInputPanel from "../../components/CurrencyInputPanel";
 import {getContract, shortenAddress} from "../../utils";
-import {
-    presaleAddresses,
-    UNLIMITED_ALLOWANCE_IN_BASE_UNITS,
-    ZERO_ADDRESS,
-    LAUNCHPAD_WETH_TOKEN,
-    LAUNCHPAD_WHITELIST_CONTRACTS
-} from "../../constants";
+import { UNLIMITED_ALLOWANCE_IN_BASE_UNITS, ZERO_ADDRESS } from "../../constants";
+import { LAUNCHPAD_WETH_TOKEN, LAUNCHPAD_WHITELIST_CONTRACTS, presaleAddresses } from "../../constants/launchpad";
 import PresaleGeneratorABI from '../../constants/abis/Presale/PresaleGenerator.json'
 import {useActiveWeb3React} from "../../hooks";
 import {useContract} from "../../hooks/useContract";
