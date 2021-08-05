@@ -5,11 +5,10 @@ import { ETHER, Token } from "@uniswap/sdk";
 import { useActiveWeb3React } from "../../../hooks";
 import { useCurrencyBalance } from "../../../state/wallet/hooks";
 import { Input as NumericalInput } from "../../NumericalInput";
-import SwapSelectModal from "../../SwapSelectModal";
+import TokenSelectModal from "../../TokenSelectModal";
 import * as Styled from "./styleds";
-import { Button } from "react-bootstrap";
 
-export type SwapInputPanelProps = {
+export type InputPanelProps = {
 	value?: any;
 	label?: string;
 	disabled?: boolean;
@@ -22,10 +21,9 @@ export type SwapInputPanelProps = {
 	onUserInput?: (X: any, Y: any, Z: any) => void;
 	onChangeBalance: (T: any) => void;
 	onUseMax?: (X: any, Y: any) => void;
-	showMaxButton?: boolean;
 };
 
-const SwapInputPanel = ({
+const InputPanel = ({
 	value,
 	onUserInput,
 	label = "Input",
@@ -38,17 +36,29 @@ const SwapInputPanel = ({
 	disableCurrencySelect = false,
 	onChangeBalance = (balance) => balance,
 	onUseMax,
-	showMaxButton = false,
-}: SwapInputPanelProps) => {
+}: InputPanelProps) => {
 	const { t } = useTranslation();
 	const { account } = useActiveWeb3React();
 	const [modalOpen, setModalOpen] = useState(false);
+	const [balanceText, setBalanceText] = useState("-");
 	const [currency, setCurrency] = useState<Token | undefined>(undefined);
 	const [selectedTokenName, setSelectedTokenName] = useState("");
 	const selectedCurrencyBalance = useCurrencyBalance(
 		account ?? undefined,
 		selected && selected.symbol === "ETH" ? ETHER : currency
 	);
+
+	useEffect(() => {
+		if (!!currency && selectedCurrencyBalance) {
+			setBalanceText(
+				t("balance", {
+					balanceInput: selectedCurrencyBalance.toSignificant(6),
+				})
+			);
+		} else {
+			setBalanceText("-");
+		}
+	}, [currency, selectedCurrencyBalance]);
 
 	useEffect(() => {
 		if (selected) {
@@ -85,44 +95,45 @@ const SwapInputPanel = ({
 
 	return (
 		<Styled.InputPanel id={id}>
+			<Styled.LabelRow>
+				<Styled.Label>{label}</Styled.Label>
+
+				{account &&
+					currency &&
+					(onUseMax ? (
+						<Styled.BalanceButton
+							onClick={() => {
+								onUseMax(type, selectedCurrencyBalance);
+							}}
+						>
+							{balanceText}
+						</Styled.BalanceButton>
+					) : (
+						<Styled.Balance>{balanceText}</Styled.Balance>
+					))}
+			</Styled.LabelRow>
+
 			<Styled.InputRow selected={disabled}>
-				<div>
-					<Styled.CurrencySelect selected={selected} onClick={onOpenCurrencySelect}>
-						<Styled.Aligner>
-							{selected ? (
-								<>
-									<Styled.Logo src={selected.logoURI} alt={selected.symbol} />
+				<Styled.CurrencySelect selected={selected} onClick={onOpenCurrencySelect}>
+					<Styled.Aligner>
+						{selected ? (
+							<>
+								<Styled.Logo src={selected.logoURI} alt={selected.symbol} />
 
-									<Styled.TextWrap>
-										<Styled.Label>{label}</Styled.Label>
-										<Styled.TokenName>{selectedTokenName}</Styled.TokenName>
-									</Styled.TextWrap>
-								</>
-							) : (
-								<Styled.TokenName>{t("selectToken")}</Styled.TokenName>
-							)}
+								<Styled.TextWrap>
+									<Styled.TokenName>{selectedTokenName}</Styled.TokenName>
+								</Styled.TextWrap>
+							</>
+						) : (
+							<Styled.TokenName>{t("selectToken")}</Styled.TokenName>
+						)}
 
-							{!disableCurrencySelect && <ChevronDown size={18} />}
-						</Styled.Aligner>
-					</Styled.CurrencySelect>
-				</div>
+						{!disableCurrencySelect && <ChevronDown size={18} />}
+					</Styled.Aligner>
+				</Styled.CurrencySelect>
 
 				{onUserInput && (
 					<Styled.InputContainer>
-						{account && currency && showMaxButton && onUseMax && (
-							<div className="pr-1">
-								<Button
-									onClick={() => {
-										onUseMax(type, selectedCurrencyBalance);
-									}}
-									variant={"outline-primary"}
-									size={"sm"}
-								>
-									{t("max")}
-								</Button>
-							</div>
-						)}
-
 						<NumericalInput
 							className="token-amount-input"
 							value={value}
@@ -130,22 +141,12 @@ const SwapInputPanel = ({
 								onUserInput(val, type, selectedCurrencyBalance);
 							}}
 						/>
-
-						{account && (
-							<Styled.Balance>
-								{!!currency && selectedCurrencyBalance
-									? t("balance", {
-											balanceInput: selectedCurrencyBalance?.toSignificant(6),
-									  })
-									: " -"}
-							</Styled.Balance>
-						)}
 					</Styled.InputContainer>
 				)}
 			</Styled.InputRow>
 
 			{!disableCurrencySelect && onSelect && (
-				<SwapSelectModal
+				<TokenSelectModal
 					isOpen={modalOpen}
 					onDismiss={onDismissSearch}
 					onCurrencySelect={onSelect}
@@ -158,4 +159,4 @@ const SwapInputPanel = ({
 	);
 };
 
-export default SwapInputPanel;
+export default InputPanel;

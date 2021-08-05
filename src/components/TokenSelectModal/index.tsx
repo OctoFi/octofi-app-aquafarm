@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import AutoSizer from "react-virtualized-auto-sizer";
 import SVG from "react-inlinesvg";
 import SearchIcon from "../../assets/images/search.svg";
@@ -9,11 +9,27 @@ import CurrencyList from "./CurrencyList";
 import styled from "styled-components";
 
 const HeaderContainer = styled.div`
-	padding: 30px 30px 20px;
-	border-bottom: 1px solid ${({ theme }) => theme.borderColor2};
+	border-bottom: 1px solid ${({ theme }) => theme.borderColor};
+	padding: 1.5rem;
 `;
 
-export default function SwapSelectModal({ isOpen, onDismiss, onCurrencySelect, selectedCurrency, currencies, type }) {
+export type TokenSelectModalProps = {
+	isOpen?: boolean;
+	onDismiss?: any;
+	onCurrencySelect?: any;
+	selectedCurrency?: any;
+	currencies: Array<any>;
+	type?: any;
+};
+
+const TokenSelectModal = ({
+	isOpen,
+	onDismiss,
+	onCurrencySelect,
+	selectedCurrency,
+	currencies,
+	type,
+}: TokenSelectModalProps) => {
 	const [searchQuery, setSearchQuery] = useState("");
 	const fixedList = useRef();
 	const inputRef = useRef();
@@ -21,17 +37,6 @@ export default function SwapSelectModal({ isOpen, onDismiss, onCurrencySelect, s
 	const filteredTokens = useMemo(() => {
 		return currencies.filter((token) => JSON.stringify(token).toLowerCase().includes(searchQuery) || !searchQuery);
 	}, [currencies, searchQuery]);
-
-	const titles = useMemo(() => {
-		return currencies
-			.map((token, index) => {
-				return {
-					...token,
-					index,
-				};
-			})
-			.filter((token) => token.type === "title");
-	}, [currencies]);
 
 	useEffect(() => {
 		if (isOpen) {
@@ -42,7 +47,7 @@ export default function SwapSelectModal({ isOpen, onDismiss, onCurrencySelect, s
 	const handleInput = useCallback((event) => {
 		const input = event.target.value;
 		setSearchQuery(input.toLowerCase());
-		fixedList.current.scrollTo(0);
+		fixedList?.current.scrollTo(0);
 	}, []);
 
 	const handleCurrencySelect = useCallback(
@@ -50,12 +55,12 @@ export default function SwapSelectModal({ isOpen, onDismiss, onCurrencySelect, s
 			onCurrencySelect(currency, type);
 			onDismiss();
 		},
-		[onDismiss, onCurrencySelect]
+		[onDismiss, onCurrencySelect, type]
 	);
 
 	return (
-		<Modal isOpen={isOpen} onDismiss={onDismiss} maxHeight={80} minHeight={80} maxWidth={420}>
-			<Column className="p-0" style={{ width: "100%", flex: "1 1", minHeight: "100px" }}>
+		<Modal isOpen={isOpen} onDismiss={onDismiss} maxHeight={80} minHeight={80} maxWidth={400}>
+			<Column style={{ width: "100%", flex: "1 1", minHeight: "100px" }}>
 				<HeaderContainer>
 					<InputGroup className="w-auto" bg="darker">
 						<InputGroupPrepend>
@@ -89,4 +94,6 @@ export default function SwapSelectModal({ isOpen, onDismiss, onCurrencySelect, s
 			</Column>
 		</Modal>
 	);
-}
+};
+
+export default TokenSelectModal;

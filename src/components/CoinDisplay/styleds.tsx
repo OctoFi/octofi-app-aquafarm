@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Img from "../UI/Img";
 
-export const CoinIcon = styled(Img)`
+export const Icon = styled(Img)`
 	margin-right: 1rem;
 	width: 1.5rem;
 	height: 1.5rem;
@@ -12,10 +12,10 @@ export const CoinIcon = styled(Img)`
 	}
 `;
 
-export const CoinName = styled.span`
+export const Title = styled.span`
+	color: ${({ theme }) => theme.text1};
 	font-size: 0.875rem;
 	font-weight: 600;
-	color: ${({ theme }) => theme.text1};
 	text-transform: capitalize;
 
 	@media (min-width: 768px) {
@@ -23,10 +23,10 @@ export const CoinName = styled.span`
 	}
 `;
 
-export const CoinSymbol = styled.span`
-	font-weight: 500;
-	font-size: 0.75rem;
+export const Subtitle = styled.span`
 	color: ${({ theme }) => theme.text3};
+	font-size: 0.75rem;
+	font-weight: 500;
 	text-transform: uppercase;
 
 	@media (min-width: 768px) {

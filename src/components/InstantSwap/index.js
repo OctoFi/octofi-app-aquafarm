@@ -1,47 +1,36 @@
 import React from "react";
 import { connect } from "react-redux";
-import { isMobile } from "react-device-detect";
-import QRCode from "react-qr-code";
 import _ from "lodash";
 import { ThemeContext } from "styled-components";
-import { Row, Col, Button } from "react-bootstrap";
 import { toast } from "react-hot-toast";
 import { withTranslation } from "react-i18next";
-import { ArrowDown, Download, Plus, Minus } from "react-feather";
 import { ChainId } from "@uniswap/sdk";
-import moment from "moment";
 import Web3 from "web3";
 import BigNumber from "bignumber.js";
 import { assert } from "@0x/assert";
 import { AbiDecoder, intervalUtils } from "@0x/utils";
-import { ResponsiveCard } from "../Card";
 
 import {
 	BTC,
 	CHANGE_NOW_FLOW,
 	HEX_REGEX,
-	PATTERN,
 	PARASWAP_REFERRER_ACCOUNT,
 	SIMPLE_SWAP_FIXED,
 	supportedDEXes,
+	PATTERN,
 	ZERO,
 } from "../../constants";
 import ERC20_ABI from "../../constants/abis/erc20.json";
-import { walletTokens as tokens } from "../../constants/spot-config/mainnet/config.json";
+import TokenList from "../../data/TokenList";
 import InstantSwapApi from "../../http/instantSwap";
 import { addTransaction } from "../../state/transactions/actions";
-import { CloseIcon } from "../../theme";
 import { getContract } from "../../utils";
-
-// import AddressInputPanel from "../AddressInputPanel";
 import withWeb3Account from "../hoc/withWeb3Account";
-import { Modal } from "../Modal/bootstrap";
-import { RowBetween } from "../Row";
 import ProgressPriceCheck from "./ProgressPriceCheck";
+import QrModal from "./QrModal";
 import RateList from "./RateList";
-import SwapInputPanel from "./SwapInputPanel";
 import RefreshRatesButton from "./RefreshRatesButton";
-import * as Styled from "./styleds";
+import SimpleSwap from "./SimpleSwap";
 
 class InstantSwap extends React.Component {
 	static contextType = ThemeContext;
@@ -551,6 +540,18 @@ class InstantSwap extends React.Component {
 		});
 	};
 
+	onUseMax = (type, max) => {
+		this.setState((prevState) => {
+			const pair = prevState.pair;
+			pair[type].value = max;
+			debugger;
+
+			return {
+				pair,
+			};
+		});
+	};
+
 	selectRate = (rate) => {
 		this.setState((prevState) => {
 			let pair = {
@@ -581,11 +582,12 @@ class InstantSwap extends React.Component {
 
 	oneInchBuyHandler = async (pair, rate) => {
 		const { t } = this.props;
+
 		try {
-			let canExchange = false;
-			let pending = false;
-			this.setBuyState("initializing");
 			let { deposit, destination } = pair;
+			let pending = false;
+			let canExchange = false;
+
 			let allowance = ZERO;
 
 			const spenderRes = await this.api.oneInch.get("spender");
@@ -717,27 +719,25 @@ class InstantSwap extends React.Component {
 				} else {
 					toast.error(t("errors.default"));
 				}
-			} else {
-				if (e.hasOwnProperty("response")) {
-					if (e?.response?.data?.message) {
-						toast.error(e?.response?.data?.message);
-						return false;
-					}
-					if (e.response.status === 500) {
-						if (e.response.data.hasOwnProperty("errors")) {
-							e.response.data.errors.map((err) => {
-								toast.error(err.msg);
-								return err;
-							});
-						} else {
-							toast.error(t("errors.unavailablePair"));
-						}
+			} else if (e.hasOwnProperty("response")) {
+				if (e?.response?.data?.message) {
+					toast.error(e?.response?.data?.message);
+					return false;
+				}
+				if (e.response.status === 500) {
+					if (e.response.data.hasOwnProperty("errors")) {
+						e.response.data.errors.map((err) => {
+							toast.error(err.msg);
+							return err;
+						});
 					} else {
-						toast.error(t("errors.default"));
+						toast.error(t("errors.unavailablePair"));
 					}
 				} else {
 					toast.error(t("errors.default"));
 				}
+			} else {
+				toast.error(t("errors.default"));
 			}
 		}
 	};
@@ -745,8 +745,8 @@ class InstantSwap extends React.Component {
 	paraSwapBuyHandler = async (pair, rate) => {
 		const { t } = this.props;
 		const { recipient } = this.state;
+
 		try {
-			this.setBuyState("initializing");
 			let pending = false;
 			let { deposit, destination } = pair;
 			let canExchange = false;
@@ -888,9 +888,8 @@ class InstantSwap extends React.Component {
 	dexagBuyHandler = async (pair, rate) => {
 		let valid = false;
 		const { t } = this.props;
-		try {
-			this.setBuyState("initializing");
 
+		try {
 			let { deposit, destination } = pair;
 
 			const { sdk, api } = this.api.dexag;
@@ -994,7 +993,6 @@ class InstantSwap extends React.Component {
 
 	simpleSwapBuyHandler = async (pair, rate) => {
 		try {
-			this.setBuyState("initializing");
 			let { deposit, destination } = pair;
 
 			this.setBuyState("validation");
@@ -1044,7 +1042,6 @@ class InstantSwap extends React.Component {
 	stealthexBuyHandler = async (pair, rate) => {
 		const { t } = this.props;
 		try {
-			this.setBuyState("initializing");
 			let { deposit, destination } = pair;
 
 			this.setBuyState("validation");
@@ -1090,8 +1087,8 @@ class InstantSwap extends React.Component {
 
 	changeNowBuyHandler = async (pair, rate) => {
 		const { t } = this.props;
+
 		try {
-			this.setBuyState("initializing");
 			let { deposit, destination } = pair;
 
 			this.setBuyState("validation");
@@ -1165,8 +1162,8 @@ class InstantSwap extends React.Component {
 
 	sideShiftBuyHandler = async (pair, rate) => {
 		const { t } = this.props;
+
 		try {
-			this.setBuyState("initializing");
 			let { deposit, destination } = pair;
 
 			this.setBuyState("validation");
@@ -1196,6 +1193,7 @@ class InstantSwap extends React.Component {
 					depositAmount: deposit.value,
 				},
 			});
+
 			if (order) {
 				if (order.hasOwnProperty("error")) {
 					toast.error(order?.error?.message);
@@ -1234,10 +1232,11 @@ class InstantSwap extends React.Component {
 			this.props.toggleWalletModal();
 		} else {
 			if (!this.isExchangeInProgress) {
-				this.isExchangeInProgress = true;
-
 				const { t } = this.props;
 				const { pair, rate, recipient } = this.state;
+
+				this.isExchangeInProgress = true;
+				this.setBuyState("initializing");
 
 				if (pair.destination.token.symbol.toUpperCase() === "BTC") {
 					if (recipient === null) {
@@ -1391,294 +1390,90 @@ class InstantSwap extends React.Component {
 			// recipient,
 		} = this.state;
 		const { t } = this.props;
-		const theme = this.context;
 
 		return (
 			<>
-				<Row>
-					<Col xs={12}>
-						<ResponsiveCard>
-							<SwapInputPanel
-								value={pair.deposit.value}
-								onUserInput={this.onUserInputHandler}
-								label={t("instantSwap.fromLabel")}
-								onSelect={this.onSelect}
-								selected={pair.deposit.token}
-								currencies={tokens}
-								type={"deposit"}
-								id={"deposit"}
-								onChangeBalance={this.onChangeBalance}
-								showMaxButton={false}
-							/>
+				<SimpleSwap
+					inputCurrencyList={TokenList}
+					inputCurrency={pair.deposit.token}
+					inputAmount={pair.deposit.value}
+					inputLabel={t("instantSwap.fromLabel")}
+					outputCurrencyList={TokenList.concat(BTC)}
+					outputCurrency={pair.destination.token}
+					outputAmount={pair.destination.value}
+					outputLabel={t("instantSwap.toLabel")}
+					onSelect={this.onSelect}
+					onChangeBalance={this.onChangeBalance}
+					onUserInput={this.onUserInputHandler}
+					onSwapTokens={this.onSwapTokens}
+					recipient={this.state.recipient}
+					onChangeRecipient={this.onChangeRecipient}
+					exchangeRate={rate}
+					buttonDisabled={
+						this.props.web3.account &&
+						(!(
+							pair.deposit.token &&
+							pair.deposit.value &&
+							pair.destination.token &&
+							pair.destination.value &&
+							hasEnoughBalance &&
+							Number(pair.deposit.value) > 0 &&
+							rate
+						) ||
+							rate.platform === "godex")
+					}
+					buttonLabel={
+						!this.props.web3.account
+							? t("wallet.connect")
+							: !pair.deposit.token || !pair.destination.token
+							? t("exchange.selectPair")
+							: !hasEnoughBalance
+							? t("insufficientBalance")
+							: !pair.deposit.value || !pair.destination.value
+							? t("exchange.enterAmount")
+							: !rate && !loading
+							? t("errors.unavailablePair")
+							: rate.platform === "godex"
+							? t("errors.unavailablePair")
+							: Number(pair.deposit.value) > 0
+							? this.getBuyStates()[buyState]
+							: t("exchange.enterAmount")
+					}
+					onButtonClick={this.buyHandler}
+					onUseMax={this.onUseMax}
+				/>
 
-							<Styled.SwitchCol clickable onClick={this.onSwapTokens}>
-								<ArrowDown size={16} color={theme.text2} />
-							</Styled.SwitchCol>
+				<div className="d-flex flex-column align-items-stretch align-items-md-center justify-content-center mt-4">
+					{loading && <ProgressPriceCheck current={loadingState.loaded} total={loadingState.all} />}
+				</div>
 
-							<SwapInputPanel
-								value={pair.destination.value}
-								onUserInput={this.onUserInputHandler}
-								label={t("instantSwap.toLabel")}
-								onSelect={this.onSelect}
-								selected={pair.destination.token}
-								currencies={tokens.concat(BTC)}
-								type={"destination"}
-								id={"destination"}
-							/>
-
-							{/* {recipient === null ? (
-								<div className="d-flex justify-content-end">
-									<Button
-										variant="link"
-										className="d-flex align-items-center"
-										onClick={() => this.onChangeRecipient("")}
-									>
-										<Plus size={16} className="mr-1" /> {t("addSend")} ({t("optional")})
-									</Button>
-								</div>
-							) : (
-								<>
-									<div className="d-flex justify-content-start">
-										<Styled.SwitchCol>
-											<Download size={18} color={theme.text2} />
-										</Styled.SwitchCol>
-									</div>
-
-									<div className="mb-4">
-										<AddressInputPanel value={recipient} onChange={this.onChangeRecipient} />
-									</div>
-
-									<div className="d-flex justify-content-end">
-										<Button
-											variant="link"
-											className="d-flex align-items-center"
-											onClick={() => this.onChangeRecipient(null)}
-										>
-											<Minus size={16} className="mr-1" /> {t("removeSend")}
-										</Button>
-									</div>
-								</>
-							)} */}
-
-							{!!rate && (
-								<div className="d-flex justify-content-between align-items-center my-4">
-									{/* <Styled.RateText fontWeight={400} fontSize={isMobile ? 12 : 14}>
-										Exchange Rate
-									</Styled.RateText> */}
-									<Styled.RateText fontWeight={isMobile ? 400 : 500} fontSize={isMobile ? 12 : 16}>
-										{pair.deposit.token && pair.destination.token
-											? `1 ${
-													pair.deposit.token.symbol || pair.deposit.token.code
-											  } ≈ ${rate.rate.toFixed(4)} ${
-													pair.destination.token.symbol || pair.destination.token.code
-											  }`
-											: null}
-									</Styled.RateText>
-
-									{rates.length > 0 && (
-										<div className={"d-flex align-items-center justify-content-end"}>
-											<RefreshRatesButton
-												loading={loading}
-												priceLoading={priceLoading}
-												onRefresh={this.forceRefreshPrices}
-											/>
-										</div>
-									)}
-								</div>
-							)}
-
-							<div className="d-flex flex-column align-items-stretch align-items-md-center justify-content-center mt-4">
-								{loading ? (
-									<ProgressPriceCheck current={loadingState.loaded} total={loadingState.all} />
-								) : (
-									<Styled.SwapButton
-										onClick={this.buyHandler}
-										variant={"primary"}
-										disabled={
-											this.props.web3.account &&
-											(!(
-												pair.deposit.token &&
-												pair.deposit.value &&
-												pair.destination.token &&
-												pair.destination.value &&
-												hasEnoughBalance &&
-												Number(pair.deposit.value) > 0 &&
-												rate
-											) ||
-												rate.platform === "godex")
-										}
-									>
-										{!this.props.web3.account
-											? t("wallet.connect")
-											: !pair.deposit.token || !pair.destination.token
-											? t("exchange.selectPair")
-											: !hasEnoughBalance
-											? t("insufficientBalance")
-											: !pair.deposit.value || !pair.destination.value
-											? t("exchange.enterAmount")
-											: !rate && !loading
-											? t("errors.unavailablePair")
-											: rate.platform === "godex"
-											? t("errors.unavailablePair")
-											: Number(pair.deposit.value) > 0
-											? this.getBuyStates()[buyState]
-											: t("exchange.enterAmount")}
-									</Styled.SwapButton>
-								)}
+				{!!rate && (
+					<div className="my-4">
+						{rates.length > 0 && (
+							<div className={"d-flex align-items-center justify-content-end"}>
+								<RefreshRatesButton
+									loading={loading}
+									priceLoading={priceLoading}
+									onRefresh={this.forceRefreshPrices}
+								/>
 							</div>
-						</ResponsiveCard>
-					</Col>
+						)}
+					</div>
+				)}
 
-					<Col xs={12} className="mt-4">
-						<RateList
-							items={rates}
-							loading={loading}
-							onSelectRate={this.selectRate}
-							rate={rate}
-							pair={pair}
-						/>
-					</Col>
-				</Row>
+				<RateList items={rates} loading={loading} onSelectRate={this.selectRate} rate={rate} pair={pair} />
 
-				<Modal
+				<QrModal
+					order={this.state.order}
+					orderType={this.state.orderType}
 					show={this.state.showQrModal}
-					centered
-					onHide={() => {
+					onClose={() => {
 						this.setState({
 							showQrModal: false,
 						});
 					}}
-					size={"lg"}
-				>
-					<Modal.Body className={"d-flex flex-column"} style={{ minHeight: 480, padding: "30px 60px" }}>
-						<RowBetween style={{ padding: "8px 0 24px" }}>
-							<div />
-							<CloseIcon
-								onClick={() => {
-									this.setState({
-										showQrModal: false,
-									});
-								}}
-							/>
-						</RowBetween>
-						{this.state.orderType === "simpleSwap" || this.state.orderType === "stealthex" ? (
-							<div className="d-flex flex-column flex-grow-1 justify-content-start align-items-center">
-								<h4 className="font-weight-bold mt-0 mb-0" style={{ paddingTop: 30 }}>
-									{t("instantSwap.submitted")}
-								</h4>
-								<div style={{ paddingTop: 40, paddingBottom: 45, marginBottom: "auto" }}>
-									<QRCode
-										value={this.state.order?.address_from || ""}
-										fgColor={this.props.darkMode ? "#fff" : "#202020"}
-										bgColor={"transparent"}
-									/>
-								</div>
-								<div className="d-flex flex-column align-items-stretch align-self-stretch mb-4">
-									<span className="font-size-large mb-2 d-block">
-										{t("instantSwap.sendCrypto", {
-											amount: this.state.order?.amount_from,
-											crypto: this.state.order?.currency_from?.toUpperCase(),
-										})}
-									</span>
-									<span className="opacity-50 font-size-sm">
-										{t("instantSwap.exchangeDescription")}
-									</span>
-								</div>
-
-								<div className={"align-self-stretch d-flex flex-column mb-3"}>
-									<span className="opacity-50 mb-2">ADDRESS</span>
-									<span className=" font-weight-bold">{this.state.order?.address_from}</span>
-								</div>
-								<div className={"align-self-stretch d-flex flex-column"}>
-									<span className="opacity-50 mb-2">Order ID</span>
-									<span>{this.state.order?.id}</span>
-								</div>
-							</div>
-						) : this.state.orderType === "changeNow" ? (
-							<div className="d-flex flex-column flex-grow-1 justify-content-start align-items-center">
-								<h4 className="font-weight-bold mt-0 mb-0" style={{ paddingTop: 30 }}>
-									{t("instantSwap.submitted")}
-								</h4>
-								<div style={{ paddingTop: 40, paddingBottom: 45, marginBottom: "auto" }}>
-									<QRCode
-										value={this.state.order?.payinAddress || ""}
-										fgColor={this.props.darkMode ? "#fff" : "#202020"}
-										bgColor={"transparent"}
-									/>
-								</div>
-								<div className="d-flex flex-column align-items-stretch align-self-stretch mb-4">
-									<span className="font-size-large mb-2 d-block">
-										{t("instantSwap.sendCrypto", {
-											amount: this.state.order?.fromAmount,
-											crypto: this.state.order?.fromCurrency?.toUpperCase(),
-										})}
-									</span>
-									<span className="opacity-50 font-size-sm">
-										{t("instantSwap.exchangeDescription")}
-									</span>
-								</div>
-
-								<div className={"align-self-stretch d-flex flex-column mb-3"}>
-									<span className="opacity-50 mb-2">ADDRESS</span>
-									<span className=" font-weight-bold">{this.state.order?.payinAddress}</span>
-								</div>
-								<div className={"align-self-stretch d-flex flex-column mb-3"}>
-									<span className="opacity-50 mb-2">Order ID</span>
-									<span>{this.state.order?.id}</span>
-								</div>
-								<div className={"align-self-stretch d-flex flex-column"}>
-									<span className="opacity-50 mb-2">Recipient Address</span>
-									<span>{this.state.order?.settleAddress?.address}</span>
-								</div>
-							</div>
-						) : this.state.orderType === "sideShift" ? (
-							<div className="d-flex flex-column flex-grow-1 justify-content-start align-items-center">
-								<h4 className="font-weight-bold mt-0 mb-0" style={{ paddingTop: 30 }}>
-									{t("instantSwap.submitted")}
-								</h4>
-								<div style={{ paddingTop: 40, paddingBottom: 45, marginBottom: "auto" }}>
-									<QRCode
-										value={this.state.order?.depositAddress?.address || ""}
-										fgColor={this.props.darkMode ? "#fff" : "#202020"}
-										bgColor={"transparent"}
-									/>
-								</div>
-								<div className="d-flex flex-column align-items-stretch align-self-stretch mb-4">
-									<span className="font-size-large mb-2 d-block">
-										{t("instantSwap.sendCrypto", {
-											amount: this.state.order?.fromAmount,
-											crypto: this.state.order?.depositMethodId?.toUpperCase(),
-										})}
-									</span>
-									<span className="opacity-50 font-size-sm">
-										{t("instantSwap.exchangeDescription")}
-									</span>
-								</div>
-
-								<div className={"align-self-stretch d-flex flex-column mb-3"}>
-									<span className="opacity-50 mb-2">ADDRESS</span>
-									<span className=" font-weight-bold">
-										{this.state.order?.depositAddress?.address}
-									</span>
-								</div>
-								<div className={"align-self-stretch d-flex flex-column mb-3"}>
-									<span className="opacity-50 mb-2">EXPIRATION DATE</span>
-									<span className=" font-weight-bold">
-										{moment(this.state.order?.expiresAtISO).format("YYYY-MM-DD HH:mm")}
-									</span>
-								</div>
-								<div className={"align-self-stretch d-flex flex-column mb-3"}>
-									<span className="opacity-50 mb-2">Order ID</span>
-									<span>{this.state.order?.orderId}</span>
-								</div>
-								<div className={"align-self-stretch d-flex flex-column"}>
-									<span className="opacity-50 mb-2">Recipient Address</span>
-									<span>{this.state.order?.settleAddress?.address}</span>
-								</div>
-							</div>
-						) : null}
-					</Modal.Body>
-				</Modal>
+					darkMode={this.props.darkMode}
+				/>
 			</>
 		);
 	}

@@ -5,11 +5,13 @@ import { useActiveWeb3React } from "../../hooks";
 import { cryptoExchangeRate } from "../../http/currency";
 import { useETHBalances, useTokenBalances } from "../wallet/hooks";
 import { ETHER, Token } from "@uniswap/sdk";
-import { walletTokens } from "../../constants/spot-config/mainnet/config.json";
+import TokenList from "../../data/TokenList";
 
+// TODO: find better way to filter default tokens
+// This doesn't support other chains and cherry picks tokens to exclude
 export const useLinkTokens = () => {
 	return useMemo(() => {
-		return Array.from(walletTokens)
+		return Array.from(TokenList)
 			.filter(
 				(token, index) => ![0, 27, 187, 208, 230, 232, 235, 244, 245].includes(index) || token.chainId !== 1
 			)

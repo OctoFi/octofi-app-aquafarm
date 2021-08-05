@@ -1,30 +1,13 @@
 import styled from "styled-components";
 import { Settings } from "react-feather";
 
-export const Header = styled.div`
-	margin-bottom: 16px;
-`;
-
-export const CardTitle = styled.h3`
+export const Title = styled.h3`
 	font-weight: 700;
 	font-size: 1.25rem;
 	margin-bottom: 0;
 `;
 
-export const StyledMenuIcon = styled(Settings)`
-	height: 20px;
-	width: 20px;
-
-	> * {
-		stroke: ${({ theme }) => theme.text2};
-	}
-
-	:hover {
-		opacity: 0.7;
-	}
-`;
-
-export const StyledMenu = styled.div`
+export const Menu = styled.div`
 	margin-left: 0.5rem;
 	display: flex;
 	justify-content: center;
@@ -32,6 +15,19 @@ export const StyledMenu = styled.div`
 	position: relative;
 	border: none;
 	text-align: left;
+`;
+
+export const MenuIcon = styled(Settings)`
+	height: 20px;
+	width: 20px;
+
+	> * {
+		stroke: ${({ theme }) => theme.text2};
+	}
+
+	&:hover {
+		opacity: 0.7;
+	}
 `;
 
 export const MenuFlyout = styled.span`
@@ -50,25 +46,23 @@ export const MenuFlyout = styled.span`
 	z-index: 100;
 
 	${({ theme }) => theme.mediaWidth.upToMedium`
-    min-width: 18.125rem;
-  `};
+		min-width: 18.125rem;
+	`};
 `;
 
-export const StyledMenuButton = styled.button`
+export const MenuButton = styled.button`
 	position: relative;
 	width: 100%;
 	height: 100%;
 	border: none;
 	background-color: transparent;
 	margin: 0;
-	padding: 0;
 	height: 35px;
-
 	padding: 0.15rem 0.5rem;
 	border-radius: 0.5rem;
 
-	:hover,
-	:focus {
+	&:hover,
+	&:focus {
 		cursor: pointer;
 		outline: none;
 	}

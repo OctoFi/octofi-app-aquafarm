@@ -6,11 +6,11 @@ import { ArrowDown, ArrowUpRight } from "react-feather";
 import { useTranslation } from "react-i18next";
 import { Text } from "rebass";
 
-import ConfirmSwapModal from "./swap/ConfirmSwapModal";
+import ConfirmSwapModal from "../InstantSwap/swap/ConfirmSwapModal";
 import CurrencyInputPanel from "../CurrencyInputPanel";
-import AdvancedSwapDetailsDropdown from "./swap/AdvancedSwapDetailsDropdown";
-import confirmPriceImpactWithoutFee from "./swap/confirmPriceImpactWithoutFee";
-import { Wrapper, ArrowWrapper } from "./swap/styleds";
+import AdvancedSwapDetailsDropdown from "../InstantSwap/swap/AdvancedSwapDetailsDropdown";
+import confirmPriceImpactWithoutFee from "../InstantSwap/swap/confirmPriceImpactWithoutFee";
+import { Wrapper, ArrowWrapper } from "../InstantSwap/swap/styleds";
 import TokenWarningModal from "../TokenWarningModal";
 
 import { useActiveWeb3React } from "../../hooks";
@@ -31,8 +31,8 @@ import {
 import { useExpertModeManager, useUserSlippageTolerance } from "../../state/user/hooks";
 import { maxAmountSpend } from "../../utils/maxAmountSpend";
 import { computeTradePriceBreakdown, warningSeverity } from "../../utils/prices";
-import TradePrice from "./swap/TradePrice";
-import SwapHeader from "../SwapHeader";
+import TradePrice from "../InstantSwap/swap/TradePrice";
+import SwapHeader from "../InstantSwap/SwapHeader";
 import useTheme from "../../hooks/useTheme";
 import ArrowRightLongIcon from "../../assets/images/global/arrow-right-long.svg";
 import ArrowDownLongIcon from "../../assets/images/global/arrow-down-long.svg";
@@ -249,7 +249,7 @@ const Uniswap = (props: any) => {
 	]);
 
 	return (
-		<div>
+		<>
 			<TokenWarningModal
 				isOpen={urlLoadedTokens.length > 0 && !dismissTokenWarning}
 				tokens={urlLoadedTokens}
@@ -481,7 +481,7 @@ const Uniswap = (props: any) => {
 					/>
 				</Wrapper>
 			</ResponsiveCard>
-		</div>
+		</>
 	);
 };
 
