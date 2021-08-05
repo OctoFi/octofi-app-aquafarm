@@ -1,4 +1,7 @@
+import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withTranslation } from "react-i18next";
+import { Spinner } from "react-bootstrap";
 import styled from "styled-components";
 import { lighten } from "polished";
 
@@ -10,10 +13,7 @@ import {
 	setOrderPriceSelected,
 	setOrderSellPriceSelected,
 } from "../../../../state/margin/actions";
-import React, { Component } from "react";
-import Loading from "../../../../components/Loading";
 import BookOption from "../../../../components/BookOption";
-import { withTranslation } from "react-i18next";
 
 const Container = styled.div`
 	width: 260px;
@@ -308,11 +308,10 @@ class Orderbook extends Component {
 		if (!selectedMarket || orderbookState === ServerState.NotLoaded) {
 			content = (
 				<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-					<Loading
-						width={40}
-						height={40}
+					<Spinner
+						animation="border"
+						variant="primary"
 						id={`margin-orderbooks-${this.props.isMobile ? "mobile" : "desktop"}`}
-						active
 					/>
 				</div>
 			);

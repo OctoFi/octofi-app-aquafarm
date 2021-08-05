@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { connect } from "react-redux";
+import { Spinner } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 import PlatformLogo from "../../components/PlatformLogo";
@@ -11,8 +13,6 @@ import { PoolsTable } from "./PoolsTable";
 import { shorten } from "../../state/governance/hooks";
 import { usePoolsBalances } from "../../state/pools/hooks";
 import { useActiveWeb3React } from "../../hooks";
-import Loading from "../../components/Loading";
-import { useTranslation } from "react-i18next";
 
 const CustomTitle = styled.h4`
 	color: ${({ theme }) => theme.text1};
@@ -571,7 +571,7 @@ const PoolTab = (props) => {
 						</div>
 					) : (
 						<div className="py-5">
-							<Loading width={40} height={40} active id={`pool-${props.type}`} />
+							<Spinner animation="border" variant="primary" id={`pool-${props.type}`} />
 						</div>
 					)
 				) : null}

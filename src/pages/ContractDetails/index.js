@@ -65,7 +65,7 @@ const ContractDetails = (props) => {
 				className={"d-flex align-items-center justify-content-center rounded"}
 				style={{ padding: "120px 0" }}
 			>
-				<Spinner size="lg" animation="border" role="status" variant={"primary"}>
+				<Spinner animation="border" role="status" variant={"primary"}>
 					<span className="sr-only">Loading...</span>
 				</Spinner>
 			</LoadingCol>

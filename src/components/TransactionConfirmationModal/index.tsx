@@ -1,21 +1,21 @@
 import { ChainId } from "@uniswap/sdk";
 import React, { useContext } from "react";
+import { Spinner } from "react-bootstrap";
+import { Text } from "rebass";
+import { AlertTriangle, ArrowUpCircle } from "react-feather";
+import { useTranslation } from "react-i18next";
 import styled, { ThemeContext } from "styled-components";
 import Modal from "../Modal";
 import { ExternalLink } from "../../theme";
-import { Text } from "rebass";
 import { CloseIcon } from "../../theme/components";
 import { RowBetween } from "../Row";
-import { AlertTriangle, ArrowUpCircle } from "react-feather";
 import { ButtonPrimary } from "../Button";
 import { AutoColumn, ColumnCenter } from "../Column";
-import Loading from "../Loading";
 import Button from "../UI/Button";
 
 import { getExplorerLink } from "../../utils";
 import { useActiveWeb3React } from "../../hooks";
 import useTheme from "../../hooks/useTheme";
-import { useTranslation } from "react-i18next";
 
 const Wrapper = styled.div`
 	width: 100%;
@@ -53,7 +53,7 @@ export function ConfirmationPendingContent({ onDismiss, pendingText }: { onDismi
 					<CloseIcon onClick={onDismiss} />
 				</RowBetween>
 				<ConfirmedIcon>
-					<Loading width={90} height={90} id={"confirmation_pending"} active />
+					<Spinner animation="border" variant="primary" id={"confirmation_pending"} />
 				</ConfirmedIcon>
 				<AutoColumn gap="12px" justify={"center"}>
 					<Text fontWeight={500} fontSize={20}>

@@ -1,4 +1,4 @@
-import { Row, Col, Tab, Nav, Button, ListGroup } from "react-bootstrap";
+import { Row, Col, Tab, Nav, Button, ListGroup, Spinner } from "react-bootstrap";
 import styled from "styled-components";
 import React, { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, Lock, Users, Info, Copy, ExternalLink as ExternalLinkIcon } from "react-feather";
@@ -27,7 +27,6 @@ import PresaleABI from "../../constants/abis/Presale/Presale.json";
 import GradientButton from "../../components/UI/Button";
 import { useTokenBalance } from "../../state/wallet/hooks";
 import { useApproveCallback } from "../../hooks/useApproveCallback";
-import Loading from "../../components/Loading";
 import { serializeError } from "eth-rpc-errors";
 import Img from "../../components/UI/Img";
 import Presales from "../../constants/presales.json";
@@ -1109,11 +1108,10 @@ const LaunchpadItem = (props) => {
 																				onClick={approvalCallback}
 																			>
 																				{approval === 2 ? (
-																					<Loading
-																						width={18}
-																						height={18}
-																						active={true}
-																						color={"#fff"}
+																					<Spinner
+																						animation="border"
+																						variant="light"
+																						size="sm"
 																						id={"approval-loading"}
 																					/>
 																				) : (

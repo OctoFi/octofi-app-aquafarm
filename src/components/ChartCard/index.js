@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import moment from "moment";
 import axios from "axios";
 import Web3 from "web3";
@@ -11,7 +12,6 @@ import { promisify } from "../../utils/promisify";
 import { ERC20_ABI } from "../../constants/abis/erc20";
 import { WBTC } from "../../constants";
 import withWeb3Account from "../hoc/withWeb3Account";
-import Loading from "../Loading";
 import Chart from "../Chart";
 import { LoadingDiv, CustomTitle, Wrapper, ToolbarButton, CardHeader } from "./styleds";
 
@@ -240,7 +240,7 @@ const ChartCard = (props) => {
 			<div className="card-body d-flex flex-column p-0">
 				{loading ? (
 					<LoadingDiv className={"d-flex align-items-center justify-content-center"}>
-						<Loading width={55} height={55} active id={"chart-card"} />
+						<Spinner animation="border" variant="primary" id="chart-card" />
 					</LoadingDiv>
 				) : connected ? (
 					<Chart

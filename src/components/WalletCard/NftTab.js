@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
+import { Spinner } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 
 import OpenSeaApi from "../../http/opensea";
 import { useActiveWeb3React } from "../../hooks";
 import { WalletTable } from "./WalletTable";
-import Loading from "../Loading";
 import { CustomText, LogoContainer, Title, TradeButton } from "./styleds";
 
 const Logo = styled.img`
@@ -199,7 +199,7 @@ const NftTab = (props) => {
 			<div className="d-flex align-items-center justify-content-center" ref={loader}>
 				{hasMore ? (
 					<div className="py-5">
-						<Loading width={40} height={40} active id={`nft-wallet`} />
+						<Spinner animation="border" variant="primary" id="nft-wallet" />
 					</div>
 				) : null}
 			</div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Spinner } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
@@ -11,7 +11,6 @@ import { useWalletModalToggle } from "../../state/application/hooks";
 import { fetchProposals, fetchSpaces } from "../../state/governance/actions";
 import { Modal } from "../../components/Modal/bootstrap";
 import Card from "../../components/Card";
-import Loading from "../../components/Loading";
 import Page from "../../components/Page";
 import VoteCast from "./VoteCast";
 import ProposalContent from "./ProposalContent";
@@ -179,7 +178,7 @@ const Vote = (props) => {
 			{governanceLoading && !selectedProposal ? (
 				<Card>
 					<div className="d-flex align-items-center justify-content-center py-5 w-100">
-						<Loading color={"primary"} width={40} height={40} active id={"vote-loading"} />
+						<Spinner animation="border" variant="primary" id="vote-loading" />
 					</div>
 				</Card>
 			) : (

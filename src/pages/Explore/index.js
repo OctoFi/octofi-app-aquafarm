@@ -2,13 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import Slider from "react-slick";
 import { isMobile } from "react-device-detect";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 
 import { fetchTokens } from "../../state/explore/actions";
 import SectionList from "../../components/SectionList";
 import InnerCard from "../../components/InnerCard";
 import ExchangeIcon from "../../components/Icons/Exchange";
-import Loading from "../../components/Loading";
 import Page from "../../components/Page";
 import "./style.scss";
 import * as Styled from "./styleds";
@@ -63,7 +62,7 @@ class Explore extends React.Component {
 				),
 				content: data.loading ? (
 					<div className="d-flex align-items-center justify-content-center py-6 w-100">
-						<Loading color={"primary"} width={40} height={40} active id={"explore-loading"} />
+						<Spinner animation="border" variant="primary" id={"explore-loading"} />
 					</div>
 				) : (
 					<Slider {...settings}>

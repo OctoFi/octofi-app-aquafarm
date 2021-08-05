@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Spinner } from "react-bootstrap";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import SVG from "react-inlinesvg";
@@ -9,7 +10,6 @@ import { useActiveWeb3React } from "../../hooks";
 import useTheme from "../../hooks/useTheme";
 import { toUnitAmount } from "../../lib/helper";
 import { useWalletModalToggle } from "../../state/application/hooks";
-import Loading from "../Loading";
 import * as Styled from "./styleds";
 
 export type Order = {
@@ -147,11 +147,10 @@ const NFTCard = ({ loading, order, seaport }: NFTCardProps) => {
 						{!account ? (
 							"Connect Wallet"
 						) : creatingOrder ? (
-							<Loading
-								width={24}
-								height={24}
-								active
-								color={"#fff"}
+							<Spinner
+								animation="border"
+								variant="light"
+								size="sm"
 								id={`buy-nft-${asset ? asset.token_id : assetBundle.assets[0].token_id}`}
 							/>
 						) : isOwner ? (

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { withRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { Tab, Nav } from "react-bootstrap";
+import { Tab, Nav, Spinner } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 import SVG from "react-inlinesvg";
 
@@ -13,7 +13,6 @@ import { fetchAllCoins, fetchCoinMarketPrices, fetchMarketCoins } from "../../st
 import { useIsDarkMode } from "../../state/user/hooks";
 import CurrencyText from "../CurrencyText";
 import { InputGroupFormControl as FormControl, InputGroupPrepend, InputGroupText } from "../Form";
-import Loading from "../Loading";
 import ResponsiveTable from "../ResponsiveTable";
 import CoinDisplay from "../CoinDisplay";
 import * as Styled from "./styleds";
@@ -265,7 +264,7 @@ const MarketTokens = (props) => {
 			const coinPrices = marketCoins.prices.data[row.id];
 			return loading ? (
 				<div className="d-flex flex-column flex-lg-row align-items-center justify-content-center py-5">
-					<Loading width={40} height={40} active id={"load-markets"} />
+					<Spinner animation="border" variant="primary" id={"load-markets"} />
 				</div>
 			) : (
 				<div className="d-flex flex-column flex-lg-row align-items-lg-center py-4 px-6">
@@ -470,7 +469,7 @@ const MarketTokens = (props) => {
 								</div>
 							) : (
 								<div className="py-5">
-									<Loading width={40} height={40} active id={`tokens-list`} />
+									<Spinner animation="border" variant="primary" id="tokens-list" />
 								</div>
 							)
 						) : null}

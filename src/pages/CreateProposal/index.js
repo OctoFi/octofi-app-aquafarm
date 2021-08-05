@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Form } from "react-bootstrap";
-import DatePicker from "react-modern-calendar-datepicker";
+import { Row, Col, Form, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import moment from "moment";
+import DatePicker from "react-modern-calendar-datepicker";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 
 import { ResponsiveCard } from "../../components/Card";
@@ -11,11 +13,8 @@ import { fetchSpaces } from "../../state/governance/actions";
 import { useActiveWeb3React } from "../../hooks";
 import Governance from "../../http/governance";
 import Page from "../../components/Page";
-import "./style.scss";
-import Loading from "../../components/Loading";
-import { toast } from "react-hot-toast";
 import { useWalletModalToggle } from "../../state/application/hooks";
-import { useTranslation } from "react-i18next";
+import "./style.scss";
 
 const Header = styled.div`
 	padding: 0;
@@ -365,13 +364,7 @@ const CreateProposals = (props) => {
 												<div
 													className={"d-flex align-items-center justify-content-center w-100"}
 												>
-													<Loading
-														width={18}
-														height={18}
-														active={true}
-														color={"#fff"}
-														id={"create-proposal"}
-													/>
+													<Spinner animation="border" variant="light" size="sm" id="create-proposal" />
 												</div>
 											) : (
 												t("publish")

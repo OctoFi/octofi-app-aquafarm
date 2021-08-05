@@ -1,4 +1,8 @@
+import React from "react";
 import { connect } from "react-redux";
+import { Spinner } from "react-bootstrap";
+import BootstrapTable from "react-bootstrap-table-next";
+import { useTranslation } from "react-i18next";
 import { BigNumber } from "@0x/utils";
 import styled from "styled-components";
 
@@ -13,14 +17,10 @@ import {
 	getCurrentMarketTodayQuoteVolume,
 } from "../../../../state/selectors";
 import StyledCard from "../../../../components/Card";
-import Loading from "../../../../components/Loading";
-import React from "react";
-import BootstrapTable from "react-bootstrap-table-next";
 import Img from "../../../../components/UI/Img";
 import { toAbsoluteUrl } from "../../../../lib/helper";
-import "./styles.scss";
 import ResponsiveTable from "../../../../components/ResponsiveTable";
-import { useTranslation } from "react-i18next";
+import "./styles.scss";
 
 const Card = styled(StyledCard)`
 	display: flex;
@@ -157,11 +157,10 @@ const MarketDetails = (props) => {
 		return (
 			<Card>
 				<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-					<Loading
-						width={40}
-						height={40}
+					<Spinner
+						animation="border"
+						variant="primary"
 						id={`spots-markets-details-${props.isMobile ? "mobile" : "desktop"}`}
-						active
 					/>
 				</div>
 			</Card>

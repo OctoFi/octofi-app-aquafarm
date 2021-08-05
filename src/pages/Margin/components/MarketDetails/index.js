@@ -1,16 +1,14 @@
+import React from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
+import { useTranslation } from "react-i18next";
+import { Spinner } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
+import styled from "styled-components";
 
 import StyledCard from "../../../../components/Card";
 import { useActiveWeb3React } from "../../../../hooks";
-import React from "react";
-import Img from "../../../../components/UI/Img";
-import "./styles.scss";
-import Loading from "../../../../components/Loading";
-import { formatTokenName } from "../../../../utils/spot/tokens";
 import ResponsiveTable from "../../../../components/ResponsiveTable";
-import { useTranslation } from "react-i18next";
+import "./styles.scss";
 
 const Card = styled(StyledCard)`
 	display: flex;
@@ -33,20 +31,6 @@ const Card = styled(StyledCard)`
 	}
 `;
 
-const Logo = styled(Img)`
-	width: 24px;
-	min-width: 24px;
-	height: 24px;
-	border-radius: 24px;
-	border: 1px solid ${({ theme }) => theme.text1};
-	display: block;
-	margin-right: 5px;
-
-	@media (max-width: 1400px) {
-		margin-right: 10px;
-	}
-`;
-
 const Text = styled.span`
 	color: ${({ theme, variant }) => (variant ? theme[variant] : theme.text1)};
 	font-size: 0.875rem;
@@ -63,11 +47,10 @@ const MarketDetails = (props) => {
 	if (!account || !selectedMarket || !marketStats) {
 		content = (
 			<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-				<Loading
-					width={40}
-					height={40}
+				<Spinner
+					animation="border"
+					variant="primary"
 					id={`spots-markets-details-${props.isMobile ? "mobile" : "desktop"}`}
-					active
 				/>
 			</div>
 		);

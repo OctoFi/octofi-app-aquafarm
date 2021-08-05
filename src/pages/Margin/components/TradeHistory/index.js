@@ -1,24 +1,18 @@
-import { connect } from "react-redux";
-
-import { OrderSide, ServerState, USE_RELAYER_MARKET_UPDATES } from "../../../../constants";
-import { changeMarket } from "../../../../state/spot/actions";
-import { isWeth } from "../../../../utils/known_tokens";
-import { getCurrencyPairByTokensSymbol } from "../../../../utils/spot/knownCurrencyPair";
-import { marketToStringFromTokens } from "../../../../utils/spot/market";
-import { formatTokenSymbol, tokenAmountInUnits } from "../../../../utils/spot/tokens";
-import Loading from "../../../../components/Loading";
 import React from "react";
-import styled from "styled-components";
-import { lighten } from "polished";
-import BigNumber from "bignumber.js";
-import moment from "moment";
+import { connect } from "react-redux";
+import { Spinner } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { lighten } from "polished";
+import moment from "moment";
+import styled from "styled-components";
+import { ServerState } from "../../../../constants";
 
 const EmptyText = styled.span`
 	font-size: 0.875rem;
 	font-weight: 400;
 	color: ${({ theme }) => theme.text1};
 `;
+
 const Container = styled.div`
 	width: 280px;
 	display: flex;
@@ -45,6 +39,7 @@ const TR = styled.div`
 		height: 56px;
 	}
 `;
+
 const CustomHead = styled(TR)`
 	background-color: ${({ theme }) => theme.text1}10;
 	max-height: 32px;
@@ -138,11 +133,10 @@ const TradeHistory = (props) => {
 	if (!selectedMarket || tradesStats === ServerState.NotLoaded) {
 		content = (
 			<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-				<Loading
-					width={40}
-					height={40}
+				<Spinner
+					animation="border"
+					variant="primary"
 					id={`margin-trading-history-${props.isMobile ? "mobile" : "desktop"}`}
-					active
 				/>
 			</div>
 		);

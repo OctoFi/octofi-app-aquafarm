@@ -1,8 +1,7 @@
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Loading from "../Loading";
 import { ResponsiveCard } from "../Card";
 import { useActiveWeb3React } from "../../hooks";
 import { BalanceToken } from "../../constants";
@@ -39,7 +38,7 @@ const CheckBalance = (props) => {
 			<Row>
 				<Col xs={12} lg={{ offset: 3, span: 6 }}>
 					<ResponsiveCard className={"d-flex align-items-center justify-content-center py-5"}>
-						<Loading width={40} height={40} id={"check-balance"} active />
+						<Spinner animation="border" variant="primary" />
 					</ResponsiveCard>
 				</Col>
 			</Row>

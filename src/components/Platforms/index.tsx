@@ -1,9 +1,8 @@
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Spinner } from "react-bootstrap";
 import SVG from "react-inlinesvg";
 import { useTranslation } from "react-i18next";
 
 import LayoutBlockIcon from "../../assets/images/global/layout-block.svg";
-import Loading from "../Loading";
 import OverviewCard from "../OverviewCard";
 import * as Styled from "./styleds";
 
@@ -17,7 +16,7 @@ export default function Platforms({ balance, onSelectPlatform, loading }: Platfo
 	const { t } = useTranslation();
 
 	if (loading) {
-		return <Loading width={55} height={55} active color={"primary"} />;
+		return <Spinner animation="border" variant="primary" />;
 	}
 
 	if (balance.length === 0) {
