@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { CurrencyAmount, JSBI, Token, Trade } from "@uniswap/sdk";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Spinner } from "react-bootstrap";
 import SVG from "react-inlinesvg";
 import { ArrowDown, ArrowUpRight } from "react-feather";
 import { useTranslation } from "react-i18next";
@@ -11,7 +11,6 @@ import CurrencyInputPanel from "../CurrencyInputPanel";
 import AdvancedSwapDetailsDropdown from "./swap/AdvancedSwapDetailsDropdown";
 import confirmPriceImpactWithoutFee from "./swap/confirmPriceImpactWithoutFee";
 import { Wrapper, ArrowWrapper } from "./swap/styleds";
-import Loader from "../Loader";
 import TokenWarningModal from "../TokenWarningModal";
 
 import { useActiveWeb3React } from "../../hooks";
@@ -369,7 +368,7 @@ const Uniswap = (props: any) => {
 										>
 											{approval === ApprovalState.PENDING ? (
 												<div className={"d-flex justify-content-center align-items-center"}>
-													{t("approving")} <Loader stroke="white" />
+													{t("approving")} <Spinner animation="border" variant="light" />
 												</div>
 											) : approvalSubmitted && approval === ApprovalState.APPROVED ? (
 												t("approved")
