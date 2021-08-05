@@ -1,6 +1,7 @@
 import { CSSProperties, MutableRefObject, useCallback, useMemo } from "react";
 import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from "@uniswap/sdk";
 import { FixedSizeList } from "react-window";
+// import { Spinner } from "react-bootstrap";
 import { Text } from "rebass";
 import styled from "styled-components";
 import { useActiveWeb3React } from "../../hooks";
@@ -13,7 +14,6 @@ import { RowBetween, RowFixed } from "../Row";
 import CurrencyLogo from "../CurrencyLogo";
 // import { MouseoverTooltip } from "../Tooltip";
 import { MenuItem } from "./styleds";
-// import Loader from "../Loader";
 import { isTokenOnList } from "../../utils";
 import ImportRow from "./ImportRow";
 import { wrappedCurrency } from "../../utils/wrappedCurrency";
@@ -137,7 +137,7 @@ function CurrencyRow({
 			</Column>
 			{/* <TokenTags currency={currency} /> */}
 			{/* <RowFixed style={{ justifySelf: "flex-end" }}>
-				{balance ? <Balance balance={balance} /> : account ? <Loader /> : null}
+				{balance ? <Balance balance={balance} /> : account ? <Spinner animation="border" /> : null}
 			</RowFixed> */}
 		</MenuItem>
 	);

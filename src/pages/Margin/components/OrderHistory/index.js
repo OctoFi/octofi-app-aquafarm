@@ -2,12 +2,11 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import React from "react";
 import { lighten } from "polished";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 
 import { isWeth } from "../../../../utils/known_tokens";
 import { tokenAmountInUnits } from "../../../../utils/spot/tokens";
 import { ServerState } from "../../../../constants";
-import Loading from "../../../../components/Loading";
 import { ResponsiveCard } from "../../../../components/Card";
 import { CloseIcon } from "../../../../theme";
 import BigNumber from "bignumber.js";
@@ -229,7 +228,7 @@ const OrderHistory = (props) => {
 	} else if (!selectedMarket || ordersStats === ServerState.NotLoaded) {
 		content = (
 			<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-				<Loading width={40} height={40} id={`order-history-${props.isMobile ? "mobile" : "desktop"}`} active />
+				<Spinner animation="border" variant="primary" id="order-history" />
 			</div>
 		);
 	} else if (ordersStats === ServerState.Error || !orders) {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-hot-toast";
+import { Spinner } from "react-bootstrap";
 // @ts-ignore
 import TransakSDK from "@transak/transak-sdk";
 
@@ -9,7 +10,6 @@ import TransakApi from "../../http/transak";
 import { useActiveWeb3React } from "../../hooks";
 import Card from "../Card";
 import CryptoInput from "../CryptoInput";
-import Loading from "../Loading";
 import * as Styled from "./styleds";
 import useTheme from "../../hooks/useTheme";
 
@@ -233,7 +233,7 @@ const FiatOnramp = () => {
 	if (loading) {
 		return (
 			<div className="py-5 d-flex align-items-center justify-content-center">
-				<Loading width={40} height={40} active />
+				<Spinner animation="border" variant="primary" />
 			</div>
 		);
 	}
@@ -284,7 +284,7 @@ const FiatOnramp = () => {
 					variant={!checkLimits() ? "primary" : "outline-primary"}
 				>
 					{priceLoading ? (
-						<Loading width={24} height={24} active color={checkLimits() ? "primary" : "#fff"} />
+						<Spinner animation="border" variant={checkLimits() ? "primary" : "light"} size="sm" />
 					) : !account ? (
 						t("wallet.connect")
 					) : !selectedCrypto ? (

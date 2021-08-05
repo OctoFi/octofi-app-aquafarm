@@ -1,11 +1,11 @@
 import { useContext } from "react";
+import { Spinner } from "react-bootstrap";
 import { ThemeContext } from "styled-components";
 
 import AssetIcon from "../../assets/images/account/assets.svg";
 import DebtIcon from "../../assets/images/account/debts.svg";
 import NetWorthIcon from "../../assets/images/account/networth.svg";
 import CurrencyText from "../CurrencyText";
-import Loading from "../Loading";
 import * as Styled from "./styleds";
 
 const icons: any = {
@@ -38,7 +38,7 @@ function ValueCard({
 	const themeColor = theme[color];
 
 	if (loading) {
-		return <Loading width={55} height={55} active color={"primary"} />;
+		return <Spinner animation="border" variant="primary" />;
 	}
 
 	if (!show) {

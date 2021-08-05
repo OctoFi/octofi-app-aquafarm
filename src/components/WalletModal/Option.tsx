@@ -1,8 +1,8 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { Spinner } from "react-bootstrap";
+import { Check } from "react-feather";
 import styled from "styled-components";
-import { Check } from 'react-feather'
 
-import Loading from "../Loading";
 import { ExternalLink } from "../../theme";
 import ProviderIcon from "../ProvidersIcon";
 import useTheme from "../../hooks/useTheme";
@@ -55,15 +55,15 @@ const OptionCardClickable = styled(OptionCard as any)<{
 	margin-bottom: 0;
 
 	cursor: ${({ disabledItem }) => (disabledItem ? "pointer !important" : "not-allowed !important")};
-	
+
 	&:hover {
 		cursor: ${({ clickable }) => (clickable ? "pointer" : "")};
 		background-color: ${({ theme }) => theme.primaryLight};
-		
+
 		& .wallet-option__icon-wrapper {
 			background-color: ${({ theme }) => theme.modalBG};
 		}
-		
+
 		& ${HeaderText} {
 			color: ${({ theme }) => theme.text1};
 		}
@@ -107,14 +107,14 @@ const LoadingContainer = styled.div<{ color: string }>`
 	height: 24px;
 	border-radius: 40px;
 	border: 4px solid ${({ theme }) => theme.modalBG};
-	background-color: ${({ theme, color }) => color?.slice(0, 1) === '#' ? color : (theme as any)[color] };
+	background-color: ${({ theme, color }) => (color?.slice(0, 1) === "#" ? color : (theme as any)[color])};
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	right: -4px;
 	bottom: -8px;
 	position: absolute;
-`
+`;
 
 export default function Option({
 	link = null,
@@ -130,8 +130,8 @@ export default function Option({
 	type,
 	selected,
 	name,
-    selectedNetwork,
-	supportedNetworks = ["ETH"]
+	selectedNetwork,
+	supportedNetworks = ["ETH"],
 }: {
 	link?: string | null;
 	clickable?: boolean;
@@ -155,8 +155,8 @@ export default function Option({
 	const theme = useTheme();
 
 	const disabled = useMemo(() => {
-		return supportedNetworks?.includes(selectedNetwork || "")
-	}, [supportedNetworks, selectedNetwork])
+		return supportedNetworks?.includes(selectedNetwork || "");
+	}, [supportedNetworks, selectedNetwork]);
 
 	useEffect(() => {
 		let tempColor = active
@@ -170,12 +170,12 @@ export default function Option({
 	}, [selected, name, error]);
 
 	const clickHandler = () => {
-		if(disabled) {
+		if (disabled) {
 			return onClick?.();
 		}
 
 		return null;
-	}
+	};
 	const content = (
 		<OptionCardClickable
 			id={id}
@@ -184,14 +184,15 @@ export default function Option({
 			active={active}
 			disabledItem={disabled}
 		>
-			<IconWrapper size={40} className={'wallet-option__icon-wrapper'}>
+			<IconWrapper size={40} className={"wallet-option__icon-wrapper"}>
 				<ProviderIcon type={type} />
 				{disabled && (active || (selected && selected === name)) && (
 					<LoadingContainer color={loadingColor}>
 						{active ? (
-							<Check size={12} color={theme.modalBG}/>
-						) : selected && selected === name &&  (
-							<Loading width={10} height={22} color={theme.modalBG} id={name} active={!active}  />
+							<Check size={12} color={theme.modalBG} />
+						) : (
+							selected &&
+							selected === name && <Spinner animation="border" variant="primary" size="sm" id={name} />
 						)}
 					</LoadingContainer>
 				)}

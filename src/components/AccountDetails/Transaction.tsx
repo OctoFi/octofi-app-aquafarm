@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { CheckCircle, Triangle } from "react-feather";
+import { Spinner } from "react-bootstrap";
 
 import { useActiveWeb3React } from "../../hooks";
 import { getExplorerLink } from "../../utils";
 import { ExternalLink } from "../../theme";
 import { useAllTransactions } from "../../state/transactions/hooks";
 import { RowFixed } from "../Row";
-import Loader from "../Loader";
 
 const TransactionWrapper = styled.div``;
 
@@ -54,7 +54,13 @@ export default function Transaction({ hash }: { hash: string }) {
 					<TransactionStatusText>{summary ?? hash} ↗</TransactionStatusText>
 				</RowFixed>
 				<IconWrapper pending={pending} success={success}>
-					{pending ? <Loader /> : success ? <CheckCircle size="16" /> : <Triangle size="16" />}
+					{pending ? (
+						<Spinner animation="border" />
+					) : success ? (
+						<CheckCircle size="16" />
+					) : (
+						<Triangle size="16" />
+					)}
 				</IconWrapper>
 			</TransactionState>
 		</TransactionWrapper>

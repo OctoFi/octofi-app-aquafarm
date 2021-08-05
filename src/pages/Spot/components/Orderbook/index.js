@@ -1,7 +1,10 @@
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
-import { lighten } from "polished";
+import { withTranslation } from "react-i18next";
+import { Spinner } from "react-bootstrap";
 import { BigNumber } from "@0x/utils";
+import { lighten } from "polished";
+import styled from "styled-components";
 
 import {
 	getOrderBook,
@@ -19,12 +22,9 @@ import {
 	setOrderPriceSelected,
 	setOrderSellPriceSelected,
 } from "../../../../state/spotUI/actions";
-import React, { Component } from "react";
-import Loading from "../../../../components/Loading";
 import BookOption from "../../../../components/BookOption";
 import Dropdown from "../../../../components/UI/Dropdown";
 import { padRightSplitted } from "../../../../utils/spot/numberUtils";
-import { withTranslation } from "react-i18next";
 
 const Container = styled.div`
 	width: 260px;
@@ -335,11 +335,10 @@ class Orderbook extends Component {
 		if (!baseToken || !quoteToken || serverState === ServerState.NotLoaded) {
 			content = (
 				<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-					<Loading
-						width={40}
-						height={40}
+					<Spinner
+						animation="border"
+						variant="primary"
 						id={`orderbooks-${this.props.isMobile ? "mobile" : "desktop"}`}
-						active
 					/>
 				</div>
 			);

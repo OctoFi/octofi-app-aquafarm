@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Spinner } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 
 import { fetchTokens } from "../../state/explore/actions";
 import CurrencyLogo from "../CurrencyLogo";
 import CurrencyText from "../CurrencyText";
-import Loading from "../Loading";
 import ResponsiveTable from "../ResponsiveTable";
 import * as Styled from "./styleds";
 
@@ -121,7 +121,7 @@ const TokenSetsExploreTable = () => {
 	if (loading) {
 		return (
 			<div className="d-flex align-items-center justify-content-center py-5">
-				<Loading color={"primary"} width={40} height={40} active />
+				<Spinner animation="border" variant="primary" />
 			</div>
 		);
 	}

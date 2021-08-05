@@ -1,20 +1,19 @@
-import { connect } from "react-redux";
-import styled from "styled-components";
 import React from "react";
+import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { Spinner } from "react-bootstrap";
 import { OrderStatus } from "@0x/types";
 import { lighten } from "polished";
+import styled from "styled-components";
 
 import { isWeth } from "../../../../utils/known_tokens";
 import { tokenAmountInUnits } from "../../../../utils/spot/tokens";
 import { OrderSide } from "../../../../constants";
 import { getCurrencyPairFromTokens } from "../../../../utils/spot/knownCurrencyPair";
-import Loading from "../../../../components/Loading";
 import { ResponsiveCard } from "../../../../components/Card";
 import { cancelOrder } from "../../../../state/relayer/actions";
 import { CloseIcon } from "../../../../theme";
-import { RowBetween } from "../../../../components/Row";
 import { useActiveWeb3React } from "../../../../hooks";
-import { useTranslation } from "react-i18next";
 
 const Card = styled(ResponsiveCard)`
 	display: flex;
@@ -219,7 +218,11 @@ const OrderHistory = (props) => {
 	if (!baseToken || !quoteToken) {
 		content = (
 			<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-				<Loading width={40} height={40} id={`order-history-${props.isMobile ? "mobile" : "desktop"}`} active />
+				<Spinner
+					animation="border"
+					variant="primary"
+					id={`order-history-${props.isMobile ? "mobile" : "desktop"}`}
+				/>
 			</div>
 		);
 	} else if (!ordersToShow.length || !baseToken || !quoteToken || !account) {

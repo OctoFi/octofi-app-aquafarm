@@ -1,13 +1,13 @@
 import { ETHER, Token } from "@uniswap/sdk";
 import React, { useCallback } from "react";
 import { FixedSizeList } from "react-window";
+import { Spinner } from "react-bootstrap";
 import { Text } from "rebass";
 import styled from "styled-components";
 import { useActiveWeb3React } from "../../hooks";
 import { TYPE } from "../../theme";
 import Column from "../Column";
 import { RowBetween, RowFixed } from "../Row";
-import Loader from "../Loader";
 import useTheme from "../../hooks/useTheme";
 import TokenLogo from "../CrossTokenLogo";
 import getNetConfig from "../../config";
@@ -59,23 +59,21 @@ function CurrencyRow({ currency, onSelect, urlAdded, userAdded, style }) {
 				</TYPE.DarkGray>
 			</Column>
 			<RowFixed style={{ justifySelf: "flex-end" }}>
-				{currency.balance ? <Balance balance={currency.balance} /> : account ? <Loader /> : "-"}
+				{currency.balance ? (
+					<Balance balance={currency.balance} />
+				) : account ? (
+					<Spinner animation="border" />
+				) : (
+					"-"
+				)}
 			</RowFixed>
 		</MenuItem>
 	);
 }
 
-export default function CurrencyList({
-	height,
-	currencies,
-	onCurrencySelect,
-	showETH,
-	urlAddedTokens,
-	fixedListRef
-}) {
+export default function CurrencyList({ height, currencies, onCurrencySelect, showETH, urlAddedTokens, fixedListRef }) {
 	const { chainId } = useActiveWeb3React();
 	const theme = useTheme();
-
 
 	const Row = useCallback(
 		({ data, index, style }) => {
@@ -105,11 +103,7 @@ export default function CurrencyList({
 				/>
 			);
 		},
-		[
-			chainId,
-			onCurrencySelect,
-			theme.text1,
-		]
+		[chainId, onCurrencySelect, theme.text1]
 	);
 
 	const itemKey = useCallback((index, data) => currencyKey(data[index]), []);

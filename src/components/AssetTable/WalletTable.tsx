@@ -1,6 +1,6 @@
+import { Spinner } from "react-bootstrap";
 import CurrencyLogo from "../CurrencyLogo";
 import CurrencyText from "../CurrencyText";
-import Loading from "../Loading";
 import * as Styled from "./styleds";
 
 export type WalletTableProps = {
@@ -13,7 +13,7 @@ export type WalletTableProps = {
 
 const WalletTable = ({ balances, size = "md", loading, onClickToken, show = true }: WalletTableProps) => {
 	if (loading) {
-		return <Loading width={55} height={55} active color={"primary"} />;
+		return <Spinner animation="border" variant="primary" />;
 	}
 
 	if (!show) {

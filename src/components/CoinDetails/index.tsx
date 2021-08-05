@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useState } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Spinner } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import dompurify from "dompurify";
 import { ThemeContext } from "styled-components";
@@ -9,7 +9,6 @@ import { useTokenContract } from "../../hooks/useContract";
 import { useIsDarkMode } from "../../state/user/hooks";
 import { fetchSelectedCoin, fetchHistoricalData } from "../../state/market/actions";
 import Card from "../Card";
-import Loading from "../Loading";
 import CurrencyText from "../CurrencyText";
 import HistoricalChart from "../HistoricalChart";
 import ArrowUp from "../Icons/Coin/ArrowUp";
@@ -63,7 +62,7 @@ const CoinDetails = ({ id }: CoinDetailsProps) => {
 				<Col xs={12}>
 					<Card>
 						<div className={"d-flex align-items-center justify-content-center"} style={{ height: 400 }}>
-							<Loading height={40} width={40} active id={"coin-details-loading"} />
+							<Spinner animation="border" variant="primary" />
 						</div>
 					</Card>
 				</Col>

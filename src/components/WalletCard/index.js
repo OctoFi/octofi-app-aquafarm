@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import SVG from "react-inlinesvg";
-import { Tab, Nav } from "react-bootstrap";
+import { Tab, Nav, Spinner } from "react-bootstrap";
 import Skeleton from "react-loading-skeleton";
 import toast from "react-hot-toast";
 import Web3 from "web3";
@@ -20,7 +20,6 @@ import { fetchBalances, fetchTransformedBalances } from "../../state/balances/ac
 import { ResponsiveCard } from "../Card";
 import CurrencyLogo from "../CurrencyLogo";
 import CurrencyText from "../CurrencyText";
-import Loading from "../Loading";
 import { InputGroupText, InputGroupPrepend, InputGroupFormControl as FormControl } from "../Form";
 import NftTab from "./NftTab";
 import { WalletTable } from "./WalletTable";
@@ -275,7 +274,7 @@ const WalletCard = (props) => {
 						<Tab.Pane eventKey="tokens">
 							{loading ? (
 								<div className="py-5 w-100 d-flex align-items-center justify-content-center">
-									<Loading width={40} height={40} active id={`tokens-wallet`} />
+									<Spinner animation="border" variant="primary" id="tokens-wallet" />
 								</div>
 							) : (
 								<WalletTable columns={TokensColumns} entities={filteredTokensData} />

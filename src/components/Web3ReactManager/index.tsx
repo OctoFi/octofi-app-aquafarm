@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Spinner } from "react-bootstrap";
 import { useWeb3React } from "@web3-react/core";
 import styled from "styled-components";
 
 import { network } from "../../connectors";
 import { useEagerConnect, useInactiveListener } from "../../hooks";
 import { NetworkContextName } from "../../constants";
-import Loader from "../Loader";
 
 const MessageWrapper = styled.div`
 	display: flex;
@@ -65,7 +65,7 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
 	if (!active && !networkActive) {
 		return showLoader ? (
 			<MessageWrapper>
-				<Loader />
+				<Spinner animation="border" />
 			</MessageWrapper>
 		) : null;
 	}

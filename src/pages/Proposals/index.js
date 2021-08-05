@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import BootstrapTable from "react-bootstrap-table-next";
 import { useTranslation } from "react-i18next";
@@ -10,7 +10,6 @@ import { shorten } from "../../state/governance/hooks";
 import { formatProposals, getScores } from "../../lib/utils";
 import { useActiveWeb3React } from "../../hooks";
 import { ResponsiveCard } from "../../components/Card";
-import Loading from "../../components/Loading";
 import Page from "../../components/Page";
 import ResponsiveTable from "../../components/ResponsiveTable";
 import "../../components/UI/Button/style.scss";
@@ -180,7 +179,7 @@ const Proposals = (props) => {
 						<div>
 							{governanceLoading ? (
 								<div className="d-flex align-items-center justify-content-center py-5 w-100">
-									<Loading color={"primary"} width={40} height={40} active id={"proposals"} />
+									<Spinner animation="border" variant="primary" id="proposals" />
 								</div>
 							) : (
 								<>

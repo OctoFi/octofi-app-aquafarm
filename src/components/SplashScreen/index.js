@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { Spinner } from "react-bootstrap";
 import styled from "styled-components";
-import Loading from "../Loading";
 
 const Wrapper = styled.div`
 	position: fixed;
@@ -23,7 +23,7 @@ class SplashScreen extends Component {
 	render() {
 		return (
 			<Wrapper loaded={false}>
-				<Loading width={"88"} height={"88"} color={"primary"} active={true} id={"splash-screen-loading"} />
+				<Spinner animation="border" variant="primary" id={"splash-screen-loading"} />
 			</Wrapper>
 		);
 	}

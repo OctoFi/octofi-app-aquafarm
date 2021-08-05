@@ -1,26 +1,23 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
-import { lighten } from "polished";
 import { withRouter } from "react-router-dom";
-
-import { ServerState } from "../../../../constants";
-import { filterMarketsByString } from "../../../../utils/spot/market";
-
-import { ResponsiveCard } from "../../../../components/Card";
-import Loading from "../../../../components/Loading";
-import SearchIcon from "../../../../assets/images/search.svg";
-import "./styles.scss";
+import { Spinner } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 import { useTranslation } from "react-i18next";
 import SVG from "react-inlinesvg";
+import { lighten } from "polished";
+import styled from "styled-components";
+
+import { ServerState } from "../../../../constants";
+import { ResponsiveCard } from "../../../../components/Card";
+import SearchIcon from "../../../../assets/images/search.svg";
 import {
 	InputGroupFormControl as FormControl,
 	InputGroupPrepend,
 	InputGroupText,
 	InputGroup,
 } from "../../../../components/Form";
-import { useMarketChanger } from "../../../../state/margin/hooks";
+import "./styles.scss";
 
 const Card = styled(ResponsiveCard)`
 	display: flex;
@@ -65,33 +62,6 @@ const CustomInputGroup = styled(InputGroup)`
 	& img {
 		width: 1rem;
 		height: 1rem;
-	}
-`;
-
-const PriceChange = styled.span`
-	color: ${(props) =>
-		props.value > 0 ? props.theme.success : props.value < 0 ? props.theme.danger : props.theme.text3};
-	display: block;
-`;
-
-const TokenFiltersTabs = styled.div`
-	width: 100%;
-	flex-wrap: nowrap;
-	padding: 15px 0;
-`;
-
-const TokenFiltersTab = styled.button`
-	background-color: transparent;
-	border: none;
-	color: ${({ active, theme }) => (active ? theme.primary : theme.text1)};
-	font-size: 12px;
-	font-weight: 400;
-
-	&:active,
-	&:focus {
-		outline: none;
-		box-shadow: none;
-		text-decoration: none;
 	}
 `;
 
@@ -212,11 +182,10 @@ const MarketStats = (props) => {
 		return (
 			<Card>
 				<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-					<Loading
-						width={40}
-						height={40}
+					<Spinner
+						animation="border"
+						variant="primary"
 						id={`margin-markets-${props.isMobile ? "mobile" : "desktop"}`}
-						active
 					/>
 				</div>
 			</Card>

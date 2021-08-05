@@ -1,11 +1,11 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import { Spinner } from "react-bootstrap";
 import moment from "moment";
 import styled from "styled-components";
 import { isMobile } from "react-device-detect";
 import { connect } from 'react-redux';
 
-import Loading from "../Loading";
 import CurrencyText from "../CurrencyText";
 import Observer from "../ComponentObserver";
 import "./style.scss";
@@ -255,11 +255,9 @@ class HistoricalChart extends React.Component {
 								minHeight: this.props.minHeight || isMobile ? (this.props.isPrimary ? 423 : 293) : 350,
 							}}
 						>
-							<Loading
-								width={40}
-								height={40}
-								color={this.props.variant}
-								active
+							<Spinner
+								animation="border"
+								variant={this.props.variant || "primary"}
 								id={"historical-" + this.props.variant}
 							/>
 						</div>

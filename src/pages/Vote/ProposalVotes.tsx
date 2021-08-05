@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Button } from "react-bootstrap";
-import Loading from "../../components/Loading";
+import { Button, Spinner } from "react-bootstrap";
 import VoteItem from "../../components/VoteItem";
 import * as Styled from "./styleds";
 
@@ -86,7 +85,7 @@ export default function ProposalVotes({ votes, result, proposal, space }: Propos
 				</>
 			) : (
 				<div className="d-flex align-items-center justify-content-center py-5 w-100 my-4">
-					<Loading color={"primary"} width={40} height={40} active id={"votes-loading"} />
+					<Spinner animation="border" variant="primary" id="votes-loading" />
 				</div>
 			)}
 		</Styled.CustomCard>

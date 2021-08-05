@@ -1,7 +1,9 @@
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
-import { lighten } from "polished";
+import { Spinner } from "react-bootstrap";
 import { BigNumber } from "@0x/utils";
+import { lighten } from "polished";
+import styled from "styled-components";
 
 import {
 	getOrderBook,
@@ -19,8 +21,6 @@ import {
 	setOrderPriceSelected,
 	setOrderSellPriceSelected,
 } from "../../../../state/spotUI/actions";
-import React, { Component } from "react";
-import Loading from "../../../../components/Loading";
 import BookOption from "../../../../components/BookOption";
 import Dropdown from "../../../../components/UI/Dropdown";
 import { padRightSplitted } from "../../../../utils/spot/numberUtils";
@@ -302,7 +302,7 @@ class Orderbook extends Component {
 		if (!baseToken || !quoteToken || serverState === ServerState.NotLoaded) {
 			content = (
 				<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-					<Loading width={40} height={40} id={"orderbooks"} active />
+					<Spinner animation="border" variant="primary" id="orderbooks" />
 				</div>
 			);
 		} else if ((!buyOrders.length && !sellOrders.length) || !baseToken || !quoteToken) {

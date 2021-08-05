@@ -1,16 +1,16 @@
+import React from "react";
 import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { Spinner } from "react-bootstrap";
+import { lighten } from "polished";
+import styled from "styled-components";
 
 import { OrderSide, ServerState, USE_RELAYER_MARKET_UPDATES } from "../../../../constants";
 import { changeMarket } from "../../../../state/spot/actions";
 import { isWeth } from "../../../../utils/known_tokens";
 import { getCurrencyPairByTokensSymbol } from "../../../../utils/spot/knownCurrencyPair";
 import { marketToStringFromTokens } from "../../../../utils/spot/market";
-import { formatTokenSymbol, tokenAmountInUnits } from "../../../../utils/spot/tokens";
-import Loading from "../../../../components/Loading";
-import React from "react";
-import styled from "styled-components";
-import { lighten } from "polished";
-import { useTranslation } from "react-i18next";
+import { tokenAmountInUnits } from "../../../../utils/spot/tokens";
 
 const EmptyText = styled.span`
 	font-size: 0.875rem;
@@ -145,7 +145,11 @@ const MarketFills = (props) => {
 	if (!baseToken || !quoteToken || marketFillsState === ServerState.NotLoaded) {
 		content = (
 			<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-				<Loading width={40} height={40} id={`market-fills-${props.isMobile ? "mobile" : "desktop"}`} active />
+				<Spinner
+					animation="border"
+					variant="primary"
+					id={`market-fills-${props.isMobile ? "mobile" : "desktop"}`}
+				/>
 			</div>
 		);
 	} else if (

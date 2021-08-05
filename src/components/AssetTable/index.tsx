@@ -1,9 +1,9 @@
 import { ETHER, Token } from "@uniswap/sdk";
+import { Spinner } from "react-bootstrap";
 
 import { useActiveWeb3React } from "../../hooks";
 import CurrencyText from "../CurrencyText";
 import CurrencyLogo from "../CurrencyLogo";
-import Loading from "../Loading";
 import * as Styled from "./styleds";
 
 export type AssetTableProps = {
@@ -16,7 +16,7 @@ const AssetTable = ({ balances, size = "md", loading }: AssetTableProps) => {
 	const { chainId } = useActiveWeb3React();
 
 	if (loading) {
-		return <Loading width={55} height={55} active color={"primary"} />;
+		return <Spinner animation="border" variant="primary" />;
 	}
 
 	if (balances.length === 0) {

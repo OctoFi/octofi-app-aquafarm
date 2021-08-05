@@ -4,6 +4,10 @@ import { BigNumber } from "@0x/utils";
 import styled from "styled-components";
 import { lighten } from "polished";
 import { withRouter } from "react-router-dom";
+import BootstrapTable from "react-bootstrap-table-next";
+import { useTranslation } from "react-i18next";
+import SVG from "react-inlinesvg";
+import { Spinner } from "react-bootstrap";
 import queryString from "query-string";
 
 import { ServerState } from "../../../../constants";
@@ -14,12 +18,8 @@ import { filterMarketsByString, filterMarketsByTokenSymbol, marketToString } fro
 
 import { ResponsiveCard } from "../../../../components/Card";
 import { useActiveWeb3React } from "../../../../hooks";
-import Loading from "../../../../components/Loading";
 import SearchIcon from "../../../../assets/images/search.svg";
 import "./styles.scss";
-import BootstrapTable from "react-bootstrap-table-next";
-import { useTranslation } from "react-i18next";
-import SVG from "react-inlinesvg";
 import {
 	InputGroupFormControl as FormControl,
 	InputGroupPrepend,
@@ -262,7 +262,11 @@ const MarketStats = (props) => {
 		return (
 			<Card>
 				<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-					<Loading width={40} height={40} id={`spots-${props.isMobile ? "mobile" : "desktop"}`} active />
+					<Spinner
+						animation="border"
+						variant="primary"
+						id={`spots-${props.isMobile ? "mobile" : "desktop"}`}
+					/>
 				</div>
 			</Card>
 		);
@@ -278,11 +282,10 @@ const MarketStats = (props) => {
 		return (
 			<Card>
 				<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-					<Loading
-						width={40}
-						height={40}
+					<Spinner
+						animation="border"
+						variant="primary"
 						id={`spots-markets-loading-${props.isMobile ? "mobile" : "desktop"}`}
-						active
 					/>
 				</div>
 			</Card>

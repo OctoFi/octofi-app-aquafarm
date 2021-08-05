@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { Spinner } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 
 import ResponsiveTable from "../ResponsiveTable";
@@ -8,7 +9,6 @@ import Img from "../UI/Img";
 import CurrencyText from "../CurrencyText";
 import ArrowUp from "../Icons/ArrowUp";
 import ArrowDown from "../Icons/ArrowDown";
-import Loading from "../Loading";
 import * as Styled from "./styleds";
 
 const api = new TokenSetsApi();
@@ -261,15 +261,13 @@ const TokenSetTab = (props) => {
 	if (loading) {
 		return (
 			<div className="w-100 h-100 d-flex align-items-center justify-content-center py-5">
-				<Loading width={40} height={40} id={`token-sets-${tabKey || "rebalancing"}`} active />
+				<Spinner animation="border" variant="primary" id={`token-sets-${tabKey || "rebalancing"}`} />
 			</div>
 		);
 	}
 
-	if(sets.length === 0) {
-		return (
-			<h2>No Token Sets</h2>
-		)
+	if (sets.length === 0) {
+		return <h2>No Token Sets</h2>;
 	}
 
 	return (
